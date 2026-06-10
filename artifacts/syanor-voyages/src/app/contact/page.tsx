@@ -1,7 +1,7 @@
 type Metadata = Record<string, unknown>;
 import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
-import QuoteForm from "@/components/sections/QuoteForm";
+import SmartQuoteForm from "@/components/sections/SmartQuoteForm";
 import ContactCards from "@/components/sections/ContactCards";
 import FaqSection from "@/components/sections/FaqSection";
 import { faq } from "@/data/faq";
@@ -19,11 +19,11 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact & devis"
         title="Parlons de votre prochain voyage."
-        subtitle="Remplissez le formulaire de devis ou contactez-nous directement. Nous revenons vers vous rapidement avec une proposition adaptée."
+        subtitle="Remplissez le formulaire de devis en 4 étapes ou contactez-nous directement. Nous revenons vers vous rapidement avec une proposition adaptée."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Contact" }]}
       />
 
-      <QuoteForm />
+      <SmartQuoteForm />
 
       <ContactCards withCta={false} />
 
