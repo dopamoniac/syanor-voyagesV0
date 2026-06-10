@@ -1,4 +1,5 @@
 type Metadata = Record<string, unknown>;
+import { useEffect } from "react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -13,11 +14,29 @@ interface Props {
   city: string;
 }
 
+export function generateMetadata({ city }: Props): Metadata {
+  const c = getCityBySlug(city);
+  if (!c) return { title: "Omra par ville — SYANOR VOYAGES" };
+  return {
+    title: c.seoTitle,
+    description: c.seoDescription,
+    canonical: `https://www.syanorvoyages.com/depart/${city}`,
+  };
+}
+
 export default function DepartCityPage({ city: cityParam }: Props) {
   const city = getCityBySlug(cityParam);
   const departures = getOffersByCity(cityParam).filter(
     (o) => o.category === "Omra" || o.category === "Omra Plus"
   );
+
+  useEffect(() => {
+    if (city) {
+      document.title = city.seoTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", city.seoDescription);
+    }
+  }, [city]);
 
   if (!city) {
     return (

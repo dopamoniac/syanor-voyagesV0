@@ -1,4 +1,5 @@
 type Metadata = Record<string, unknown>;
+import { useEffect } from "react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
@@ -10,8 +11,26 @@ interface Props {
   slug: string;
 }
 
+export function generateMetadata({ slug }: Props): Metadata {
+  const article = getArticleBySlug(slug);
+  if (!article) return { title: "Blog — SYANOR VOYAGES" };
+  return {
+    title: article.seoTitle,
+    description: article.seoDescription,
+    canonical: `https://www.syanorvoyages.com/blog/${slug}`,
+  };
+}
+
 export default function BlogArticlePage({ slug }: Props) {
   const article = getArticleBySlug(slug);
+
+  useEffect(() => {
+    if (article) {
+      document.title = article.seoTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", article.seoDescription);
+    }
+  }, [article]);
 
   if (!article) {
     return (

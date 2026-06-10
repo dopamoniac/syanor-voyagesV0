@@ -1,4 +1,5 @@
 type Metadata = Record<string, unknown>;
+import { useEffect } from "react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -13,11 +14,29 @@ interface Props {
   month: string;
 }
 
+export function generateMetadata({ month }: Props): Metadata {
+  const m = getMonthBySlug(month, "2026");
+  if (!m) return { title: "Omra 2026 — SYANOR VOYAGES" };
+  return {
+    title: m.seoTitle,
+    description: m.seoDescription,
+    canonical: `https://www.syanorvoyages.com/omra-2026/${month}`,
+  };
+}
+
 export default function OmraMonthPage2026({ month: monthParam }: Props) {
   const month = getMonthBySlug(monthParam, "2026");
   const departures = getOffersByMonth(monthParam, "2026").filter(
     (o) => o.category === "Omra" || o.category === "Omra Plus"
   );
+
+  useEffect(() => {
+    if (month) {
+      document.title = month.seoTitle;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", month.seoDescription);
+    }
+  }, [month]);
 
   if (!month) {
     return (
