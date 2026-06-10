@@ -1,0 +1,82 @@
+The current hero result is good, but it needs refinement.
+
+I uploaded a screenshot of the current homepage hero.
+
+Main issue:
+The hero content starts too high and feels cramped near the navbar. The page needs to be pushed slightly down so the hero breathes better visually.
+
+TASK:
+Refine the hero layout and spacing without changing the whole design.
+
+Do NOT redesign everything.
+Do NOT remove the cinematic image.
+Do NOT remove the current premium visual direction.
+Only polish and rebalance the hero.
+
+Required adjustments:
+
+1. Push the hero content slightly lower
+- Add more top spacing between the navbar and hero content.
+- The hero should not feel glued to the navbar.
+- On desktop, the hero block should start lower by around 24px to 48px.
+- Keep the above-the-fold impact, but make it more elegant and breathable.
+
+2. Improve navbar/hero separation
+- The navbar overlaps visually with the hero image/plane area.
+- Add a cleaner separation between navbar and hero:
+  - Slightly more top padding in hero
+  - Or subtle navbar background/blur refinement
+  - Or reduce hero image position upward overlap
+- The plane on the top right should not feel hidden behind or too close to the navbar.
+
+3. Rebalance the cinematic image
+- The hero image is strong, keep it.
+- Move the image composition slightly downward/right if needed so the plane and globe appear more naturally.
+- Make sure the globe remains the focal point.
+- Keep the boat, Kaaba, passport, and ticket visible but not overwhelming.
+- Avoid making the visual feel pasted behind the text.
+
+4. Improve text/visual harmony
+- The left headline is strong, keep it.
+- Make sure the CTA row and trust pills have enough breathing room.
+- Ensure the visual does not interfere with text readability.
+- Keep the soft fade between text area and image area.
+
+5. Refine hero height
+- The hero can be slightly taller if needed.
+- Avoid too much empty blank area below the hero.
+- Keep the next section starting at a beautiful rhythm.
+- On desktop, the hero should feel like a cinematic first screen, not too compressed.
+
+6. Mobile treatment
+- Check mobile separately.
+- Do not simply add desktop spacing to mobile blindly.
+- On mobile:
+  - Keep logo/header compact
+  - Add enough top spacing after navbar
+  - Keep headline visible quickly
+  - Keep hero image crop beautiful
+  - Avoid image overflow
+  - Avoid making the hero too tall
+  - CTAs must remain easy to tap
+
+7. Keep style unchanged
+Keep:
+- Light luxury theme
+- Ivory / pearl / champagne background
+- Emerald and gold accents
+- Current typography
+- Current cinematic hero image
+- Current CTAs
+- Current floating labels
+
+8. Final polish
+- Fix any tiny alignment issues in the hero labels.
+- Make spacing feel intentional.
+- Ensure the hero looks premium in full screen and normal browser view.
+- Remove any awkward overlap.
+- Keep build passing.
+
+Expected result:
+The hero should feel more elegant, more spacious, more cinematic, and more professionally art-directed.
+It should look like the current version, but refined and visually balanced.

@@ -20,7 +20,7 @@ export default function Hero() {
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "72% 44%" }}
+        style={{ objectPosition: "72% 54%" }}
         loading="eager"
         decoding="async"
       />
@@ -35,10 +35,10 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* Vignette: top (navbar bleed) */}
+      {/* Vignette: top (navbar bleed + plane clearance) */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
-        style={{ background: "linear-gradient(to bottom, #FFF9ED 0%, rgba(255,249,237,0.5) 60%, transparent 100%)" }}
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-52"
+        style={{ background: "linear-gradient(to bottom, #FFF9ED 0%, rgba(255,249,237,0.65) 55%, transparent 100%)" }}
         aria-hidden="true"
       />
 
@@ -66,11 +66,11 @@ export default function Hero() {
       />
 
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8">
-        <div className="grid min-h-[92vh] items-center gap-0 lg:grid-cols-[52%_48%]">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8 pt-16 lg:pt-20">
+        <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
-          <div className="py-32 text-center lg:py-0 lg:text-left">
+          <div className="pb-16 pt-8 text-center lg:py-0 lg:text-left">
             <p className="eyebrow">BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE</p>
 
             <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.08] text-syanor-ink sm:text-5xl md:text-h1 lg:text-[3.6rem]">
