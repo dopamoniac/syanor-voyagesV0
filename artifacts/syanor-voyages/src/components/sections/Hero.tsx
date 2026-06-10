@@ -13,120 +13,91 @@ export default function Hero() {
     <section
       id="accueil"
       className="relative flex min-h-[92vh] flex-col justify-center overflow-hidden bg-syanor-ivory"
+      style={{ minHeight: "max(92vh, 780px)" }}
     >
-      {/* ── CINEMATIC FULL-BLEED IMAGE ── */}
+      {/* ── HERO BACKGROUND IMAGE ── */}
       <img
-        src="/brand/hero-cinematic.png"
+        src="/hero-bg.jpg"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "72% 54%" }}
+        style={{ objectPosition: "65% center" }}
         loading="eager"
         decoding="async"
       />
 
-      {/* ── SMOKE / MIST PUFFS — rising from globe base ── */}
+      {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
+      {/* Solid ivory left 30%, fades softly to transparent at 72% */}
       <div
-        className="smoke-a pointer-events-none absolute z-10 hidden lg:block"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full"
         style={{
-          bottom: "18%",
-          left: "54%",
-          width: "340px",
-          height: "160px",
-          borderRadius: "50%",
           background:
-            "radial-gradient(ellipse, rgba(255,249,237,0.82) 0%, rgba(245,232,199,0.45) 45%, transparent 72%)",
-          filter: "blur(28px)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="smoke-b pointer-events-none absolute z-10 hidden lg:block"
-        style={{
-          bottom: "12%",
-          left: "62%",
-          width: "260px",
-          height: "120px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse, rgba(255,249,237,0.75) 0%, rgba(250,244,232,0.38) 50%, transparent 75%)",
-          filter: "blur(22px)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="smoke-c pointer-events-none absolute z-10 hidden lg:block"
-        style={{
-          bottom: "22%",
-          left: "48%",
-          width: "200px",
-          height: "90px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse, rgba(255,252,240,0.70) 0%, transparent 70%)",
-          filter: "blur(18px)",
+            "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 26%, rgba(255,249,237,0.94) 40%, rgba(255,249,237,0.72) 54%, rgba(255,249,237,0.28) 68%, transparent 82%)",
         }}
         aria-hidden="true"
       />
 
-      {/* Vignette: left text-readability wash */}
+      {/* ── OVERLAY 2: Top fade — navbar bleed ── */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[65%]"
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
         style={{
           background:
-            "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 28%, rgba(255,249,237,0.93) 46%, rgba(255,249,237,0.55) 62%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(255,249,237,0.80) 0%, rgba(255,249,237,0.30) 60%, transparent 100%)",
         }}
         aria-hidden="true"
       />
 
-      {/* Vignette: top (navbar bleed + plane clearance) */}
+      {/* ── OVERLAY 3: Bottom fade — smooth transition to page ── */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-52"
-        style={{ background: "linear-gradient(to bottom, #FFF9ED 0%, rgba(255,249,237,0.65) 55%, transparent 100%)" }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28"
+        style={{
+          background:
+            "linear-gradient(to top, #FFF9ED 0%, rgba(255,249,237,0.55) 55%, transparent 100%)",
+        }}
         aria-hidden="true"
       />
 
-      {/* Vignette: bottom */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32"
-        style={{ background: "linear-gradient(to top, #FFF9ED 0%, transparent 100%)" }}
-        aria-hidden="true"
-      />
-
-      {/* Decorative radial gold shimmer around globe zone */}
+      {/* ── OVERLAY 4: Subtle gold shimmer behind visual zone ── */}
       <div
         className="pointer-events-none absolute z-10 hidden lg:block"
         style={{
-          right: "4%",
+          right: "8%",
           top: "50%",
           transform: "translateY(-50%)",
-          width: "520px",
-          height: "520px",
+          width: "560px",
+          height: "560px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(201,162,74,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(201,162,74,0.06) 0%, transparent 68%)",
         }}
         aria-hidden="true"
       />
 
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8 pt-20 lg:pt-24">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-20 md:px-10 lg:pt-24">
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
           <div className="pb-16 pt-8 text-center lg:py-0 lg:text-left">
-            <p className="eyebrow">BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE</p>
 
+            {/* Eyebrow */}
+            <p className="eyebrow">
+              BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE
+            </p>
+
+            {/* Headline */}
             <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.08] text-syanor-ink sm:text-5xl md:text-h1 lg:text-[3.6rem]">
               Voyagez avec élégance,&nbsp;sérénité et confiance.
             </h1>
 
-            <p className="mx-auto mt-6 max-w-lg font-inter text-base leading-relaxed text-syanor-ink/70 lg:mx-0">
-              SYANOR VOYAGES accompagne vos billets d&apos;avion et de bateau, vos
-              voyages spirituels, vos séjours organisés et vos projets sur mesure
-              avec une exigence premium.
+            {/* Sub */}
+            <p className="mx-auto mt-6 max-w-[540px] font-inter text-base leading-relaxed text-syanor-ink/68 lg:mx-0">
+              SYANOR VOYAGES accompagne vos billets d&apos;avion et de bateau,
+              vos voyages spirituels, vos séjours organisés et vos projets sur
+              mesure avec une exigence premium.
             </p>
 
+            {/* CTAs */}
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link href="/contact#quote" className="btn-primary w-full sm:w-auto">
                 Demander un devis personnalisé
@@ -136,6 +107,7 @@ export default function Hero() {
               </Link>
             </div>
 
+            {/* Trust pills */}
             <ul className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
               {trustPills.map((pill) => (
                 <li

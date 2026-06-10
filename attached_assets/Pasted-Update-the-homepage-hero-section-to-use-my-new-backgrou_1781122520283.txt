@@ -1,0 +1,126 @@
+Update the homepage hero section to use my new background hero image and make it look premium, elegant, and conversion-focused.
+
+GOAL:
+Create a world-class luxury travel hero section for SYANOR Voyages using the uploaded hero background image.
+The hero must feel clean, spacious, premium, modern, and highly readable.
+
+MAIN CHANGES:
+1. Replace the current hero background/image with the new uploaded hero background.
+2. Keep the layout with content on the left and the visual emphasis on the right.
+3. Add a soft “smoke / fog / mist” overlay on the left side and center-left area so the text is more readable.
+4. The smoke effect must be subtle, premium, and elegant — not dark, not heavy, not cheap-looking.
+5. Preserve the luxury ivory / pearl / champagne look.
+6. Make the hero look polished and production-ready.
+
+DESIGN DIRECTION:
+- Luxury travel brand
+- Premium and minimalist
+- Soft ivory background
+- Emerald green and gold accents
+- Refined spacing
+- Smooth, modern look
+- Text clarity is a priority
+
+HERO STRUCTURE:
+- Full-width section
+- Height: 92vh on desktop, min-height 780px
+- Max content width: 1440px
+- Left side: text content, CTA buttons, trust points
+- Right side: hero image composition
+- Navbar stays floating above hero with subtle glass / ivory effect
+
+BACKGROUND IMAGE USAGE:
+- Use the uploaded hero image as the hero background visual
+- Position it to the right
+- Make sure the important visual elements remain visible
+- Do not blur the entire image
+- Keep the image crisp and high quality
+- Use object-fit: cover on desktop and object-fit: contain or optimized responsive positioning on smaller screens
+
+TEXT READABILITY OVERLAY:
+Add a soft layered overlay to improve readability:
+- A left-to-right ivory gradient
+- A subtle smoke/fog/mist layer around the left and center-left area
+- The smoke effect should be very soft, airy, and premium
+- It should help text stand out without hiding the beauty of the image
+- Avoid heavy grey fog or dark black overlay
+
+Overlay intent:
+- Left side = more opacity for text readability
+- Center = medium softness
+- Right side = almost fully clear so the image remains beautiful
+
+CONTENT STYLING:
+Headline:
+- Large luxury serif font feeling
+- Strong visual hierarchy
+- Dark emerald text
+- Gold highlight for the last key word if already implemented
+
+Paragraph:
+- Max width around 540px
+- Good line height
+- Soft dark text color
+- Easy readability
+
+CTA buttons:
+- Primary: emerald filled button
+- Secondary: ivory/white or transparent button with gold/emerald border
+- Premium hover states
+
+TRUST ITEMS:
+Below CTA buttons, display trust items in a clean row:
+- Assistance personnalisée
+- Service premium
+- Offres sur mesure
+- Départs accompagnés
+
+VISUAL QUALITY:
+- No cheap shadow
+- No harsh blur
+- No overly strong overlay
+- No clutter
+- Maintain a premium luxury brand feel
+- Final result should look like a high-end travel agency homepage hero
+
+RESPONSIVE BEHAVIOR:
+Desktop:
+- Text left, image right
+- Strong readability
+- Premium spacing
+
+Tablet:
+- Reduce visual size slightly
+- Keep text readable
+
+Mobile:
+- Stack content first
+- Background image still visible and elegant
+- Overlay adjusted for readability
+- Buttons full-width or well spaced
+- Do not let important elements be awkwardly cropped
+
+TECH REQUIREMENTS:
+- Use clean React / Next.js component structure
+- TailwindCSS preferred
+- Keep code maintainable
+- If useful, split into:
+  - HeroSection component
+  - HeroOverlay layer
+  - HeroContent
+  - HeroVisual
+
+ANIMATIONS:
+Optional subtle animation only:
+- Fade in content
+- Very soft floating or parallax feel
+- No heavy motion
+
+IMPORTANT:
+This must look premium and professional, not like a template.
+Focus on:
+- clean luxury
+- text readability
+- balanced composition
+- strong first impression
+- beautiful hero image presentation
