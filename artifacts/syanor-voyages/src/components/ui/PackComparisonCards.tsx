@@ -97,7 +97,7 @@ const AVION_FORMULAS: Formula[] = [
       { label: "Conseils compagnies", included: true },
       { label: "Dossier de voyage", included: false },
       { label: "Modification incluse", included: false },
-      { label: "Assistance dédédicacée", included: false },
+      { label: "Assistance dédiée", included: false },
     ],
     ctaLabel: "Demander un billet",
     ctaHref: "/contact?service=Billet+avion&transport=Avion#quote",
@@ -115,7 +115,7 @@ const AVION_FORMULAS: Formula[] = [
       { label: "Conseils compagnies", included: true },
       { label: "Dossier de voyage", included: true },
       { label: "Modification incluse", included: true },
-      { label: "Assistance dédédicacée", included: false },
+      { label: "Assistance dédiée", included: false },
     ],
     ctaLabel: "Demander Flexible",
     ctaHref: "/contact?service=Billet+avion&transport=Avion&comfort=Premium#quote",
@@ -131,7 +131,7 @@ const AVION_FORMULAS: Formula[] = [
       { label: "Conseils compagnies", included: true },
       { label: "Dossier de voyage", included: true },
       { label: "Modification incluse", included: true },
-      { label: "Assistance dédédicacée", included: true },
+      { label: "Assistance dédiée", included: true },
     ],
     ctaLabel: "Demander Assistance Premium",
     ctaHref: "/contact?service=Billet+avion&transport=Avion&comfort=VIP#quote",
@@ -175,7 +175,7 @@ const BATEAU_FORMULAS: Formula[] = [
   },
   {
     name: "Véhicule + Cabine",
-    tagline: "Traversée complète avec voiture et cabin.",
+    tagline: "Traversée complète avec voiture et cabine.",
     hotelLevel: "Cabine & parking véhicule",
     roomTypes: ["Cabine 2 pers.", "Suite"],
     features: [
@@ -245,11 +245,27 @@ const SEJOUR_FORMULAS: Formula[] = [
 ];
 
 export const PACK_PRESETS = {
-  omra: { eyebrow: "Nos formules", title: "Choisissez votre formule Omra", formulas: OMRA_FORMULAS },
-  avion: { eyebrow: "Nos formules", title: "Choisissez votre formule billet avion", formulas: AVION_FORMULAS },
-  bateau: { eyebrow: "Nos formules", title: "Choisissez votre formule traversée", formulas: BATEAU_FORMULAS },
-  sejour: { eyebrow: "Nos formules", title: "Choisissez votre formule séjour", formulas: SEJOUR_FORMULAS },
+  omra:   { eyebrow: "Nos formules", title: "Choisissez votre formule Omra",           formulas: OMRA_FORMULAS },
+  avion:  { eyebrow: "Nos formules", title: "Choisissez votre formule billet avion",   formulas: AVION_FORMULAS },
+  bateau: { eyebrow: "Nos formules", title: "Choisissez votre formule traversée",      formulas: BATEAU_FORMULAS },
+  sejour: { eyebrow: "Nos formules", title: "Choisissez votre formule séjour",         formulas: SEJOUR_FORMULAS },
 } as const;
+
+/* ── Check / X icons ── */
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="M3 8l3.5 3.5L13 5" />
+    </svg>
+  );
+}
+function MinusIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className={className} aria-hidden="true">
+      <path d="M4 8h8" />
+    </svg>
+  );
+}
 
 export default function PackComparisonCards({
   eyebrow,
@@ -262,9 +278,7 @@ export default function PackComparisonCards({
     <div className={cn("mx-auto w-full", className)}>
       {(eyebrow || title) && (
         <div className="mb-10 text-center">
-          {eyebrow && (
-            <p className="eyebrow mb-3">{eyebrow}</p>
-          )}
+          {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
           {title && (
             <h2 className="font-playfair text-3xl text-syanor-ink md:text-h2">{title}</h2>
           )}
@@ -279,108 +293,133 @@ export default function PackComparisonCards({
           <div
             key={formula.name}
             className={cn(
-              "relative flex flex-col rounded-2xl p-6 transition-all duration-300",
+              "relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300",
               formula.featured
                 ? "border-2 border-syanor-gold bg-syanor-royal shadow-gold"
-                : "border border-syanor-gold/20 bg-syanor-pearl shadow-card hover:shadow-card-hover"
+                : "border border-syanor-gold/20 bg-syanor-pearl shadow-card hover:-translate-y-1 hover:shadow-card-hover"
             )}
           >
+            {/* Featured top shine */}
+            {formula.featured && (
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-syanor-gold to-transparent" aria-hidden="true" />
+            )}
+            {/* Featured ambient glow */}
+            {formula.featured && (
+              <div
+                className="pointer-events-none absolute right-0 top-0 h-48 w-48 -translate-y-1/2 translate-x-1/2 rounded-full opacity-25"
+                style={{ background: "radial-gradient(circle, rgba(201,162,74,0.35), transparent 65%)" }}
+                aria-hidden="true"
+              />
+            )}
+
             {formula.badge && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="rounded-full bg-syanor-gold px-4 py-1 text-[0.7rem] font-bold uppercase tracking-wider text-syanor-royal">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
+                <span className="rounded-full bg-syanor-gold px-4 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-syanor-royal shadow-gold-sm">
                   {formula.badge}
                 </span>
               </div>
             )}
 
-            <div className="mb-5">
-              <h3
-                className={cn(
-                  "font-playfair text-2xl font-bold",
-                  formula.featured ? "text-syanor-ivory" : "text-syanor-ink"
-                )}
-              >
-                {formula.name}
-              </h3>
-              <p
-                className={cn(
-                  "mt-1 text-sm",
-                  formula.featured ? "text-syanor-champagne/70" : "text-syanor-ink/60"
-                )}
-              >
-                {formula.tagline}
-              </p>
-            </div>
+            <div className="relative flex flex-1 flex-col p-7">
+              {/* Header */}
+              <div className="mb-5">
+                <h3
+                  className={cn(
+                    "font-playfair text-2xl font-bold",
+                    formula.featured ? "text-syanor-ivory" : "text-syanor-ink"
+                  )}
+                >
+                  {formula.name}
+                </h3>
+                <p
+                  className={cn(
+                    "mt-1.5 text-sm leading-relaxed",
+                    formula.featured ? "text-syanor-champagne/65" : "text-syanor-ink/55"
+                  )}
+                >
+                  {formula.tagline}
+                </p>
+              </div>
 
-            {formula.hotelLevel && formula.hotelLevel !== "—" && (
+              {/* Hotel level */}
+              {formula.hotelLevel && formula.hotelLevel !== "—" && (
+                <div
+                  className={cn(
+                    "mb-5 rounded-xl px-4 py-3 text-sm",
+                    formula.featured
+                      ? "bg-syanor-gold/15 text-syanor-ivory"
+                      : "bg-syanor-champagne/50 text-syanor-ink/70"
+                  )}
+                >
+                  <span className="font-semibold">Hébergement : </span>
+                  {formula.hotelLevel}
+                  {formula.roomTypes.length > 0 && (
+                    <p className={cn("mt-1 text-xs", formula.featured ? "text-syanor-champagne/55" : "text-syanor-ink/50")}>
+                      {formula.roomTypes.join(", ")}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Features list */}
+              <ul className="mb-6 flex-1 space-y-2">
+                {formula.features.map((f) => (
+                  <li key={f.label} className="flex items-center gap-2.5 text-sm">
+                    {f.included ? (
+                      <span
+                        className={cn(
+                          "flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full",
+                          formula.featured ? "bg-syanor-gold/20 text-syanor-gold" : "bg-syanor-emerald/10 text-syanor-emerald"
+                        )}
+                      >
+                        <CheckIcon className="h-2.5 w-2.5" />
+                      </span>
+                    ) : (
+                      <span
+                        className={cn(
+                          "flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full",
+                          formula.featured ? "bg-syanor-ivory/8 text-syanor-ivory/25" : "bg-syanor-ink/5 text-syanor-ink/25"
+                        )}
+                      >
+                        <MinusIcon className="h-2.5 w-2.5" />
+                      </span>
+                    )}
+                    <span
+                      className={cn(
+                        f.included
+                          ? formula.featured ? "text-syanor-ivory" : "text-syanor-ink/80"
+                          : formula.featured ? "text-syanor-ivory/35 line-through" : "text-syanor-ink/30 line-through"
+                      )}
+                    >
+                      {f.label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Price indicator */}
               <div
                 className={cn(
-                  "mb-5 rounded-xl px-4 py-3 text-sm",
-                  formula.featured
-                    ? "bg-syanor-gold/20 text-syanor-ivory"
-                    : "bg-syanor-champagne/50 text-syanor-ink/70"
+                  "mb-5 text-center text-sm",
+                  formula.featured ? "text-syanor-gold/75" : "text-syanor-ink/45"
                 )}
               >
-                <span className="font-semibold">Hébergement : </span>
-                {formula.hotelLevel}
-                {formula.roomTypes.length > 0 && (
-                  <p className="mt-1 text-xs opacity-75">
-                    {formula.roomTypes.join(", ")}
-                  </p>
-                )}
+                Prix <span className="font-semibold">Sur demande</span>
               </div>
-            )}
 
-            <ul className="mb-6 flex-1 space-y-2.5">
-              {formula.features.map((f) => (
-                <li key={f.label} className="flex items-start gap-2.5 text-sm">
-                  <span
-                    className={cn(
-                      "mt-0.5 shrink-0 text-sm",
-                      f.included
-                        ? formula.featured
-                          ? "text-syanor-gold"
-                          : "text-syanor-emerald"
-                        : formula.featured
-                        ? "text-syanor-ivory/30"
-                        : "text-syanor-ink/25"
-                    )}
-                    aria-hidden="true"
-                  >
-                    {f.included ? "✓" : "—"}
-                  </span>
-                  <span
-                    className={cn(
-                      f.included
-                        ? formula.featured
-                          ? "text-syanor-ivory"
-                          : "text-syanor-ink/80"
-                        : formula.featured
-                        ? "text-syanor-ivory/40 line-through"
-                        : "text-syanor-ink/35 line-through"
-                    )}
-                  >
-                    {f.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div className={cn("mb-4 text-center text-sm", formula.featured ? "text-syanor-gold/80" : "text-syanor-ink/50")}>
-              Prix <span className="font-semibold">Sur demande</span>
+              {/* CTA */}
+              <Link
+                href={formula.ctaHref}
+                className={cn(
+                  "w-full rounded-full px-5 py-3 text-center text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5",
+                  formula.featured
+                    ? "bg-syanor-gold text-syanor-royal hover:bg-syanor-gold-soft hover:shadow-gold-sm"
+                    : "bg-syanor-emerald text-syanor-champagne hover:bg-syanor-royal hover:shadow-card"
+                )}
+              >
+                {formula.ctaLabel}
+              </Link>
             </div>
-
-            <Link
-              href={formula.ctaHref}
-              className={cn(
-                "w-full rounded-full px-5 py-2.5 text-center text-sm font-semibold transition-all duration-300",
-                formula.featured
-                  ? "bg-syanor-gold text-syanor-royal hover:bg-syanor-champagne"
-                  : "bg-syanor-emerald text-syanor-champagne hover:bg-syanor-gold hover:text-syanor-royal"
-              )}
-            >
-              {formula.ctaLabel}
-            </Link>
           </div>
         ))}
       </div>

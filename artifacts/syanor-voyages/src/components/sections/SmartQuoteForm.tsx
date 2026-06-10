@@ -2,6 +2,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearch } from "wouter";
 import { cn } from "@/lib/utils";
 import SectionHeader from "@/components/ui/SectionHeader";
+import Icon from "@/components/ui/Icon";
 import Link from "@/components/Link";
 import { departureCities } from "@/data/cities";
 import type { ComfortLevel, ServiceCategory, TransportType } from "@/types";
@@ -79,16 +80,16 @@ const initialData: FormData = {
 
 /* ─── Service catalog (10 entries per spec) ─── */
 const SERVICE_OPTIONS: { key: ServiceCategory | "Visa"; icon: string; label: string; desc: string }[] = [
-  { key: "Omra", icon: "🕌", label: "Omra", desc: "Petit pèlerinage, toute l'année" },
-  { key: "Hajj", icon: "🕋", label: "Hajj", desc: "Grand pèlerinage annuel" },
-  { key: "Omra Plus", icon: "🌙", label: "Omra Plus", desc: "Séjour prolongé 21–34 jours" },
-  { key: "Ramadan", icon: "✨", label: "Ramadan", desc: "Omra pendant le mois sacré" },
-  { key: "Billet avion", icon: "✈️", label: "Billet avion", desc: "Vol international" },
-  { key: "Billet bateau", icon: "⚓", label: "Billet bateau", desc: "Ferry & traversées" },
-  { key: "Voyage organisé", icon: "🗺️", label: "Voyage organisé", desc: "Circuit & séjour groupe" },
-  { key: "Séjour sur mesure", icon: "⭐", label: "Sur mesure", desc: "Voyage entièrement personnalisé" },
-  { key: "Pack personnalisé", icon: "🎁", label: "Pack VIP", desc: "Billet + hôtel + transferts" },
-  { key: "Visa", icon: "🛂", label: "Visa", desc: "Assistance & démarches administratives" },
+  { key: "Omra", icon: "crescent", label: "Omra", desc: "Petit pèlerinage, toute l'année" },
+  { key: "Hajj", icon: "crescent", label: "Hajj", desc: "Grand pèlerinage annuel" },
+  { key: "Omra Plus", icon: "crescent", label: "Omra Plus", desc: "Séjour prolongé 21–34 jours" },
+  { key: "Ramadan", icon: "sparkle", label: "Ramadan", desc: "Omra pendant le mois sacré" },
+  { key: "Billet avion", icon: "airplane", label: "Billet avion", desc: "Vol international" },
+  { key: "Billet bateau", icon: "anchor", label: "Billet bateau", desc: "Ferry & traversées" },
+  { key: "Voyage organisé", icon: "route", label: "Voyage organisé", desc: "Circuit & séjour groupe" },
+  { key: "Séjour sur mesure", icon: "compass", label: "Sur mesure", desc: "Voyage entièrement personnalisé" },
+  { key: "Pack personnalisé", icon: "diamond", label: "Pack VIP", desc: "Billet + hôtel + transferts" },
+  { key: "Visa", icon: "clipboard", label: "Visa", desc: "Assistance & démarches administratives" },
 ];
 
 const COMFORT_OPTIONS: ComfortLevel[] = ["Standard", "Premium", "VIP"];
@@ -306,7 +307,7 @@ function SmartQuoteFormInner() {
             rel="noopener noreferrer"
             className="btn-primary gap-2"
           >
-            <span aria-hidden="true">💬</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Continuer sur WhatsApp
           </a>
           <Link href="/offres" className="btn-secondary">
@@ -314,8 +315,8 @@ function SmartQuoteFormInner() {
           </Link>
         </div>
         <div className="mt-6 grid grid-cols-2 divide-x divide-syanor-gold/20 rounded-xl border border-syanor-gold/20 bg-white p-4 text-sm text-syanor-ink/60">
-          <p className="pr-4">📞 07 85 73 47 27</p>
-          <p className="pl-4">📧 syanor.voyages@gmail.com</p>
+          <p className="pr-4">07 85 73 47 27</p>
+          <p className="pl-4">syanor.voyages@gmail.com</p>
         </div>
       </div>
     );
@@ -348,7 +349,9 @@ function SmartQuoteFormInner() {
                     : "border-syanor-gold/20 bg-white hover:border-syanor-gold/40 hover:shadow-sm"
                 )}
               >
-                <span className="text-2xl" aria-hidden="true">{svc.icon}</span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors group-hover:bg-syanor-emerald group-hover:text-syanor-gold" aria-hidden="true">
+                  <Icon name={svc.icon} className="h-5 w-5" />
+                </span>
                 <span className="mt-2 font-semibold text-syanor-ink text-sm">{svc.label}</span>
                 <span className="mt-0.5 text-[0.68rem] text-syanor-ink/50 leading-snug">{svc.desc}</span>
               </button>
@@ -454,7 +457,7 @@ function SmartQuoteFormInner() {
                   className="mt-0.5 h-4 w-4 rounded accent-syanor-emerald"
                 />
                 <div>
-                  <p className="text-sm font-medium text-syanor-ink">🚗 Embarquement véhicule</p>
+                  <p className="text-sm font-medium text-syanor-ink">Embarquement véhicule</p>
                   <p className="mt-0.5 text-xs text-syanor-ink/55">Voiture, camping-car, moto…</p>
                 </div>
               </label>
@@ -574,10 +577,10 @@ function SmartQuoteFormInner() {
             <div className="grid gap-3 sm:grid-cols-2">
               {(
                 [
-                  ["withFormation", "🎓 Formation pré-départ", "Préparation des rites avant le départ"],
-                  ["withZiyarat", "🌿 Ziyarat accompagnée", "Visites des lieux saints de Médine & Makkah"],
-                  ["withVisaAssistance", "🛂 Assistance visa", "Accompagnement pour le visa Omra/Hajj"],
-                  ["withPrivateTransfers", "🚌 Transferts privés", "Au lieu des transferts en groupe"],
+                  ["withFormation", "Formation pré-départ", "Préparation des rites avant le départ"],
+                  ["withZiyarat", "Ziyarat accompagnée", "Visites des lieux saints de Médine & Makkah"],
+                  ["withVisaAssistance", "Assistance visa", "Accompagnement pour le visa Omra/Hajj"],
+                  ["withPrivateTransfers", "Transferts privés", "Au lieu des transferts en groupe"],
                 ] as const
               ).map(([field, title, desc]) => (
                 <label

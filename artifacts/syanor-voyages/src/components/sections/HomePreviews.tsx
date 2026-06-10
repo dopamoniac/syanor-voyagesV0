@@ -164,10 +164,10 @@ export function SpiritualPreview() {
           <Reveal className="mx-auto w-full max-w-md">
             <div className="card-emerald flex aspect-square flex-col items-center justify-center p-10 text-center">
               <Icon name="crescent" className="h-20 w-20 text-syanor-gold" />
-              <p className="mt-6 font-playfair text-2xl text-syanor-ivory">
+              <p className="mt-6 font-playfair text-2xl text-[#000000]">
                 Makkah &amp; Madinah
               </p>
-              <p className="mt-3 text-sm text-syanor-champagne/80">
+              <p className="mt-3 text-sm text-[#000000cc]">
                 Omra, Hajj, Omra Plus, Ramadan — accompagnés du premier échange
                 jusqu&apos;au retour.
               </p>
@@ -205,7 +205,7 @@ export function FormationPreview() {
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-syanor-gold/15 text-syanor-gold">
                   <Icon name={card.icon} className="h-6 w-6" />
                 </span>
-                <h3 className="font-playfair text-lg leading-snug text-syanor-ivory">
+                <h3 className="font-playfair text-lg leading-snug text-[#000000]">
                   {card.title}
                 </h3>
               </article>

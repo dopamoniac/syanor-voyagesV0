@@ -1,0 +1,407 @@
+Upgrade the entire SYANOR VOYAGES interface to a world-class premium visual standard.
+
+The current structure and logic are good, but the design quality must be elevated to a true Apple-level / luxury product finish.
+
+This is not a cheap travel agency website.
+This must feel like a global premium travel platform with flawless visual details, refined glass UI, cinematic images, premium typography, and unforgettable interaction quality.
+
+BRAND:
+SYANOR VOYAGES
+
+STYLE TARGET:
+Apple-level polish, luxury travel house, premium concierge platform, light-mode cinematic experience.
+
+The website must feel:
+
+* Expensive
+* Minimal but rich
+* Clean but detailed
+* Premium but usable
+* Smooth and modern
+* World-class on desktop and mobile
+* Ready to launch publicly
+
+DO NOT USE CHEAP DESIGN ELEMENTS:
+Avoid:
+
+* Cheap icons
+* Generic icon packs that look basic
+* Random emoji-style icons
+* Low-quality illustrations
+* Basic card grids
+* Poor typography
+* Template-like layouts
+* Heavy shadows
+* Harsh borders
+* Overloaded gradients
+* Random stock images
+* Generic blue travel agency style
+* Dark-heavy sections
+* Clumsy filters
+* Ugly select inputs
+* Default browser form styling
+
+Everything must be custom-feeling and premium.
+
+DESIGN SYSTEM UPGRADE:
+Create a refined luxury design system inspired by Apple glass interfaces and premium travel brands.
+
+Use:
+
+* Soft ivory / pearl / champagne backgrounds
+* Emerald green as brand anchor
+* Metallic gold as fine accent, not too much
+* Frosted glass cards
+* Subtle translucent surfaces
+* Thin gold hairline borders
+* Soft inner highlights
+* Soft blurred background glows
+* Elegant shadows
+* Smooth rounded corners
+* Premium spacing
+* Perfect alignment
+* Rich but controlled depth
+
+Cards and boxes must feel like:
+
+* Apple-style glass panels
+* Luxury booking modules
+* Premium product cards
+* High-end concierge interface elements
+
+Every box must have:
+
+* Perfect padding
+* Clean hierarchy
+* Soft background
+* Elegant border
+* Subtle shadow
+* Refined hover state
+* Clear text contrast
+* No cheap visual noise
+
+TYPOGRAPHY:
+Typography must feel premium and editorial.
+
+Use:
+
+* Elegant serif for big headings
+* Clean modern sans-serif for body and interface
+* Strong hierarchy
+* Generous line-height
+* Perfect letter spacing
+* No random fonts
+* No cheap script fonts unless used very subtly
+
+Headings must feel luxury.
+Body text must feel modern and readable.
+Labels, chips, filters, buttons must feel like a premium app.
+
+ICON SYSTEM:
+Replace cheap icons with a refined icon language.
+
+Use:
+
+* Custom simple line icons where possible
+* Thin premium strokes
+* Consistent stroke width
+* Emerald/gold treatment
+* No cartoon icons
+* No random mismatched icon styles
+* No childish travel icons
+
+Icons must feel like part of the SYANOR design system.
+
+FILTER SYSTEM:
+The trip filters must be very professional.
+
+Upgrade all filters for trips/offers/departures.
+
+Filters must feel like a high-end Booking/Airbnb-style choice interface, but original and luxury.
+
+Filter categories:
+
+* Service type
+* Year
+* Month
+* Departure city
+* Destination
+* Transport
+* Comfort level
+* Room type
+* Availability
+* Formation included
+* Ziyarat included
+* Budget / price status
+
+Desktop filter UI:
+
+* Premium glass filter panel
+* Clear section labels
+* Elegant chips
+* Smooth active state
+* Gold active border
+* Emerald selected background
+* Reset filters button
+* Results count
+* Sort dropdown with custom styling
+
+Mobile filter UI:
+
+* Horizontal chips for quick filters
+* Bottom-sheet filter drawer
+* Large touch targets
+* Clear apply/reset buttons
+* No cramped layout
+* No ugly native selects
+* No horizontal overflow
+
+Filter interactions:
+
+* Smooth
+* Immediate
+* Easy to understand
+* Premium animation
+* Accessible
+* Keyboard-friendly
+
+OFFER CARDS:
+Offer cards must feel like luxury booking cards.
+
+Each card should include:
+
+* High-quality themed image or visual block
+* Gold date badge
+* Category badge
+* Route visualization
+* Departure date
+* Return date
+* Duration
+* Departure city
+* Comfort level
+* Room options
+* Included service chips
+* Availability badge
+* Price label: Sur demande / À confirmer / Prix indicatif
+* Primary CTA: Voir détails
+* Secondary CTA: Choisir ce départ
+
+Offer cards must not look like simple boxes.
+They must feel like premium travel products.
+
+IMAGE STRATEGY:
+Every major theme must have professional visuals connected to the topic.
+
+Use uploaded images where appropriate.
+If an uploaded image fits the theme, integrate it professionally.
+If no image exists, create premium CSS/SVG/gradient visual modules instead of using random low-quality stock.
+
+Image themes:
+
+* Omra: elegant Makkah/Madinah-inspired luxury visuals, respectful and premium
+* Hajj: spiritual journey, preparation, group support, refined sacred travel mood
+* Billets avion: premium plane, route, ticket, passport, airport atmosphere
+* Billets bateau: ferry/boat, sea route, ticket, port atmosphere
+* Séjours sur mesure: hotel, resort, palm, luggage, luxury stay mood
+* Formation: premium guide/booklet, calm learning, refined geometry
+* Visas: passport, documents, official preparation mood
+* Voyages organisés: itinerary cards, route maps, travel scenes
+
+Every image must be:
+
+* High quality
+* Properly cropped
+* Light-theme compatible
+* Not too dark
+* Not stretched
+* Optimized
+* Responsive
+* Given alt text
+* Integrated with masks, gradients, or glass panels
+* Connected to the section theme
+
+Do not insert images randomly.
+Do not create a collage.
+Every image must serve the UX and brand story.
+
+APPLE-LEVEL GLASS UI RULES:
+Use glass effect carefully:
+
+* Transparent ivory panels
+* backdrop blur where performant
+* subtle white highlights
+* fine gold border
+* soft emerald shadow
+* smooth depth
+* no excessive blur
+* no unreadable text
+* no heavy dark glass
+
+Glass should make the interface feel premium, not noisy.
+
+BUTTONS:
+Buttons must feel expensive.
+
+Primary:
+
+* Deep emerald
+* Ivory text
+* Soft gold highlight on hover
+* Smooth lift
+* Premium shadow
+
+Secondary:
+
+* Ivory/glass
+* Emerald text
+* Thin emerald/gold border
+* Smooth hover
+
+No basic buttons.
+No default styles.
+No harsh colors.
+
+FORM DESIGN:
+The smart quote form must feel like a premium app.
+
+Upgrade:
+
+* Step indicator
+* Service cards
+* Dynamic fields
+* Input groups
+* Select fields
+* Date fields
+* Comfort options
+* Room options
+* Budget options
+* Success state
+
+No ugly browser defaults.
+No long tiring form.
+No cramped mobile layout.
+
+Form must feel:
+
+* Smart
+* Smooth
+* Trustworthy
+* Luxury
+* Easy
+
+MOBILE QUALITY:
+Mobile must be elite.
+
+Every page must be checked on mobile:
+
+* App-like menu
+* Perfect logo
+* Hero images cropped beautifully
+* Filters as chips and bottom sheet
+* Cards stacked beautifully
+* Smart quote form step-by-step
+* Sticky CTA
+* Large tap targets
+* No horizontal scroll
+* No tiny text
+* No broken image crops
+* No cheap spacing
+
+Mobile should feel like a premium travel app, not a compressed desktop site.
+
+MICRO-INTERACTIONS:
+Add subtle premium motion:
+
+* Card hover lift
+* Filter chip selection
+* Button press
+* Smooth page reveal
+* Smooth bottom-sheet filters
+* Accordion transitions
+* Sticky CTA reveal
+* Form step transitions
+
+Respect prefers-reduced-motion.
+Keep performance strong.
+
+DETAIL QUALITY:
+Improve all small details:
+
+* Empty states
+* Loading states
+* Error states
+* Success states
+* Active navigation states
+* Focus states
+* Breadcrumbs
+* Badges
+* Chips
+* Cards
+* Dividers
+* Section spacing
+* Image masks
+* Hover states
+
+This is where the site becomes world-class.
+
+PAGES THAT MUST GET THE PREMIUM FINISH:
+Apply this design upgrade globally:
+
+* Homepage
+* Offers listing
+* Offer detail pages
+* Omra 2026/2027 pages
+* Month pages
+* City departure pages
+* Service pages
+* Billets avion
+* Billets bateau
+* Formation
+* Visas
+* Blog
+* FAQ
+* Contact / quote form
+* Footer
+
+Do not polish only the homepage.
+The full platform must feel consistent.
+
+DESIGN INSPIRATION:
+Think:
+
+* Apple product pages
+* Booking/Airbnb clarity
+* Luxury concierge platforms
+* Premium editorial travel websites
+
+But do not copy any brand directly.
+Create an original SYANOR luxury system.
+
+FINAL QUALITY CHECK:
+Before finishing:
+
+1. Remove any cheap icons.
+2. Replace generic UI with premium glass panels.
+3. Upgrade all cards and boxes.
+4. Make filters professional and beautiful.
+5. Add or improve themed visuals for each major section.
+6. Ensure images are coherent and high quality.
+7. Ensure typography feels premium.
+8. Ensure mobile feels app-like.
+9. Ensure no default ugly form styles remain.
+10. Ensure offer cards feel like real luxury travel products.
+11. Ensure every activity has clear choices.
+12. Keep light mode dominant.
+13. Keep emerald/gold/ivory identity.
+14. Run build/typecheck/lint.
+15. Fix all errors.
+16. Keep project Vercel-ready.
+
+FINAL CREATIVE STANDARD:
+Do not stop at functional.
+Do not stop at clean.
+Do not stop at good.
+
+Make the interface unforgettable.
+
+SYANOR must feel like a world-class luxury travel platform with Apple-level finish, premium glass UI, professional filters, cinematic visuals, intelligent forms, and flawless mobile experience.

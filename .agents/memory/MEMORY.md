@@ -1,1 +1,3 @@
 - [Next.js->Vite migration](nextjs-to-vite-migration.md) — conversion map (next/link->wouter Link shim, useSearchParams->useSearch, App Router->routes, globals->Tailwind v4 @theme, API->Express) and gotchas.
+- [Pre-existing TS errors](preexisting-ts-errors.md) — 5 errors in ConfiguratorSection, ActivityConfigurator, alert-dialog (button casing), chart are pre-existing; do not touch.
+- [Emoji → SVG Icon rule](emoji-icon-migration.md) — data fields use icon name strings; rendering uses `<Icon name={x} />`. breadcrumb.tsx (lowercase shadcn) conflicts with Breadcrumb.tsx — keep only uppercase.

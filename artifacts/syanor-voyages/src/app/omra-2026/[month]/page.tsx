@@ -6,6 +6,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import { getMonthBySlug } from "@/data/months";
 import { getOffersByMonth } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
@@ -96,21 +97,21 @@ export default function OmraMonthPage2026({ month: monthParam }: Props) {
 
                   <ul className="space-y-2 text-sm text-syanor-ink/75">
                     <li className="flex items-center gap-2">
-                      <span aria-hidden="true">📅</span>
+                      <Icon name="calendar" className="h-3.5 w-3.5 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                       <span>Départ : <strong>{offer.departureDate}</strong></span>
                     </li>
                     {offer.returnDate && (
                       <li className="flex items-center gap-2">
-                        <span aria-hidden="true">🔄</span>
+                        <Icon name="arrow-right" className="h-3.5 w-3.5 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                         <span>Retour : {offer.returnDate}</span>
                       </li>
                     )}
                     <li className="flex items-center gap-2">
-                      <span aria-hidden="true">⏱</span>
+                      <Icon name="clock" className="h-3.5 w-3.5 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                       <span>{offer.duration}</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span aria-hidden="true">✈</span>
+                      <Icon name="airplane" className="h-3.5 w-3.5 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                       <span>{offer.outboundRoute}</span>
                     </li>
                   </ul>
@@ -172,15 +173,15 @@ export default function OmraMonthPage2026({ month: monthParam }: Props) {
           />
           <div className="mt-10 flex flex-col gap-4 md:flex-row md:justify-center">
             {[
-              { city: "Nice / Marseille", desc: "Départ en France", icon: "✈" },
-              { city: "Médine", desc: "4–5 jours, Ziyarat", icon: "🕌" },
-              { city: "Makkah", desc: "Omra + prières", icon: "🕋" },
-              { city: "Djeddah", desc: "Vol retour", icon: "🛬" },
+              { city: "Nice / Marseille", desc: "Départ en France", icon: "airplane" },
+              { city: "Médine", desc: "4–5 jours, Ziyarat", icon: "crescent" },
+              { city: "Makkah", desc: "Omra + prières", icon: "crescent" },
+              { city: "Djeddah", desc: "Vol retour", icon: "airplane" },
             ].map((step, i) => (
               <div key={step.city} className="flex items-center gap-4">
                 <div className="text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-syanor-gold/30 bg-syanor-pearl text-lg">
-                    {step.icon}
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border-2 border-syanor-gold/30 bg-syanor-pearl text-syanor-emerald">
+                    <Icon name={step.icon} className="h-5 w-5" />
                   </div>
                   <p className="mt-2 text-sm font-semibold text-syanor-ink">{step.city}</p>
                   <p className="text-xs text-syanor-ink/55">{step.desc}</p>

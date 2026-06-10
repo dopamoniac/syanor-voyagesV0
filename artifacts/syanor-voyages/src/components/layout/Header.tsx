@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
+import Icon from "@/components/ui/Icon";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
 import { omraMonths, getMonthsByYear } from "@/data/months";
@@ -9,14 +10,14 @@ import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 
 const SERVICE_ICON: Record<string, string> = {
-  "/services/billets-avion": "✈",
-  "/services/billets-bateau": "⚓",
-  "/voyages-organises": "🗺",
-  "/sejours-sur-mesure": "✏",
-  "/services#packs": "👑",
-  "/visas": "📋",
-  "/formation": "📚",
-  "/omra-hajj": "🌙",
+  "/services/billets-avion": "airplane",
+  "/services/billets-bateau": "anchor",
+  "/voyages-organises": "route",
+  "/sejours-sur-mesure": "compass",
+  "/services#packs": "diamond",
+  "/visas": "clipboard",
+  "/formation": "book-open",
+  "/omra-hajj": "crescent",
 };
 
 function OmraMegaPanel({ onClose }: { onClose: () => void }) {
@@ -97,7 +98,9 @@ function OmraMegaPanel({ onClose }: { onClose: () => void }) {
               onClick={onClose}
               className="flex items-center gap-2 rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
             >
-              <span className="text-base" aria-hidden="true">🕋</span>
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-gold/15 text-syanor-gold" aria-hidden="true">
+                <Icon name="crescent" className="h-4 w-4" />
+              </span>
               <div>
                 <span className="block text-sm font-semibold text-syanor-ink">Hajj 2027</span>
                 <span className="block text-xs text-syanor-ink/55">Pré-inscription ouverte</span>
@@ -188,8 +191,8 @@ function ServicesMegaPanel({ item, onClose }: { item: NavItem; onClose: () => vo
             onClick={onClose}
             className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
           >
-            <span className="mt-0.5 text-xl" aria-hidden="true">
-              {SERVICE_ICON[child.href] ?? "✦"}
+            <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover/item:bg-syanor-emerald group-hover/item:text-syanor-gold" aria-hidden="true">
+              <Icon name={SERVICE_ICON[child.href] ?? "compass"} className="h-4 w-4" />
             </span>
             <div>
               <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">

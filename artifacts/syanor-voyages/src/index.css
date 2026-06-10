@@ -27,9 +27,12 @@
   --text-h3--font-weight: 600;
 
   /* Shadows */
-  --shadow-card: 0 4px 24px rgba(6, 63, 51, 0.07);
-  --shadow-card-hover: 0 12px 36px rgba(6, 63, 51, 0.14);
-  --shadow-gold: 0 0 40px rgba(201, 162, 74, 0.25);
+  --shadow-card: 0 2px 16px rgba(6, 63, 51, 0.06), 0 1px 4px rgba(6, 63, 51, 0.04);
+  --shadow-card-hover: 0 16px 48px rgba(6, 63, 51, 0.13), 0 4px 12px rgba(6, 63, 51, 0.07);
+  --shadow-gold: 0 0 40px rgba(201, 162, 74, 0.22);
+  --shadow-gold-sm: 0 4px 20px rgba(201, 162, 74, 0.18);
+  --shadow-glass: 0 8px 32px rgba(6, 63, 51, 0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  --shadow-lg: 0 24px 64px rgba(6, 63, 51, 0.12), 0 8px 24px rgba(6, 63, 51, 0.06);
 }
 
 :root {
@@ -67,38 +70,103 @@
   }
 
   ::selection {
-    background: rgba(201, 162, 74, 0.3);
+    background: rgba(201, 162, 74, 0.28);
     color: var(--syanor-ink);
+  }
+
+  /* Premium focus ring */
+  :focus-visible {
+    outline: 2px solid var(--syanor-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
 @layer components {
+  /* === BUTTONS === */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-syanor-emerald px-6 py-3 text-sm font-semibold text-syanor-ivory shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-syanor-royal hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-syanor-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-syanor-emerald px-7 py-3.5 text-sm font-semibold text-syanor-ivory shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-syanor-royal hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-syanor-gold;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-syanor-emerald/30 bg-transparent px-6 py-3 text-sm font-semibold text-syanor-emerald transition-all duration-300 hover:-translate-y-0.5 hover:border-syanor-emerald hover:bg-syanor-emerald/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-syanor-gold;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-syanor-emerald/30 bg-transparent px-7 py-3.5 text-sm font-semibold text-syanor-emerald transition-all duration-300 hover:-translate-y-0.5 hover:border-syanor-emerald hover:bg-syanor-emerald/5 hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-syanor-gold;
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-syanor-emerald transition-colors duration-300 hover:bg-syanor-emerald/5;
   }
 
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-syanor-gold px-7 py-3.5 text-sm font-semibold text-syanor-royal shadow-gold-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-syanor-gold-soft hover:shadow-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-syanor-royal;
+  }
+
+  /* === TYPOGRAPHY === */
   .eyebrow {
     @apply inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-syanor-gold;
   }
 
+  /* === DIVIDERS === */
   .gold-divider {
-    @apply h-px bg-gradient-to-r from-syanor-gold to-transparent;
+    @apply h-px bg-gradient-to-r from-syanor-gold via-syanor-gold-soft to-transparent;
   }
 
+  /* === LAYOUT === */
   .section-pad {
     @apply py-16 md:py-24;
   }
 
+  .section-pad-sm {
+    @apply py-10 md:py-16;
+  }
+
+  /* === CARDS === */
   .card-base {
-    @apply rounded-2xl border border-syanor-gold/20 bg-white shadow-card;
+    @apply rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card;
+  }
+
+  /* Apple-style glass panel */
+  .glass-panel {
+    @apply rounded-2xl border border-white/60 bg-white/70 shadow-glass backdrop-blur-md;
+  }
+
+  /* Gold-tinted glass (for filter panels, info boxes) */
+  .glass-gold {
+    @apply rounded-2xl border border-syanor-gold/20 bg-syanor-ivory/80 shadow-card backdrop-blur-sm;
+  }
+
+  /* === CHIP / FILTER === */
+  .chip {
+    @apply inline-flex items-center whitespace-nowrap rounded-full border border-syanor-gold/25 bg-syanor-pearl px-3.5 py-1.5 text-xs font-medium text-syanor-ink/65 transition-all duration-200 hover:border-syanor-gold hover:text-syanor-ink;
+  }
+
+  .chip-active {
+    @apply border-syanor-emerald bg-syanor-emerald text-syanor-champagne;
+  }
+
+  /* === FORM ELEMENTS === */
+  .input-base {
+    @apply w-full rounded-xl border border-syanor-gold/25 bg-syanor-ivory px-4 py-3 text-sm text-syanor-ink placeholder:text-syanor-ink/35 transition-all duration-200 focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/15;
+  }
+
+  /* === BADGE === */
+  .badge-status-available {
+    @apply rounded-full bg-emerald-50 px-3 py-1 text-[0.68rem] font-semibold text-emerald-700;
+  }
+
+  .badge-status-limited {
+    @apply rounded-full bg-amber-50 px-3 py-1 text-[0.68rem] font-semibold text-amber-700;
+  }
+
+  .badge-status-demand {
+    @apply rounded-full bg-sky-50 px-3 py-1 text-[0.68rem] font-semibold text-sky-700;
+  }
+
+  .badge-status-full {
+    @apply rounded-full bg-red-50 px-3 py-1 text-[0.68rem] font-semibold text-red-700;
+  }
+
+  .badge-status-confirm {
+    @apply rounded-full bg-slate-100 px-3 py-1 text-[0.68rem] font-semibold text-slate-500;
   }
 }
 
@@ -109,6 +177,20 @@
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Ambient hero glow */
+  .hero-glow-emerald {
+    background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(6,63,51,0.08), transparent);
+  }
+  .hero-glow-gold {
+    background: radial-gradient(ellipse 60% 50% at 80% 70%, rgba(201,162,74,0.10), transparent);
+  }
+
+  /* Dot-grid pattern overlay */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(201,162,74,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
   /* Floating hero accents */
@@ -131,10 +213,10 @@
   /* Scroll reveal */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
     transition:
-      opacity 0.7s ease,
-      transform 0.7s ease;
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
   .reveal.is-visible {
@@ -158,8 +240,20 @@
   /* FAQ accordion (height driven by inline max-height) */
   .accordion-content {
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
+  /* Gold shimmer line */
+  .shimmer-gold {
+    background: linear-gradient(90deg, transparent, rgba(201,162,74,0.4), transparent);
+    background-size: 200% 100%;
+    animation: syanor-shimmer 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes syanor-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 @keyframes syanor-smoke-a {
@@ -182,31 +276,18 @@
 
 @keyframes syanor-float {
   0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  100% { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
 }
 
 @keyframes syanor-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .float,
-  .float-delay-1,
-  .float-delay-2,
-  .orbit-spin {
+  html { scroll-behavior: auto; }
+  .float, .float-delay-1, .float-delay-2, .orbit-spin, .shimmer-gold {
     animation: none;
   }
   .reveal {

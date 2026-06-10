@@ -128,7 +128,7 @@ export default function OfferFilters({
   }
 
   return (
-    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-pearl/70 p-5 shadow-card">
+    <div className="rounded-2xl border border-syanor-gold/20 bg-white/70 p-5 shadow-glass backdrop-blur-sm">
       {/* Top row: primary filters */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <ChipGroup

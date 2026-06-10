@@ -1,4 +1,5 @@
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import { offers } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
@@ -94,18 +95,18 @@ export default function NextDepartures() {
 
                     <div className="mt-3 space-y-1.5 text-xs text-syanor-ink/60">
                       <div className="flex items-center gap-1.5">
-                        <span aria-hidden="true">✈️</span>
+                        <Icon name="airplane" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                         {offer.departureCity}
                       </div>
                       {offer.duration && (
                         <div className="flex items-center gap-1.5">
-                          <span aria-hidden="true">📅</span>
+                          <Icon name="calendar" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                           {offer.duration}
                         </div>
                       )}
                       {offer.comfortLevel && (
                         <div className="flex items-center gap-1.5">
-                          <span aria-hidden="true">⭐</span>
+                          <Icon name="star" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                           {offer.comfortLevel}
                         </div>
                       )}

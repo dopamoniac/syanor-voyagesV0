@@ -1,4 +1,5 @@
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
 import { departureCities } from "@/data/cities";
 import { offers } from "@/data/offers";
@@ -75,13 +76,13 @@ export default function CityGrid() {
                     </p>
 
                     <div className="mt-4 flex items-center gap-2 text-xs text-syanor-ink/50">
-                      <span aria-hidden="true">✈️</span>
+                      <Icon name="airplane" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
                       <span>{city.outboundRoute}</span>
                     </div>
 
                     {count > 0 && (
                       <div className="mt-2 flex items-center gap-1.5 text-xs font-medium text-syanor-emerald">
-                        <span aria-hidden="true">📅</span>
+                        <Icon name="calendar" className="h-3 w-3 shrink-0" aria-hidden="true" />
                         {count} départ{count > 1 ? "s" : ""} au programme
                       </div>
                     )}

@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
+import Icon from "@/components/ui/Icon";
 import { CONTACT } from "@/data/navigation";
 import { omraMonths, getMonthsByYear } from "@/data/months";
 import { departureCities } from "@/data/cities";
@@ -12,11 +13,11 @@ interface MobileMenuProps {
 }
 
 const SERVICES = [
-  { label: "Billets Avion", href: "/services/billets-avion", icon: "✈" },
-  { label: "Billets Bateau", href: "/services/billets-bateau", icon: "⚓" },
-  { label: "Voyages Organisés", href: "/voyages-organises", icon: "🗺" },
-  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure", icon: "✏" },
-  { label: "Packs Premium / VIP", href: "/services#packs", icon: "👑" },
+  { label: "Billets Avion", href: "/services/billets-avion", icon: "airplane" },
+  { label: "Billets Bateau", href: "/services/billets-bateau", icon: "anchor" },
+  { label: "Voyages Organisés", href: "/voyages-organises", icon: "route" },
+  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure", icon: "compass" },
+  { label: "Packs Premium / VIP", href: "/services#packs", icon: "diamond" },
 ];
 
 const AIDE = [
@@ -141,7 +142,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               onClick={onClose}
               className="flex items-center gap-3 rounded-xl border border-syanor-gold/30 bg-syanor-royal/40 px-4 py-3 transition hover:border-syanor-gold"
             >
-              <span className="text-xl" aria-hidden="true">🕋</span>
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-syanor-royal/60 text-syanor-gold" aria-hidden="true">
+                <Icon name="crescent" className="h-5 w-5" />
+              </span>
               <div>
                 <span className="block text-sm font-semibold text-syanor-ivory">Hajj 2027</span>
                 <span className="block text-xs text-syanor-champagne/60">Pré-inscription ouverte</span>
@@ -179,7 +182,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 onClick={onClose}
                 className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-syanor-royal/50"
               >
-                <span className="text-base" aria-hidden="true">{s.icon}</span>
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-royal text-syanor-gold" aria-hidden="true">
+                  <Icon name={s.icon} className="h-3.5 w-3.5" />
+                </span>
                 <span className="text-sm font-medium text-syanor-ivory">{s.label}</span>
               </Link>
             ))}

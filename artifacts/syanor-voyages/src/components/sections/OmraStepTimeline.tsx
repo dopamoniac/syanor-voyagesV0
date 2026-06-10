@@ -1,77 +1,31 @@
 import { cn } from "@/lib/utils";
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 
 const steps = [
-  {
-    num: "01",
-    title: "Prise de contact",
-    desc: "Formulaire, WhatsApp ou téléphone. Réponse sous 24h.",
-    icon: "💬",
-  },
-  {
-    num: "02",
-    title: "Choix de formule",
-    desc: "Essentiel, Premium ou VIP selon vos attentes.",
-    icon: "⭐",
-  },
-  {
-    num: "03",
-    title: "Devis personnalisé",
-    desc: "Vol, hôtel, transferts et accompagnement selon vos dates.",
-    icon: "📋",
-  },
-  {
-    num: "04",
-    title: "Inscription & documents",
-    desc: "Passeport, vaccinations, visa — nous vous guidons.",
-    icon: "📄",
-  },
-  {
-    num: "05",
-    title: "Préparation spirituelle",
-    desc: "Formation pré-départ : rites, lieux, pratiques.",
-    icon: "🕌",
-  },
-  {
-    num: "06",
-    title: "Départ & vol",
-    desc: "Accompagnement à l'aéroport jusqu'à l'embarquement.",
-    icon: "✈️",
-  },
-  {
-    num: "07",
-    title: "Séjour à Médine",
-    desc: "Mosquée du Prophète ﷺ, Ziyarat et prières guidées.",
-    icon: "🌿",
-  },
-  {
-    num: "08",
-    title: "Omra à Makkah",
-    desc: "Ihrâm, Tawaf, Sa'y — rites accomplis en toute sérénité.",
-    icon: "🕋",
-  },
-  {
-    num: "09",
-    title: "Retour & suivi",
-    desc: "Vol retour, debriefing et accompagnement post-voyage.",
-    icon: "🏡",
-  },
+  { num: "01", title: "Prise de contact",       desc: "Formulaire, WhatsApp ou téléphone. Réponse sous 24h.",         icon: "phone" },
+  { num: "02", title: "Choix de formule",        desc: "Essentiel, Premium ou VIP selon vos attentes.",                icon: "star" },
+  { num: "03", title: "Devis personnalisé",      desc: "Vol, hôtel, transferts et accompagnement selon vos dates.",    icon: "clipboard" },
+  { num: "04", title: "Inscription & documents", desc: "Passeport, vaccinations, visa — nous vous guidons.",           icon: "book" },
+  { num: "05", title: "Préparation spirituelle", desc: "Formation pré-départ : rites, lieux, pratiques.",              icon: "book-open" },
+  { num: "06", title: "Départ & vol",            desc: "Accompagnement à l'aéroport jusqu'à l'embarquement.",         icon: "airplane" },
+  { num: "07", title: "Séjour à Médine",         desc: "Mosquée du Prophète ﷺ, Ziyarat et prières guidées.",         icon: "compass" },
+  { num: "08", title: "Omra à Makkah",           desc: "Ihrâm, Tawaf, Sa'y — rites accomplis en toute sérénité.",    icon: "crescent" },
+  { num: "09", title: "Retour & suivi",          desc: "Vol retour, debriefing et accompagnement post-voyage.",        icon: "check-circle" },
 ];
 
 const ROW1 = steps.slice(0, 5);
 const ROW2 = steps.slice(5);
 
-function StepNode({
-  step,
-  align = "center",
-}: {
-  step: (typeof steps)[0];
-  align?: "center";
-}) {
+function StepNode({ step }: { step: (typeof steps)[0] }) {
   return (
     <div className="flex flex-1 flex-col items-center text-center">
-      <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-royal text-2xl shadow-md">
-        <span aria-hidden="true">{step.icon}</span>
+      <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-syanor-gold/50 bg-syanor-royal shadow-gold-sm">
+        {/* Subtle glow */}
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(201,162,74,0.15),transparent_60%)]" aria-hidden="true" />
+        <span className="relative text-syanor-gold">
+          <Icon name={step.icon} className="h-6 w-6" />
+        </span>
       </div>
       <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold">
         {step.num}
@@ -89,7 +43,14 @@ function StepNode({
 export default function OmraStepTimeline() {
   return (
     <section className="section-pad overflow-hidden bg-syanor-emerald">
-      <div className="mx-auto max-w-7xl px-6 md:px-8">
+      {/* Ambient glow */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 h-80 w-80 -translate-y-1/4 translate-x-1/4 rounded-full opacity-15"
+        style={{ background: "radial-gradient(circle, rgba(201,162,74,0.35), transparent 65%)" }}
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-8">
         {/* Header */}
         <div className="text-center">
           <p className="eyebrow mb-3 text-syanor-gold-soft">Votre Omra de A à Z</p>
@@ -134,19 +95,12 @@ export default function OmraStepTimeline() {
             {/* Vertical line */}
             <div className="absolute left-5 top-5 bottom-5 w-px bg-syanor-gold/25" />
 
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className={cn(
-                  "relative mb-6 last:mb-0",
-                )}
-              >
-                {/* Dot */}
-                <div className="absolute -left-12 flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/40 bg-syanor-royal text-lg">
-                  <span aria-hidden="true">{step.icon}</span>
+            {steps.map((step) => (
+              <div key={step.num} className="relative mb-6 last:mb-0">
+                {/* Icon dot */}
+                <div className="absolute -left-12 flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/40 bg-syanor-royal text-syanor-gold">
+                  <Icon name={step.icon} className="h-4.5 w-4.5" />
                 </div>
-
-                {/* Content */}
                 <div>
                   <p className="text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold">
                     {step.num}

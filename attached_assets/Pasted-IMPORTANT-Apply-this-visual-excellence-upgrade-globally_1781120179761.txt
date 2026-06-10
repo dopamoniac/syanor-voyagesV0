@@ -1,0 +1,258 @@
+IMPORTANT: Apply this visual excellence upgrade globally across the entire SYANOR VOYAGES website.
+
+This must not affect only the homepage.
+This must not affect only one or two pages.
+This must not be a partial redesign.
+
+I want the Apple-level luxury glass design system applied consistently to the whole website, every route, every page, every component, every card, every form, every filter, every detail.
+
+GLOBAL SCOPE:
+Apply the premium redesign to all pages, including:
+
+* Homepage
+* /services
+* /services/billets-avion
+* /services/billets-bateau
+* /omra-2026
+* /omra-2027
+* All Omra month pages
+* All city departure pages
+* /offres
+* All /offres/[slug] detail pages
+* /omra-hajj
+* /omra-hajj/omra
+* /omra-hajj/hajj
+* /omra-hajj/omra-plus
+* /omra-hajj/ramadan
+* /hajj-2027
+* /formation
+* /visas
+* /voyages-organises
+* /sejours-sur-mesure
+* /a-propos
+* /blog
+* All blog article pages
+* /faq
+* /contact
+* Smart quote form
+* Legal pages
+* Header
+* Mobile menu
+* Footer
+* Mega menus
+* Offer cards
+* Filters
+* Configurators
+* Forms
+* CTAs
+* Cards
+* Breadcrumbs
+* FAQ accordions
+* Sticky mobile CTA
+
+This must become one coherent luxury product system.
+
+DESIGN SYSTEM REQUIREMENT:
+Create and apply a single global premium design system.
+
+Use:
+
+* Ivory / pearl / champagne backgrounds
+* Emerald brand anchors
+* Metallic gold accents
+* Apple-level glass cards
+* Thin gold hairline borders
+* Soft shadows
+* Subtle glows
+* Premium typography
+* Elegant spacing
+* Refined icons
+* Cinematic images
+* Professional filters
+* Luxury form styling
+* Smooth micro-interactions
+
+Do not leave old/basic UI styles on secondary pages.
+
+Every page must feel like it belongs to the same world-class SYANOR platform.
+
+NO CHEAP UI ANYWHERE:
+Remove or upgrade:
+
+* Basic boxes
+* Cheap icons
+* Generic card grids
+* Ugly default selects
+* Default form styling
+* Random image placements
+* Weak spacing
+* Unpolished hover states
+* Harsh borders
+* Poor typography
+* Inconsistent colors
+* Template-looking sections
+* Pages that feel unfinished
+
+COMPONENT-LEVEL GLOBAL UPGRADE:
+Refactor shared components so the upgrade applies everywhere.
+
+Upgrade:
+
+* Button
+* SectionHeader
+* Card components
+* OfferCard
+* ServiceCard
+* Input
+* Select
+* Filter chips
+* Accordion
+* Breadcrumbs
+* MegaMenu
+* MobileMenu
+* Footer
+* Header
+* StickyMobileCTA
+* PackComparisonCards
+* ActivityConfigurator
+* SmartQuoteForm
+* BlogCard
+* CityCard
+* MonthCard
+* RoomPriceGrid
+* IncludedServices
+* DocumentsList
+* Timeline components
+
+Do not manually polish only one page.
+Create reusable premium components and use them across the entire site.
+
+PAGE QUALITY REQUIREMENT:
+Every page must have:
+
+* Premium hero section
+* Breadcrumbs where appropriate
+* Strong visual hierarchy
+* Light luxury background
+* Themed visual block or image
+* Clear CTA
+* Consistent card styling
+* Mobile-perfect layout
+* Refined spacing
+* No visual leftovers from old design
+
+FILTERS AND CHOICE UI:
+All filters across the website must feel professional.
+
+Upgrade filters globally:
+
+* Offers filters
+* Month filters
+* City filters
+* Service filters
+* Comfort filters
+* Room type filters
+* Budget/status filters
+
+Desktop:
+
+* Premium glass filter panels
+* Clean labels
+* Gold active states
+* Results count
+* Reset button
+
+Mobile:
+
+* Horizontal chips
+* Bottom-sheet filter drawer
+* Large tap targets
+* Smooth transitions
+* No cramped layout
+
+SMART FORMS:
+All forms must use the same premium app-like form system.
+
+Upgrade globally:
+
+* Contact form
+* Quote form
+* Smart multi-step form
+* Configurator forms
+* Newsletter/callback forms if present
+
+No ugly native/default form styles.
+Every input, select, checkbox, radio, stepper, and success state must feel premium.
+
+IMAGES AND VISUALS:
+Every major page must have a professional visual treatment connected to its theme.
+
+Use uploaded images only when they fit.
+Otherwise create premium CSS/SVG/gradient visual modules.
+
+Themes:
+
+* Omra pages: refined spiritual travel visuals
+* Hajj pages: preparation, support, sacred journey mood
+* Billets avion: plane, route, airport, ticket
+* Billets bateau: ferry, sea route, port, ticket
+* Séjours sur mesure: hotel, palm, luggage, premium stay
+* Formation: guide/booklet, calm learning, geometry
+* Visas: passport, documents
+* Blog: editorial cards
+* Offers: travel product cards with image/route system
+
+Images must be optimized, cropped, responsive, and coherent with the light luxury theme.
+
+MOBILE GLOBAL REQUIREMENT:
+Mobile must be redesigned across the full site, not only homepage.
+
+Check every route:
+
+* No horizontal scroll
+* App-like navigation
+* Clean logo with no background
+* Mobile hero not too tall
+* Cards stacked beautifully
+* Filters usable by thumb
+* Forms step-by-step
+* Sticky CTA where useful
+* Offer cards readable
+* City/month pages clean
+* Blog readable
+* FAQ usable
+* Footer clean
+
+Mobile must feel like a premium travel app on every page.
+
+FINAL GLOBAL QA:
+Before finishing, inspect every major route visually and technically.
+
+Checklist:
+
+1. All pages share the same premium SYANOR design system.
+2. No page still looks basic or old.
+3. Homepage, offer pages, month pages, city pages, service pages, blog, FAQ, contact all feel polished.
+4. All boxes/cards have Apple-level glass/luxury finish.
+5. All filters look professional.
+6. All forms are premium and mobile-friendly.
+7. All images are coherent and optimized.
+8. Typography is consistent globally.
+9. Icons are consistent globally.
+10. Light mode remains dominant.
+11. Emerald/gold/ivory identity is consistent.
+12. Mobile is excellent on every route.
+13. Build passes.
+14. TypeScript passes.
+15. No console logs.
+16. No broken routes.
+17. No SIYAJJ/SIYAAJJ.
+18. Vercel-ready.
+
+This is a global product-design upgrade across the entire SYANOR VOYAGES platform.
+
+Do not polish only selected pages.
+Do not stop after the homepage.
+Do not leave secondary pages with cheap UI.
+
+Make the full website feel world-class, coherent, premium, Apple-level, and ready for launch.

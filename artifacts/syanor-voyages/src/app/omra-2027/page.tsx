@@ -5,6 +5,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import { getMonthsByYear } from "@/data/months";
 import { getUpcomingOffers } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
@@ -65,15 +66,15 @@ export default function Omra2027Page() {
 
           <div className="mt-12 flex flex-col items-center gap-4 md:flex-row md:justify-center">
             {[
-              { city: "Nice / Marseille", desc: "Votre ville de départ", icon: "✈" },
-              { city: "Médine", desc: "Arrivée & Ziyarat", icon: "🕌" },
-              { city: "Makkah", desc: "Accomplissement de la Omra", icon: "🕋" },
-              { city: "Djeddah", desc: "Vol retour", icon: "✈" },
+              { city: "Nice / Marseille", desc: "Votre ville de départ", icon: "airplane" },
+              { city: "Médine", desc: "Arrivée & Ziyarat", icon: "crescent" },
+              { city: "Makkah", desc: "Accomplissement de la Omra", icon: "crescent" },
+              { city: "Djeddah", desc: "Vol retour", icon: "airplane" },
             ].map((step, i) => (
               <div key={step.city} className="flex items-center gap-4">
                 <div className="text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-pearl text-xl shadow-card">
-                    {step.icon}
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-pearl shadow-card text-syanor-emerald">
+                    <Icon name={step.icon} className="h-6 w-6" />
                   </div>
                   <p className="mt-2 font-playfair text-sm font-semibold text-syanor-ink">{step.city}</p>
                   <p className="text-xs text-syanor-ink/60">{step.desc}</p>

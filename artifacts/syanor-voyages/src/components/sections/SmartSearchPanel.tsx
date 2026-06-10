@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { cn } from "@/lib/utils";
+import Icon from "@/components/ui/Icon";
 import { departureCities } from "@/data/cities";
 import { omraMonths } from "@/data/months";
 import { offers } from "@/data/offers";
@@ -13,11 +14,11 @@ type ServiceKey =
   | "Voyage organisé";
 
 const services: { key: ServiceKey; icon: string; label: string }[] = [
-  { key: "Omra", icon: "🕌", label: "Omra & Hajj" },
-  { key: "Billet avion", icon: "✈️", label: "Billet avion" },
-  { key: "Billet bateau", icon: "⚓", label: "Billet bateau" },
-  { key: "Voyage organisé", icon: "🗺️", label: "Voyage organisé" },
-  { key: "Séjour sur mesure", icon: "✨", label: "Sur mesure" },
+  { key: "Omra", icon: "crescent", label: "Omra & Hajj" },
+  { key: "Billet avion", icon: "airplane", label: "Billet avion" },
+  { key: "Billet bateau", icon: "anchor", label: "Billet bateau" },
+  { key: "Voyage organisé", icon: "route", label: "Voyage organisé" },
+  { key: "Séjour sur mesure", icon: "sparkle", label: "Sur mesure" },
 ];
 
 const COMFORT_OPTIONS = ["Standard", "Premium", "VIP"] as const;
@@ -91,7 +92,7 @@ export default function SmartSearchPanel() {
                   : "text-syanor-ink/65 hover:bg-syanor-emerald/8 hover:text-syanor-emerald"
               )}
             >
-              <span aria-hidden="true">{s.icon}</span>
+              <Icon name={s.icon} className="h-3.5 w-3.5" aria-hidden="true" />
               <span className="hidden sm:inline">{s.label}</span>
               <span className="sm:hidden">{s.label.split(" ")[0]}</span>
             </button>

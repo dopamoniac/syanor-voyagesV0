@@ -1,5 +1,6 @@
 type Metadata = Record<string, unknown>;
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import Section from "@/components/ui/Section";
@@ -187,7 +188,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
           {/* Route display */}
           {offer.outboundRoute && (
             <div className="mt-4 flex items-center gap-2 text-sm text-syanor-ink/60">
-              <span className="text-syanor-gold" aria-hidden="true">✈</span>
+              <Icon name="airplane" className="h-3.5 w-3.5 text-syanor-gold" aria-hidden="true" />
               <span>{offer.outboundRoute}</span>
               {offer.inboundRoute && (
                 <>

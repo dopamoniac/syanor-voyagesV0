@@ -5,6 +5,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
+import Icon from "@/components/ui/Icon";
 import { getMonthsByYear } from "@/data/months";
 import { getUpcomingOffers } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
@@ -65,15 +66,15 @@ export default function Omra2026Page() {
 
           <div className="mt-12 flex flex-col items-center gap-4 md:flex-row md:justify-center">
             {[
-              { city: "Nice / Marseille", desc: "Votre ville de départ", icon: "✈" },
-              { city: "Médine", desc: "Arrivée & séjour spirituel", icon: "🕌" },
-              { city: "Makkah", desc: "Accomplissement de la Omra", icon: "🕋" },
-              { city: "Djeddah", desc: "Vol retour vers la France", icon: "✈" },
+              { city: "Nice / Marseille", desc: "Votre ville de départ", icon: "airplane" },
+              { city: "Médine", desc: "Arrivée & séjour spirituel", icon: "crescent" },
+              { city: "Makkah", desc: "Accomplissement de la Omra", icon: "crescent" },
+              { city: "Djeddah", desc: "Vol retour vers la France", icon: "airplane" },
             ].map((step, i) => (
               <div key={step.city} className="flex items-center gap-4">
                 <div className="text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-pearl text-xl shadow-card">
-                    {step.icon}
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-pearl shadow-card text-syanor-emerald">
+                    <Icon name={step.icon} className="h-6 w-6" />
                   </div>
                   <p className="mt-2 font-playfair text-sm font-semibold text-syanor-ink">{step.city}</p>
                   <p className="text-xs text-syanor-ink/60">{step.desc}</p>
@@ -139,15 +140,17 @@ export default function Omra2026Page() {
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: "✈", title: "Vol international A/R", desc: "Depuis Nice ou Marseille vers Médine, retour depuis Djeddah" },
-              { icon: "🏨", title: "Hébergement Médine & Makkah", desc: "Hôtels sélectionnés à proximité des Lieux Saints" },
-              { icon: "🚌", title: "Transferts internes", desc: "Transport organisé entre les villes saintes" },
-              { icon: "📿", title: "Accompagnement spirituel", desc: "Guide et encadrement à chaque étape" },
-              { icon: "🗺", title: "Ziyarat accompagnée", desc: "Visites des sites historiques de Médine et Makkah" },
-              { icon: "📋", title: "Assistance visa Omra", desc: "Prise en charge de votre dossier visa" },
+              { icon: "airplane", title: "Vol international A/R", desc: "Depuis Nice ou Marseille vers Médine, retour depuis Djeddah" },
+              { icon: "building", title: "Hébergement Médine & Makkah", desc: "Hôtels sélectionnés à proximité des Lieux Saints" },
+              { icon: "bus", title: "Transferts internes", desc: "Transport organisé entre les villes saintes" },
+              { icon: "sparkle", title: "Accompagnement spirituel", desc: "Guide et encadrement à chaque étape" },
+              { icon: "route", title: "Ziyarat accompagnée", desc: "Visites des sites historiques de Médine et Makkah" },
+              { icon: "clipboard", title: "Assistance visa Omra", desc: "Prise en charge de votre dossier visa" },
             ].map((item) => (
               <div key={item.title} className="flex gap-4 rounded-xl bg-white p-5 shadow-card">
-                <span className="text-2xl" aria-hidden="true">{item.icon}</span>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-syanor-emerald text-syanor-gold" aria-hidden="true">
+                  <Icon name={item.icon} className="h-5 w-5" />
+                </span>
                 <div>
                   <p className="font-semibold text-syanor-ink">{item.title}</p>
                   <p className="mt-1 text-sm text-syanor-ink/65">{item.desc}</p>
