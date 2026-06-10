@@ -3,7 +3,19 @@ import { offers } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 
-const SPECIFIC_DATE_RE = /^\d{1,2}\s/;
+const MONTH_ORDER: Record<string, number> = {
+  "Jan": 0, "Fév": 1, "Mar": 2, "Avr": 3, "Mai": 4, "Juin": 5,
+  "Juil": 6, "Août": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Déc": 11,
+};
+
+function parseDepartureDate(dateStr: string): number {
+  if (!dateStr) return Infinity;
+  const m = dateStr.match(/^(\d{1,2})\s+(\w+)\.\s+(\d{4})/);
+  if (!m) return Infinity;
+  const [, day, mon, year] = m;
+  const month = MONTH_ORDER[mon] ?? 0;
+  return new Date(Number(year), month, Number(day)).getTime();
+}
 
 function getNextDepartures(limit = 6) {
   return offers
@@ -11,8 +23,9 @@ function getNextDepartures(limit = 6) {
       (o) =>
         (o.category === "Omra" || o.category === "Omra Plus" || o.category === "Hajj") &&
         o.departureDate &&
-        SPECIFIC_DATE_RE.test(o.departureDate)
+        /^\d{1,2}\s/.test(o.departureDate)
     )
+    .sort((a, b) => parseDepartureDate(a.departureDate ?? "") - parseDepartureDate(b.departureDate ?? ""))
     .slice(0, limit);
 }
 
@@ -29,7 +42,6 @@ export default function NextDepartures() {
   return (
     <section className="section-pad bg-syanor-champagne/30">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
-        {/* Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="eyebrow mb-2">Programme 2026–2027</p>
@@ -42,7 +54,6 @@ export default function NextDepartures() {
           </Link>
         </div>
 
-        {/* Cards grid */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {departures.map((offer, i) => {
             const statusClass =
@@ -51,7 +62,6 @@ export default function NextDepartures() {
             return (
               <Reveal key={offer.id} delay={i * 50}>
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                  {/* Top band */}
                   <div className="flex items-center justify-between bg-syanor-emerald px-5 py-3">
                     <span className="font-playfair text-lg text-syanor-ivory">
                       {offer.departureDate}
@@ -63,7 +73,6 @@ export default function NextDepartures() {
                     )}
                   </div>
 
-                  {/* Body */}
                   <div className="flex flex-1 flex-col p-5">
                     <p className="text-[0.7rem] font-semibold uppercase tracking-widest text-syanor-gold">
                       {offer.category}
@@ -97,16 +106,25 @@ export default function NextDepartures() {
                       >
                         {offer.availabilityStatus}
                       </span>
-                      <Link
-                        href={quoteUrl({
-                          service: offer.category,
-                          offer: offer.title,
-                          departureDate: offer.departureDate,
-                        })}
-                        className="text-xs font-semibold text-syanor-emerald underline-offset-2 hover:underline"
-                      >
-                        Demander ce départ →
-                      </Link>
+                      {offer.slug ? (
+                        <Link
+                          href={`/offres/${offer.slug}`}
+                          className="text-xs font-semibold text-syanor-emerald underline-offset-2 hover:underline"
+                        >
+                          Voir détails →
+                        </Link>
+                      ) : (
+                        <Link
+                          href={quoteUrl({
+                            service: offer.category,
+                            offer: offer.title,
+                            departureDate: offer.departureDate,
+                          })}
+                          className="text-xs font-semibold text-syanor-emerald underline-offset-2 hover:underline"
+                        >
+                          Demander ce départ →
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -115,9 +133,8 @@ export default function NextDepartures() {
           })}
         </div>
 
-        {/* Bottom CTA */}
         <p className="mt-8 text-center text-sm text-syanor-ink/55">
-          Dates et tarifs sur devis ·{" "}
+          Tarifs sur devis ·{" "}
           <Link href="/contact#quote" className="font-medium text-syanor-emerald hover:underline">
             Demander une proposition personnalisée
           </Link>

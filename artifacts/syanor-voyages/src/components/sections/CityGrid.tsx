@@ -94,7 +94,7 @@ export default function CityGrid() {
 
                     <div className="mt-auto pt-5 flex gap-2">
                       <Link
-                        href={`/omra-depart-${city.slug}`}
+                        href={`/depart/${city.slug}`}
                         className="flex-1 text-center text-xs font-semibold text-syanor-emerald hover:underline py-2"
                       >
                         Voir les départs
