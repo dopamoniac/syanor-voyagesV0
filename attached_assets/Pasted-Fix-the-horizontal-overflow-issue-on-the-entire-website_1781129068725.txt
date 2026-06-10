@@ -1,0 +1,141 @@
+Fix the horizontal overflow issue on the entire website.
+
+Problem:
+When I scroll slightly to the right, there is an extra white band on the right side of the page. The website is not perfectly adapted to the screen width. There should be no horizontal scrolling at all on desktop, tablet, or mobile.
+
+Goal:
+Make the whole website perfectly fit the viewport width with no extra white space on the right and no horizontal scrollbar.
+
+Important:
+Do not just hide the problem blindly. First identify the elements causing overflow, then fix them properly.
+
+Check and fix:
+- Hero section
+- Hero background image
+- Navbar
+- Offers filter bar
+- Tabs section
+- Cards grids
+- Absolute positioned labels
+- Floating WhatsApp button
+- Any element using width: 100vw
+- Any element with negative right positioning
+- Any fixed width or min-width larger than the viewport
+
+Global CSS fix:
+Add safe overflow protection:
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#__next,
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+Also ensure every major section uses:
+width: 100%;
+max-width: 100%;
+
+Do not use width: 100vw on sections that also have padding.
+Use width: 100% instead.
+
+Hero fix:
+The hero background image must never create overflow.
+If the image is absolute, keep it inside the hero container.
+
+Bad:
+right: -80px;
+width: 70vw;
+
+Good:
+right: 0;
+width: 62%;
+max-width: 100%;
+
+The hero section should be:
+position: relative;
+width: 100%;
+max-width: 100%;
+overflow: hidden;
+
+Hero image should be:
+position: absolute;
+right: 0;
+top: 0;
+height: 100%;
+width: 62%;
+object-fit: cover;
+object-position: center right;
+
+Make sure the image does not extend outside the viewport and does not create a white band.
+
+Container fix:
+Use a centered container like:
+
+max-width: 1440px;
+margin-left: auto;
+margin-right: auto;
+padding-left: clamp(20px, 5vw, 72px);
+padding-right: clamp(20px, 5vw, 72px);
+
+But do not let this container exceed screen width.
+
+Offers / tabs fix:
+The filter tabs at the bottom of the hero must not cause horizontal overflow.
+On desktop they can be in a clean row.
+On mobile they should either:
+- wrap cleanly
+or
+- use an internal horizontal scroll only inside the tab container, not the whole page.
+
+Use:
+.tabs-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+But the body/page must not scroll horizontally.
+
+Absolute labels fix:
+Floating labels around the globe should stay inside the hero area.
+Do not position them outside the viewport.
+Avoid values like:
+right: -40px;
+left: 95vw;
+
+Use responsive clamp values and make sure labels stay within bounds.
+
+Floating WhatsApp button:
+Make sure it does not cause overflow:
+right: clamp(16px, 3vw, 32px);
+max-width: calc(100vw - 32px);
+
+Debug:
+Temporarily add this in dev mode to detect the overflowing element:
+
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+Then inspect which element extends beyond the viewport and fix its width/position.
+
+Final quality check:
+- No horizontal scrollbar on desktop
+- No white band on the right
+- No page shifting
+- Hero image still looks premium
+- Text remains readable
+- Navbar aligned correctly
+- Offers filters aligned correctly
+- Mobile has zero horizontal overflow
+- Test at 390px, 430px, 768px, 1024px, 1440px, and 1920px
+
+Final result:
+The site must be perfectly responsive, centered, clean, premium, and must never allow the user to slide right into empty white space.

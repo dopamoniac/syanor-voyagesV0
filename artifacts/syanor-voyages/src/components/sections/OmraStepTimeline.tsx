@@ -42,7 +42,7 @@ function StepNode({ step }: { step: (typeof steps)[0] }) {
 
 export default function OmraStepTimeline() {
   return (
-    <section className="section-pad overflow-hidden bg-syanor-emerald">
+    <section className="relative section-pad overflow-hidden bg-syanor-emerald">
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-80 w-80 -translate-y-1/4 translate-x-1/4 rounded-full opacity-15"
