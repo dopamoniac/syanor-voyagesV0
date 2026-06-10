@@ -3,12 +3,212 @@ import { useEffect, useRef, useState } from "react";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import MobileMenu from "@/components/layout/MobileMenu";
-import { mainNav, type NavItem } from "@/data/navigation";
+import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
+import { omraMonths, getMonthsByYear } from "@/data/months";
+import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 
-function MegaMenu({ item }: { item: NavItem }) {
+const SERVICE_ICON: Record<string, string> = {
+  "/services/billets-avion": "✈",
+  "/services/billets-bateau": "⚓",
+  "/voyages-organises": "🗺",
+  "/sejours-sur-mesure": "✏",
+  "/services#packs": "👑",
+  "/visas": "📋",
+  "/formation": "📚",
+  "/omra-hajj": "🌙",
+};
+
+function OmraMegaPanel() {
+  const months2026 = getMonthsByYear("2026");
+  const months2027 = getMonthsByYear("2027");
+  const featured = omraMonths.find((m) => m.featured && m.year === "2027" && m.departureCount >= 3) ?? months2027[0];
+
   return (
-    <div className="invisible absolute left-1/2 top-full z-50 w-[480px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+    <div className="invisible absolute left-1/2 top-full z-50 w-[680px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+      <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory shadow-card-hover">
+        <div className="grid grid-cols-3 divide-x divide-syanor-gold/10">
+          {/* Col 1 — Omra 2026 */}
+          <div className="p-5">
+            <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+              Omra 2026
+            </p>
+            <div className="space-y-1">
+              {months2026.map((m) => (
+                <Link
+                  key={m.slug}
+                  href={m.href}
+                  className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+                >
+                  <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
+                    {m.label}
+                  </span>
+                  {m.departureCount > 0 && (
+                    <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
+                      {m.departureCount}
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/omra-2026"
+              className="mt-3 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
+            >
+              Voir tout Omra 2026 →
+            </Link>
+          </div>
+
+          {/* Col 2 — Omra 2027 + Hajj */}
+          <div className="p-5">
+            <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+              Omra 2027
+            </p>
+            <div className="space-y-1">
+              {months2027.map((m) => (
+                <Link
+                  key={m.slug}
+                  href={m.href}
+                  className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+                >
+                  <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
+                    {m.label}
+                  </span>
+                  {m.departureCount > 0 && (
+                    <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
+                      {m.departureCount}
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/omra-2027"
+              className="mt-2 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
+            >
+              Voir tout Omra 2027 →
+            </Link>
+            <div className="mt-3 border-t border-syanor-gold/15 pt-3">
+              <Link
+                href="/hajj-2027"
+                className="flex items-center gap-2 rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+              >
+                <span className="text-base" aria-hidden="true">🕋</span>
+                <div>
+                  <span className="block text-sm font-semibold text-syanor-ink">Hajj 2027</span>
+                  <span className="block text-xs text-syanor-ink/55">Pré-inscription ouverte</span>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Col 3 — En vedette + Villes */}
+          <div className="p-5">
+            {featured && (
+              <div className="mb-4 rounded-xl border border-syanor-gold/25 bg-syanor-pearl p-4">
+                <p className="text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+                  En vedette
+                </p>
+                <p className="mt-1.5 font-playfair text-sm font-bold text-syanor-ink">
+                  Omra {featured.labelFull}
+                </p>
+                <p className="mt-1 text-xs text-syanor-ink/60">{featured.dateRange}</p>
+                <Link
+                  href={featured.href}
+                  className="mt-2.5 block rounded-full bg-syanor-emerald px-3 py-1.5 text-center text-xs font-semibold text-syanor-champagne transition hover:bg-syanor-gold hover:text-syanor-royal"
+                >
+                  Voir ce départ
+                </Link>
+              </div>
+            )}
+            <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+              Villes de départ
+            </p>
+            <div className="space-y-1">
+              {departureCities.slice(0, 4).map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/depart/${c.slug}`}
+                  className="group/c flex items-center gap-2 rounded-lg px-3 py-1.5 transition hover:bg-syanor-champagne/40"
+                >
+                  <span className="text-xs font-medium text-syanor-ink group-hover/c:text-syanor-emerald">
+                    {c.name}
+                  </span>
+                  {c.confirmed && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-syanor-emerald" aria-hidden="true" />
+                  )}
+                </Link>
+              ))}
+              <Link
+                href="/offres"
+                className="block rounded-lg px-3 py-1.5 text-xs text-syanor-gold hover:underline"
+              >
+                + autres villes →
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer bar */}
+        <div className="flex items-center justify-between rounded-b-2xl border-t border-syanor-gold/10 bg-syanor-pearl/60 px-5 py-3">
+          <div className="flex gap-4">
+            <Link href="/visas" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+              Visa Omra
+            </Link>
+            <Link href="/formation" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+              Formation spirituelle
+            </Link>
+            <Link href="/faq" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+              FAQ
+            </Link>
+          </div>
+          <Link href="/contact#quote" className="text-xs font-semibold text-syanor-emerald hover:underline">
+            Demander un devis →
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ServicesMegaPanel({ item }: { item: NavItem }) {
+  return (
+    <div className="invisible absolute left-1/2 top-full z-50 w-[520px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+      <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-5 shadow-card-hover">
+        <div className="grid grid-cols-2 gap-1">
+          {item.children!.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
+            >
+              <span className="mt-0.5 text-xl" aria-hidden="true">
+                {SERVICE_ICON[child.href] ?? "✦"}
+              </span>
+              <div>
+                <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
+                  {child.label}
+                </span>
+                {child.desc && (
+                  <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
+                )}
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
+          <Link href="/contact#quote" className="text-xs font-semibold text-syanor-emerald hover:underline">
+            Demander un devis pour tous nos services →
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DefaultMegaPanel({ item }: { item: NavItem }) {
+  return (
+    <div className="invisible absolute left-1/2 top-full z-50 w-[440px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
       <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-4 shadow-card-hover">
         <div className="grid grid-cols-2 gap-1">
           {item.children!.map((child) => (
@@ -17,13 +217,11 @@ function MegaMenu({ item }: { item: NavItem }) {
               href={child.href}
               className="group/item rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
             >
-              <span className="block font-playfair text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
+              <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
                 {child.label}
               </span>
               {child.desc && (
-                <span className="mt-0.5 block text-xs text-syanor-ink/55">
-                  {child.desc}
-                </span>
+                <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
               )}
             </Link>
           ))}
@@ -31,6 +229,12 @@ function MegaMenu({ item }: { item: NavItem }) {
       </div>
     </div>
   );
+}
+
+function MegaMenu({ item }: { item: NavItem }) {
+  if (item.label === "Omra & Hajj") return <OmraMegaPanel />;
+  if (item.label === "Services") return <ServicesMegaPanel item={item} />;
+  return <DefaultMegaPanel item={item} />;
 }
 
 export default function Header() {
@@ -59,7 +263,7 @@ export default function Header() {
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Navigation principale">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Navigation principale">
             {mainNav.map((item) =>
               item.children ? (
                 <div key={item.label} className="group relative">
@@ -68,7 +272,14 @@ export default function Header() {
                     className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-syanor-ink/80 transition hover:text-syanor-gold"
                   >
                     {item.label}
-                    <svg className="h-3.5 w-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                    <svg
+                      className="h-3.5 w-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
+                    >
                       <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
@@ -86,7 +297,18 @@ export default function Header() {
             )}
           </nav>
 
-          <div className="hidden xl:block">
+          <div className="hidden items-center gap-3 xl:flex">
+            <a
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp SYANOR VOYAGES"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-syanor-gold/30 text-syanor-emerald transition hover:border-syanor-gold hover:text-syanor-gold"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
             <Link href="/contact#quote" className="btn-primary">
               Demander un devis
             </Link>

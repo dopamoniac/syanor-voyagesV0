@@ -3,6 +3,9 @@ import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import FeatureGrid from "@/components/ui/FeatureGrid";
+import PackComparisonCards from "@/components/ui/PackComparisonCards";
+import { PACK_PRESETS } from "@/components/ui/PackComparisonCards";
+import ActivityConfigurator from "@/components/ui/ActivityConfigurator";
 import ConfiguratorSection from "@/components/sections/ConfiguratorSection";
 import RelatedOffers from "@/components/ui/RelatedOffers";
 import FaqSection from "@/components/sections/FaqSection";
@@ -49,6 +52,29 @@ export default function SejoursSurMesurePage() {
         <FeatureGrid features={options} columns={3} />
       </Section>
 
+      {/* Pack comparison */}
+      <Section
+        variant="pearl"
+        eyebrow="Nos formules"
+        title="Choisissez votre formule séjour"
+        subtitle="De la découverte au voyage d'exception — comparez et demandez votre devis personnalisé."
+      >
+        <PackComparisonCards formulas={PACK_PRESETS.sejour.formulas} />
+      </Section>
+
+      {/* Step-by-step configurator */}
+      <Section
+        variant="champagne"
+        eyebrow="Configurateur séjour"
+        title="Composez votre séjour en 5 étapes"
+        subtitle="Destination, confort, transport, hôtel, voyageurs — créez votre devis en quelques clics."
+      >
+        <div className="mx-auto max-w-2xl">
+          <ActivityConfigurator singleActivity="sejour" />
+        </div>
+      </Section>
+
+      {/* Classic full configurator (advanced) */}
       <ConfiguratorSection service="Séjour sur mesure" />
 
       <RelatedOffers offers={getOffersByCategory(["Séjour sur mesure", "Pack personnalisé", "Voyage organisé"])} />

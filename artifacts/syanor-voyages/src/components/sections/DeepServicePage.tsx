@@ -8,8 +8,24 @@ import FaqSection from "@/components/sections/FaqSection";
 import RelatedOffers from "@/components/ui/RelatedOffers";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
+import PackComparisonCards, { type Formula } from "@/components/ui/PackComparisonCards";
+import ActivityConfigurator from "@/components/ui/ActivityConfigurator";
 import type { Crumb } from "@/components/ui/Breadcrumb";
 import type { FaqItem, TravelOffer } from "@/types";
+
+export interface PackComparisonConfig {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  formulas: Formula[];
+}
+
+export interface ActivityConfiguratorConfig {
+  activity: "omra" | "avion" | "bateau" | "sejour";
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}
 
 export interface DeepServiceConfig {
   eyebrow: string;
@@ -18,7 +34,6 @@ export interface DeepServiceConfig {
   crumbs: Crumb[];
   heroImage?: string;
   quoteHref: string;
-  /** Intro / explanation paragraphs. */
   intro: { heading: string; paragraphs: string[] };
   included: string[];
   notIncluded?: string[];
@@ -29,6 +44,10 @@ export interface DeepServiceConfig {
   faq: FaqItem[];
   cta: { title: string; body?: string; ctaLabel: string; ctaHref: string; secondary?: { label: string; href: string } };
   stickyLabel: string;
+  /** Optional pack comparison section inserted after Benefits. */
+  packComparison?: PackComparisonConfig;
+  /** Optional activity configurator section inserted after Comparison (or Benefits). */
+  activityConfigurator?: ActivityConfiguratorConfig;
 }
 
 export default function DeepServicePage({ config }: { config: DeepServiceConfig }) {
@@ -91,6 +110,32 @@ export default function DeepServicePage({ config }: { config: DeepServiceConfig 
       >
         <FeatureGrid features={config.benefits.features} columns={3} />
       </Section>
+
+      {/* Pack comparison (optional) */}
+      {config.packComparison && (
+        <Section variant="pearl">
+          <PackComparisonCards
+            eyebrow={config.packComparison.eyebrow}
+            title={config.packComparison.title}
+            subtitle={config.packComparison.subtitle}
+            formulas={config.packComparison.formulas}
+          />
+        </Section>
+      )}
+
+      {/* Activity configurator (optional) */}
+      {config.activityConfigurator && (
+        <Section
+          variant="champagne"
+          eyebrow={config.activityConfigurator.eyebrow ?? "Configurateur"}
+          title={config.activityConfigurator.title ?? "Composez votre voyage en 5 étapes"}
+          subtitle={config.activityConfigurator.subtitle ?? "Sélectionnez vos préférences : nous revenons vers vous avec une proposition personnalisée."}
+        >
+          <div className="mx-auto max-w-2xl">
+            <ActivityConfigurator singleActivity={config.activityConfigurator.activity} />
+          </div>
+        </Section>
+      )}
 
       {config.related && config.related.length > 0 && (
         <RelatedOffers offers={config.related} />

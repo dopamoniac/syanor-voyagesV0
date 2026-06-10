@@ -1,5 +1,6 @@
 type Metadata = Record<string, unknown>;
 import DeepServicePage, { type DeepServiceConfig } from "@/components/sections/DeepServicePage";
+import { PACK_PRESETS } from "@/components/ui/PackComparisonCards";
 import { quoteUrl } from "@/lib/utils";
 import { getOffersByCategory } from "@/data/offers";
 
@@ -65,6 +66,18 @@ const config: DeepServiceConfig = {
       { title: "Assistance visa", desc: "Conseils sur les démarches.", icon: "shield" },
       { title: "Sérénité", desc: "Vous vous concentrez sur l'essentiel.", icon: "crescent" },
     ],
+  },
+  packComparison: {
+    eyebrow: "Nos formules",
+    title: "Choisissez votre formule Omra",
+    subtitle: "De l'Omra classique encadrée à l'expérience VIP aux Lieux Saints — comparez et demandez votre devis.",
+    formulas: PACK_PRESETS.omra.formulas,
+  },
+  activityConfigurator: {
+    activity: "omra",
+    eyebrow: "Configurateur Omra",
+    title: "Préparez votre Omra en 5 étapes",
+    subtitle: "Mois, ville de départ, formule, chambre, voyageurs : composez votre projet et recevez une proposition.",
   },
   related: getOffersByCategory(["Omra", "Omra Plus", "Ramadan"]),
   faq: [

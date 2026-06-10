@@ -4,6 +4,7 @@ import SiteLayout from "@/components/layout/SiteLayout";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import Section from "@/components/ui/Section";
 import IncludedList from "@/components/ui/IncludedList";
+import RoomPriceGrid from "@/components/ui/RoomPriceGrid";
 import RelatedOffers from "@/components/ui/RelatedOffers";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import { cn, quoteUrl } from "@/lib/utils";
@@ -37,6 +38,7 @@ const statusClass: Record<AvailabilityStatus, string> = {
   "Places limitées": "bg-amber-50 text-amber-700",
   "Sur demande": "bg-blue-50 text-blue-700",
   Complet: "bg-red-50 text-red-700",
+  "À confirmer": "bg-slate-100 text-slate-500",
 };
 
 function InfoRow({ label, value }: { label: string; value?: string }) {
@@ -125,6 +127,19 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
               {offer.summary}
             </p>
           )}
+          {/* Route display */}
+          {offer.outboundRoute && (
+            <div className="mt-4 flex items-center gap-2 text-sm text-syanor-ink/60">
+              <span className="text-syanor-gold" aria-hidden="true">✈</span>
+              <span>{offer.outboundRoute}</span>
+              {offer.inboundRoute && (
+                <>
+                  <span className="text-syanor-gold/40 mx-1" aria-hidden="true">·</span>
+                  <span>{offer.inboundRoute}</span>
+                </>
+              )}
+            </div>
+          )}
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Link
               href={isComplete ? "/offres" : ctaHref}
@@ -147,7 +162,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
       {/* Key facts + included */}
       <Section variant="pearl">
         <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-          {/* Facts */}
+          {/* Sticky facts sidebar */}
           <div className="rounded-2xl border border-syanor-gold/20 bg-white p-6 shadow-card md:p-7 lg:sticky lg:top-28 lg:self-start">
             <h2 className="font-playfair text-xl text-syanor-ink">Informations clés</h2>
             <div className="mt-3 w-12 gold-divider" aria-hidden="true" />
@@ -173,7 +188,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
             )}
           </div>
 
-          {/* Included / not included */}
+          {/* Included / not included / documents */}
           <div className="space-y-6">
             <IncludedList
               title="Services inclus"
@@ -194,10 +209,21 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
         </div>
       </Section>
 
+      {/* Room prices */}
+      {offer.roomPrices && (
+        <Section variant="ivory" eyebrow="Chambres" title="Tarifs par type de chambre">
+          <RoomPriceGrid
+            prices={offer.roomPrices}
+            ctaBaseHref={quoteUrl({ service: offer.category, offer: offer.title })}
+            offerTitle={offer.title}
+          />
+        </Section>
+      )}
+
       {/* Program */}
       {offer.program && offer.program.length > 0 && (
         <Section
-          variant="ivory"
+          variant="champagne"
           eyebrow="Déroulé"
           title="Programme jour par jour"
           subtitle="Programme indicatif, susceptible d'ajustement selon la logistique."
@@ -220,6 +246,23 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
         </Section>
       )}
 
+      {/* Payment notes */}
+      {offer.paymentNotes && offer.paymentNotes.length > 0 && (
+        <Section variant="pearl" eyebrow="Paiement" title="Conditions de paiement">
+          <ul className="mx-auto max-w-3xl space-y-2.5">
+            {offer.paymentNotes.map((n) => (
+              <li
+                key={n}
+                className="flex items-start gap-3 rounded-xl border border-syanor-gold/20 bg-syanor-champagne/40 p-4 text-sm text-syanor-ink/75"
+              >
+                <span className="text-syanor-gold shrink-0 mt-0.5" aria-hidden="true">✓</span>
+                {n}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
       {/* Notes */}
       {offer.notes && offer.notes.length > 0 && (
         <Section variant="champagne" title="Informations importantes">
@@ -229,9 +272,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
                 key={n}
                 className="flex items-start gap-3 rounded-xl border border-syanor-gold/20 bg-syanor-pearl p-4 text-sm text-syanor-ink/75"
               >
-                <span className="text-syanor-gold" aria-hidden="true">
-                  ⚑
-                </span>
+                <span className="text-syanor-gold" aria-hidden="true">⚑</span>
                 {n}
               </li>
             ))}

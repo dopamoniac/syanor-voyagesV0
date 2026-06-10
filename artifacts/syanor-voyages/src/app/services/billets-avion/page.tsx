@@ -1,5 +1,6 @@
 type Metadata = Record<string, unknown>;
 import DeepServicePage, { type DeepServiceConfig } from "@/components/sections/DeepServicePage";
+import { PACK_PRESETS } from "@/components/ui/PackComparisonCards";
 import { quoteUrl } from "@/lib/utils";
 import { getOffersByCategory } from "@/data/offers";
 
@@ -64,6 +65,18 @@ const config: DeepServiceConfig = {
       { title: "Clarté", desc: "Un dossier de voyage limpide.", icon: "check" },
       { title: "Assistance", desc: "Disponibilité avant le départ.", icon: "phone" },
     ],
+  },
+  packComparison: {
+    eyebrow: "Nos formules",
+    title: "Choisissez votre formule billet avion",
+    subtitle: "Du billet simple à l'assistance dédiée — comparez nos formules et demandez votre devis.",
+    formulas: PACK_PRESETS.avion.formulas,
+  },
+  activityConfigurator: {
+    activity: "avion",
+    eyebrow: "Configurateur billet",
+    title: "Trouvez votre billet en 5 étapes",
+    subtitle: "Type, départ, destination, classe, passagers : préparez votre demande en quelques clics.",
   },
   related: getOffersByCategory(["Billet avion", "Voyage organisé"]),
   faq: [
