@@ -1,0 +1,202 @@
+Improve the entire SYANOR Voyages website UX and UI with a premium mobile-first approach.
+
+MAIN GOAL:
+I want the whole website to feel clear, premium, elegant, fast, and professional, especially on mobile.
+The mobile version is extremely important. It must not feel like a squeezed desktop version.
+It must feel custom-designed for mobile users.
+
+GLOBAL DESIGN DIRECTION:
+- Premium luxury travel agency
+- Ivory / pearl / champagne backgrounds
+- Deep emerald green accents
+- Elegant gold highlights
+- Soft shadows
+- Clean spacing
+- Rounded premium cards
+- Smooth micro-interactions
+- No clutter
+- No cheap template feeling
+- Clear hierarchy
+- Easy navigation
+- Strong conversion flow
+
+IMPORTANT:
+Apply this quality standard to the entire site:
+- Home
+- Services
+- Offres & Départs
+- Omra & Hajj
+- Billets avion
+- Billets bateau
+- Villes départ
+- Blog
+- FAQ
+- Contact
+- All detail pages
+- All forms
+- All cards
+- All filter sections
+- Footer
+- Navbar
+- Mobile menu
+
+MOBILE-FIRST REQUIREMENTS:
+Redesign every section for mobile first.
+
+Mobile UX must be:
+- clear
+- premium
+- easy to read
+- easy to click
+- smooth
+- not crowded
+- not broken
+- not horizontally scrollable
+- not visually confusing
+
+Mobile rules:
+- Use generous spacing
+- Use readable font sizes
+- Use large touch-friendly buttons
+- Minimum button height: 48px
+- Cards should stack cleanly
+- Filters should open below the clicked field
+- Dropdowns should never open beside the field
+- No overlapping elements
+- No tiny icons
+- No text too close to screen edges
+- No cropped important images
+- No broken navbar
+- No layout shift
+- No ugly default select inputs
+
+MOBILE NAVBAR:
+Create a premium mobile navbar:
+- Logo left
+- Menu button right
+- Clean slide-down or side drawer menu
+- Smooth animation
+- Clear links
+- WhatsApp button
+- Demander un devis CTA
+- Menu must be easy to close
+- No messy dropdown behavior
+
+HERO SECTION:
+Keep the hero premium and cinematic:
+- Text must be readable
+- Background image must stay beautiful
+- Add soft ivory gradient/mist overlay only where needed
+- Buttons must be clear
+- Hero must not feel overloaded on mobile
+- On mobile, content should appear first, image/background should support it
+- No text hidden behind image
+
+OFFERS FILTER SECTION:
+Make the filters professional:
+- Each filter is a clickable field with a chevron arrow
+- Options open vertically below the clicked field
+- Only one dropdown opens at a time
+- Clicking outside closes dropdown
+- Dropdowns must be properly positioned
+- No inline expanded options
+- No options appearing beside each other
+- Mobile filters should stack vertically
+- Search/reset buttons must be full width or perfectly aligned on mobile
+
+CARDS:
+All service cards, offer cards, package cards, and blog cards must:
+- Have consistent spacing
+- Have premium rounded corners
+- Use clean images
+- Use clear title, subtitle, price/date/details
+- Have visible CTA
+- Look great on mobile
+- Avoid too much text in one card
+- Use icons carefully
+- Have hover effects on desktop only
+- No broken card heights
+
+FORMS:
+All forms must be premium and simple:
+- Clear labels
+- Large input fields
+- Proper spacing
+- Good focus states
+- Easy to use on mobile
+- WhatsApp/contact CTA always easy to find
+- Error states must look clean
+- Submit button must be obvious
+
+TYPOGRAPHY:
+Use a luxury visual hierarchy:
+- Big serif headings where appropriate
+- Clean sans-serif body text
+- Good line height
+- Strong contrast
+- Gold highlights only for important words
+- Avoid too many font sizes
+
+SPACING:
+Fix spacing across the whole site:
+- Consistent section padding
+- Mobile section padding smaller but still breathable
+- No elements touching screen edges
+- Cards should have proper gaps
+- Sections should flow naturally
+
+ANIMATIONS:
+Use subtle premium animations:
+- Fade up on scroll
+- Small hover lift on desktop cards
+- Smooth dropdown opening
+- Smooth mobile menu
+- No aggressive animations
+- No slow heavy animations
+- Respect performance
+
+PERFORMANCE:
+Optimize for speed:
+- Compress images
+- Use Next/Image if available
+- Lazy-load below-the-fold images
+- Avoid heavy animations
+- Avoid unnecessary libraries
+- Keep mobile performance smooth
+
+ACCESSIBILITY:
+- Buttons and links must be easy to tap
+- Proper focus states
+- Good contrast
+- Dropdowns keyboard accessible
+- Escape closes dropdowns
+- aria-expanded for dropdowns/menus
+- Semantic HTML where possible
+
+RESPONSIVE BREAKPOINTS:
+Design carefully for:
+- 390px mobile
+- 430px mobile
+- 768px tablet
+- 1024px laptop
+- 1440px desktop
+- 1920px large desktop
+
+QUALITY CHECK:
+Before finishing, test every page visually:
+- No horizontal overflow on mobile
+- No broken navbar
+- No overlapping dropdowns
+- No cropped important content
+- No unreadable text
+- No cheap default components
+- No inconsistent card styles
+- No spacing mistakes
+- No layout jumps
+- No broken buttons
+
+FINAL RESULT:
+The whole website should feel like a premium luxury travel agency website.
+Mobile must be exceptional, clear, smooth, and conversion-focused.
+The user experience should feel professional from the first second.
+Make the website look polished, modern, elegant, and ready for real clients.

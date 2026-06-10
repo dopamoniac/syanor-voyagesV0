@@ -274,7 +274,7 @@ export default function OfferFilters({
   const allCities = ["Toutes", ...cityOptions];
 
   return (
-    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-pearl/60 p-5 shadow-glass backdrop-blur-sm">
+    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-pearl/60 p-5 shadow-glass">
       {/* 6-column filter grid */}
       <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
         <FilterDropdown
