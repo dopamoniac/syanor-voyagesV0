@@ -9,18 +9,21 @@ interface ServiceItem {
   desc: string;
   href: string;
   image?: string;
+  alt?: string;
 }
 
 interface ServiceGroup {
   category: string;
   groupIcon: string;
   services: ServiceItem[];
+  photoLayout?: "landscape" | "portrait";
 }
 
 const GROUPS: ServiceGroup[] = [
   {
     category: "Billets",
     groupIcon: "airplane",
+    photoLayout: "landscape",
     services: [
       {
         icon: "airplane",
@@ -28,6 +31,7 @@ const GROUPS: ServiceGroup[] = [
         desc: "Vols internationaux, réservation optimisée, assistance complète",
         href: "/services/billets-avion",
         image: "/services/billets-avion.jpg",
+        alt: "Billet d'avion international avec SYANOR VOYAGES",
       },
       {
         icon: "anchor",
@@ -35,6 +39,7 @@ const GROUPS: ServiceGroup[] = [
         desc: "Ferry & traversées, avec ou sans véhicule, tous ports",
         href: "/services/billets-bateau",
         image: "/services/billets-bateau.jpg",
+        alt: "Ferry et traversée maritime avec SYANOR VOYAGES",
       },
       {
         icon: "users",
@@ -42,17 +47,47 @@ const GROUPS: ServiceGroup[] = [
         desc: "Tarifs groupes, coordination collective, départs multiples",
         href: "/contact?service=Billet+avion#quote",
         image: "/services/billets-groupes.jpg",
+        alt: "Billets groupes et voyages collectifs avec SYANOR VOYAGES",
       },
     ],
   },
   {
     category: "Voyages Religieux",
     groupIcon: "crescent",
+    photoLayout: "portrait",
     services: [
-      { icon: "crescent", title: "Omra", desc: "Petit pèlerinage toute l'année, rites et accompagnement complet", href: "/omra-hajj" },
-      { icon: "crescent", title: "Omra Plus", desc: "Séjour prolongé 21–34 nuits, programme approfondi", href: "/omra-hajj" },
-      { icon: "crescent", title: "Hajj", desc: "Grand pèlerinage annuel, contingent agréé", href: "/omra-hajj" },
-      { icon: "sparkle", title: "Omra Ramadan", desc: "Le mois sacré en Terres Saintes, atmosphère unique", href: "/omra-hajj" },
+      {
+        icon: "crescent",
+        title: "Omra",
+        desc: "Petit pèlerinage toute l'année, rites et accompagnement complet.",
+        href: "/omra-hajj",
+        image: "/services/religieux/omra.png",
+        alt: "Voyage Omra avec accompagnement SYANOR",
+      },
+      {
+        icon: "crescent",
+        title: "Omra Plus",
+        desc: "Séjour prolongé 21–34 nuits, programme approfondi.",
+        href: "/omra-hajj",
+        image: "/services/religieux/omra-plus.png",
+        alt: "Omra Plus premium avec séjour prolongé",
+      },
+      {
+        icon: "crescent",
+        title: "Hajj",
+        desc: "Grand pèlerinage annuel, accompagnement structuré.",
+        href: "/omra-hajj",
+        image: "/services/religieux/hajj.png",
+        alt: "Voyage Hajj avec accompagnement structuré",
+      },
+      {
+        icon: "sparkle",
+        title: "Omra Ramadan",
+        desc: "Expérience spirituelle du mois sacré, atmosphère unique.",
+        href: "/omra-hajj",
+        image: "/services/religieux/omra-ramadan.png",
+        alt: "Omra Ramadan en atmosphère spirituelle",
+      },
     ],
   },
   {
@@ -76,29 +111,34 @@ const GROUPS: ServiceGroup[] = [
   },
 ];
 
-function PhotoCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
+interface PhotoCardProps {
+  svc: ServiceItem;
+  delay: number;
+  aspectRatio?: string;
+}
+
+function PhotoCard({ svc, delay, aspectRatio = "3/2" }: PhotoCardProps) {
   return (
     <Reveal delay={delay}>
       <Link
         href={svc.href}
         className="group relative block overflow-hidden rounded-2xl"
-        style={{ aspectRatio: "3/2" }}
+        style={{ aspectRatio }}
       >
         {/* Background photo */}
         <img
           src={svc.image}
-          alt=""
-          aria-hidden="true"
+          alt={svc.alt ?? svc.title}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
 
-        {/* Dark smoke overlay — heavy at bottom, lighter at top */}
+        {/* Dark smoke overlay — heavy at bottom, transparent at top */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(2,15,10,0.88) 0%, rgba(2,15,10,0.55) 40%, rgba(2,15,10,0.20) 70%, rgba(2,15,10,0.05) 100%)",
+              "linear-gradient(to top, rgba(2,15,10,0.92) 0%, rgba(2,15,10,0.60) 38%, rgba(2,15,10,0.22) 65%, rgba(2,15,10,0.04) 100%)",
           }}
           aria-hidden="true"
         />
@@ -108,7 +148,7 @@ function PhotoCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.25) 0%, transparent 60%)",
+              "radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.28) 0%, transparent 60%)",
           }}
           aria-hidden="true"
         />
@@ -125,15 +165,22 @@ function PhotoCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
 
           {/* Text bottom */}
           <div>
-            <p className="font-playfair text-lg font-semibold leading-tight text-white">
+            <p className="font-playfair text-lg font-semibold leading-tight text-white drop-shadow-sm">
               {svc.title}
             </p>
-            <p className="mt-1.5 text-xs leading-relaxed text-white/70">
+            <p className="mt-1.5 text-xs leading-relaxed text-white/75">
               {svc.desc}
             </p>
             <span className="mt-3 inline-flex items-center gap-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-white">
               En savoir plus
-              <svg className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+              <svg
+                className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                aria-hidden="true"
+              >
                 <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
@@ -160,21 +207,46 @@ export default function ServicesGrid() {
               <div>
                 {/* Category label */}
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-emerald text-syanor-gold" aria-hidden="true">
+                  <span
+                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-emerald text-syanor-gold"
+                    aria-hidden="true"
+                  >
                     <Icon name={group.groupIcon} className="h-3.5 w-3.5" />
                   </span>
                   <h3 className="font-playfair text-lg text-syanor-ink">{group.category}</h3>
                   <div className="flex-1 border-t border-syanor-gold/20" aria-hidden="true" />
                 </div>
 
-                {/* Photo cards for Billets, regular cards for others */}
-                {group.category === "Billets" ? (
+                {/* Photo cards for Billets (landscape) */}
+                {group.photoLayout === "landscape" && (
                   <div className="grid gap-4 sm:grid-cols-3">
                     {group.services.map((svc, si) => (
-                      <PhotoCard key={svc.title} svc={svc} delay={gi * 80 + si * 60} />
+                      <PhotoCard
+                        key={svc.title}
+                        svc={svc}
+                        delay={gi * 80 + si * 60}
+                        aspectRatio="3/2"
+                      />
                     ))}
                   </div>
-                ) : (
+                )}
+
+                {/* Photo cards for Voyages Religieux (portrait, 4-col) */}
+                {group.photoLayout === "portrait" && (
+                  <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
+                    {group.services.map((svc, si) => (
+                      <PhotoCard
+                        key={svc.title}
+                        svc={svc}
+                        delay={gi * 80 + si * 60}
+                        aspectRatio="3/4"
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {/* White cards for other groups */}
+                {!group.photoLayout && (
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {group.services.map((svc, si) => (
                       <Reveal key={svc.title} delay={gi * 80 + si * 50}>
@@ -182,7 +254,10 @@ export default function ServicesGrid() {
                           href={svc.href}
                           className="group flex flex-col rounded-2xl border border-syanor-gold/15 bg-white p-5 transition-all duration-250 hover:-translate-y-0.5 hover:border-syanor-gold/35 hover:shadow-card"
                         >
-                          <span className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold" aria-hidden="true">
+                          <span
+                            className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
+                            aria-hidden="true"
+                          >
                             <Icon name={svc.icon} className="h-4.5 w-4.5" />
                           </span>
                           <p className="font-playfair text-sm font-medium text-syanor-ink transition-colors group-hover:text-syanor-emerald">

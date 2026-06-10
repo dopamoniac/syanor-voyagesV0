@@ -1,0 +1,113 @@
+I uploaded 4 new images for the “Voyages Religieux” section.
+
+TASK:
+Import these 4 uploaded images into the project and use them exactly like the image cards in the “Billets” section.
+
+Do not generate new images.
+Do not use random stock images.
+Do not leave the religious section as white cards.
+Use the uploaded images as the official visuals for this section.
+
+IMAGE MAPPING:
+Use the uploaded images in this order:
+
+1. Image 1 → Omra
+2. Image 2 → Omra Plus
+3. Image 3 → Hajj
+4. Image 4 → Omra Ramadan
+
+PROJECT ASSET SETUP:
+Move/copy the uploaded images into a clean public assets folder, for example:
+
+public/images/services/religieux/omra.png
+public/images/services/religieux/omra-plus.png
+public/images/services/religieux/hajj.png
+public/images/services/religieux/omra-ramadan.png
+
+Use optimized filenames.
+If the files are JPG or WebP, keep the correct extension.
+Do not break image paths.
+
+IMPORTANT:
+The images have no text inside them.
+Keep them that way.
+All titles, descriptions, and CTAs must be rendered by the website UI, not inside the image.
+
+SECTION TO UPDATE:
+Update the “Voyages Religieux” section so it uses image cards like the “Billets” section.
+
+Replace the current simple white cards for:
+- Omra
+- Omra Plus
+- Hajj
+- Omra Ramadan
+
+with premium full-image cards.
+
+CARD STYLE:
+Match the “Billets” section card style:
+- Full-bleed image
+- Rounded corners
+- Dark gradient overlay at the bottom
+- Title in white
+- Short description in white/soft ivory
+- Gold “En savoir plus →” link
+- Small icon badge
+- Smooth hover lift
+- Premium shadow
+- object-fit: cover
+- No stretched images
+- No awkward crop
+
+CARD COPY:
+Omra:
+Petit pèlerinage toute l’année, rites et accompagnement complet.
+
+Omra Plus:
+Séjour prolongé 21–34 nuits, programme approfondi.
+
+Hajj:
+Grand pèlerinage annuel, accompagnement structuré.
+
+Omra Ramadan:
+Expérience spirituelle du mois sacré, atmosphère unique.
+
+LAYOUT:
+Desktop:
+- Use a premium 4-card layout.
+- If 4 cards fit nicely in one row, use 4 columns.
+- If it feels too cramped, use a balanced 2x2 layout.
+- It must feel visually as strong as the “Billets” section.
+
+Tablet:
+- 2 columns.
+
+Mobile:
+- 1 column stacked, or a smooth horizontal snap carousel if consistent with the design.
+- Cards must remain large, cinematic, and readable.
+
+ACCESSIBILITY:
+Add alt text:
+- “Voyage Omra avec accompagnement SYANOR”
+- “Omra Plus premium avec séjour prolongé”
+- “Voyage Hajj avec accompagnement structuré”
+- “Omra Ramadan en atmosphère spirituelle”
+
+TECHNICAL REQUIREMENTS:
+- Reuse the existing image-card component from the “Billets” section if possible.
+- If there is no reusable component, create one shared component like `ImageServiceCard`.
+- Use it for both “Billets” and “Voyages Religieux” where possible.
+- Keep code clean and maintainable.
+- Avoid duplicated markup.
+- Keep the section responsive.
+- Run build/typecheck after changes.
+
+FINAL CHECK:
+- The uploaded images are saved in the project.
+- The “Voyages Religieux” section now has 4 image cards.
+- The section visually matches the “Billets” section.
+- No image has embedded text.
+- Text is rendered by the UI overlay.
+- The design remains luxury, light, emerald/gold/ivory.
+- Mobile looks premium.
+- Build passes.
