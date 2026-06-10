@@ -1,0 +1,166 @@
+Update the Offers / Départs filter section UI and behavior.
+
+GOAL:
+Create a professional premium filter bar for the offers section.
+Each filter should look like a clean clickable field with a small arrow icon.
+When the user clicks on a filter field, the options must open vertically BELOW that field, not beside it and not as inline buttons.
+
+IMPORTANT:
+The current filters should NOT appear side by side as expanded options.
+Only the filter fields should be side by side.
+The dropdown options must appear under the clicked filter field.
+
+FILTER UI:
+Create filter fields for:
+- Type de voyage
+- Ville de départ
+- Destination
+- Mois de départ
+- Budget
+- Durée
+
+Each field must have:
+- label or placeholder
+- selected value
+- small downward chevron arrow
+- rounded corners
+- ivory / white background
+- subtle border
+- premium shadow
+- emerald and gold accent on focus/hover
+- smooth transition
+
+INTERACTION:
+When clicking a filter:
+- The dropdown opens directly below the clicked field
+- The dropdown width matches the field width
+- The dropdown has vertical options
+- Only one dropdown can be open at a time
+- Clicking outside closes the dropdown
+- Selecting an option updates the field value and closes the dropdown
+- The chevron rotates up when open and down when closed
+- No dropdown should open to the side
+- No layout shift should happen when a dropdown opens
+
+VISUAL STYLE:
+Make it look luxury and clean:
+- Background: ivory / pearl white
+- Text: dark emerald
+- Accent: soft gold
+- Borders: rgba gold/emerald subtle
+- Dropdown background: white / ivory
+- Dropdown shadow: soft premium shadow
+- Hover option: light champagne background
+- Selected option: emerald text + subtle gold icon/check
+
+LAYOUT:
+Desktop:
+- Filters displayed in a clean grid or horizontal responsive row
+- Each filter field has consistent height around 54px
+- Good spacing between fields
+- CTA search button aligned with filters
+
+Tablet:
+- 2 or 3 columns depending on screen width
+
+Mobile:
+- Filters stack vertically
+- Dropdown opens below each field
+- No horizontal overflow
+- Buttons full width
+- Very clean mobile UX
+
+TECHNICAL REQUIREMENTS:
+Use a proper custom dropdown component or shadcn/ui Popover/Select.
+Do not use native browser select if it looks basic.
+The dropdown must be absolutely positioned relative to its parent field.
+Use z-index high enough so it appears above cards and other content.
+Avoid clipping by parent containers. If a parent has overflow-hidden and it blocks dropdowns, fix it.
+
+ACCESSIBILITY:
+- Field should be keyboard accessible
+- Escape closes dropdown
+- Enter selects option if focused
+- aria-expanded should reflect open state
+- Clear focus states
+
+ANIMATION:
+Add subtle animation:
+- Dropdown fade in
+- Slight slide down
+- Chevron rotation
+- No heavy animation
+
+FILTER BAR STRUCTURE:
+Create reusable component:
+- FilterDropdown
+Props:
+  - label
+  - value
+  - options
+  - onChange
+  - placeholder
+  - icon optional
+
+Then use this component for all offer filters.
+
+OPTIONS EXAMPLE:
+Type de voyage:
+- Omra
+- Hajj
+- Billet avion
+- Billet bateau
+- Voyage organisé
+- Sur mesure
+
+Ville de départ:
+- Paris
+- Lyon
+- Marseille
+- Nice
+- Tunis
+- Alger
+
+Destination:
+- Makkah
+- Madinah
+- Jeddah
+- Istanbul
+- Dubaï
+- Tunis
+
+Mois de départ:
+- Janvier
+- Février
+- Mars
+- Avril
+- Mai
+- Juin
+- Juillet
+- Août
+- Septembre
+- Octobre
+- Novembre
+- Décembre
+
+Budget:
+- Moins de 500€
+- 500€ - 1000€
+- 1000€ - 2000€
+- 2000€ - 3000€
+- Plus de 3000€
+
+Durée:
+- 3 à 5 jours
+- 6 à 10 jours
+- 11 à 15 jours
+- Plus de 15 jours
+
+FINAL RESULT:
+The offers filter section must look premium, modern, professional, and error-free.
+The user clicks a filter field, the dropdown opens below it.
+No options should appear beside each other after clicking.
+No broken spacing.
+No overlap bugs.
+No layout jumping.
+No cheap default select style.
