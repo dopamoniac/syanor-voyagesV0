@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import MobileMenu from "@/components/layout/MobileMenu";
@@ -19,227 +19,294 @@ const SERVICE_ICON: Record<string, string> = {
   "/omra-hajj": "🌙",
 };
 
-function OmraMegaPanel() {
+function OmraMegaPanel({ onClose }: { onClose: () => void }) {
   const months2026 = getMonthsByYear("2026");
   const months2027 = getMonthsByYear("2027");
   const featured = omraMonths.find((m) => m.featured && m.year === "2027" && m.departureCount >= 3) ?? months2027[0];
 
   return (
-    <div className="invisible absolute left-1/2 top-full z-50 w-[680px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-      <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory shadow-card-hover">
-        <div className="grid grid-cols-3 divide-x divide-syanor-gold/10">
-          {/* Col 1 — Omra 2026 */}
-          <div className="p-5">
-            <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-              Omra 2026
-            </p>
-            <div className="space-y-1">
-              {months2026.map((m) => (
-                <Link
-                  key={m.slug}
-                  href={m.href}
-                  className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
-                >
-                  <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
-                    {m.label}
-                  </span>
-                  {m.departureCount > 0 && (
-                    <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
-                      {m.departureCount}
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
-            <Link
-              href="/omra-2026"
-              className="mt-3 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
-            >
-              Voir tout Omra 2026 →
-            </Link>
-          </div>
-
-          {/* Col 2 — Omra 2027 + Hajj */}
-          <div className="p-5">
-            <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-              Omra 2027
-            </p>
-            <div className="space-y-1">
-              {months2027.map((m) => (
-                <Link
-                  key={m.slug}
-                  href={m.href}
-                  className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
-                >
-                  <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
-                    {m.label}
-                  </span>
-                  {m.departureCount > 0 && (
-                    <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
-                      {m.departureCount}
-                    </span>
-                  )}
-                </Link>
-              ))}
-            </div>
-            <Link
-              href="/omra-2027"
-              className="mt-2 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
-            >
-              Voir tout Omra 2027 →
-            </Link>
-            <div className="mt-3 border-t border-syanor-gold/15 pt-3">
+    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory shadow-card-hover">
+      <div className="grid grid-cols-3 divide-x divide-syanor-gold/10">
+        {/* Col 1 — Omra 2026 */}
+        <div className="p-5">
+          <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+            Omra 2026
+          </p>
+          <div className="space-y-1">
+            {months2026.map((m) => (
               <Link
-                href="/hajj-2027"
-                className="flex items-center gap-2 rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+                key={m.slug}
+                href={m.href}
+                onClick={onClose}
+                className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
               >
-                <span className="text-base" aria-hidden="true">🕋</span>
-                <div>
-                  <span className="block text-sm font-semibold text-syanor-ink">Hajj 2027</span>
-                  <span className="block text-xs text-syanor-ink/55">Pré-inscription ouverte</span>
-                </div>
-              </Link>
-            </div>
-          </div>
-
-          {/* Col 3 — En vedette + Villes */}
-          <div className="p-5">
-            {featured && (
-              <div className="mb-4 rounded-xl border border-syanor-gold/25 bg-syanor-pearl p-4">
-                <p className="text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-                  En vedette
-                </p>
-                <p className="mt-1.5 font-playfair text-sm font-bold text-syanor-ink">
-                  Omra {featured.labelFull}
-                </p>
-                <p className="mt-1 text-xs text-syanor-ink/60">{featured.dateRange}</p>
-                <Link
-                  href={featured.href}
-                  className="mt-2.5 block rounded-full bg-syanor-emerald px-3 py-1.5 text-center text-xs font-semibold text-syanor-champagne transition hover:bg-syanor-gold hover:text-syanor-royal"
-                >
-                  Voir ce départ
-                </Link>
-              </div>
-            )}
-            <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-              Villes de départ
-            </p>
-            <div className="space-y-1">
-              {departureCities.slice(0, 4).map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/depart/${c.slug}`}
-                  className="group/c flex items-center gap-2 rounded-lg px-3 py-1.5 transition hover:bg-syanor-champagne/40"
-                >
-                  <span className="text-xs font-medium text-syanor-ink group-hover/c:text-syanor-emerald">
-                    {c.name}
-                  </span>
-                  {c.confirmed && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-syanor-emerald" aria-hidden="true" />
-                  )}
-                </Link>
-              ))}
-              <Link
-                href="/offres"
-                className="block rounded-lg px-3 py-1.5 text-xs text-syanor-gold hover:underline"
-              >
-                + autres villes →
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer bar */}
-        <div className="flex items-center justify-between rounded-b-2xl border-t border-syanor-gold/10 bg-syanor-pearl/60 px-5 py-3">
-          <div className="flex gap-4">
-            <Link href="/visas" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-              Visa Omra
-            </Link>
-            <Link href="/formation" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-              Formation spirituelle
-            </Link>
-            <Link href="/faq" className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-              FAQ
-            </Link>
-          </div>
-          <Link href="/contact#quote" className="text-xs font-semibold text-syanor-emerald hover:underline">
-            Demander un devis →
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ServicesMegaPanel({ item }: { item: NavItem }) {
-  return (
-    <div className="invisible absolute left-1/2 top-full z-50 w-[520px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-      <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-5 shadow-card-hover">
-        <div className="grid grid-cols-2 gap-1">
-          {item.children!.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
-            >
-              <span className="mt-0.5 text-xl" aria-hidden="true">
-                {SERVICE_ICON[child.href] ?? "✦"}
-              </span>
-              <div>
-                <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
-                  {child.label}
+                <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
+                  {m.label}
                 </span>
-                {child.desc && (
-                  <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
+                {m.departureCount > 0 && (
+                  <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
+                    {m.departureCount}
+                  </span>
                 )}
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
-          <Link href="/contact#quote" className="text-xs font-semibold text-syanor-emerald hover:underline">
-            Demander un devis pour tous nos services →
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/omra-2026"
+            onClick={onClose}
+            className="mt-3 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
+          >
+            Voir tout Omra 2026 →
           </Link>
         </div>
+
+        {/* Col 2 — Omra 2027 + Hajj */}
+        <div className="p-5">
+          <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+            Omra 2027
+          </p>
+          <div className="space-y-1">
+            {months2027.map((m) => (
+              <Link
+                key={m.slug}
+                href={m.href}
+                onClick={onClose}
+                className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+              >
+                <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
+                  {m.label}
+                </span>
+                {m.departureCount > 0 && (
+                  <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
+                    {m.departureCount}
+                  </span>
+                )}
+              </Link>
+            ))}
+          </div>
+          <Link
+            href="/omra-2027"
+            onClick={onClose}
+            className="mt-2 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
+          >
+            Voir tout Omra 2027 →
+          </Link>
+          <div className="mt-3 border-t border-syanor-gold/15 pt-3">
+            <Link
+              href="/hajj-2027"
+              onClick={onClose}
+              className="flex items-center gap-2 rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
+            >
+              <span className="text-base" aria-hidden="true">🕋</span>
+              <div>
+                <span className="block text-sm font-semibold text-syanor-ink">Hajj 2027</span>
+                <span className="block text-xs text-syanor-ink/55">Pré-inscription ouverte</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Col 3 — En vedette + Villes */}
+        <div className="p-5">
+          {featured && (
+            <div className="mb-4 rounded-xl border border-syanor-gold/25 bg-syanor-pearl p-4">
+              <p className="text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+                En vedette
+              </p>
+              <p className="mt-1.5 font-playfair text-sm font-bold text-syanor-ink">
+                Omra {featured.labelFull}
+              </p>
+              <p className="mt-1 text-xs text-syanor-ink/60">{featured.dateRange}</p>
+              <Link
+                href={featured.href}
+                onClick={onClose}
+                className="mt-2.5 block rounded-full bg-syanor-emerald px-3 py-1.5 text-center text-xs font-semibold text-syanor-champagne transition hover:bg-syanor-gold hover:text-syanor-royal"
+              >
+                Voir ce départ
+              </Link>
+            </div>
+          )}
+          <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+            Villes de départ
+          </p>
+          <div className="space-y-1">
+            {departureCities.slice(0, 4).map((c) => (
+              <Link
+                key={c.slug}
+                href={`/depart/${c.slug}`}
+                onClick={onClose}
+                className="group/c flex items-center gap-2 rounded-lg px-3 py-1.5 transition hover:bg-syanor-champagne/40"
+              >
+                <span className="text-xs font-medium text-syanor-ink group-hover/c:text-syanor-emerald">
+                  {c.name}
+                </span>
+                {c.confirmed && (
+                  <span className="h-1.5 w-1.5 rounded-full bg-syanor-emerald" aria-hidden="true" />
+                )}
+              </Link>
+            ))}
+            <Link
+              href="/offres"
+              onClick={onClose}
+              className="block rounded-lg px-3 py-1.5 text-xs text-syanor-gold hover:underline"
+            >
+              + autres villes →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer bar */}
+      <div className="flex items-center justify-between rounded-b-2xl border-t border-syanor-gold/10 bg-syanor-pearl/60 px-5 py-3">
+        <div className="flex gap-4">
+          <Link href="/visas" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+            Visa Omra
+          </Link>
+          <Link href="/formation" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+            Formation spirituelle
+          </Link>
+          <Link href="/faq" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
+            FAQ
+          </Link>
+        </div>
+        <Link href="/contact#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+          Demander un devis →
+        </Link>
       </div>
     </div>
   );
 }
 
-function DefaultMegaPanel({ item }: { item: NavItem }) {
+function ServicesMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
   return (
-    <div className="invisible absolute left-1/2 top-full z-50 w-[440px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-      <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-4 shadow-card-hover">
-        <div className="grid grid-cols-2 gap-1">
-          {item.children!.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href}
-              className="group/item rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
-            >
+    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-5 shadow-card-hover">
+      <div className="grid grid-cols-2 gap-1">
+        {item.children!.map((child) => (
+          <Link
+            key={child.href}
+            href={child.href}
+            onClick={onClose}
+            className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
+          >
+            <span className="mt-0.5 text-xl" aria-hidden="true">
+              {SERVICE_ICON[child.href] ?? "✦"}
+            </span>
+            <div>
               <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
                 {child.label}
               </span>
               {child.desc && (
                 <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
               )}
-            </Link>
-          ))}
-        </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
+        <Link href="/contact#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+          Demander un devis pour tous nos services →
+        </Link>
       </div>
     </div>
   );
 }
 
-function MegaMenu({ item }: { item: NavItem }) {
-  if (item.label === "Omra & Hajj") return <OmraMegaPanel />;
-  if (item.label === "Services") return <ServicesMegaPanel item={item} />;
-  return <DefaultMegaPanel item={item} />;
+function DefaultMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
+  return (
+    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-4 shadow-card-hover">
+      <div className="grid grid-cols-2 gap-1">
+        {item.children!.map((child) => (
+          <Link
+            key={child.href}
+            href={child.href}
+            onClick={onClose}
+            className="group/item rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
+          >
+            <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
+              {child.label}
+            </span>
+            {child.desc && (
+              <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
+            )}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+interface MegaMenuWrapperProps {
+  item: NavItem;
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
+
+function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
+  const panelWidth = item.label === "Omra & Hajj" ? "w-[680px]" : "w-[520px]";
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      isOpen ? onClose() : onOpen();
+    } else if (e.key === "Escape") {
+      onClose();
+    } else if (e.key === "ArrowDown" && !isOpen) {
+      e.preventDefault();
+      onOpen();
+    }
+  }
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        onClick={() => (isOpen ? onClose() : onOpen())}
+        onKeyDown={handleKeyDown}
+        className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-syanor-ink/80 transition hover:text-syanor-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50"
+      >
+        {item.label}
+        <svg
+          className={cn("h-3.5 w-3.5 opacity-60 transition-transform duration-200", isOpen && "rotate-180")}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div
+          className={cn(
+            "absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3",
+            panelWidth
+          )}
+          role="region"
+          aria-label={`Menu ${item.label}`}
+        >
+          {item.label === "Omra & Hajj" ? (
+            <OmraMegaPanel onClose={onClose} />
+          ) : item.label === "Services" ? (
+            <ServicesMegaPanel item={item} onClose={onClose} />
+          ) : (
+            <DefaultMegaPanel item={item} onClose={onClose} />
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -248,9 +315,40 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Click-outside close
+  useEffect(() => {
+    if (!openMegaMenu) return;
+    function handleOutsideClick(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpenMegaMenu(null);
+      }
+    }
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, [openMegaMenu]);
+
+  // Escape key global close
+  useEffect(() => {
+    if (!openMegaMenu) return;
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpenMegaMenu(null);
+    }
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [openMegaMenu]);
+
+  const handleMegaOpen = useCallback((label: string) => {
+    setOpenMegaMenu(label);
+  }, []);
+
+  const handleMegaClose = useCallback(() => {
+    setOpenMegaMenu(null);
+  }, []);
+
   return (
     <>
       <header
+        ref={headerRef}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
@@ -266,25 +364,13 @@ export default function Header() {
           <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Navigation principale">
             {mainNav.map((item) =>
               item.children ? (
-                <div key={item.label} className="group relative">
-                  <Link
-                    href={item.href}
-                    className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-syanor-ink/80 transition hover:text-syanor-gold"
-                  >
-                    {item.label}
-                    <svg
-                      className="h-3.5 w-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      aria-hidden="true"
-                    >
-                      <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </Link>
-                  <MegaMenu item={item} />
-                </div>
+                <MegaMenuWrapper
+                  key={item.label}
+                  item={item}
+                  isOpen={openMegaMenu === item.label}
+                  onOpen={() => handleMegaOpen(item.label)}
+                  onClose={handleMegaClose}
+                />
               ) : (
                 <Link
                   key={item.label}

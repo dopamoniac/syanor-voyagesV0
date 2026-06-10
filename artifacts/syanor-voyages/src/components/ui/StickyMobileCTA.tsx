@@ -8,6 +8,7 @@ interface StickyMobileCTAProps {
   href: string;
   showAfterPx?: number;
   whatsapp?: boolean;
+  priceLabel?: string;
 }
 
 /** Scroll-triggered sticky bottom CTA bar — mobile only. */
@@ -16,6 +17,7 @@ export default function StickyMobileCTA({
   href,
   showAfterPx = 300,
   whatsapp = true,
+  priceLabel,
 }: StickyMobileCTAProps) {
   const [visible, setVisible] = useState(false);
 
@@ -29,11 +31,17 @@ export default function StickyMobileCTA({
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-syanor-gold/25 bg-syanor-ivory/97 p-3 backdrop-blur-md transition-all duration-300 lg:hidden",
+        "fixed inset-x-0 bottom-0 z-40 border-t border-syanor-gold/25 bg-syanor-ivory/97 px-3 pb-safe-bottom pt-3 backdrop-blur-md transition-all duration-300 lg:hidden",
         visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
       )}
     >
-      <div className={cn("flex gap-2", whatsapp ? "grid-cols-[1fr_auto]" : "")}>
+      {priceLabel && (
+        <p className="mb-1.5 text-center text-xs font-medium text-syanor-ink/60">
+          À partir de{" "}
+          <span className="font-semibold text-syanor-emerald">{priceLabel}</span>
+        </p>
+      )}
+      <div className="flex gap-2">
         <Link href={href} className="btn-primary flex-1 text-center">
           {label}
         </Link>

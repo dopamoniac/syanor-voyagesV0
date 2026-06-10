@@ -95,14 +95,14 @@ const AVION_CONFIG: ActivityConfig = {
       required: true,
     },
     {
-      key: "comfort",
-      label: "Classe",
-      type: "chips",
-      options: ["Économique", "Premium Éco", "Affaires"],
+      key: "dates",
+      label: "Dates souhaitées (ou période)",
+      type: "input",
+      placeholder: "Ex : 15 octobre 2026, ou mi-octobre…",
     },
     {
       key: "travelers",
-      label: "Nombre de voyageurs",
+      label: "Nombre de passagers",
       type: "counter",
     },
   ],
@@ -111,7 +111,7 @@ const AVION_CONFIG: ActivityConfig = {
     if (vals.tripType) p.set("tripType", vals.tripType);
     if (vals.city) p.set("city", vals.city);
     if (vals.destination) p.set("destination", vals.destination);
-    if (vals.comfort) p.set("comfort", vals.comfort);
+    if (vals.dates) p.set("dates", vals.dates);
     if (vals.travelers) p.set("travelers", vals.travelers);
     return `/contact?${p.toString()}#quote`;
   },
@@ -180,36 +180,39 @@ const SEJOUR_CONFIG: ActivityConfig = {
       required: true,
     },
     {
-      key: "comfort",
-      label: "Niveau de confort",
-      type: "chips",
-      options: ["Standard", "Premium", "VIP"],
+      key: "dates",
+      label: "Dates souhaitées",
+      type: "input",
+      placeholder: "Ex : 10 au 20 janvier 2027, ou flexible…",
       required: true,
-    },
-    {
-      key: "transport",
-      label: "Transport",
-      type: "chips",
-      options: ["Avion", "Bateau", "Mixte", "Sur mesure"],
     },
     {
       key: "hotel",
       label: "Hôtel inclus ?",
       type: "chips",
-      options: ["Oui", "Non"],
+      options: ["Oui — standard", "Oui — premium", "Oui — VIP", "Non"],
+      required: true,
     },
     {
-      key: "travelers",
-      label: "Nombre de voyageurs",
-      type: "counter",
+      key: "transfers",
+      label: "Transferts (aéroport, excursions)",
+      type: "chips",
+      options: ["Inclus", "Non inclus", "À la demande"],
+    },
+    {
+      key: "budget",
+      label: "Budget par personne (indicatif)",
+      type: "chips",
+      options: ["< 800 €", "800 – 1 500 €", "1 500 – 3 000 €", "3 000 € +", "Flexible"],
     },
   ],
   buildUrl: (vals) => {
     const p = new URLSearchParams({ service: "Séjour sur mesure" });
     if (vals.destination) p.set("destination", vals.destination);
-    if (vals.comfort) p.set("comfort", vals.comfort);
-    if (vals.transport) p.set("transport", vals.transport);
-    if (vals.travelers) p.set("travelers", vals.travelers);
+    if (vals.dates) p.set("dates", vals.dates);
+    if (vals.hotel) p.set("hotel", vals.hotel);
+    if (vals.transfers) p.set("transfers", vals.transfers);
+    if (vals.budget) p.set("budget", vals.budget);
     return `/contact?${p.toString()}#quote`;
   },
 };

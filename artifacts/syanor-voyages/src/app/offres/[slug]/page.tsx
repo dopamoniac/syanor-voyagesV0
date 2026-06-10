@@ -7,6 +7,7 @@ import IncludedList from "@/components/ui/IncludedList";
 import RoomPriceGrid from "@/components/ui/RoomPriceGrid";
 import RelatedOffers from "@/components/ui/RelatedOffers";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
+import FaqSection from "@/components/sections/FaqSection";
 import { cn, quoteUrl } from "@/lib/utils";
 import { offers, getOfferBySlug, getRelatedOffers } from "@/data/offers";
 import type { AvailabilityStatus } from "@/types";
@@ -51,6 +52,61 @@ function InfoRow({ label, value }: { label: string; value?: string }) {
   );
 }
 
+const OMRA_FAQ = [
+  {
+    question: "Comment se déroule l'inscription pour ce départ ?",
+    answer:
+      "Vous envoyez votre demande via le formulaire ou WhatsApp. Nous revenons vers vous sous 24 h avec les détails de disponibilité, le programme complet et les conditions de réservation.",
+  },
+  {
+    question: "Quels documents sont nécessaires pour l'Omra ?",
+    answer:
+      "Passeport valide au moins 6 mois après le retour, photos d'identité fond blanc, carnet de vaccination à jour (méningite obligatoire). Nous vous guidons dans la constitution de votre dossier visa.",
+  },
+  {
+    question: "Le vol est-il inclus dans le prix ?",
+    answer:
+      "Oui, le vol international aller-retour est inclus dans tous nos packs Omra. L'itinéraire précis (compagnie, escales) est confirmé à la réservation.",
+  },
+  {
+    question: "Puis-je annuler ou modifier ma réservation ?",
+    answer:
+      "Des conditions d'annulation et de modification s'appliquent selon le délai avant départ. Nous vous communiquons le détail lors de votre demande de réservation.",
+  },
+];
+
+const HAJJ_FAQ = [
+  {
+    question: "Comment fonctionne la pré-inscription Hajj ?",
+    answer:
+      "La pré-inscription est sans engagement. Vous réservez votre place dans le contingent, et nous finalisons les détails (quota, programme, tarif) dès confirmation des autorités saoudiennes.",
+  },
+  {
+    question: "Quels documents sont nécessaires pour le Hajj ?",
+    answer:
+      "Passeport valide, photos d'identité fond blanc, carnet de vaccination complet (méningite, fièvre jaune selon pays). Nous accompagnons chaque pèlerin dans le montage de son dossier.",
+  },
+];
+
+const GENERIC_FAQ = [
+  {
+    question: "Comment puis-je réserver cette offre ?",
+    answer:
+      "Cliquez sur le bouton de réservation ou contactez-nous par WhatsApp. Nous confirmons la disponibilité et vous envoyons le programme et les conditions sous 24 h.",
+  },
+  {
+    question: "Puis-je personnaliser cette offre ?",
+    answer:
+      "Oui. Dates, chambre, transport et options supplémentaires sont ajustables. Demandez votre devis sur mesure via le formulaire.",
+  },
+];
+
+function getFaqForOffer(category: string) {
+  if (category === "Omra" || category === "Omra Plus" || category === "Ramadan") return OMRA_FAQ;
+  if (category === "Hajj") return HAJJ_FAQ;
+  return GENERIC_FAQ;
+}
+
 export default function OfferDetailPage({ slug }: { slug: string }) {
   const offer = getOfferBySlug(slug);
   if (!offer) {
@@ -80,6 +136,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
     comfort: offer.comfortLevel,
   });
   const related = getRelatedOffers(offer, 3);
+  const faqItems = getFaqForOffer(offer.category);
 
   return (
     <SiteLayout>
@@ -145,7 +202,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
               href={isComplete ? "/offres" : ctaHref}
               className={cn("btn-primary", isComplete && "pointer-events-none opacity-60")}
             >
-              {isComplete ? "Complet" : "Demander ce départ"}
+              {isComplete ? "Complet" : "Réserver ce départ"}
             </Link>
             <Link href="/offres" className="btn-secondary">
               Toutes les offres
@@ -183,7 +240,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
             </dl>
             {!isComplete && (
               <Link href={ctaHref} className="btn-primary mt-6 w-full">
-                Demander ce départ
+                Réserver ce départ
               </Link>
             )}
           </div>
@@ -280,10 +337,21 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
         </Section>
       )}
 
+      {/* FAQ accordion (offer-specific) */}
+      <FaqSection
+        eyebrow="Questions fréquentes"
+        title={`Questions sur ce départ`}
+        items={faqItems}
+      />
+
       {related.length > 0 && <RelatedOffers offers={related} />}
 
       {!isComplete && (
-        <StickyMobileCTA label="Demander ce départ" href={ctaHref} />
+        <StickyMobileCTA
+          label="Réserver ce départ"
+          href={ctaHref}
+          priceLabel={offer.priceFrom}
+        />
       )}
     </SiteLayout>
   );

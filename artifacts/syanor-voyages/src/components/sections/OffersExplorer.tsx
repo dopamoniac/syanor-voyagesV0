@@ -7,6 +7,22 @@ import OfferFilters, {
 import OffersGrid from "@/components/ui/OffersGrid";
 import { offers } from "@/data/offers";
 
+const ROOM_KEY_MAP: Record<string, keyof NonNullable<(typeof offers)[0]["roomPrices"]>> = {
+  Quadruple: "quad",
+  Triple: "triple",
+  Double: "double",
+  Individuelle: "individual",
+};
+
+function hasFormation(services: string[]): boolean {
+  const lower = services.join(" ").toLowerCase();
+  return lower.includes("formation") || lower.includes("spirituel");
+}
+
+function hasZiyarat(services: string[]): boolean {
+  return services.join(" ").toLowerCase().includes("ziyarat");
+}
+
 export default function OffersExplorer() {
   const [filters, setFilters] = useState<OfferFilterState>(initialFilterState);
 
@@ -31,6 +47,21 @@ export default function OffersExplorer() {
       if (filters.comfort !== "Tous" && offer.comfortLevel !== filters.comfort) return false;
       if (filters.city !== "Toutes" && offer.departureCity !== filters.city) return false;
       if (filters.availability !== "Toutes" && offer.availabilityStatus !== filters.availability) return false;
+
+      // Room type filter
+      if (filters.roomType !== "Tous") {
+        const key = ROOM_KEY_MAP[filters.roomType];
+        if (!key || !offer.roomPrices || !offer.roomPrices[key]) return false;
+      }
+
+      // Formation filter
+      if (filters.formation === "Avec formation" && !hasFormation(offer.includedServices)) return false;
+      if (filters.formation === "Sans formation" && hasFormation(offer.includedServices)) return false;
+
+      // Ziyarat filter
+      if (filters.ziyarat === "Avec Ziyarat" && !hasZiyarat(offer.includedServices)) return false;
+      if (filters.ziyarat === "Sans Ziyarat" && hasZiyarat(offer.includedServices)) return false;
+
       return true;
     });
   }, [filters]);

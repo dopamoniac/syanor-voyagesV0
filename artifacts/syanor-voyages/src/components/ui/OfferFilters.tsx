@@ -10,6 +10,9 @@ export interface OfferFilterState {
   comfort: string;
   city: string;
   availability: string;
+  roomType: string;
+  formation: string;
+  ziyarat: string;
 }
 
 export const initialFilterState: OfferFilterState = {
@@ -20,6 +23,9 @@ export const initialFilterState: OfferFilterState = {
   comfort: "Tous",
   city: "Toutes",
   availability: "Toutes",
+  roomType: "Tous",
+  formation: "Tous",
+  ziyarat: "Tous",
 };
 
 interface OfferFiltersProps {
@@ -52,6 +58,9 @@ const availabilityOptions = [
   "À confirmer",
   "Complet",
 ];
+const roomTypeOptions = ["Tous", "Quadruple", "Triple", "Double", "Individuelle"];
+const formationOptions = ["Tous", "Avec formation", "Sans formation"];
+const ziyaratOptions = ["Tous", "Avec Ziyarat", "Sans Ziyarat"];
 
 function ChipGroup({
   label,
@@ -109,6 +118,9 @@ export default function OfferFilters({
     value.comfort !== "Tous",
     value.city !== "Toutes",
     value.availability !== "Toutes",
+    value.roomType !== "Tous",
+    value.formation !== "Tous",
+    value.ziyarat !== "Tous",
   ].filter(Boolean).length;
 
   function resetAll() {
@@ -117,7 +129,7 @@ export default function OfferFilters({
 
   return (
     <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-pearl/70 p-5 shadow-card">
-      {/* Top row: primary filters + toggle */}
+      {/* Top row: primary filters */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <ChipGroup
           label="Type"
@@ -171,6 +183,30 @@ export default function OfferFilters({
             options={comfortOptions}
             active={value.comfort}
             onSelect={(v) => onChange({ ...value, comfort: v })}
+          />
+          <ChipGroup
+            label="Type de chambre"
+            options={roomTypeOptions}
+            active={value.roomType}
+            onSelect={(v) => onChange({ ...value, roomType: v })}
+          />
+          <ChipGroup
+            label="Formation incluse"
+            options={formationOptions}
+            active={value.formation}
+            onSelect={(v) => onChange({ ...value, formation: v })}
+          />
+          <ChipGroup
+            label="Ziyarat"
+            options={ziyaratOptions}
+            active={value.ziyarat}
+            onSelect={(v) => onChange({ ...value, ziyarat: v })}
+          />
+          <ChipGroup
+            label="Disponibilité (complète)"
+            options={availabilityOptions}
+            active={value.availability}
+            onSelect={(v) => onChange({ ...value, availability: v })}
           />
         </div>
       )}
