@@ -13,12 +13,12 @@ type ServiceKey =
   | "Séjour sur mesure"
   | "Voyage organisé";
 
-const services: { key: ServiceKey; icon: string; label: string }[] = [
-  { key: "Omra", icon: "crescent", label: "Omra & Hajj" },
-  { key: "Billet avion", icon: "airplane", label: "Billet avion" },
-  { key: "Billet bateau", icon: "anchor", label: "Billet bateau" },
-  { key: "Voyage organisé", icon: "route", label: "Voyage organisé" },
-  { key: "Séjour sur mesure", icon: "sparkle", label: "Sur mesure" },
+const services: { key: ServiceKey; icon: string; label: string; shortLabel: string }[] = [
+  { key: "Omra",              icon: "crescent", label: "Omra & Hajj",       shortLabel: "Omra"    },
+  { key: "Billet avion",      icon: "airplane", label: "Billet avion",      shortLabel: "Avion"   },
+  { key: "Billet bateau",     icon: "anchor",   label: "Billet bateau",     shortLabel: "Bateau"  },
+  { key: "Voyage organisé",   icon: "route",    label: "Voyage organisé",   shortLabel: "Voyages" },
+  { key: "Séjour sur mesure", icon: "sparkle",  label: "Sur mesure",        shortLabel: "Mesure"  },
 ];
 
 const COMFORT_OPTIONS = ["Standard", "Premium", "VIP"] as const;
@@ -77,26 +77,28 @@ export default function SmartSearchPanel() {
 
   return (
     <section className="relative z-10 -mt-8 mx-auto max-w-5xl px-4 md:px-8">
-      <div className="rounded-2xl border border-syanor-gold/20 bg-white/96 shadow-card-hover backdrop-blur-sm">
-        {/* Service tabs */}
-        <div className="flex flex-wrap gap-1 border-b border-syanor-gold/15 p-3 sm:p-4">
-          {services.map((s) => (
-            <button
-              key={s.key}
-              type="button"
-              onClick={() => setService(s.key)}
-              className={cn(
-                "flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition-all sm:px-4",
-                service === s.key
-                  ? "bg-syanor-emerald text-syanor-ivory shadow-sm"
-                  : "text-syanor-ink/65 hover:bg-syanor-emerald/8 hover:text-syanor-emerald"
-              )}
-            >
-              <Icon name={s.icon} className="h-3.5 w-3.5" aria-hidden="true" />
-              <span className="hidden sm:inline">{s.label}</span>
-              <span className="sm:hidden">{s.label.split(" ")[0]}</span>
-            </button>
-          ))}
+      <div className="rounded-2xl border border-syanor-gold/20 bg-white/96 shadow-card-hover">
+        {/* Service tabs — horizontal scroll on mobile, wrap on sm+ */}
+        <div className="no-scrollbar overflow-x-auto border-b border-syanor-gold/15">
+          <div className="flex min-w-max gap-1 p-3 sm:min-w-0 sm:flex-wrap sm:p-4">
+            {services.map((s) => (
+              <button
+                key={s.key}
+                type="button"
+                onClick={() => setService(s.key)}
+                className={cn(
+                  "flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2.5 text-sm font-medium transition-all",
+                  service === s.key
+                    ? "bg-syanor-emerald text-syanor-ivory shadow-sm"
+                    : "text-syanor-ink/65 hover:bg-syanor-emerald/8 hover:text-syanor-emerald"
+                )}
+              >
+                <Icon name={s.icon} className="h-3.5 w-3.5" aria-hidden="true" />
+                <span className="hidden sm:inline">{s.label}</span>
+                <span className="sm:hidden">{s.shortLabel}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Main search row */}

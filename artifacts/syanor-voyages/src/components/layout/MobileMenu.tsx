@@ -59,7 +59,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Menu de navigation"
-      className={`fixed inset-0 z-[60] flex flex-col bg-syanor-emerald transition-all duration-300 xl:hidden ${
+      className={`fixed inset-0 z-[60] flex flex-col bg-syanor-emerald transition-all duration-300 lg:hidden ${
         open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
