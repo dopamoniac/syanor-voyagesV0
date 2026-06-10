@@ -142,11 +142,42 @@
     transform: translateY(0);
   }
 
+  /* Smoke / mist puffs */
+  .smoke-a {
+    animation: syanor-smoke-a 11s ease-in-out infinite;
+  }
+  .smoke-b {
+    animation: syanor-smoke-b 14s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+  .smoke-c {
+    animation: syanor-smoke-c 9s ease-in-out infinite;
+    animation-delay: 6s;
+  }
+
   /* FAQ accordion (height driven by inline max-height) */
   .accordion-content {
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
+}
+
+@keyframes syanor-smoke-a {
+  0%   { transform: translate(0,    0)     scale(1);    opacity: 0.18; }
+  40%  { transform: translate(14px, -18px) scale(1.12); opacity: 0.30; }
+  70%  { transform: translate(-8px, -28px) scale(1.18); opacity: 0.22; }
+  100% { transform: translate(0,    0)     scale(1);    opacity: 0.18; }
+}
+@keyframes syanor-smoke-b {
+  0%   { transform: translate(0,    0)     scale(1);    opacity: 0.14; }
+  35%  { transform: translate(-18px,-14px) scale(1.10); opacity: 0.24; }
+  65%  { transform: translate(10px, -22px) scale(1.15); opacity: 0.18; }
+  100% { transform: translate(0,    0)     scale(1);    opacity: 0.14; }
+}
+@keyframes syanor-smoke-c {
+  0%   { transform: translate(0,    0)     scale(1);    opacity: 0.10; }
+  50%  { transform: translate(6px,  -32px) scale(1.20); opacity: 0.20; }
+  100% { transform: translate(0,    0)     scale(1);    opacity: 0.10; }
 }
 
 @keyframes syanor-float {

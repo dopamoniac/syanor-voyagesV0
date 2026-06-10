@@ -25,6 +25,50 @@ export default function Hero() {
         decoding="async"
       />
 
+      {/* ── SMOKE / MIST PUFFS — rising from globe base ── */}
+      <div
+        className="smoke-a pointer-events-none absolute z-10 hidden lg:block"
+        style={{
+          bottom: "18%",
+          left: "54%",
+          width: "340px",
+          height: "160px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(ellipse, rgba(255,249,237,0.82) 0%, rgba(245,232,199,0.45) 45%, transparent 72%)",
+          filter: "blur(28px)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="smoke-b pointer-events-none absolute z-10 hidden lg:block"
+        style={{
+          bottom: "12%",
+          left: "62%",
+          width: "260px",
+          height: "120px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(ellipse, rgba(255,249,237,0.75) 0%, rgba(250,244,232,0.38) 50%, transparent 75%)",
+          filter: "blur(22px)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="smoke-c pointer-events-none absolute z-10 hidden lg:block"
+        style={{
+          bottom: "22%",
+          left: "48%",
+          width: "200px",
+          height: "90px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(ellipse, rgba(255,252,240,0.70) 0%, transparent 70%)",
+          filter: "blur(18px)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Vignette: left text-readability wash */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[65%]"
