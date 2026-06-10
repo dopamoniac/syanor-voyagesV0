@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --syanor-emerald: #063f33;
+  --syanor-royal: #022b24;
+  --syanor-ink: #10231f;
+  --syanor-gold: #c9a24a;
+  --syanor-gold-soft: #d6b15e;
+  --syanor-champagne: #f5e8c7;
+  --syanor-ivory: #fff9ed;
+  --syanor-pearl: #faf4e8;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+body {
+  background-color: var(--syanor-ivory);
+  color: var(--syanor-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+}
+
+@layer components {
+  /* ---- Cards ---- */
+  .card-base {
+    @apply bg-syanor-pearl rounded-2xl border border-syanor-gold/20 shadow-card
+      transition-all duration-300;
+  }
+  .card-base:hover {
+    @apply shadow-card-hover -translate-y-1;
+  }
+  .card-emerald {
+    @apply bg-syanor-emerald rounded-2xl text-syanor-pearl border border-syanor-gold/30;
+  }
+
+  /* ---- Buttons ---- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-syanor-emerald text-syanor-champagne
+      px-8 py-3.5 rounded-full font-medium tracking-wide min-h-[44px]
+      hover:bg-syanor-gold hover:text-syanor-royal transition-all duration-300;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border border-syanor-emerald
+      text-syanor-emerald px-8 py-3.5 rounded-full font-medium tracking-wide min-h-[44px]
+      hover:bg-syanor-emerald hover:text-syanor-ivory transition-all duration-300;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center bg-syanor-gold text-syanor-royal
+      px-8 py-3.5 rounded-full font-semibold tracking-wide min-h-[44px]
+      hover:bg-syanor-gold-soft transition-all duration-300;
+  }
+  .btn-ghost {
+    @apply text-syanor-gold underline-offset-4 hover:underline font-medium;
+  }
+
+  /* ---- Gold divider ---- */
+  .gold-divider {
+    @apply h-px bg-gradient-to-r from-transparent via-syanor-gold/60 to-transparent;
+  }
+
+  /* ---- Section wrapper ---- */
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-syanor-gold;
+  }
+}
+
+/* ---- Float utilities ---- */
+.float {
+  animation: floatAnim 7s ease-in-out infinite;
+}
+.float-delay-1 {
+  animation: floatAnim 7s ease-in-out 1.5s infinite;
+}
+.float-delay-2 {
+  animation: floatAnim 7s ease-in-out 3s infinite;
+}
+@keyframes floatAnim {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* ---- Reveal on scroll ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Orbit / draw ---- */
+.orbit-spin {
+  animation: spin 26s linear infinite;
+  transform-origin: center;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Accordion ---- */
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+/* ---- Hide scrollbar for filter chips ---- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .float-delay-1,
+  .float-delay-2,
+  .orbit-spin {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
