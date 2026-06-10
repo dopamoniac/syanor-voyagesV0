@@ -14,7 +14,7 @@ type CabinClass = "Économique" | "Affaires" | "Première";
 type RoomType = "Quadruple" | "Triple" | "Double" | "Individuelle";
 
 interface FormData {
-  serviceType: ServiceCategory | "";
+  serviceType: ServiceCategory | "Visa" | "";
   /* Step 2 — trip details (per service) */
   departureCity: string;
   destination: string;
@@ -275,7 +275,10 @@ function SmartQuoteFormInner() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          serviceType: data.serviceType === "Visa" ? "Séjour sur mesure" : data.serviceType,
+        }),
       });
       const json = await res.json();
       if (!res.ok || !json.success) throw new Error(json.error || "Erreur inconnue");
@@ -338,12 +341,12 @@ function SmartQuoteFormInner() {
                 key={svc.key}
                 type="button"
                 onClick={() => {
-                  update("serviceType", svc.key === "Visa" ? ("Séjour sur mesure" as ServiceCategory) : (svc.key as ServiceCategory));
+                  update("serviceType", svc.key as ServiceCategory | "Visa");
                   setErrors({});
                 }}
                 className={cn(
                   "flex flex-col items-start rounded-2xl border p-4 text-left transition-all duration-200 hover:-translate-y-0.5",
-                  (data.serviceType === svc.key || (svc.key === "Visa" && data.serviceType === "Séjour sur mesure" && data.message.includes("visa")))
+                  data.serviceType === svc.key
                     ? "border-syanor-gold bg-syanor-gold/5 shadow-sm ring-1 ring-syanor-gold/40"
                     : "border-syanor-gold/20 bg-white hover:border-syanor-gold/40 hover:shadow-sm"
                 )}

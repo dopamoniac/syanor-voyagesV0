@@ -1,66 +1,94 @@
-import Reveal from "@/components/ui/Reveal";
 import { cn } from "@/lib/utils";
+import Link from "@/components/Link";
 
 const steps = [
   {
     num: "01",
     title: "Prise de contact",
-    desc: "Vous nous contactez par formulaire, WhatsApp ou téléphone. Nous répondons sous 24h avec une première proposition.",
+    desc: "Formulaire, WhatsApp ou téléphone. Réponse sous 24h.",
     icon: "💬",
   },
   {
     num: "02",
-    title: "Choix de votre formule",
-    desc: "Essentiel, Premium ou VIP — nous vous guidons vers la formule la mieux adaptée à votre budget et vos attentes.",
+    title: "Choix de formule",
+    desc: "Essentiel, Premium ou VIP selon vos attentes.",
     icon: "⭐",
   },
   {
     num: "03",
     title: "Devis personnalisé",
-    desc: "Nous préparons un devis détaillé avec vol, hébergement, transferts et accompagnement selon vos dates.",
+    desc: "Vol, hôtel, transferts et accompagnement selon vos dates.",
     icon: "📋",
   },
   {
     num: "04",
     title: "Inscription & documents",
-    desc: "Vous confirmez votre place. Nous vous accompagnons pour les documents nécessaires : passeport, vaccinations, visa.",
+    desc: "Passeport, vaccinations, visa — nous vous guidons.",
     icon: "📄",
   },
   {
     num: "05",
     title: "Préparation spirituelle",
-    desc: "Formation pré-départ sur les rites, les lieux et les pratiques. Guides, supports et séances de préparation.",
+    desc: "Formation pré-départ : rites, lieux, pratiques.",
     icon: "🕌",
   },
   {
     num: "06",
     title: "Départ & vol",
-    desc: "Retrouvez votre groupe à l'aéroport. Nous vous accompagnons dès l'enregistrement jusqu'à l'embarquement.",
+    desc: "Accompagnement à l'aéroport jusqu'à l'embarquement.",
     icon: "✈️",
   },
   {
     num: "07",
     title: "Séjour à Médine",
-    desc: "Arrivée à Médine, installation à l'hôtel sélectionné. Prières à la Mosquée du Prophète et Ziyarat accompagnée.",
+    desc: "Mosquée du Prophète ﷺ, Ziyarat et prières guidées.",
     icon: "🌿",
   },
   {
     num: "08",
     title: "Omra à Makkah",
-    desc: "Transfert vers Makkah, mise en état d'ihrâm. Accomplissement de la Omra : tawaf, sa'y et accompagnement spirituel.",
+    desc: "Ihrâm, Tawaf, Sa'y — rites accomplis en toute sérénité.",
     icon: "🕋",
   },
   {
     num: "09",
     title: "Retour & suivi",
-    desc: "Vol retour depuis Djeddah. Debriefing et suivi post-voyage. Nous restons disponibles après votre retour.",
+    desc: "Vol retour, debriefing et accompagnement post-voyage.",
     icon: "🏡",
   },
 ];
 
+const ROW1 = steps.slice(0, 5);
+const ROW2 = steps.slice(5);
+
+function StepNode({
+  step,
+  align = "center",
+}: {
+  step: (typeof steps)[0];
+  align?: "center";
+}) {
+  return (
+    <div className="flex flex-1 flex-col items-center text-center">
+      <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-syanor-gold/40 bg-syanor-royal text-2xl shadow-md">
+        <span aria-hidden="true">{step.icon}</span>
+      </div>
+      <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold">
+        {step.num}
+      </p>
+      <p className="mt-1 px-1 font-playfair text-[0.75rem] leading-snug text-syanor-ivory">
+        {step.title}
+      </p>
+      <p className="mt-0.5 hidden px-1 text-[0.58rem] leading-snug text-syanor-champagne/55 lg:block">
+        {step.desc}
+      </p>
+    </div>
+  );
+}
+
 export default function OmraStepTimeline() {
   return (
-    <section className="section-pad bg-syanor-emerald">
+    <section className="section-pad overflow-hidden bg-syanor-emerald">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Header */}
         <div className="text-center">
@@ -70,42 +98,76 @@ export default function OmraStepTimeline() {
           </h2>
           <div className="mx-auto mt-5 w-24 gold-divider" aria-hidden="true" />
           <p className="mx-auto mt-5 max-w-xl text-base text-syanor-champagne/80">
-            De votre première prise de contact au retour chez vous, SYANOR VOYAGES vous accompagne à chaque étape avec précision et bienveillance.
+            De votre première prise de contact au retour chez vous, SYANOR VOYAGES vous accompagne à chaque étape.
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, i) => (
-            <Reveal key={step.num} delay={i * 60}>
+        {/* ── Desktop: snake route map ── */}
+        <div className="mt-14 hidden md:block" aria-hidden="false">
+          {/* Row 1 → steps 01–05 */}
+          <div className="relative flex items-start">
+            <div className="absolute top-7 left-[5%] right-[5%] h-px bg-gradient-to-r from-transparent via-syanor-gold/40 to-syanor-gold/60" />
+            {ROW1.map((step) => (
+              <StepNode key={step.num} step={step} />
+            ))}
+          </div>
+
+          {/* U-turn connector (right side) */}
+          <div className="my-0 flex justify-end pr-[8%]">
+            <div className="h-10 w-[4%] rounded-br-3xl border-b-2 border-r-2 border-syanor-gold/40" />
+          </div>
+
+          {/* Row 2 → steps 06–09 reversed (06 on far right, 09 on far left) */}
+          <div className="relative flex flex-row-reverse items-start">
+            <div className="absolute top-7 left-[18%] right-[5%] h-px bg-gradient-to-l from-transparent via-syanor-gold/40 to-syanor-gold/60" />
+            {ROW2.map((step) => (
+              <StepNode key={step.num} step={step} />
+            ))}
+            {/* Spacer so row 2 stays right-aligned under rows 1+5 */}
+            <div className="flex-1" />
+          </div>
+        </div>
+
+        {/* ── Mobile: vertical timeline ── */}
+        <div className="mt-10 md:hidden">
+          <div className="relative pl-12">
+            {/* Vertical line */}
+            <div className="absolute left-5 top-5 bottom-5 w-px bg-syanor-gold/25" />
+
+            {steps.map((step, i) => (
               <div
+                key={step.num}
                 className={cn(
-                  "relative rounded-2xl border border-syanor-gold/20 bg-syanor-royal/60 p-6 transition-all duration-300 hover:border-syanor-gold/40 hover:bg-syanor-royal/80",
-                  i === 7 && "md:col-span-2 lg:col-span-1"
+                  "relative mb-6 last:mb-0",
                 )}
               >
-                {/* Step number badge */}
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-syanor-gold/15 font-playfair text-sm font-bold text-syanor-gold">
-                    {step.num}
-                  </span>
-                  <span className="text-2xl" aria-hidden="true">
-                    {step.icon}
-                  </span>
+                {/* Dot */}
+                <div className="absolute -left-12 flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/40 bg-syanor-royal text-lg">
+                  <span aria-hidden="true">{step.icon}</span>
                 </div>
 
-                <h3 className="font-playfair text-lg text-syanor-ivory">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-syanor-champagne/75">{step.desc}</p>
+                {/* Content */}
+                <div>
+                  <p className="text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold">
+                    {step.num}
+                  </p>
+                  <p className="mt-0.5 font-playfair text-sm text-syanor-ivory">
+                    {step.title}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-syanor-champagne/70">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
-            </Reveal>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-14 text-center">
-          <a href="/contact#quote" className="btn-primary">
+          <Link href="/contact#quote" className="btn-primary">
             Commencer mon Omra
-          </a>
+          </Link>
           <p className="mt-4 text-sm text-syanor-champagne/55">
             Réponse garantie sous 24h · Accompagnement du premier contact au retour
           </p>

@@ -1,11 +1,13 @@
 
 import { useMemo, useState } from "react";
+import { useSearch } from "wouter";
 import OfferFilters, {
   type OfferFilterState,
   initialFilterState,
 } from "@/components/ui/OfferFilters";
 import OffersGrid from "@/components/ui/OffersGrid";
 import { offers } from "@/data/offers";
+import { departureCities } from "@/data/cities";
 
 const ROOM_KEY_MAP: Record<string, keyof NonNullable<(typeof offers)[0]["roomPrices"]>> = {
   Quadruple: "quad",
@@ -23,8 +25,34 @@ function hasZiyarat(services: string[]): boolean {
   return services.join(" ").toLowerCase().includes("ziyarat");
 }
 
+function initFiltersFromUrl(search: string): OfferFilterState {
+  const sp = new URLSearchParams(search);
+  const service = sp.get("service");
+  const citySlug = sp.get("city");
+  const month = sp.get("month");
+  const comfort = sp.get("comfort");
+  const transport = sp.get("transport");
+
+  // Map city slug → full city name as stored in offers
+  const cityName = citySlug
+    ? (departureCities.find((c) => c.slug === citySlug)?.name ?? null)
+    : null;
+
+  return {
+    ...initialFilterState,
+    type: service || initialFilterState.type,
+    city: cityName || initialFilterState.city,
+    month: month || initialFilterState.month,
+    comfort: comfort || initialFilterState.comfort,
+    transport: transport || initialFilterState.transport,
+  };
+}
+
 export default function OffersExplorer() {
-  const [filters, setFilters] = useState<OfferFilterState>(initialFilterState);
+  const search = useSearch();
+  const [filters, setFilters] = useState<OfferFilterState>(() =>
+    initFiltersFromUrl(search)
+  );
 
   const cityOptions = useMemo(() => {
     const set = new Set<string>();

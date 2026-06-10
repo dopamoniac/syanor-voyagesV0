@@ -8,6 +8,7 @@ import {
   FormationPreview,
   CustomStaysPreview,
 } from "@/components/sections/HomePreviews";
+import ServicesGrid from "@/components/sections/ServicesGrid";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Testimonials from "@/components/sections/Testimonials";
 import FaqSection from "@/components/sections/FaqSection";
@@ -32,8 +33,8 @@ export default function Home() {
       {/* Next Omra departures strip */}
       <NextDepartures />
 
-      {/* Services overview */}
-      <ServicesPreview />
+      {/* Services overview — 14 activities in 4 groups */}
+      <ServicesGrid />
 
       {/* Featured offers */}
       <OffersPreview />
