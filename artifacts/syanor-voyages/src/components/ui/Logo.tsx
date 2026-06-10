@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -38,12 +37,12 @@ export default function Logo({ variant = "full", className }: LogoProps) {
     <img
       src="/brand/syanor-logo.png"
       alt="SYANOR VOYAGES"
-      width={200}
-      height={100}
+      width={600}
+      height={225}
       onError={() => setImgError(true)}
       className={cn(
-        "h-auto w-auto max-w-[140px] md:max-w-[170px] lg:max-w-[200px] object-contain",
-        variant === "light" && "brightness-0 invert-0",
+        "h-auto w-auto max-w-[130px] sm:max-w-[160px] lg:max-w-[200px] object-contain",
+        variant === "light" && "brightness-0 invert",
         className
       )}
     />

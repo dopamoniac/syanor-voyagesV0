@@ -1,4 +1,5 @@
 import Link from "@/components/Link";
+import Logo from "@/components/ui/Logo";
 import { CONTACT, footerServices } from "@/data/navigation";
 
 const legalLinks = [
@@ -14,10 +15,10 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="font-playfair text-2xl font-bold text-syanor-ivory">
-              SYANOR <span className="text-syanor-gold">VOYAGES</span>
-            </p>
-            <p className="mt-2 font-inter text-sm italic text-syanor-gold-soft">
+            <Link href="/" aria-label="SYANOR VOYAGES — Accueil">
+              <Logo variant="light" className="max-w-[160px]" />
+            </Link>
+            <p className="mt-3 font-inter text-sm italic text-syanor-gold-soft">
               La Renaissance du Voyage
             </p>
             <p className="mt-4 text-sm leading-relaxed text-syanor-pearl/70">

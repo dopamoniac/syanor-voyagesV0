@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import Link from "@/components/Link";
+import Logo from "@/components/ui/Logo";
 import { mainNav } from "@/data/navigation";
 
 interface MobileMenuProps {
@@ -32,10 +33,10 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
       }`}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-6 py-5">
-        <span className="font-playfair text-xl font-bold text-syanor-ivory">
-          SYANOR <span className="text-syanor-gold">VOYAGES</span>
-        </span>
+      <div className="flex items-center justify-between px-6 py-4">
+        <Link href="/" onClick={onClose} aria-label="SYANOR VOYAGES — Accueil">
+          <Logo variant="light" className="max-w-[140px]" />
+        </Link>
         <button
           type="button"
           onClick={onClose}
