@@ -21,6 +21,7 @@ const services: { key: ServiceKey; icon: string; label: string }[] = [
 ];
 
 const COMFORT_OPTIONS = ["Standard", "Premium", "VIP"] as const;
+const BUDGET_OPTIONS = ["< 1 000 €", "1 000–1 500 €", "1 500–2 500 €", "2 500–4 000 €", "> 4 000 €"] as const;
 
 /** Returns true if at least one offer matches the given filters */
 function hasMatchingOffers(service: string, city: string, month: string): boolean {
@@ -48,6 +49,7 @@ export default function SmartSearchPanel() {
   const [departureDate, setDepartureDate] = useState("");
   const [travelers, setTravelers] = useState(1);
   const [comfort, setComfort] = useState<(typeof COMFORT_OPTIONS)[number] | "">("");
+  const [budget, setBudget] = useState<(typeof BUDGET_OPTIONS)[number] | "">("");
   const [expanded, setExpanded] = useState(false);
 
   function handleSearch() {
@@ -59,6 +61,7 @@ export default function SmartSearchPanel() {
     if (departureDate) sp.set("departureDate", departureDate);
     if (travelers > 1) sp.set("travelers", String(travelers));
     if (comfort) sp.set("comfort", comfort);
+    if (budget) sp.set("budget", budget);
 
     // Route to /offres if matching offers exist, otherwise prefill /contact#quote
     if (hasMatchingOffers(service, city, month)) {
@@ -167,7 +170,7 @@ export default function SmartSearchPanel() {
             onClick={() => setExpanded((v) => !v)}
             className="text-xs font-medium text-syanor-emerald/70 hover:text-syanor-emerald flex items-center gap-1"
           >
-            {expanded ? "Moins de critères ▲" : "Plus de critères (dates, voyageurs, confort) ▼"}
+            {expanded ? "Moins de critères ▲" : "Plus de critères (dates, voyageurs, confort, budget) ▼"}
           </button>
 
           {expanded && (
@@ -216,7 +219,7 @@ export default function SmartSearchPanel() {
                 <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
                   Confort
                 </label>
-                <div className="flex gap-1.5">
+                <div className="flex flex-wrap gap-1.5">
                   {COMFORT_OPTIONS.map((c) => (
                     <button
                       key={c}
@@ -230,6 +233,30 @@ export default function SmartSearchPanel() {
                       )}
                     >
                       {c}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Budget range */}
+              <div className="sm:col-span-2 lg:col-span-4">
+                <label className="mb-1.5 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
+                  Budget indicatif (par personne)
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {BUDGET_OPTIONS.map((b) => (
+                    <button
+                      key={b}
+                      type="button"
+                      onClick={() => setBudget(budget === b ? "" : b)}
+                      className={cn(
+                        "rounded-full border px-4 py-2 text-xs font-medium transition",
+                        budget === b
+                          ? "border-syanor-emerald bg-syanor-emerald text-syanor-ivory"
+                          : "border-syanor-gold/25 bg-white text-syanor-ink/65 hover:border-syanor-gold"
+                      )}
+                    >
+                      {b}
                     </button>
                   ))}
                 </div>

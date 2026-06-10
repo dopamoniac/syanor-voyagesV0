@@ -88,7 +88,7 @@ export default function Home() {
       <Testimonials />
 
       {/* FAQ */}
-      <FaqSection items={faq.slice(0, 5)} moreHref="/contact#faq" />
+      <FaqSection items={faq.slice(0, 5)} moreHref="/faq" />
 
       {/* Contact cards */}
       <ContactCards />

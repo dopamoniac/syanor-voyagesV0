@@ -275,10 +275,7 @@ function SmartQuoteFormInner() {
       const res = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          serviceType: data.serviceType === "Visa" ? "Séjour sur mesure" : data.serviceType,
-        }),
+        body: JSON.stringify(data),
       });
       const json = await res.json();
       if (!res.ok || !json.success) throw new Error(json.error || "Erreur inconnue");

@@ -4,13 +4,24 @@ import { quoteUrl } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 
 const MONTH_ORDER: Record<string, number> = {
-  "Jan": 0, "Fév": 1, "Mar": 2, "Avr": 3, "Mai": 4, "Juin": 5,
-  "Juil": 6, "Août": 7, "Sep": 8, "Oct": 9, "Nov": 10, "Déc": 11,
+  Jan: 0,
+  "Fév": 1, "Feb": 1,
+  Mar: 2,
+  "Avr": 3, "Apr": 3,
+  Mai: 4,
+  Juin: 5, Jun: 5,
+  Juil: 6, Jul: 6,
+  "Août": 7, "Aou": 7, Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  "Déc": 11, "Dec": 11,
 };
 
 function parseDepartureDate(dateStr: string): number {
   if (!dateStr) return Infinity;
-  const m = dateStr.match(/^(\d{1,2})\s+(\w+)\.\s+(\d{4})/);
+  // [A-Za-z\u00C0-\u00FF]+ matches accented French abbreviations: Fév, Déc, Août, Avr…
+  const m = dateStr.match(/^(\d{1,2})\s+([A-Za-z\u00C0-\u00FF]+)\.?\s+(\d{4})/);
   if (!m) return Infinity;
   const [, day, mon, year] = m;
   const month = MONTH_ORDER[mon] ?? 0;
