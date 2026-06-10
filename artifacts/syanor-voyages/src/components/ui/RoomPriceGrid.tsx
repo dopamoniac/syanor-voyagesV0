@@ -58,7 +58,11 @@ export default function RoomPriceGrid({ prices, ctaBaseHref, offerTitle }: RoomP
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {ROOMS.map((room) => {
           const price = prices?.[room.key];
-          const ctaHref = `${ctaBaseHref}${ctaBaseHref.includes("?") ? "&" : "?"}roomType=${encodeURIComponent(room.label)}#quote`;
+          // Strip any existing fragment from the base URL before appending roomType,
+          // then re-add the #quote fragment so the param stays in the query string.
+          const baseWithoutHash = ctaBaseHref.split("#")[0];
+          const sep = baseWithoutHash.includes("?") ? "&" : "?";
+          const ctaHref = `${baseWithoutHash}${sep}roomType=${encodeURIComponent(room.label)}#quote`;
           return (
             <div
               key={room.key}

@@ -145,7 +145,7 @@ export default function OfferFilters({
         />
         <ChipGroup
           label="Ville de départ"
-          options={["Toutes", ...cityOptions.slice(0, 4)]}
+          options={["Toutes", ...cityOptions]}
           active={value.city}
           onSelect={(v) => onChange({ ...value, city: v })}
         />
