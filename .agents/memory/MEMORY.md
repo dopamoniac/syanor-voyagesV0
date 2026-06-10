@@ -1,0 +1,1 @@
+- [Next.js->Vite migration](nextjs-to-vite-migration.md) — conversion map (next/link->wouter Link shim, useSearchParams->useSearch, App Router->routes, globals->Tailwind v4 @theme, API->Express) and gotchas.
