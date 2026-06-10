@@ -198,7 +198,6 @@ export default function ServicesGrid() {
         <SectionHeader
           eyebrow="Nos services"
           title="Tout ce dont vous avez besoin pour voyager."
-          subtitle="14 services organisés en 4 pôles — billets, voyages spirituels, sur mesure et assistance — pour couvrir chaque projet de voyage."
         />
 
         <div className="mt-12 space-y-10">
