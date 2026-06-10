@@ -1,0 +1,473 @@
+Upgrade SYANOR VOYAGES into a world-class travel choice platform, not just a travel agency website.
+
+The client must find choices everywhere.
+
+The user experience must feel closer to Booking / Airbnb / premium concierge platforms:
+
+* Easy to explore
+* Easy to compare
+* Easy to filter
+* Easy to choose a pack
+* Easy to request a personalized quote
+* Smart forms that adapt to the selected activity
+* Clear options, prices/status, dates, routes, comfort levels, included services
+* Mobile-first and premium
+
+Do not copy Booking or Airbnb design.
+Use them only as UX inspiration:
+
+* Smart search
+* Filters
+* Cards
+* Details pages
+* Selection flow
+* Clear choices
+* Trust signals
+* Fast decision-making
+
+BRAND:
+SYANOR VOYAGES
+
+GOAL:
+Make the website feel like a luxury travel platform where the client can explore every activity and choose the pack or service that fits them.
+
+SYANOR ACTIVITIES TO SUPPORT:
+
+* Billets avion
+* Billets bateau / ferry
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Hôtels
+* Transferts
+* Visas
+* Ziyarat
+* Formation / préparation avant départ
+* Accompagnement spirituel
+* Assistance complète
+
+CORE UX REQUIREMENT:
+For every activity, the client must have choices.
+
+Examples:
+For Omra:
+
+* Month
+* Departure city
+* Dates
+* Duration
+* Comfort level
+* Room type: Quad / Triple / Double / Individuelle
+* Standard / Premium / VIP
+* Formation included or not
+* Ziyarat included or not
+* Visa assistance
+* Hotel level
+* Transfer included
+* Departure route
+* Return route
+
+For Billets Avion:
+
+* One-way / round-trip
+* Departure city
+* Destination
+* Date
+* Return date
+* Number of passengers
+* Cabin preference
+* Flexible dates
+* Assistance level
+
+For Billets Bateau:
+
+* One-way / round-trip
+* Departure port
+* Destination port
+* Date
+* Passengers
+* Vehicle option
+* Cabin option
+* Assistance documents
+
+For Séjours sur mesure:
+
+* Destination
+* Dates
+* Travelers
+* Hotel level
+* Transport
+* Transfers
+* Budget range
+* Experience type
+* Premium / VIP option
+
+For Voyages organisés:
+
+* Destination
+* Theme
+* Group / family / couple
+* Dates
+* Duration
+* Comfort level
+* Included services
+
+For Hajj:
+
+* Pre-registration
+* Administrative support
+* Formation
+* Comfort level
+* Hotel preference
+* Visa assistance
+* Group/family
+* Support level
+
+NEW SYSTEM TO BUILD:
+Create a “Travel Choice Engine” across the website.
+
+1. Smart Search / Choice Panel
+
+Add a premium search panel on the homepage and key pages.
+
+Title:
+“Construisez votre voyage en quelques choix.”
+
+Fields:
+
+* Type de voyage
+* Ville de départ
+* Destination
+* Dates
+* Nombre de voyageurs
+* Niveau de confort
+* Budget indicatif
+
+Service choices:
+
+* Billet avion
+* Billet bateau
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Voyage organisé
+* Séjour sur mesure
+* Pack Premium / VIP
+* Visa
+
+CTA:
+“Voir les options”
+
+Behavior:
+
+* The search panel filters offers when possible.
+* If no exact offer exists, it routes to the smart quote form with selected values prefilled.
+* On mobile, this must feel like a premium app search module.
+
+2. Package Comparison System
+
+Create comparison cards for packs.
+
+For Omra and Hajj:
+Create 3 formula cards:
+
+* Essentiel
+* Premium
+* VIP
+
+Each card shows:
+
+* Who it is for
+* Included services
+* Hotel level
+* Transfer support
+* Formation
+* Ziyarat
+* Assistance level
+* Room options
+* Price label: Sur demande
+* CTA: Choisir cette formule
+
+For Billets:
+Create formula cards:
+
+* Simple
+* Flexible
+* Assistance Premium
+
+For Séjours sur mesure:
+Create formula cards:
+
+* Découverte
+* Premium
+* Signature VIP
+
+The client must understand the difference between packs quickly.
+
+3. Activity-Specific Configurators
+
+Each activity page must have its own mini configurator.
+
+Example:
+Omra Configurator:
+Step 1: Choisir le mois
+Step 2: Choisir la ville de départ
+Step 3: Choisir la formule
+Step 4: Choisir la chambre
+Step 5: Demander le devis
+
+Billet Avion Configurator:
+Step 1: Aller simple ou aller-retour
+Step 2: Ville de départ
+Step 3: Destination
+Step 4: Dates
+Step 5: Nombre de passagers
+
+Billet Bateau Configurator:
+Step 1: Aller simple ou aller-retour
+Step 2: Port de départ
+Step 3: Destination
+Step 4: Véhicule ou sans véhicule
+Step 5: Cabine ou siège
+
+Séjour sur Mesure Configurator:
+Step 1: Destination
+Step 2: Dates
+Step 3: Niveau hôtel
+Step 4: Transferts
+Step 5: Budget
+
+Each configurator must connect to the smart quote form.
+
+4. Smart Quote Form Upgrade
+
+The quote form must become a real 4-step intelligent funnel.
+
+Step 1:
+Choisissez votre service
+Use beautiful cards with icons:
+
+* Billet avion
+* Billet bateau
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Voyage organisé
+* Séjour sur mesure
+* Pack Premium / VIP
+* Visa
+
+Step 2:
+Détails du voyage
+Show dynamic fields depending on service.
+
+Step 3:
+Options & confort
+Show dynamic options:
+
+* Comfort level
+* Room type
+* Hotel level
+* Formation
+* Ziyarat
+* Visa assistance
+* Transfers
+* Vehicle option for ferry
+* Budget range
+
+Step 4:
+Coordonnées
+
+* Name
+* Phone
+* Email
+* Preferred contact method: Phone / WhatsApp / Email
+* Message
+
+The form must:
+
+* Show progress
+* Validate each step
+* Be mobile-perfect
+* Prefill from all CTAs
+* Prefill from offer cards
+* Prefill from configurators
+* Submit to /api/quote
+* Have success state with WhatsApp CTA
+* Be ready for Vercel deployment
+
+5. Offer Cards Must Help Clients Choose
+
+Upgrade offer cards so the client understands choices immediately.
+
+Each offer card must show:
+
+* Category
+* Month
+* Departure date
+* Return date
+* Duration
+* Departure city
+* Route
+* Included services
+* Comfort level
+* Room options if relevant
+* Availability
+* Price label
+* CTA “Voir détails”
+* CTA “Choisir ce départ”
+
+Add quick chips:
+
+* Formation incluse
+* Ziyarat
+* Transferts
+* Hôtels sélectionnés
+* Visa assistance
+* Premium / VIP
+
+6. Offer Detail Pages Must Feel Like Booking Pages
+
+Each offer detail page must include:
+
+* Large premium hero
+* Dates
+* Route
+* Duration
+* Departure city
+* Return city
+* Hotel section
+* Room choices: Quad / Triple / Double / Individuelle
+* What is included
+* What is not included
+* Program timeline
+* Documents needed
+* FAQ
+* Related offers
+* Sticky mobile CTA
+* Smart quote form prefilled with the selected offer
+
+The user must feel:
+“I know exactly what this pack includes and I can choose it easily.”
+
+7. Filters Everywhere
+
+Add filters to /offres:
+
+* Service type
+* Year
+* Month
+* Departure city
+* Comfort level
+* Room type
+* Transport
+* Availability
+* Formation included
+* Ziyarat included
+* Budget/status
+
+Mobile:
+Filters become beautiful horizontal chips and collapsible panels.
+
+8. Homepage Must Show Choices
+
+Add homepage sections:
+
+* Smart search panel
+* Prochains départs
+* Choisissez votre formule
+* Omra par mois
+* Départs par ville
+* Services by activity
+* Compare packs: Essentiel / Premium / VIP
+* Séjours sur mesure configurator preview
+* Smart quote CTA
+
+The homepage must not only explain.
+It must let the client choose.
+
+9. Visual Quality
+
+Keep the website luxury light mode:
+
+* Ivory
+* Pearl
+* Champagne
+* Emerald
+* Gold
+
+Make the design feel world-class:
+
+* Beautiful cards
+* Clean filters
+* Premium chips
+* Route lines
+* Gold badges
+* Soft shadows
+* Cinematic images
+* App-like mobile sections
+* Clear comparison tables
+* Smooth transitions
+* No clutter
+
+10. Mobile Experience
+
+Mobile must feel like a premium app.
+
+Requirements:
+
+* Search panel easy to use
+* Service choice cards tappable
+* Filters simple
+* Offer cards readable
+* Comparison cards swipeable if needed
+* Quote form step-by-step
+* Sticky CTA
+* WhatsApp button
+* No horizontal overflow
+* No tiny text
+* No huge tiring forms
+* Smooth flow from choosing to quote request
+
+11. Client Journey
+
+The client journey must be:
+
+A. I arrive on the website.
+B. I understand SYANOR offers many travel services.
+C. I choose what I need.
+D. I see available options/packs.
+E. I compare formulas.
+F. I select a date or package.
+G. The form is already prefilled.
+H. I send my request easily.
+I. I feel supported and confident.
+
+12. Final Quality Check
+
+Before finishing:
+
+* Every activity has choices.
+* Omra has dates, months, city departures, room options, comfort levels.
+* Billets avion has flight request options.
+* Billets bateau has ferry request options.
+* Séjours sur mesure has configurator options.
+* Packs Premium / VIP are visible.
+* The quote form is smart and dynamic.
+* Offer cards are choice-oriented.
+* Mobile is excellent.
+* Design stays light luxury.
+* Site is Vercel-ready.
+* Build passes.
+* No fake official prices.
+* No SIYAJJ/SIYAAJJ remains.
+
+Implement this directly.
+Do not just explain.
+Make SYANOR feel like a luxury Booking/Airbnb-style travel choice platform, but original, elegant, premium, and built around SYANOR’s activities.

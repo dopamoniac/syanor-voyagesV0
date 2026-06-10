@@ -1,0 +1,76 @@
+The plan is good, but before implementation, fix the execution strategy.
+
+I want this upgrade executed in the correct order:
+
+1. SEO Content Architecture & Data Foundation first
+
+* Build/update offers.ts with the 14 real Omra dates.
+* Create months.ts, cities.ts, blog.ts, faq data.
+* Create all month pages, city pages, visas, FAQ, blog, Hajj 2027, legal pages.
+* Each page must have real premium content, SEO metadata, breadcrumbs, internal links, CTAs, and mobile layout.
+* Do not create empty wrapper pages.
+
+2. Mega Navigation & Offer Card System second
+
+* Build the premium mega menus only after routes/data exist.
+* Upgrade OfferCard, RoomPriceGrid, OfferFilters, StickyMobileCTA, Offer detail page modules.
+* Make the navigation reflect the real page architecture.
+* Desktop mega menu and mobile app-like menu must be premium, accessible, and polished.
+
+3. Homepage Depth & Smart Quote Form third
+
+* After routes/data/components exist, upgrade the homepage into a premium gateway.
+* Add next departures, Omra 2026/2027 preview, city departures, Omra step timeline, trust, testimonials, FAQ preview, and bottom CTA.
+* Build the 4-step smart quote form with URL prefill, service preselection, offer preselection, validation, and success state.
+
+Important technical clarification:
+Check the actual stack before coding.
+If the project uses Next.js App Router, use src/app routes and do not rely on wouter/main.tsx.
+If the project uses Vite/React with Wouter, then do not create Next.js app routes.
+Do not mix both architectures.
+Choose the correct routing system based on the existing project.
+
+Quality requirements:
+This must not become just a large website with many average pages.
+Every new page must feel premium:
+
+* Light luxury theme
+* Ivory/pearl/champagne background
+* Emerald/gold accents
+* Premium hero
+* Breadcrumbs
+* Strong H1/H2 structure
+* Rich content sections
+* Related offers
+* FAQ
+* CTA
+* Mobile sticky CTA where useful
+* Elegant cards and visual hierarchy
+* No generic template look
+
+Mobile requirements:
+Mobile must be treated as a premium app:
+
+* No horizontal scroll
+* App-like menu
+* Readable offer cards
+* Month chips and filters usable by thumb
+* Sticky CTA on offer/service pages
+* Smart quote form with step-by-step flow
+* No cramped sections
+
+Data accuracy:
+Use the 14 provided Omra dates exactly.
+Do not invent official prices.
+Use “Sur demande”, “À confirmer”, or “Prix indicatif” where needed.
+Room prices should show “Sur demande” unless real prices are provided.
+
+Deployment:
+Keep the project Vercel-ready.
+Avoid Cloudflare-only assumptions.
+Run build/typecheck/lint if available.
+Fix all errors before final response.
+
+Final expectation:
+The result must feel like a real premium travel platform, not a landing page with many extra routes.
+SYANOR must surpass pelerinhajj.com in design, mobile UX, clarity, reservation flow, and premium feeling while using pelerinhajj.com only as a structural/business-depth benchmark, not as a visual clone.

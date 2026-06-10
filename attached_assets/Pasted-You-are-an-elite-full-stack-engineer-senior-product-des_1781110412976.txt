@@ -1,0 +1,1167 @@
+You are an elite full-stack engineer, senior product designer, award-level UI/UX designer, luxury brand strategist, SEO architect, conversion specialist, and travel-platform product architect.
+
+MISSION:
+Upgrade SYANOR VOYAGES into a full world-class premium travel platform inspired by the business depth of pelerinhajj.com, but redesigned from scratch with a more premium, lighter, more modern, more luxury, more mobile-first identity.
+
+IMPORTANT:
+Do not clone pelerinhajj.com.
+Do not copy their design, text, images, icons, branding, colors, or code.
+Use it only as an A-to-Z architecture, business logic, UX, offer system, SEO, and funnel benchmark.
+
+SYANOR VOYAGES must become:
+
+* More premium
+* More modern
+* More luxury
+* More structured
+* More complete
+* More mobile-friendly
+* More visually cinematic
+* More conversion-focused
+* More commercial
+* Ready for Vercel deployment
+
+BRAND:
+SYANOR VOYAGES
+
+TAGLINE:
+La Renaissance du Voyage
+
+OLD BRAND:
+Never use SIYAJJ or SIYAAJJ anywhere.
+
+STYLE:
+Luxury light mode.
+
+Use:
+
+* Ivory
+* Pearl
+* Champagne
+* Warm white
+* Emerald green
+* Metallic gold
+* Soft shadows
+* Editorial spacing
+* Premium imagery
+* Elegant cards
+* Refined route lines
+* 3D travel visuals
+
+Avoid:
+
+* Dark-heavy website
+* Generic landing page
+* Cheap template
+* Flat boring layout
+* Random image collage
+* Overloaded gold
+* Basic Omra website look
+
+The website must feel like a real premium travel agency platform, not just a homepage.
+
+REFERENCE WEBSITE SCAN:
+Use pelerinhajj.com as deep benchmark for system logic.
+
+A-to-Z benchmark findings to reproduce as original SYANOR logic:
+
+1. Navigation depth
+   PelerinHajj has a strong menu with:
+
+* Accueil
+* Omra 2026
+* Omra by city
+* Omra by month
+* Specific dated Omra departures
+* Hajj 2027
+* Visas
+* Blog
+* FAQ
+* Contact
+* Phone CTA
+
+SYANOR must have this depth, but more premium and broader.
+
+2. Omra month system
+   PelerinHajj groups Omra by months:
+
+* Juin
+* Juillet
+* Août
+* Septembre
+* Octobre
+* Novembre
+* Décembre
+* Janvier
+
+SYANOR must build:
+
+* Omra 2026 hub
+* Omra 2027 hub
+* Month pages
+* Date cards
+* Offer detail pages
+* Reservation CTAs
+
+3. City departure system
+   PelerinHajj has city-specific departure pages:
+
+* Lyon
+* Marseille
+* Toulouse
+* Bruxelles
+
+SYANOR must create stronger city departure pages:
+
+* Nice
+* Marseille
+* Lyon
+* Paris
+* Toulouse
+* Bruxelles
+
+Nice and Marseille are priority because SYANOR Omra route includes:
+Nice / Marseille → Médine
+Return:
+Jeddah → Nice / Marseille
+
+4. Package card logic
+   PelerinHajj offer cards show:
+
+* Departure title
+* Airline company
+* Prices by room type:
+  QUAD
+  TRIPLE
+  DOUBLE
+  INDIVIDUELLE
+* Hotel nights:
+  Médine hotel
+  Makkah hotel
+* Availability status
+* Discover CTA
+* Images
+
+SYANOR must build a more luxury version:
+
+* Premium package cards
+* Gold date badges
+* Room formula pricing
+* Hotel level
+* Route visualization
+* Included services
+* Availability
+* CTA “Voir détails”
+* CTA “Réserver ce départ”
+
+5. Offer detail logic
+   PelerinHajj detail pages include:
+
+* Package title
+* Departure details
+* Airline
+* Hotel details
+* Room price options
+* Options
+* Documents required
+* Included services
+* Payment methods
+* Reservation CTA
+* Religious/spiritual explanatory content
+* Related images
+* FAQ
+
+SYANOR must create full offer detail pages with a cleaner, more premium UX.
+
+6. Omra journey logic
+   PelerinHajj explains the Omra journey step by step:
+
+* Départ vers Médine
+* Arrivée à Médine
+* Visites de Médine
+* Préparation à la Omra
+* Départ vers La Mecque
+* Accomplissement de la Omra
+* Visites de La Mecque
+* Séjour à La Mecque
+* Retour en France
+
+SYANOR must create an elegant “Votre Omra étape par étape” section using premium timeline design.
+
+7. Trust logic
+   PelerinHajj uses:
+
+* Agency experience
+* APST / Atout France style trust positioning
+* Guides
+* Accompaniment
+* Airlines/partners
+* Reviews
+* Contact and WhatsApp
+
+SYANOR must create a stronger trust layer:
+
+* Agence premium
+* Accompagnement humain
+* Formation avant départ
+* Assistance logistique
+* Assistance administrative
+* Hôtels sélectionnés
+* Transferts
+* Ziyarat
+* Support avant, pendant et après
+* Partner/airline strip placeholders
+* Testimonial cards
+* Safety and clarity notes
+
+Do not claim official accreditation unless data is provided.
+
+8. Visa page logic
+   PelerinHajj has a dedicated visa page explaining visa support and document complexity.
+
+SYANOR must create:
+
+* /visas
+* Visa assistance content
+* Documents guidance
+* Process
+* FAQ
+* CTA to quote
+
+9. Blog and SEO logic
+   PelerinHajj has a blog with preparation and spiritual/travel content.
+
+SYANOR must create:
+
+* /blog
+* Article cards
+* Preparation guides
+* SEO internal links
+* 4 to 6 starter articles
+
+10. FAQ logic
+    PelerinHajj has a full FAQ page covering Omra/Hajj preparation, formalities, travel, accommodation, transport, rites, and accompaniment.
+
+SYANOR must create:
+
+* Global FAQ page
+* FAQ per service page
+* FAQ per offer detail page when relevant
+
+11. Contact funnel
+    PelerinHajj uses contact, phone, social, WhatsApp, callback logic.
+
+SYANOR must build a smarter luxury contact funnel:
+
+* Multi-step quote form
+* Service preselection
+* Selected offer prefill
+* WhatsApp CTA
+* Phone CTA
+* Email CTA
+* Callback option
+* Mobile sticky CTA
+
+SYANOR SCOPE:
+SYANOR is broader than PelerinHajj.
+
+SYANOR offers:
+
+* Billets Avion
+* Billets Bateau / Ferry
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Voyages Organisés
+* Séjours Sur Mesure
+* Packs Premium / VIP
+* Hôtels
+* Transferts
+* Visas
+* Ziyarat
+* Formation / préparation avant départ
+* Accompagnement spirituel
+* Assistance complète avant, pendant et après le voyage
+
+The website must show that SYANOR is not only Omra/Hajj.
+
+TECH TARGET:
+Prepare for Vercel deployment.
+
+Use:
+
+* Next.js App Router
+* TypeScript
+* Tailwind CSS
+* next/image
+* API route /api/quote
+* Reusable components
+* Typed data files
+* SEO metadata per page
+* Server-compatible logic for Vercel
+* No Cloudflare-specific assumptions
+
+Run:
+
+* npm run build
+* TypeScript check
+* lint if available
+
+Fix all errors before final response.
+
+LOGO:
+Use the new uploaded official SYANOR logo.
+
+Critical:
+
+* Remove visible logo background.
+* Use transparent PNG/WebP.
+* No white rectangle.
+* No pasted image feeling.
+* Navbar logo must be clean, sharp, premium.
+* Footer logo updated too.
+* Mobile logo must be perfectly sized.
+
+If transparency is bad:
+Use premium text-logo fallback in navbar:
+SYANOR in elegant serif
+VOYAGES smaller with letter spacing
+
+HERO IMAGE:
+Use the uploaded cinematic travel image as the homepage hero visual.
+
+Do not just paste the image.
+Art-direct it:
+
+* Right-side premium cinematic visual
+* Masked image container
+* Soft ivory fade
+* Route line overlay
+* Floating service labels
+* Premium glow
+* Globe remains visible
+* Plane/ferry/passport/ticket/Kaaba logic supports the story
+* Mobile-specific crop
+* No overflow
+
+Keep the hero light and luxury.
+
+GLOBAL DESIGN SYSTEM:
+Create:
+
+* Premium section headers
+* Gold dividers
+* Breadcrumbs
+* Route badges
+* Month chips
+* City chips
+* Room formula price cards
+* Availability badges
+* Service chips
+* Included/not-included chips
+* Mobile sticky CTA
+* Related offer cards
+* Smart form progress
+* Premium success states
+* Empty states
+* Luxury blog cards
+
+MAIN SITE ARCHITECTURE:
+
+Create or upgrade these pages:
+
+1. /
+   Homepage premium gateway
+
+Sections:
+
+* Cinematic hero
+* Search/reservation quick panel
+* Core services preview
+* Omra 2026/2027 preview
+* Next departures preview
+* Départs par ville preview
+* Billets avion/bateau preview
+* Omra étape par étape preview
+* Formation preview
+* Visas preview
+* Why choose SYANOR
+* Testimonials
+* FAQ preview
+* Contact CTA
+
+Every homepage section must link to deeper pages.
+
+2. /omra-2026
+   Omra 2026 hub page
+
+Sections:
+
+* Hero
+* Month cards
+* Featured departures
+* City departure cards
+* Included services
+* Omra step-by-step journey
+* Formation/accompaniment
+* FAQ
+* CTA
+
+3. /omra-2027
+   Omra 2027 hub page
+
+Same structure, ready for January to April 2027 and future dates.
+
+4. Month pages
+
+Create:
+
+* /omra-2026/septembre
+* /omra-2026/octobre
+* /omra-2026/novembre
+* /omra-2026/decembre
+* /omra-2027/janvier
+* /omra-2027/fevrier
+* /omra-2027/mars
+* /omra-2027/avril
+
+Each month page must include:
+
+* Premium hero
+* Month-specific departures
+* Date cards
+* Room formula cards if data exists
+* Route
+* Duration
+* Hotels
+* Included services
+* Status
+* CTA
+* Related months
+* FAQ
+* SEO metadata
+
+5. City departure pages
+
+Create:
+
+* /depart/nice
+* /depart/marseille
+* /depart/lyon
+* /depart/paris
+* /depart/toulouse
+* /depart/bruxelles
+
+Each city page:
+
+* Hero
+* Available departures from city
+* Route examples
+* Travel support
+* Related offers
+* FAQ
+* Quote CTA
+* SEO metadata
+
+Priority:
+Nice and Marseille must be strong.
+
+6. /offres
+   Full offers/departures listing page
+
+Filters:
+
+* Year
+* Month
+* Category
+* Departure city
+* Transport
+* Comfort level
+* Availability
+* Price/status
+
+Design:
+Luxury filter panel with chips and cards.
+No boring table.
+
+7. /offres/[slug]
+   Offer detail pages
+
+Each offer detail must include:
+
+* Hero
+* Category
+* Status
+* Dates
+* Duration
+* Route
+* Airline/company if known
+* Room formulas
+* Hotel details
+* Included services
+* Not included
+* Options
+* Documents required
+* Program timeline
+* Payment notes
+* Important notes
+* Related offers
+* FAQ
+* Sticky mobile CTA
+* Quote CTA prefilled
+
+8. /hajj-2027
+   Hajj page
+
+Sections:
+
+* Hero
+* Pre-registration logic
+* Preparation
+* Administrative steps
+* Nusuk reminder placeholder
+* Accommodation
+* Transfers
+* Support
+* FAQ
+* CTA
+* WhatsApp/group info placeholder
+
+Do not make official claims without data.
+
+9. /visas
+   Visa assistance page
+
+Sections:
+
+* Visa tourist / Omra support
+* Documents
+* Process
+* Mistakes to avoid
+* Timeline
+* FAQ
+* CTA
+
+10. /formation
+    Formation and spiritual accompaniment page
+
+Sections:
+
+* Formation avant départ
+* Préparation des rites
+* Supports pratiques
+* Ziyarat
+* Accompagnement sur place
+* Suivi avant/pendant/après
+* Mini journey:
+  Comprendre
+  Préparer
+  Voyager
+  Être accompagné
+  Revenir serein
+* FAQ
+* CTA
+
+Design:
+Premium educational, not school-like.
+
+11. /services
+    Services hub
+
+Categories:
+
+* Billets Avion
+* Billets Bateau / Ferry
+* Omra & Hajj
+* Omra Plus & Ramadan
+* Voyages Organisés
+* Séjours Sur Mesure
+* Packs Premium / VIP
+* Hôtels, transferts, visas
+* Assistance
+
+12. /services/billets-avion
+
+Sections:
+
+* Vols internationaux
+* Aller simple / aller-retour
+* Multi-destination
+* Départs flexibles
+* Recherche itinéraire
+* Assistance réservation
+* Process
+* FAQ
+* Quote CTA
+
+13. /services/billets-bateau
+
+Sections:
+
+* Traversées ferry
+* Aller simple / aller-retour
+* Ports / horaires
+* Option véhicule
+* Cabin option
+* Documents
+* Process
+* FAQ
+* Quote CTA
+
+14. /voyages-organises
+
+Sections:
+
+* Family trips
+* Group trips
+* Cultural trips
+* Premium stays
+* Itinerary cards
+* Transport/hotel/transfers/program/support
+* CTA
+
+15. /sejours-sur-mesure
+
+Sections:
+
+* Luxury configurator
+* Destination
+* Dates
+* Travelers
+* Transport
+* Hotel level
+* Transfers
+* Assistance
+* Budget
+* VIP options
+* CTA
+
+16. /a-propos
+
+Sections:
+
+* Brand story
+* Mission
+* Values
+* Human support
+* Premium service philosophy
+* Process
+* Trust
+* CTA
+
+17. /blog
+
+Create blog hub with 6 placeholder articles:
+
+* Comment bien préparer sa Omra
+* Que mettre dans sa valise pour la Omra
+* Comprendre les étapes essentielles de la Omra
+* Choisir entre Omra classique, Omra Plus et Ramadan
+* Billet avion ou pack complet : comment choisir
+* Visa Arabie Saoudite : documents et conseils
+
+18. /blog/[slug]
+
+Create article detail pages with:
+
+* Hero
+* Content sections
+* Related offers
+* CTA
+* FAQ if relevant
+
+19. /faq
+
+Full FAQ page grouped by:
+
+* Omra
+* Hajj
+* Billets
+* Visas
+* Hôtels/transferts
+* Paiement
+* Réservation
+* Accompagnement
+
+20. /contact
+
+Smart quote/contact page:
+
+* Multi-step quote form
+* Contact cards
+* WhatsApp CTA
+* Phone CTA
+* Email
+* Callback request
+* FAQ contact
+
+21. Legal pages:
+
+* /mentions-legales
+* /politique-confidentialite
+* /conditions-generales
+
+NAVIGATION:
+Create luxury mega navigation.
+
+Desktop:
+
+* Logo
+* Accueil
+* Omra 2026 mega menu
+* Omra 2027 mega menu
+* Offres & Départs
+* Départs par ville
+* Services mega menu
+* Hajj 2027
+* Formation
+* Blog
+* Contact
+* CTA: Demander un devis
+
+Mega menu Omra 2026:
+
+* Septembre
+* Octobre
+* Novembre
+* Décembre
+* Départ Nice
+* Départ Marseille
+* Départ Lyon
+* Départ Paris
+* Départ Toulouse
+* Départ Bruxelles
+
+Mega menu Services:
+
+* Billets Avion
+* Billets Bateau
+* Visas
+* Voyages Organisés
+* Séjours Sur Mesure
+* Packs Premium / VIP
+
+Mobile:
+Full-screen app-like menu grouped by:
+
+* Omra par mois
+* Départs par ville
+* Services
+* Aide & préparation
+* Contact
+* CTA quote
+* WhatsApp/phone shortcut
+
+OFFERS DATA:
+Create src/data/offers.ts with 18 to 24 realistic placeholder offers.
+
+Use real SYANOR provided Omra dates:
+
+Route:
+Nice / Marseille → Médine
+Return:
+Jeddah → Nice / Marseille
+Transport:
+Vol international
+
+Dates:
+
+1. 18/10/2026 to 29/10/2026
+2. 28/10/2026 to 08/11/2026
+3. 11/11/2026 to 22/11/2026
+4. 25/11/2026 to 06/12/2026
+5. 20/12/2026 to 31/12/2026
+6. 22/12/2026 to 02/01/2027
+7. 17/01/2027 to 28/01/2027
+8. 04/02/2027 to 15/02/2027
+9. 16/02/2027 to 27/02/2027
+10. 27/02/2027 to 10/03/2027
+11. 09/03/2027 to 25/03/2027
+12. 16/02/2027 to 22/03/2027, duration 34 days
+13. 22/03/2027 to 02/04/2027
+14. 05/04/2027 to 16/04/2027
+
+Also add:
+
+* September 2026: dates à confirmer
+
+Do not invent confirmed prices.
+Use:
+
+* Sur demande
+* Prix indicatif
+* À confirmer
+  where data is not official.
+
+Add additional placeholder offers:
+
+* Omra Plus
+* Ramadan
+* Hajj 2027
+* Billet avion international
+* Billet bateau / ferry
+* Séjour premium sur mesure
+* Voyage organisé
+* Pack VIP
+
+TravelOffer type:
+
+type TravelOffer = {
+id: string
+slug: string
+title: string
+year?: "2026" | "2027"
+month?: string
+category:
+| "Billet avion"
+| "Billet bateau"
+| "Omra"
+| "Hajj"
+| "Ramadan"
+| "Omra Plus"
+| "Voyage organisé"
+| "Séjour sur mesure"
+| "Pack Premium"
+departureDate?: string
+returnDate?: string
+duration?: string
+departureCity?: string
+arrivalCity?: string
+outboundRoute?: string
+inboundRoute?: string
+transportType?: "Avion" | "Bateau" | "Mixte" | "Sur mesure"
+airlineOrCompany?: string
+comfortLevel?: "Standard" | "Premium" | "VIP"
+hotelLevel?: string
+roomPrices?: {
+quad?: string
+triple?: string
+double?: string
+individual?: string
+}
+hotelDetails?: {
+medine?: string
+makkah?: string
+}
+includedServices: string[]
+notIncluded?: string[]
+options?: string[]
+documents?: string[]
+program?: { day: string; title: string; description: string }[]
+paymentNotes?: string[]
+notes?: string[]
+priceFrom?: string
+priceLabel?: "Sur demande" | "Prix indicatif" | "À confirmer"
+availabilityStatus?: "Disponible" | "Places limitées" | "Sur demande" | "Complet" | "À confirmer"
+featured?: boolean
+cityTags?: string[]
+seoTitle?: string
+seoDescription?: string
+}
+
+ROOM PRICE LOGIC:
+For Omra offer detail pages, create the UI to support:
+
+* Quad
+* Triple
+* Double
+* Individuelle
+
+If real prices are not available, show:
+“Sur demande”
+or
+“À confirmer”
+
+Do not fake official room prices.
+
+OMRA STEP TIMELINE:
+Create “Votre Omra étape par étape” with these steps:
+
+1. Départ vers Médine
+2. Arrivée à Médine
+3. Visites de Médine
+4. Préparation à la Omra
+5. Départ vers La Mecque
+6. Accomplissement de la Omra
+7. Visites de La Mecque
+8. Séjour à La Mecque
+9. Retour
+
+Design:
+
+* Premium vertical timeline on mobile
+* Route-map horizontal timeline on desktop
+* Gold markers
+* Emerald route line
+* Small illustrations/icons
+
+SMART QUOTE FORM:
+Create multi-step luxury quote form.
+
+Steps:
+
+1. Choisir le service
+2. Détails du voyage
+3. Confort & accompagnement
+4. Coordonnées
+
+Service choices:
+
+* Billet avion
+* Billet bateau
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Voyage organisé
+* Séjour sur mesure
+* Pack personnalisé
+* Visa
+
+Dynamic fields:
+
+For Omra/Hajj:
+
+* Selected offer
+* Departure date
+* Return date
+* Departure city
+* Number of travelers
+* Comfort level
+* Room preference
+* Formation interest
+* Ziyarat interest
+* Visa assistance
+
+For Billet avion:
+
+* Departure city
+* Destination
+* Departure date
+* Return date
+* One-way or return
+* Passengers
+* Cabin preference
+
+For Billet bateau:
+
+* Departure port/city
+* Destination
+* Departure date
+* Return date
+* Passengers
+* Vehicle option
+* Cabin option
+
+For Séjour sur mesure:
+
+* Destination
+* Dates
+* Duration
+* Travelers
+* Transport
+* Hotel level
+* Budget
+* Assistance needs
+
+For Visa:
+
+* Destination
+* Travel purpose
+* Departure date
+* Passport nationality
+* Assistance needed
+
+Form requirements:
+
+* Client validation
+* Server validation
+* Progress indicator
+* Friendly errors
+* Success state
+* Mobile-perfect UI
+* Submit to /api/quote
+* Ready for Resend/Nodemailer
+* Do not fake email sending
+* Prefill from CTA clicks
+* Prefill selected offer from offer detail/cards
+
+CTA LOGIC:
+All CTAs must route or scroll to quote form with preselection:
+
+* Réserver ce départ
+* Demander un devis
+* Je suis intéressé
+* Voir détails
+* Préparer mon voyage
+* Demander un billet
+* Demander une traversée
+* Créer mon séjour
+
+VISUAL AND IMAGE REQUIREMENTS:
+Use uploaded images and generated visual style.
+
+Do:
+
+* Use new cinematic travel image in homepage hero
+* Use proper masking and gradient blend
+* Keep 3D globe visual spirit
+* Use luxury image cards on pages
+* Create CSS/SVG visual blocks where image is missing
+* Make each page visually rich
+
+Do not:
+
+* Place images randomly
+* Use dark heavy backgrounds
+* Use images with poor crop
+* Stretch images
+* Make site look like a collage
+
+MOBILE EXPERIENCE:
+Mobile must feel like a premium travel app.
+
+Requirements:
+
+* App-like mobile menu
+* Sticky bottom CTA on offer/service pages
+* Month chips horizontal
+* City chips
+* Offer cards optimized
+* Date/price/status visible
+* Stepper form
+* No horizontal scroll
+* No tiny text
+* No huge hero overflow
+* Logo perfect
+* Fast interactions
+* Smooth filters
+
+SEO:
+Every page must have:
+
+* Unique metadata title
+* Unique description
+* H1
+* H2/H3 structure
+* Breadcrumbs
+* Internal links
+* Alt text
+* Clean slugs
+
+Examples:
+
+* /omra-2026/septembre:
+  Title: Omra Septembre 2026 | SYANOR VOYAGES
+  Description: Découvrez les départs Omra de septembre 2026 avec accompagnement, hôtels, transferts, formation et devis personnalisé.
+
+* /depart/nice:
+  Title: Omra départ Nice | SYANOR VOYAGES
+  Description: Consultez les départs Omra depuis Nice avec vols, hébergement, transferts, accompagnement et demande de devis.
+
+* /services/billets-bateau:
+  Title: Billets Bateau & Ferry | SYANOR VOYAGES
+  Description: Réservez vos traversées ferry avec assistance, conseils ports et horaires, option véhicule et accompagnement client.
+
+COMPONENT ARCHITECTURE:
+Create clean components:
+
+* Header
+* MegaMenu
+* MobileMenu
+* Logo
+* Hero
+* CinematicHeroVisual
+* SearchQuickPanel
+* SectionHeader
+* Breadcrumbs
+* ServiceCard
+* OfferCard
+* OfferFilters
+* OffersGrid
+* OfferDetailHero
+* RoomPriceGrid
+* IncludedServices
+* DocumentsList
+* ProgramTimeline
+* MonthCards
+* CityDepartureCards
+* OmraStepTimeline
+* SmartQuoteForm
+* StickyMobileCTA
+* FAQAccordion
+* BlogCard
+* RelatedOffers
+* Footer
+* ContactCards
+* TrustStrip
+* PartnerStrip
+
+DATA FILES:
+Create:
+
+* src/data/offers.ts
+* src/data/services.ts
+* src/data/cities.ts
+* src/data/months.ts
+* src/data/faqs.ts
+* src/data/blog.ts
+* src/data/testimonials.ts
+* src/data/trust.ts
+
+PAGE QUALITY:
+Each page must feel complete, not empty.
+No placeholder skeleton pages.
+No duplicated lazy content.
+No lorem ipsum.
+French content everywhere.
+
+Vercel readiness:
+
+* Standard Next.js App Router
+* No Cloudflare-specific runtime
+* API route compatible with Vercel
+* next build passes
+* TypeScript passes
+* no console logs
+* no broken imports
+* no broken routes
+
+FINAL CHECKLIST:
+Before finishing:
+
+1. The site is no longer a landing page.
+2. It has deep architecture comparable to PelerinHajj but original and premium.
+3. Omra month pages exist.
+4. City departure pages exist.
+5. Offers listing exists.
+6. Offer detail pages exist.
+7. Hajj page exists.
+8. Visa page exists.
+9. Blog exists.
+10. FAQ exists.
+11. Contact smart quote form exists.
+12. Billets avion page exists.
+13. Billets bateau page exists.
+14. Formation page is strong.
+15. Homepage hero uses uploaded cinematic image professionally.
+16. Logo background issue is fixed.
+17. Site stays light luxury.
+18. Mobile experience is exceptional.
+19. No fake official prices.
+20. No competitor copying.
+21. All CTAs prefill quote form.
+22. Build passes.
+23. Vercel-ready.
+
+FINAL CREATIVE PRESSURE:
+Do not stop at “good”.
+This must feel like a world-class premium travel platform.
+
+The benchmark is pelerinhajj.com for structure and business depth.
+The goal is to surpass it in design, mobile UX, clarity, premium feel, and SYANOR’s broader service universe.
+
+Implement directly in the codebase.
+Do not only explain.
+Build the complete senior-level upgrade now.

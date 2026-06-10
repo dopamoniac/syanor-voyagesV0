@@ -1,0 +1,97 @@
+The plan is now strong, but before implementation, apply these execution rules.
+
+1. Confirm the real routing stack first.
+   Do not mix Next.js App Router with Wouter.
+   If this project uses Next.js App Router, use src/app routes and do not use src/main.tsx or Wouter routing.
+   If this project uses Vite/React with Wouter, use the existing Wouter router and do not create Next.js-style app routes.
+   Inspect the project first and choose the correct architecture.
+
+2. Execute in this order only:
+   Task #3 first: SEO Content Architecture & New Pages.
+   Then run build/typecheck and fix all errors.
+   Commit or checkpoint.
+
+Task #4 second: Mega Navigation & Offer Card System.
+Then run build/typecheck and fix all errors.
+Commit or checkpoint.
+
+Task #5 third: Homepage Depth & Smart Quote Form.
+Then run build/typecheck and fix all errors.
+Commit or checkpoint.
+
+Do not start the homepage upgrade before the data, pages, routes, and offer system exist.
+
+3. Every new page must be premium, not just SEO filler.
+   Each new page must include:
+
+* Premium hero
+* Breadcrumbs
+* Unique SEO title and meta description
+* Strong H1/H2/H3 structure
+* Real French content
+* Related offers
+* FAQ section
+* CTA to quote form
+* Internal links
+* Mobile-optimized layout
+* Luxury light-mode visual design
+* No empty wrapper pages
+* No generic duplicated blocks
+
+4. The choice system must work end-to-end.
+   Every offer card, service card, month page, city page, formula card, and configurator CTA must prefill the smart quote form with URL params:
+
+* service
+* offer
+* city
+* month
+* departureDate
+* returnDate
+* comfort
+* roomType when relevant
+
+The user journey must be:
+Explore → filter → compare → choose → form prefilled → submit.
+
+5. Keep the website luxury and light.
+   Use ivory, pearl, champagne, emerald, and gold.
+   Do not make the website dark-heavy.
+   Do not make it look like a generic Omra template.
+   Do not copy PelerinHajj visually.
+   Use PelerinHajj only for SEO depth and business architecture.
+
+6. Mobile is a hard quality gate.
+   Before final response, verify:
+
+* No horizontal scroll
+* Mobile menu is app-like
+* Month chips are easy to scroll
+* Filters are easy to use
+* Offer cards show date, route, status, and CTA clearly
+* Smart quote form is step-by-step and not cramped
+* Sticky CTA works where needed
+* Logo is clean with no background box
+* Hero and images are cropped beautifully
+
+7. Data accuracy:
+   Use the 14 provided Omra dates exactly.
+   Do not invent official prices.
+   Use “Sur demande”, “À confirmer”, or “Prix indicatif” where data is not official.
+   Room prices must show “Sur demande” unless real prices are provided.
+
+8. Final delivery must be Vercel-ready.
+   Run:
+
+* TypeScript check
+* build
+* lint if available
+
+Fix all errors.
+No console.log.
+No lorem ipsum.
+No broken routes.
+No SIYAJJ or SIYAAJJ.
+No Cloudflare-only assumptions unless the project actually requires them.
+
+Final objective:
+SYANOR must feel like a luxury Booking/Airbnb-style travel choice platform, with PelerinHajj-level SEO depth and stronger premium mobile UX.
