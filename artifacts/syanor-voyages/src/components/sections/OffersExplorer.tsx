@@ -38,11 +38,16 @@ function initFiltersFromUrl(search: string): OfferFilterState {
     ? (departureCities.find((c) => c.slug === citySlug)?.name ?? null)
     : null;
 
+  // Map month slug → display month name as stored in offers (e.g., "octobre" → "Octobre")
+  const monthDisplay = month
+    ? (offers.find((o) => o.monthSlug === month)?.month ?? null)
+    : null;
+
   return {
     ...initialFilterState,
     type: service || initialFilterState.type,
     city: cityName || initialFilterState.city,
-    month: month || initialFilterState.month,
+    month: monthDisplay || initialFilterState.month,
     comfort: comfort || initialFilterState.comfort,
     transport: transport || initialFilterState.transport,
   };
