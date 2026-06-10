@@ -1,0 +1,148 @@
+I uploaded 2 reference images.
+
+Image A = the current homepage hero screenshot.
+Image B = the new cinematic visual I want to integrate.
+
+TASK:
+Upgrade the homepage hero and use Image B inside the hero section in a professional, cinematic, world-class way.
+
+IMPORTANT:
+Do not break the current luxury hero structure.
+Do not remove the premium 3D globe logic.
+Do not downgrade the hero into a simple static banner.
+
+I want you to integrate Image B in a way that makes the hero feel richer, more premium, more cinematic, and more world-class.
+
+GOAL:
+Keep the current SYANOR VOYAGES luxury light-mode identity, but elevate the hero so it feels much more impressive and high-end.
+
+WHAT I WANT:
+- Use Image B as a hero visual asset/reference.
+- Integrate it inside the hero in a premium way.
+- Preserve the current 3D globe spirit and travel universe.
+- Make the result feel cinematic, elegant, and luxury.
+- Keep the hero balanced with the text content and CTAs.
+- The final hero must feel more like a luxury editorial experience, not just a website block.
+
+DESIGN DIRECTION:
+The hero should combine:
+- The current clean light luxury layout
+- The 3D globe / travel universe feeling
+- The cinematic richness of Image B
+
+Use Image B in one of these premium ways:
+- As the main right-side hero visual, carefully cropped and blended
+- Or as a layered hero artwork combined with existing 3D UI elements
+- Or as a masked / framed premium visual composition that merges with the current hero system
+
+IMPORTANT VISUAL RULE:
+Do not just paste the image into the page.
+You must art-direct it.
+
+The integration must include:
+- Elegant image crop
+- Smooth blending with the ivory/pearl background
+- Soft gradient fade where needed
+- Premium spacing
+- Controlled composition
+- Better visual hierarchy
+- Cinematic presence
+- Optional subtle overlays, route lines, floating chips, or luxury badges
+- Premium shadowing and depth
+- No awkward cutout effect
+- No “image dropped into page” feeling
+
+HERO LAYOUT:
+Keep:
+- Left side = text / headline / description / CTAs / trust items
+- Right side = premium cinematic visual universe
+
+But upgrade the right side so it feels much stronger and more luxurious using Image B.
+
+IDEAL COMPOSITION:
+Build a premium hero visual system where:
+- Image B becomes the visual anchor
+- The globe remains a key focal element
+- The plane / ferry / Kaaba / passport / ticket logic supports the brand story
+- Optional floating labels or chips can still exist, but cleaner and more integrated
+- The whole right side should feel like a cinematic luxury travel composition
+
+You can:
+- Use Image B directly
+- Overlay refined UI chips on top of it
+- Add subtle gold route lines
+- Add light parallax / float effect if lightweight
+- Add premium depth through blur/shadow/masking
+- Add soft ivory glow blending into the background
+- Improve the current simple globe block into a more art-directed composition
+
+DO NOT:
+- Do not make the hero dark
+- Do not ruin the light theme
+- Do not clutter the hero
+- Do not make the image too small
+- Do not let the image overpower the text
+- Do not lose the luxury mobile experience
+- Do not create overflow or broken alignment
+
+LIGHT THEME:
+Keep the website primarily:
+- Ivory
+- Pearl
+- Champagne
+- Emerald accents
+- Gold accents
+
+The hero must remain bright and premium.
+Do not make it heavy or dark.
+
+TECHNICAL IMPLEMENTATION:
+- Use the uploaded image properly inside the Next.js project
+- Optimize it with next/image
+- Use the correct sizing and responsive behavior
+- Avoid layout shift
+- Make sure the hero still performs well
+- Use a proper wrapper/mask/container if needed
+- Keep it Vercel-ready
+
+RESPONSIVE / MOBILE REQUIREMENTS:
+Mobile treatment is very important.
+
+On mobile:
+- Keep text first
+- Then show the cinematic hero visual below
+- The visual must stay impressive without becoming too tall or too heavy
+- Crop the image intelligently
+- Keep the globe / travel scene visible
+- Avoid tiny unreadable details
+- Avoid overflow
+- Maintain luxurious spacing
+- Hero must still feel wow on mobile
+
+If needed:
+- Create a mobile-specific crop or layout treatment for the hero visual
+- Keep the focal point on the globe / plane / premium travel objects
+- Ensure CTA buttons remain clear and accessible
+
+PREFERRED RESULT:
+The final hero should feel:
+- Cinematic
+- World-class
+- Premium
+- Elegant
+- Light luxury
+- More expensive
+- More memorable
+- Better than the current version
+
+DELIVERABLE:
+Upgrade the homepage hero now using Image B in a professional way without losing the existing 3D globe visual identity.
+
+FINAL CHECK:
+- The hero looks more premium than before
+- Image B is integrated professionally
+- The 3D globe spirit is preserved
+- The text and CTA balance remains excellent
+- The site stays light and luxurious
+- Mobile hero looks amazing
+- Build passes and nothing breaks

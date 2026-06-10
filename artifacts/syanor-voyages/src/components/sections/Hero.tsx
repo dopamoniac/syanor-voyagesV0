@@ -18,7 +18,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(245,232,199,0.6),transparent_55%)]"
         aria-hidden="true"
       />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 md:px-8 md:pb-24 lg:grid-cols-[55%_45%]">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-6 pb-16 md:px-8 md:pb-24 lg:grid-cols-[52%_48%]">
         <div className="text-center lg:text-left">
           <p className="eyebrow">BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE</p>
           <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.1] text-syanor-ink sm:text-5xl md:text-h1">
@@ -49,7 +49,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="origin-center scale-90 sm:scale-100">
+        <div>
           <HeroVisual />
         </div>
       </div>

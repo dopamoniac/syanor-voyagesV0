@@ -1,143 +1,156 @@
 export default function HeroVisual() {
   return (
     <div
-      className="relative mx-auto flex w-full max-w-[480px] items-center justify-center"
+      className="relative mx-auto w-full max-w-[580px]"
       role="img"
-      aria-label="Composition illustrant le voyage : globe, avion, ferry et destination spirituelle"
+      aria-label="Composition cinématique SYANOR VOYAGES : globe doré, avion, ferry, Kaaba et passeport"
     >
-      {/* LAYER 0 — soft radial glow */}
+      {/* Soft radial glow behind the whole composition */}
       <div
-        className="absolute inset-0 -z-10 rounded-full bg-[radial-gradient(circle_at_center,rgba(245,232,199,0.9),rgba(255,249,237,0)_70%)]"
+        className="pointer-events-none absolute -inset-8 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_60%_50%,rgba(245,232,199,0.75),transparent_70%)]"
         aria-hidden="true"
       />
 
-      <div className="relative aspect-square w-full max-w-[420px]">
-        {/* LAYER 6 — gold route lines */}
+      {/* ── CINEMATIC IMAGE with gradient dissolves ── */}
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "3/2" }}>
+        <img
+          src="/brand/hero-cinematic.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "64% center" }}
+          loading="eager"
+          decoding="async"
+        />
+
+        {/* Left dissolve — blends into ivory page background */}
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[32%]"
+          style={{
+            background:
+              "linear-gradient(to right, #FFF9ED 0%, rgba(255,249,237,0.82) 40%, transparent 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Top dissolve */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-[18%]"
+          style={{
+            background: "linear-gradient(to bottom, #FFF9ED, transparent)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Bottom dissolve */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[24%]"
+          style={{
+            background: "linear-gradient(to top, #FFF9ED, transparent)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Right edge soften */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[10%]"
+          style={{
+            background: "linear-gradient(to left, rgba(255,249,237,0.5), transparent)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* ── Gold dashed route lines overlay ── */}
         <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 400 400"
+          className="pointer-events-none absolute inset-0 z-20 h-full w-full"
+          viewBox="0 0 580 387"
           fill="none"
           aria-hidden="true"
         >
+          {/* Arc from ship zone → globe → top-right (airplane path) */}
           <path
-            d="M70 300 C 140 240, 260 360, 340 270"
+            d="M60 310 C 160 230, 320 290, 490 160"
             stroke="#C9A24A"
-            strokeWidth="1.5"
-            strokeDasharray="4 6"
-            opacity="0.5"
+            strokeWidth="1.4"
+            strokeDasharray="5 7"
+            opacity="0.45"
           />
+          {/* Short arc upper area */}
           <path
-            d="M60 120 C 160 60, 250 150, 350 90"
+            d="M140 90 C 240 55, 370 110, 500 75"
             stroke="#C9A24A"
-            strokeWidth="1.5"
+            strokeWidth="1.2"
             strokeDasharray="4 6"
-            opacity="0.4"
+            opacity="0.35"
           />
+          {/* Small star dots along the top arc */}
+          <circle cx="310" cy="75" r="2.5" fill="#C9A24A" opacity="0.5" />
+          <circle cx="420" cy="92" r="2" fill="#C9A24A" opacity="0.4" />
+          <circle cx="200" cy="88" r="2" fill="#C9A24A" opacity="0.35" />
         </svg>
+      </div>
 
-        {/* LAYER 1 — globe with orbital arcs */}
-        <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2">
-          <svg viewBox="0 0 200 200" className="h-full w-full" aria-hidden="true">
-            <defs>
-              <radialGradient id="globeFill" cx="38%" cy="34%" r="70%">
-                <stop offset="0%" stopColor="#FFFDF6" />
-                <stop offset="100%" stopColor="#F5E8C7" />
-              </radialGradient>
-            </defs>
-            <circle cx="100" cy="100" r="78" fill="url(#globeFill)" />
-            <circle
-              cx="100"
-              cy="100"
-              r="78"
-              fill="none"
-              stroke="#063F33"
-              strokeWidth="1.4"
-              opacity="0.18"
-            />
-            {/* meridians / parallels */}
-            <g stroke="#063F33" strokeWidth="0.8" opacity="0.14" fill="none">
-              <ellipse cx="100" cy="100" rx="40" ry="78" />
-              <ellipse cx="100" cy="100" rx="68" ry="78" />
-              <line x1="22" y1="100" x2="178" y2="100" />
-              <ellipse cx="100" cy="100" rx="78" ry="34" />
-              <ellipse cx="100" cy="100" rx="78" ry="62" />
-            </g>
-            {/* abstract gold continents */}
-            <g fill="#C9A24A" opacity="0.85">
-              <path d="M96 52c8-2 16 2 18 9s-4 12-10 14-6 9-12 11-13-3-12-10 6-9 8-15 0-7 8-9z" />
-              <path d="M118 96c6-1 11 3 11 9s-5 11-11 11-9-5-8-11 2-8 8-9z" />
-              <path d="M70 110c5 0 9 5 8 10s-7 8-11 6-5-9-2-13 2-3 5-3z" />
-            </g>
-          </svg>
+      {/* ── Floating UI chips — positioned on the outer container ── */}
 
-          {/* orbital ring */}
+      {/* Billets Avion — top right, near the plane */}
+      <span
+        className="float absolute right-[8%] top-[4%] z-30 rounded-full border border-syanor-gold/45 bg-syanor-pearl/95 px-3 py-1 text-[0.67rem] font-semibold text-syanor-emerald shadow-card backdrop-blur-sm"
+        aria-hidden="true"
+      >
+        Billets Avion
+      </span>
+
+      {/* Billet Bateau card — left side, near the ship */}
+      <div
+        className="float-delay-1 absolute left-[2%] top-[30%] z-30 rounded-xl border border-syanor-gold/40 bg-syanor-pearl/95 px-3 py-2 shadow-card backdrop-blur-sm"
+        aria-hidden="true"
+      >
+        <span className="flex items-center gap-2 text-[0.7rem] font-semibold text-syanor-emerald">
           <svg
-            viewBox="0 0 220 220"
-            className="orbit-spin absolute -inset-[18px] h-[calc(100%+36px)] w-[calc(100%+36px)]"
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.7"
             aria-hidden="true"
           >
-            <ellipse
-              cx="110"
-              cy="110"
-              rx="104"
-              ry="64"
-              fill="none"
-              stroke="#C9A24A"
-              strokeWidth="1.2"
-              strokeDasharray="2 8"
-              opacity="0.6"
-            />
-            <circle cx="214" cy="110" r="3" fill="#C9A24A" />
+            <path d="M4 16h16l-2 4H6z" />
+            <path d="M6 16V9l6-2 6 2v7M12 4v3" strokeLinecap="round" />
           </svg>
-        </div>
-
-        {/* LAYER 2 — floating airplane */}
-        <div className="float absolute right-[6%] top-[8%] text-syanor-emerald">
-          <svg width="64" height="64" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-4.5z"
-            />
-          </svg>
-        </div>
-
-        {/* LAYER 3 — ferry glass card */}
-        <div className="float-delay-1 absolute -left-2 top-[26%] rounded-xl border border-syanor-gold/40 bg-syanor-pearl/90 px-3 py-2 shadow-card backdrop-blur">
-          <span className="flex items-center gap-2 text-[0.7rem] font-medium text-syanor-emerald">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
-              <path d="M4 16h16l-2 4H6z" />
-              <path d="M6 16V9l6-2 6 2v7M12 4v3" strokeLinecap="round" />
-            </svg>
-            Billet Bateau · Traversée
-          </span>
-        </div>
-
-        {/* LAYER 4 — Kaaba cube (isometric) */}
-        <div className="float-delay-2 absolute bottom-[10%] right-[10%]">
-          <svg width="76" height="76" viewBox="0 0 80 80" aria-hidden="true">
-            <g
-              fill="none"
-              stroke="#C9A24A"
-              strokeWidth="1.4"
-              strokeLinejoin="round"
-            >
-              <path d="M40 14 66 26 40 38 14 26z" fill="#063F33" opacity="0.92" />
-              <path d="M14 26 14 54 40 66 40 38z" fill="#063F33" opacity="0.8" />
-              <path d="M66 26 66 54 40 66 40 38z" fill="#063F33" opacity="0.7" />
-              <path d="M14 33 40 45 66 33" stroke="#C9A24A" opacity="0.7" />
-            </g>
-          </svg>
-        </div>
-
-        {/* LAYER 5 — floating chips */}
-        <span className="float absolute left-[4%] top-[4%] rounded-full border border-syanor-gold/40 bg-syanor-pearl px-3 py-1 text-[0.65rem] font-medium text-syanor-emerald shadow-card">
-          Billets Avion
+          Billet Bateau · Traversée
         </span>
-        <span className="float-delay-2 absolute bottom-[2%] left-[18%] rounded-full border border-syanor-gold/40 bg-syanor-pearl px-3 py-1 text-[0.65rem] font-medium text-syanor-emerald shadow-card">
-          Omra &amp; Hajj
-        </span>
-        <span className="float-delay-1 absolute right-[2%] bottom-[34%] rounded-full border border-syanor-gold/40 bg-syanor-pearl px-3 py-1 text-[0.65rem] font-medium text-syanor-emerald shadow-card">
-          Séjours sur Mesure
+      </div>
+
+      {/* Séjours sur Mesure — right center */}
+      <span
+        className="float-delay-1 absolute bottom-[28%] right-[2%] z-30 rounded-full border border-syanor-gold/45 bg-syanor-pearl/95 px-3 py-1 text-[0.67rem] font-semibold text-syanor-emerald shadow-card backdrop-blur-sm"
+        aria-hidden="true"
+      >
+        Séjours sur Mesure
+      </span>
+
+      {/* Omra & Hajj — bottom center, near the Kaaba */}
+      <span
+        className="float-delay-2 absolute bottom-[6%] left-[26%] z-30 rounded-full border border-syanor-gold/45 bg-syanor-pearl/95 px-3 py-1 text-[0.67rem] font-semibold text-syanor-emerald shadow-card backdrop-blur-sm"
+        aria-hidden="true"
+      >
+        Omra &amp; Hajj
+      </span>
+
+      {/* ── Luxury badge top-left ── */}
+      <div
+        className="float absolute left-[5%] top-[6%] z-30 flex items-center gap-1.5 rounded-full border border-syanor-gold/50 bg-syanor-ivory/90 px-2.5 py-1 shadow-gold backdrop-blur-sm"
+        aria-hidden="true"
+      >
+        <svg width="10" height="10" viewBox="0 0 12 12" aria-hidden="true">
+          <path
+            d="M6 1 L7.2 4.5 L11 4.5 L8 6.8 L9.2 10 L6 7.8 L2.8 10 L4 6.8 L1 4.5 L4.8 4.5 Z"
+            fill="#C9A24A"
+          />
+        </svg>
+        <span className="text-[0.6rem] font-bold uppercase tracking-widest text-syanor-emerald">
+          Premium
         </span>
       </div>
     </div>
