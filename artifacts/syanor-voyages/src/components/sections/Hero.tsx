@@ -92,9 +92,9 @@ export default function Hero() {
 
             {/* Sub */}
             <p className="mx-auto mt-6 max-w-[540px] font-inter text-base leading-relaxed text-syanor-ink/68 lg:mx-0">
-              SYANOR VOYAGES accompagne vos billets d&apos;avion et de bateau,
+              SYANOR VOYAGES vous accompagne pour vos billets d&apos;avion et de bateau,
               vos voyages spirituels, vos séjours organisés et vos projets sur
-              mesure avec une exigence premium.
+              mesure selon vos exigences.
             </p>
 
             {/* CTAs */}
