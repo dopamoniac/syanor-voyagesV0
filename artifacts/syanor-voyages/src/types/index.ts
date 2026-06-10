@@ -15,12 +15,20 @@ export type AvailabilityStatus =
   | "Disponible"
   | "Places limitées"
   | "Sur demande"
-  | "Complet";
+  | "Complet"
+  | "À confirmer";
 
 export interface ProgramDay {
   day: string;
   title: string;
   description: string;
+}
+
+export interface RoomPrices {
+  quad?: string;
+  triple?: string;
+  double?: string;
+  individual?: string;
 }
 
 export interface TravelOffer {
@@ -29,6 +37,10 @@ export interface TravelOffer {
   title: string;
   category: ServiceCategory;
   summary?: string;
+  year?: "2026" | "2027";
+  month?: string;
+  monthSlug?: string;
+  cityTags?: string[];
   departureDate?: string;
   returnDate?: string;
   duration?: string;
@@ -40,10 +52,13 @@ export interface TravelOffer {
   airlineOrCompany?: string;
   comfortLevel?: ComfortLevel;
   hotelLevel?: string;
+  roomPrices?: RoomPrices;
   includedServices: string[];
   notIncluded?: string[];
+  options?: string[];
   program?: ProgramDay[];
   documents?: string[];
+  paymentNotes?: string[];
   notes?: string[];
   priceFrom?: string;
   availabilityStatus?: AvailabilityStatus;
@@ -63,6 +78,7 @@ export interface QuoteFormData {
   transport?: TransportType;
   travelers?: number;
   comfort?: ComfortLevel;
+  roomType?: string;
   message?: string;
 }
 
@@ -72,13 +88,13 @@ export interface Service {
   description: string;
   icon: string;
   serviceType: ServiceCategory;
-  /** Link to the dedicated page for this service ("En savoir plus"). */
   href: string;
 }
 
 export interface FaqItem {
   question: string;
   answer: string;
+  category?: string;
 }
 
 export interface Testimonial {

@@ -21,6 +21,17 @@ import BilletsAvionPage from "@/app/services/billets-avion/page";
 import BilletsBateauPage from "@/app/services/billets-bateau/page";
 import VoyagesOrganisesPage from "@/app/voyages-organises/page";
 
+import Omra2026Page from "@/app/omra-2026/page";
+import Omra2027Page from "@/app/omra-2027/page";
+import OmraMonthPage2026 from "@/app/omra-2026/[month]/page";
+import OmraMonthPage2027 from "@/app/omra-2027/[month]/page";
+import DepartCityPage from "@/app/depart/[city]/page";
+import VisasPage from "@/app/visas/page";
+import FaqPage from "@/app/faq/page";
+import BlogPage from "@/app/blog/page";
+import BlogArticlePage from "@/app/blog/[slug]/page";
+import Hajj2027Page from "@/app/hajj-2027/page";
+
 function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-syanor-ivory px-6 text-center">
@@ -36,27 +47,63 @@ function NotFound() {
 function Router() {
   return (
     <Switch>
+      {/* ── Core ── */}
       <Route path="/" component={Home} />
       <Route path="/a-propos" component={AProposPage} />
       <Route path="/conditions-generales" component={ConditionsGeneralesPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/formation" component={FormationPage} />
       <Route path="/mentions-legales" component={MentionsLegalesPage} />
+      <Route path="/politique-confidentialite" component={PolitiqueConfidentialitePage} />
+      <Route path="/sejours-sur-mesure" component={SejoursSurMesurePage} />
+      <Route path="/voyages-organises" component={VoyagesOrganisesPage} />
+
+      {/* ── Services ── */}
+      <Route path="/services" component={ServicesPage} />
+      <Route path="/services/billets-avion" component={BilletsAvionPage} />
+      <Route path="/services/billets-bateau" component={BilletsBateauPage} />
+
+      {/* ── Offers ── */}
       <Route path="/offres" component={OffresPage} />
       <Route path="/offres/:slug">
         {(params) => <OfferDetailPage slug={params.slug} />}
       </Route>
+
+      {/* ── Omra & Hajj legacy ── */}
       <Route path="/omra-hajj" component={OmraHajjPage} />
       <Route path="/omra-hajj/hajj" component={HajjPage} />
       <Route path="/omra-hajj/omra" component={OmraPage} />
       <Route path="/omra-hajj/omra-plus" component={OmraPlusPage} />
       <Route path="/omra-hajj/ramadan" component={RamadanPage} />
-      <Route path="/politique-confidentialite" component={PolitiqueConfidentialitePage} />
-      <Route path="/sejours-sur-mesure" component={SejoursSurMesurePage} />
-      <Route path="/services" component={ServicesPage} />
-      <Route path="/services/billets-avion" component={BilletsAvionPage} />
-      <Route path="/services/billets-bateau" component={BilletsBateauPage} />
-      <Route path="/voyages-organises" component={VoyagesOrganisesPage} />
+
+      {/* ── Omra 2026 hub + month sub-pages ── */}
+      <Route path="/omra-2026" component={Omra2026Page} />
+      <Route path="/omra-2026/:month">
+        {(params) => <OmraMonthPage2026 month={params.month ?? ""} />}
+      </Route>
+
+      {/* ── Omra 2027 hub + month sub-pages ── */}
+      <Route path="/omra-2027" component={Omra2027Page} />
+      <Route path="/omra-2027/:month">
+        {(params) => <OmraMonthPage2027 month={params.month ?? ""} />}
+      </Route>
+
+      {/* ── City departure pages ── */}
+      <Route path="/depart/:city">
+        {(params) => <DepartCityPage city={params.city ?? ""} />}
+      </Route>
+
+      {/* ── SEO pages ── */}
+      <Route path="/visas" component={VisasPage} />
+      <Route path="/faq" component={FaqPage} />
+      <Route path="/hajj-2027" component={Hajj2027Page} />
+
+      {/* ── Blog ── */}
+      <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/:slug">
+        {(params) => <BlogArticlePage slug={params.slug ?? ""} />}
+      </Route>
+
       <Route component={NotFound} />
     </Switch>
   );

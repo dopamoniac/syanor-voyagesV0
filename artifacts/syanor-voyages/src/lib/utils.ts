@@ -1,15 +1,7 @@
-/**
- * Lightweight className combiner (no external deps).
- * Filters falsy values and joins with a space.
- */
 export function cn(...classes: Array<string | false | null | undefined>): string {
   return classes.filter(Boolean).join(" ");
 }
 
-/**
- * Smoothly scroll to the quote section.
- * Guarded for SSR / React Native portability (typeof window).
- */
 export function scrollToQuote(): void {
   if (typeof window === "undefined") return;
   const el = document.getElementById("quote");
@@ -18,9 +10,6 @@ export function scrollToQuote(): void {
   }
 }
 
-/**
- * Smoothly scroll to any section id.
- */
 export function scrollToId(id: string): void {
   if (typeof window === "undefined") return;
   const el = document.getElementById(id);
@@ -29,15 +18,16 @@ export function scrollToId(id: string): void {
   }
 }
 
-/**
- * Build a /contact URL with prefill query params for cross-page quote CTAs.
- */
 export function quoteUrl(params: {
   service?: string;
   offer?: string;
   destination?: string;
   transport?: string;
   comfort?: string;
+  city?: string;
+  month?: string;
+  departureDate?: string;
+  roomType?: string;
 }): string {
   const sp = new URLSearchParams();
   if (params.service) sp.set("service", params.service);
@@ -45,6 +35,10 @@ export function quoteUrl(params: {
   if (params.destination) sp.set("destination", params.destination);
   if (params.transport) sp.set("transport", params.transport);
   if (params.comfort) sp.set("comfort", params.comfort);
+  if (params.city) sp.set("city", params.city);
+  if (params.month) sp.set("month", params.month);
+  if (params.departureDate) sp.set("departureDate", params.departureDate);
+  if (params.roomType) sp.set("roomType", params.roomType);
   const qs = sp.toString();
   return qs ? `/contact?${qs}#quote` : "/contact#quote";
 }

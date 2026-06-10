@@ -8,6 +8,7 @@ const statusClass: Record<AvailabilityStatus, string> = {
   "Places limitées": "bg-amber-50 text-amber-700",
   "Sur demande": "bg-blue-50 text-blue-700",
   Complet: "bg-red-50 text-red-700",
+  "À confirmer": "bg-slate-100 text-slate-600",
 };
 
 export default function OfferCard({ offer }: { offer: TravelOffer }) {
