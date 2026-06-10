@@ -110,7 +110,7 @@ export default function Hero() {
       />
 
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8 pt-16 lg:pt-20">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8 pt-20 lg:pt-24">
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}

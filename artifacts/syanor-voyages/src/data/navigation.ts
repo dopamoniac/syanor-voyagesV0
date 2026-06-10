@@ -24,7 +24,7 @@ export const mainNav: NavItem[] = [
       { label: "Visas & assistance", href: "/visas", desc: "Démarches & visa Omra" },
     ],
   },
-  { label: "Offres & Départs", href: "/offres" },
+  { label: "Offres", href: "/offres" },
   {
     label: "Omra & Hajj",
     href: "/omra-hajj",
@@ -39,7 +39,7 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
-    label: "Villes départ",
+    label: "Départs",
     href: "/offres",
     children: [
       { label: "Départ Nice", href: "/depart/nice", desc: "Omra depuis NCE" },

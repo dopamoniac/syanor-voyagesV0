@@ -41,7 +41,7 @@ export default function Logo({ variant = "full", className }: LogoProps) {
       height={225}
       onError={() => setImgError(true)}
       className={cn(
-        "h-auto w-auto max-w-[130px] sm:max-w-[160px] lg:max-w-[200px] object-contain",
+        "h-auto w-auto max-w-[120px] sm:max-w-[145px] lg:max-w-[168px] object-contain",
         variant === "light" && "brightness-0 invert",
         className
       )}

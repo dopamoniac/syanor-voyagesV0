@@ -1,0 +1,158 @@
+Fix and refine the SYANOR VOYAGES navbar globally.
+
+I uploaded a screenshot showing the current navbar issue.
+
+The navbar is not visually polished enough:
+
+* Some nav items wrap into two lines, like “Offres & Départs”, “Omra & Hajj”, “Villes départ”.
+* The spacing between links is inconsistent.
+* The logo, nav links, WhatsApp icon, and CTA are not perfectly balanced.
+* The CTA feels too large compared to the navbar.
+* The navbar height feels slightly too heavy.
+* The navbar overlaps visually with the hero and does not feel Apple-level/premium enough.
+
+TASK:
+Upgrade the navbar into a clean, luxury, world-class navigation bar.
+
+Do not redesign the entire website.
+Only fix the navbar/header system globally.
+
+REQUIREMENTS:
+
+1. Prevent nav item wrapping
+   All desktop nav links must stay on one line.
+   Use:
+
+* `whitespace-nowrap`
+* better gap values
+* responsive font sizing
+* shorter labels if needed
+
+Suggested labels:
+
+* Accueil
+* Services
+* Offres
+* Omra & Hajj
+* Départs
+* Blog
+* FAQ
+* Contact
+
+If space is limited, avoid long labels like “Offres & Départs” and “Villes départ” in the main bar. Put deeper items inside mega menus.
+
+2. Improve navbar layout
+   Use a premium layout:
+
+* Logo left
+* Main nav centered
+* Actions right
+* WhatsApp icon button
+* Primary CTA
+
+The header should feel balanced, not cramped.
+
+3. Logo sizing
+   Keep the logo clean and sharp.
+   Suggested desktop logo width: 160px to 190px.
+   Suggested mobile logo width: 120px to 145px.
+   Do not stretch it.
+   Do not let it take too much navbar width.
+
+4. CTA refinement
+   The “Demander un devis” button is too dominant.
+   Make it premium but balanced:
+
+* Slightly smaller height
+* Better horizontal padding
+* One-line text
+* Rounded pill
+* Emerald background
+* Ivory text
+* Subtle shadow
+* Smooth hover
+
+Suggested desktop CTA:
+height around 48px to 56px, not oversized.
+
+5. Header height
+   Make navbar height elegant:
+
+* Desktop height around 82px to 96px
+* Mobile height around 70px to 78px
+* Keep enough breathing room but avoid a bulky header
+
+6. Glass luxury style
+   Keep the light luxury style:
+
+* Ivory/pearl translucent background
+* Subtle backdrop blur
+* Fine gold/emerald bottom hairline
+* Soft shadow only when needed
+* No heavy dark background
+
+7. Hero separation
+   Add enough spacing below navbar so the hero does not feel glued to it.
+   The hero image/plane should not feel hidden behind the navbar.
+   Make sure the hero starts at a visually balanced position.
+
+8. Mega menu behavior
+   Keep mega menus, but make the main navbar simple.
+   Long items should live inside mega menus:
+
+* Services menu
+* Omra & Hajj menu
+* Départs menu
+
+Do not put too many long links in the main navbar.
+
+9. Responsive desktop
+   For large desktop:
+
+* Logo, nav, and CTA should fit comfortably.
+* No text wrapping.
+* No overlap.
+* No squeezed elements.
+
+For medium desktop/tablet:
+
+* Reduce gaps slightly.
+* Reduce nav font size slightly.
+* Hide secondary links if needed and move them into menu.
+* Never allow wrapping.
+
+10. Mobile
+    Mobile navbar must be perfect:
+
+* Logo left
+* Menu button right
+* No desktop links visible
+* CTA inside mobile menu
+* App-like mobile menu
+* No horizontal overflow
+* Header height compact and premium
+
+11. Active and hover states
+    Add refined hover states:
+
+* Emerald text hover
+* Small gold underline or soft pill background
+* Smooth transition
+* No cheap hover effects
+
+12. Final QA
+    Before finishing:
+
+* Check desktop full width.
+* Check medium laptop width.
+* Check tablet.
+* Check mobile.
+* Verify no nav item wraps into two lines.
+* Verify CTA does not dominate.
+* Verify logo is aligned.
+* Verify hero no longer feels cramped under navbar.
+* Run build/typecheck.
+* Fix all errors.
+
+Expected result:
+The navbar must feel premium, balanced, clean, one-line, Apple-level, and fully integrated with the SYANOR luxury light design system.
