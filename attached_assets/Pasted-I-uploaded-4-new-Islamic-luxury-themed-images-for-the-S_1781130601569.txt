@@ -1,0 +1,126 @@
+I uploaded 4 new Islamic luxury themed images for the “Sur Mesure” section.
+
+TASK:
+Replace the current “Sur Mesure” white cards with premium full-image cards using these 4 uploaded images.
+
+Do not generate new images.
+Do not use random stock images.
+Use the uploaded images as real project assets.
+
+IMAGE MAPPING:
+Use the uploaded images in this order:
+
+1. Image 1 → Voyages Organisés
+2. Image 2 → Séjour sur Mesure
+3. Image 3 → Pack Premium / VIP
+4. Image 4 → Voyage de Noces
+
+PROJECT ASSET SETUP:
+Move/copy the uploaded images into:
+
+public/images/services/sur-mesure/voyages-organises.png
+public/images/services/sur-mesure/sejour-sur-mesure.png
+public/images/services/sur-mesure/pack-premium-vip.png
+public/images/services/sur-mesure/voyage-de-noces.png
+
+Keep the correct extension if the uploaded images are WebP/JPG/PNG.
+Optimize filenames and paths cleanly.
+
+IMPORTANT:
+The images contain no text.
+Keep it that way.
+All titles, descriptions, icons, and CTAs must be rendered by the UI layer, not inside the images.
+
+SECTION TO UPDATE:
+Update the “Sur Mesure” service group.
+
+Replace these current white cards:
+- Voyages Organisés
+- Séjour sur Mesure
+- Pack Premium / VIP
+- Voyage de Noces
+
+with cinematic image cards, exactly like the “Billets” and “Voyages Religieux” sections.
+
+CARD STYLE:
+Use the same premium image-card system:
+- Full-bleed image
+- Rounded corners
+- Soft dark smoke gradient overlay
+- Title in white
+- Description in soft ivory
+- Gold “En savoir plus →” CTA
+- Small premium icon badge
+- Smooth hover lift
+- Premium shadow
+- object-fit: cover
+- No stretched images
+- No awkward crop
+
+DARK SMOKE OVERLAY:
+Add a subtle dark smoke effect for readability:
+- Stronger at the bottom where the text is
+- Soft fade toward the middle
+- Very light toward the top
+- Elegant and cinematic
+- Not a heavy black layer
+- Keep the image visible and premium
+
+CARD COPY:
+
+Voyages Organisés:
+Circuits structurés avec programme, transport, hébergement et accompagnement dédié.
+
+Séjour sur Mesure:
+Vos dates, votre budget, votre confort et vos envies réunis dans un voyage unique.
+
+Pack Premium / VIP:
+Transferts privés, hôtels sélectionnés et assistance personnalisée.
+
+Voyage de Noces:
+Une lune de miel sur mesure, élégante et pensée dans les moindres détails.
+
+ALT TEXT:
+- Voyages organisés avec guide dans un décor islamique premium
+- Séjour sur mesure avec terrasse orientale au coucher du soleil
+- Pack Premium VIP avec arrivée privée dans un hôtel islamique de luxe
+- Voyage de noces halal dans une terrasse orientale romantique
+
+LAYOUT:
+Desktop:
+- 4 cards in one row if it looks premium.
+- If too tight, use a balanced 2x2 grid.
+- The section must feel as strong as Billets and Voyages Religieux.
+
+Tablet:
+- 2 columns.
+
+Mobile:
+- 1 column stacked or premium horizontal snap carousel.
+- Cards must remain cinematic, tall enough, readable, and easy to tap.
+
+DESIGN CONSISTENCY:
+The “Sur Mesure” section must now visually match:
+- Billets
+- Voyages Religieux
+
+All service groups must feel like one coherent premium cinematic card system.
+
+TECHNICAL REQUIREMENTS:
+- Reuse the existing shared image card component if possible.
+- If needed, create/extend `ImageServiceCard`.
+- Avoid duplicated markup.
+- Keep code clean.
+- Keep responsive behavior polished.
+- Keep the website light luxury: ivory, pearl, emerald, gold.
+- Run build/typecheck after changes.
+
+FINAL CHECK:
+- Uploaded images are saved in the project assets.
+- Sur Mesure now uses 4 cinematic image cards.
+- No embedded text inside images.
+- Text is rendered in HTML/CSS overlay.
+- Smoke overlay makes text clean and readable.
+- Layout is responsive.
+- Mobile looks premium.
+- Build passes.
