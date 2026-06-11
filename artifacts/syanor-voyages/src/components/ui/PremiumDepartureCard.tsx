@@ -4,12 +4,17 @@ import Reveal from "@/components/ui/Reveal";
 import { quoteUrl } from "@/lib/utils";
 import type { TravelOffer } from "@/types";
 
-const OMRA_IMAGES = [
-  "/services/religieux/omra.png",
-  "/services/religieux/hajj.png",
-  "/services/religieux/omra-plus.png",
-  "/services/religieux/omra-ramadan.png",
-];
+const CATEGORY_IMAGES: Record<string, string[]> = {
+  "Hajj":     ["/services/religieux/hajj.png"],
+  "Ramadan":  ["/services/religieux/omra-ramadan.png"],
+  "Omra Plus":["/services/religieux/omra-plus.png"],
+  "Omra":     [
+    "/services/religieux/omra.png",
+    "/services/religieux/omra-plus.png",
+    "/services/religieux/hajj.png",
+    "/services/religieux/omra-ramadan.png",
+  ],
+};
 
 const CHIP_RULES: { match: string; label: string }[] = [
   { match: "Vol",            label: "Vols" },
@@ -35,7 +40,8 @@ interface Props {
 }
 
 export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Props) {
-  const image = OMRA_IMAGES[index % OMRA_IMAGES.length];
+  const pool = CATEGORY_IMAGES[offer.category] ?? CATEGORY_IMAGES["Omra"];
+  const image = pool[index % pool.length];
   const statusCls = STATUS_STYLE[offer.availabilityStatus ?? ""] ?? "bg-gray-600/85 text-white";
 
   const chips = CHIP_RULES.filter((r) =>
