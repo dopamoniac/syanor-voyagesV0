@@ -1,0 +1,163 @@
+Fix and upgrade the SYANOR Voyages navbar for both desktop and mobile.
+
+PROBLEM:
+The current logo in the navbar does not look professional.
+On desktop it looks too small / not well aligned.
+On mobile and inside the mobile menu, the logo appears broken or with a white circular blob instead of a clean transparent logo.
+The navbar needs to look more premium, balanced, and polished across all screen sizes.
+
+GOAL:
+Create a premium luxury travel agency navbar that works perfectly on:
+- desktop
+- tablet
+- mobile
+- mobile menu / drawer
+
+LOGO FIX:
+1. Use the correct SYANOR Voyages logo asset with transparent background.
+2. Do not apply invert, brightness, opacity, blur, mask, or any CSS filter to the logo.
+3. Preserve the logo aspect ratio.
+4. The logo must never be squeezed, stretched, cropped, pixelated, or displayed as a white circle.
+5. If the current logo file is causing the white blob issue, replace it with the correct transparent PNG/SVG logo from the assets folder or uploaded files.
+6. Use Next/Image if available.
+7. Add proper alt text: "SYANOR Voyages".
+8. Logo should be sharp on retina screens.
+
+DESKTOP NAVBAR:
+Make the desktop navbar premium and balanced:
+- Height: 76px to 88px
+- Background: soft ivory glass effect
+- Slight backdrop blur
+- Thin subtle bottom border in champagne/gold
+- Navbar content max-width: 1440px
+- Centered horizontally
+- Logo on the left
+- Navigation links centered
+- WhatsApp icon and CTA button on the right
+- Align all items vertically center
+- No jumping, no misalignment
+
+Desktop logo sizing:
+- Logo image width: around 150px to 180px
+- Height auto
+- Container should not crop it
+- Use object-fit: contain
+
+Example desktop logo style:
+width: clamp(150px, 11vw, 185px);
+height: auto;
+object-fit: contain;
+
+NAV LINKS:
+Make links feel premium:
+- Clean font
+- Dark emerald text
+- Active link with subtle gold underline
+- Hover color emerald/gold
+- Smooth transition
+- Proper spacing between links
+- Dropdown arrows aligned correctly
+- No clutter
+
+CTA BUTTON:
+Make "Demander un devis" button premium:
+- Emerald background
+- White text
+- Gold icon/accent
+- Rounded pill
+- Soft shadow
+- Smooth hover
+- Height around 46px to 50px
+
+MOBILE NAVBAR:
+Make the mobile navbar clean and premium:
+- Height: 72px to 80px
+- Logo left
+- Hamburger menu right
+- Ivory/glass background
+- Subtle bottom border
+- No crowded layout
+
+Mobile logo sizing:
+- Width: 128px to 150px
+- Height auto
+- Must remain readable
+- Do not shrink it too much
+- Do not crop it
+- Do not display a white circle or broken logo
+
+Mobile menu / drawer:
+- The logo inside the drawer must use the same correct logo asset.
+- No white blob.
+- No CSS filters.
+- The drawer should feel premium:
+  - Deep emerald background or ivory background with emerald accents
+  - Clean spacing
+  - Clear section titles
+  - Large tap-friendly links
+  - WhatsApp and Appeler buttons
+  - Demander un devis button at bottom
+- Close icon aligned top-right
+- Smooth open/close animation
+- No horizontal overflow
+
+IMPORTANT MOBILE MENU FIX:
+If the logo is placed inside a dark emerald drawer, do not invert it with CSS.
+Instead use a proper logo version that works on dark background, or place it on a subtle transparent/ivory logo container.
+Do not create a random white circle behind the logo.
+If using a logo container, it should be a clean rounded rectangle with soft ivory background, not a blob.
+
+Recommended mobile drawer logo treatment:
+- Use the normal logo on an ivory rounded rectangle
+- Padding: 10px 14px
+- Border radius: 16px
+- Width: fit-content
+- Logo width: 135px
+- Height auto
+
+RESPONSIVE BEHAVIOR:
+Desktop:
+- Full navigation visible
+- CTA visible
+- WhatsApp icon visible
+
+Tablet:
+- Keep navigation if enough space
+- Otherwise switch to hamburger cleanly
+
+Mobile:
+- Hide desktop links
+- Show logo + hamburger
+- Drawer opens smoothly
+- Menu content scrolls internally if needed
+- Body should not horizontally scroll
+
+CODE QUALITY:
+Create or refactor into clean components:
+- Navbar
+- Logo
+- DesktopNav
+- MobileNav
+- MobileMenuDrawer
+
+Avoid duplicated messy code.
+Use consistent Tailwind classes.
+Keep the navbar reusable and easy to maintain.
+
+QUALITY CHECK:
+After changes, verify:
+- Logo is sharp and readable on desktop
+- Logo is sharp and readable on mobile
+- No white blob logo issue
+- Logo is not cropped
+- Logo is not stretched
+- Navbar spacing feels balanced
+- Mobile menu looks premium
+- No horizontal overflow
+- CTA button aligned correctly
+- Hamburger button looks clean
+- Header feels like a luxury travel brand
+
+FINAL RESULT:
+The navbar must look premium, elegant, clean, and professional on both desktop and mobile.
+The SYANOR logo must be displayed correctly everywhere, especially in the mobile menu.
