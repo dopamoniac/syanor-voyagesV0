@@ -1,0 +1,259 @@
+The current “Choisissez votre formule Omra” section is not good enough yet.
+
+Current issue:
+- The 3 formula boxes still feel too default.
+- They look too flat and too basic.
+- The section is clean, but not premium enough.
+- I want these pricing/formula cards to feel much more luxurious, glassy, high-end, and impressive.
+- Right now they do not yet feel like world-class premium offer boxes.
+
+TASK:
+Redesign and elevate the 3 Omra formula cards:
+- Essentiel
+- Premium
+- VIP
+
+Do not change the business logic.
+Keep the 3 formulas and their content structure.
+But completely refine the visual quality and card system.
+
+GOAL:
+Make the formula boxes feel:
+- premium
+- glassy
+- elegant
+- luxury
+- Apple-level finish
+- high-conversion
+- cool and memorable
+- clearly differentiated
+- better than standard pricing cards
+
+DESIGN DIRECTION:
+I want a much more premium “luxury glass pricing cards” system.
+
+The cards must feel like:
+- high-end concierge offers
+- luxury subscription / premium comparison boxes
+- polished Apple-level UI
+- refined and launch-ready
+
+IMPORTANT:
+Do not make them too dark.
+Keep the SYANOR light luxury identity:
+- ivory / pearl / champagne
+- emerald green
+- metallic gold accents
+
+But add more depth and sophistication.
+
+VISUAL UPGRADES REQUIRED:
+
+1. Premium glass card surface
+Each card must feel like a luxury glass panel.
+
+Use:
+- soft ivory / pearl translucent backgrounds
+- subtle blur / glass effect if appropriate
+- layered depth
+- soft internal highlight
+- elegant thin gold outline
+- refined shadow
+- soft emerald glow accents
+- smooth rounded corners
+- subtle texture or pattern if useful
+
+Do NOT leave them as simple flat blocks.
+
+2. Stronger premium hierarchy
+Each card must have a more art-directed structure.
+
+Suggested structure:
+- Top badge / formula label area
+- Formula title
+- Elegant short positioning sentence
+- Highlight box for hotel/comfort summary
+- Included features list
+- Exclusive extras
+- Price area
+- CTA
+
+Everything must feel well composed and premium.
+
+3. Top area refinement
+Give each card a more luxurious top treatment.
+
+Possible ideas:
+- subtle top gradient panel
+- premium header strip
+- soft Islamic geometric texture
+- faint sacred-travel motif
+- mini icon / symbol
+- small gold chip for formula identity
+
+The top of the card should feel designed, not empty.
+
+4. Differentiate the 3 formulas clearly
+Each formula must have its own level and personality.
+
+Essentiel:
+- clean, elegant, accessible premium
+- lighter glass
+- calm and refined
+
+Premium:
+- the hero card
+- strongest visual treatment
+- slightly larger or more elevated
+- richer emerald + gold presence
+- more glass depth
+- “Le plus demandé” badge more premium
+- should feel like the natural best choice
+
+VIP:
+- very luxurious
+- most exclusive
+- more refined gold accents
+- elevated but sophisticated
+- should feel elite, not flashy
+
+5. Premium feature list styling
+The features list currently feels too standard.
+
+Upgrade it:
+- better spacing
+- cleaner icon system
+- premium check icons
+- included vs excluded states more elegant
+- subtle muted styling for unavailable items
+- better rhythm
+- feature lines should feel designed, not raw text
+
+Possible treatment:
+- mini icon circles
+- thin separators
+- grouped features
+- small chips for key highlights
+
+6. Hotel/highlight box upgrade
+The beige hotel summary box inside each card needs to feel more premium.
+
+Refine it with:
+- glass / soft panel feeling
+- better typography hierarchy
+- gold micro-label
+- stronger contrast
+- cleaner spacing
+- optional icon
+- better rounded corners
+
+It should look like a premium detail module, not a simple rectangle.
+
+7. Price area refinement
+The “Prix Sur demande” area is weak.
+
+Upgrade it:
+- make price zone feel important
+- better typography
+- optional micro-label above (“Tarif” / “À partir de” / “Sur devis”)
+- gold emphasis
+- subtle divider before CTA
+- more breathing room
+
+8. CTA buttons must feel expensive
+Current CTA buttons are still too basic.
+
+Upgrade:
+- smoother pill buttons
+- better vertical/horizontal balance
+- more premium shadows
+- refined hover
+- for Premium card, CTA can be more gold-forward or more elevated
+- all CTAs must feel luxurious and clearly clickable
+
+Examples:
+- Demander Essentiel
+- Demander Premium
+- Demander VIP
+
+9. Card elevation and hover
+Add premium interaction:
+- hover lift
+- subtle glow
+- slight scale or raise
+- stronger border on hover
+- smooth shadow transition
+- no cheap animation
+
+Premium card can stay visually emphasized even at rest.
+
+10. Section composition
+The full section itself must feel more high-end.
+
+Improve:
+- spacing around heading
+- spacing between cards
+- alignment
+- visual balance
+- maybe slightly larger cards
+- maybe more breathing room above and below
+
+The entire block must feel like an important decision section, not just a random pricing row.
+
+11. Optional visual enhancement
+If it helps, you can add subtle premium decorative details:
+- faint sacred geometry
+- ultra-light Islamic pattern
+- very subtle gold line accents
+- delicate corner glow
+- premium ornament detail
+But keep it tasteful and minimal.
+
+Do NOT make it noisy.
+
+12. Mobile version
+Mobile version must also feel premium:
+- stacked cards
+- proper spacing
+- no cramped lists
+- CTA easy to tap
+- Premium card still visually highlighted
+- hotel box and features stay readable
+- no cheap collapse feeling
+
+13. Keep content but improve UX
+Do not break the current content logic.
+Keep:
+- formula names
+- short descriptions
+- accommodation summary
+- features
+- price “Sur demande”
+- CTA
+
+But make it look much more luxurious and convincing.
+
+14. Final quality bar
+I want these formula boxes to feel like:
+- world-class premium offer cards
+- luxury service selection cards
+- not default pricing cards
+- not generic SaaS boxes
+- not flat panels
+
+FINAL CHECKLIST:
+- cards no longer feel default
+- cards feel glassy and premium
+- Premium plan is clearly highlighted in a sophisticated way
+- all 3 cards are visually richer
+- hotel box is upgraded
+- feature list is upgraded
+- buttons feel expensive
+- spacing is refined
+- section feels launch-ready
+- mobile looks premium
+- build/typecheck pass
+
+Final expectation:
+This section should become one of the strongest premium sections on the website.
+I want the 3 formula boxes to feel truly luxurious, glass-level, elegant, and visually impressive.
