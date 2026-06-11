@@ -1,8 +1,6 @@
 import Link from "@/components/Link";
-import Icon from "@/components/ui/Icon";
 import { offers } from "@/data/offers";
-import { quoteUrl } from "@/lib/utils";
-import Reveal from "@/components/ui/Reveal";
+import PremiumDepartureCard from "@/components/ui/PremiumDepartureCard";
 
 const MONTH_ORDER: Record<string, number> = {
   Jan: 0,
@@ -21,7 +19,6 @@ const MONTH_ORDER: Record<string, number> = {
 
 function parseDepartureDate(dateStr: string): number {
   if (!dateStr) return Infinity;
-  // [A-Za-z\u00C0-\u00FF]+ matches accented French abbreviations: Fév, Déc, Août, Avr…
   const m = dateStr.match(/^(\d{1,2})\s+([A-Za-z\u00C0-\u00FF]+)\.?\s+(\d{4})/);
   if (!m) return Infinity;
   const [, day, mon, year] = m;
@@ -40,12 +37,6 @@ function getNextDepartures(limit = 6) {
     .sort((a, b) => parseDepartureDate(a.departureDate ?? "") - parseDepartureDate(b.departureDate ?? ""))
     .slice(0, limit);
 }
-
-const STATUS_COLORS: Record<string, string> = {
-  "À confirmer": "bg-amber-50 text-amber-700 border-amber-200",
-  Disponible: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  "Sur demande": "bg-blue-50 text-blue-700 border-blue-200",
-};
 
 export default function NextDepartures() {
   const departures = getNextDepartures(6);
@@ -66,83 +57,15 @@ export default function NextDepartures() {
           </Link>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {departures.map((offer, i) => {
-            const statusClass =
-              STATUS_COLORS[offer.availabilityStatus ?? ""] ??
-              "bg-gray-50 text-gray-600 border-gray-200";
-            return (
-              <Reveal key={offer.id} delay={i * 50}>
-                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                  <div className="flex items-center justify-between bg-syanor-emerald px-5 py-3">
-                    <span className="font-playfair text-lg text-syanor-ivory">
-                      {offer.departureDate}
-                    </span>
-                    {offer.returnDate && (
-                      <span className="text-xs text-syanor-champagne/70">
-                        → {offer.returnDate}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-5">
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-widest text-syanor-gold">
-                      {offer.category}
-                    </p>
-                    <h3 className="mt-1 font-playfair text-base leading-snug text-syanor-ink">
-                      {offer.title}
-                    </h3>
-
-                    <div className="mt-3 space-y-1.5 text-xs text-syanor-ink/60">
-                      <div className="flex items-center gap-1.5">
-                        <Icon name="airplane" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
-                        {offer.departureCity}
-                      </div>
-                      {offer.duration && (
-                        <div className="flex items-center gap-1.5">
-                          <Icon name="calendar" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
-                          {offer.duration}
-                        </div>
-                      )}
-                      {offer.comfortLevel && (
-                        <div className="flex items-center gap-1.5">
-                          <Icon name="star" className="h-3 w-3 shrink-0 text-syanor-gold/60" aria-hidden="true" />
-                          {offer.comfortLevel}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="mt-auto pt-4 flex items-center justify-between gap-3">
-                      <span
-                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[0.65rem] font-medium ${statusClass}`}
-                      >
-                        {offer.availabilityStatus}
-                      </span>
-                      {offer.slug ? (
-                        <Link
-                          href={`/offres/${offer.slug}`}
-                          className="text-xs font-semibold text-syanor-emerald underline-offset-2 hover:underline"
-                        >
-                          Voir détails →
-                        </Link>
-                      ) : (
-                        <Link
-                          href={quoteUrl({
-                            service: offer.category,
-                            offer: offer.title,
-                            departureDate: offer.departureDate,
-                          })}
-                          className="text-xs font-semibold text-syanor-emerald underline-offset-2 hover:underline"
-                        >
-                          Demander ce départ →
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {departures.map((offer, i) => (
+            <PremiumDepartureCard
+              key={offer.id}
+              offer={offer}
+              index={i}
+              delay={i * 60}
+            />
+          ))}
         </div>
 
         <p className="mt-8 text-center text-sm text-syanor-ink/55">

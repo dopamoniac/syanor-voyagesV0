@@ -1,0 +1,146 @@
+Upgrade the “Nos prochains départs Omra” cards into premium image-based travel product cards.
+
+Current issue:
+The cards are clean but too flat and administrative. They look like simple date boxes.
+I want them to feel like luxury Omra departure cards, closer to a premium booking platform.
+
+TASK:
+Redesign the Omra departure cards with a professional image-based layout.
+
+Do not remove the data.
+Keep the dates, return dates, duration, departure city, status, and CTA.
+But make each card feel richer, more emotional, more premium, and easier to choose.
+
+DESIGN DIRECTION:
+Each card should include:
+- A premium image area at the top
+- Dark smoke gradient overlay on the image for readability
+- Gold date badge
+- Emerald/ivory luxury styling
+- Route visualization
+- Included service chips
+- Availability badge
+- Clear CTA
+
+CARD STRUCTURE:
+
+Top image area:
+- Use an Omra / Makkah / Madinah themed image.
+- Image height around 180px to 220px on desktop.
+- object-fit: cover.
+- Rounded top corners.
+- Add soft dark smoke overlay at bottom of image.
+- Add a gold month badge over the image.
+- Add status badge “À confirmer” or “Sur demande” over the image.
+
+Image examples:
+- Kaaba / Masjid al-Haram atmosphere
+- Pilgrims in a premium sacred travel setting
+- Madinah/Makkah golden-hour travel image
+- Respectful, luxury, no text inside image
+
+Card body:
+Show:
+- Category: OMRA
+- Title: Omra — 18 Octobre 2026
+- Departure date
+- Return date
+- Duration: 12 jours / 11 nuits
+- Departure city: Nice / Marseille
+- Route:
+  Nice / Marseille → Médine
+  Jeddah → Nice / Marseille
+- Comfort: Standard / Premium / VIP if available
+
+Included service chips:
+- Vols
+- Hébergement
+- Transferts
+- Ziyarat
+- Accompagnement
+- Formation
+
+Bottom actions:
+- Primary CTA: “Choisir ce départ”
+- Secondary CTA: “Voir détails”
+- Price label: “Sur demande”
+
+STYLE:
+Use SYANOR luxury design system:
+- Ivory / pearl background
+- Emerald text and panels
+- Metallic gold accents
+- Apple-level glass effect
+- Soft shadows
+- Rounded corners
+- Thin gold hairline border
+- Smooth hover lift
+
+CARD DESIGN DETAILS:
+- Make the card feel like a premium travel product.
+- Use a soft white/ivory glass body.
+- Use subtle emerald shadows.
+- Add gold active details.
+- Avoid cheap borders.
+- Avoid basic white card look.
+- Avoid overly dark card body.
+- Keep the website light and luxury.
+
+DESKTOP LAYOUT:
+- 3 cards per row if space allows.
+- Cards should be visually rich and balanced.
+- Do not make them too tall, but allow enough room for image and information.
+- Keep consistent height across cards.
+
+TABLET:
+- 2 cards per row.
+
+MOBILE:
+- 1 card per row.
+- Image remains visible and cinematic.
+- Date, return date, route, status, and CTA must be immediately readable.
+- CTA must be easy to tap.
+- No horizontal overflow.
+
+HOVER:
+On hover:
+- Card lifts slightly.
+- Image zooms very subtly.
+- Gold border/glow becomes slightly stronger.
+- CTA feels active.
+
+DATA:
+Use the existing Omra departure data.
+Do not invent prices.
+Keep:
+- priceFrom: “Sur demande”
+- availabilityStatus: “À confirmer”
+unless real data exists.
+
+CTA BEHAVIOR:
+“Choisir ce départ” should link to:
+/contact?service=omra&offer=[slug]&departureDate=[date]&returnDate=[date]#quote
+
+It must prefill the smart quote form with:
+- service = Omra
+- offer title
+- departure date
+- return date
+- route
+- city = Nice / Marseille
+
+COMPONENT:
+Create or update a reusable component:
+`PremiumDepartureCard`
+
+Use it for:
+- Homepage “Nos prochains départs Omra”
+- /offres page
+- Month pages
+- City departure pages
+
+Do not duplicate code.
+
+FINAL EXPECTATION:
+The Omra departure cards must no longer feel like simple admin cards.
+They must feel like premium booking cards with image, date, route, included services, clear CTA, and luxury SYANOR styling.
