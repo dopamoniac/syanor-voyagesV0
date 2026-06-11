@@ -109,7 +109,7 @@ export default function Hero() {
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
-          <div className="pb-16 pt-3 text-center lg:py-0 lg:text-left">
+          <div className="pb-16 pt-3 text-right lg:py-0 lg:text-left">
 
             {/* Eyebrow */}
             <p className="eyebrow">
@@ -117,19 +117,34 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h1 className="mt-4 font-playfair text-5xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem] text-[#0e0a02]">
-              Voyagez en toute sérénité.
+            <h1 className="mt-4 font-playfair text-5xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem] lg:text-[#0e0a02]"
+              style={{ color: "#0e0a02" }}
+            >
+              Voyagez en toute{" "}
+              <span
+                className="lg:text-[#0e0a02]"
+                style={{ color: "inherit" }}
+              >
+                <span className="lg:hidden" style={{
+                  display: "inline",
+                  background: "linear-gradient(135deg, #C9A24A 0%, #e8c97a 50%, #C9A24A 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}>sérénité.</span>
+                <span className="hidden lg:inline">sérénité.</span>
+              </span>
             </h1>
 
             {/* Sub */}
-            <p className="mx-auto mt-6 max-w-[540px] font-inter text-base leading-relaxed text-syanor-ink/68 lg:mx-0">
+            <p className="ml-auto mt-6 max-w-[540px] font-inter text-base leading-relaxed text-syanor-ink/68 lg:mx-0">
               SYANOR VOYAGES vous accompagne pour vos billets d&apos;avion et de bateau,
               vos voyages spirituels, vos séjours organisés et vos projets sur
               mesure selon vos exigences.
             </p>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-end lg:justify-start">
               <Link href="/contact#quote" className="btn-primary w-full sm:w-auto">
                 Demander un devis personnalisé
               </Link>
@@ -139,7 +154,7 @@ export default function Hero() {
             </div>
 
             {/* Trust pills */}
-            <ul className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
+            <ul className="mt-8 flex flex-wrap justify-end gap-x-5 gap-y-2 lg:justify-start">
               {trustPills.map((pill) => (
                 <li
                   key={pill}
