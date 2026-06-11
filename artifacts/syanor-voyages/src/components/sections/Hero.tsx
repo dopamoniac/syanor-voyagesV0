@@ -117,23 +117,15 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h1 className="mt-4 font-playfair text-5xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem] lg:text-[#0e0a02]"
-              style={{ color: "#0e0a02" }}
-            >
+            <h1 className="mt-4 font-playfair text-5xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem]" style={{ color: "#0e0a02" }}>
               Voyagez en toute{" "}
-              <span
-                className="lg:text-[#0e0a02]"
-                style={{ color: "inherit" }}
-              >
-                <span className="lg:hidden" style={{
-                  display: "inline",
-                  background: "linear-gradient(135deg, #C9A24A 0%, #e8c97a 50%, #C9A24A 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}>sérénité.</span>
-                <span className="hidden lg:inline">sérénité.</span>
-              </span>
+              <span className="lg:hidden" style={{
+                background: "linear-gradient(135deg,#C9A24A 0%,#e8c97a 50%,#C9A24A 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>sérénité.</span>
+              <span className="hidden lg:inline">sérénité.</span>
             </h1>
 
             {/* Sub */}
