@@ -205,7 +205,7 @@ export function FormationPreview() {
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-syanor-gold/15 text-syanor-gold">
                   <Icon name={card.icon} className="h-6 w-6" />
                 </span>
-                <h3 className="font-playfair text-lg leading-snug text-[#000000]">
+                <h3 className="font-playfair text-lg leading-snug text-[#ffffff]">
                   {card.title}
                 </h3>
               </article>
