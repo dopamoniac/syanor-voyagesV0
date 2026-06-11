@@ -138,6 +138,11 @@
     @apply rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card;
   }
 
+  /* Dark emerald premium card */
+  .card-emerald {
+    @apply rounded-2xl bg-syanor-royal;
+  }
+
   /* Apple-style glass panel */
   .glass-panel {
     @apply rounded-2xl border border-white/60 bg-white/70 shadow-glass backdrop-blur-md;

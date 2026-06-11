@@ -160,9 +160,9 @@ export default function ConfiguratorSection({
           </div>
 
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <div className="card-emerald p-7">
-              <p className="eyebrow text-syanor-gold-soft">Résumé de voyage</p>
-              <h3 className="mt-2 font-playfair text-xl text-syanor-ivory">
+            <div className="rounded-2xl border border-syanor-gold/20 bg-white p-7 shadow-card">
+              <p className="eyebrow text-syanor-gold">Résumé de voyage</p>
+              <h3 className="mt-2 font-playfair text-xl text-syanor-ink">
                 Votre séjour sur mesure
               </h3>
               <div className="mt-5 w-16 gold-divider" aria-hidden="true" />
@@ -184,7 +184,7 @@ export default function ConfiguratorSection({
                   )}
                 </dl>
               ) : (
-                <p className="mt-5 text-sm text-syanor-champagne/70">
+                <p className="mt-5 text-sm text-syanor-ink/55">
                   Sélectionnez vos préférences pour voir apparaître le résumé de
                   votre voyage.
                 </p>
@@ -204,8 +204,8 @@ export default function ConfiguratorSection({
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-3 border-b border-syanor-gold/15 pb-2">
-      <dt className="text-syanor-champagne/70">{label}</dt>
-      <dd className="font-medium text-syanor-ivory">{value}</dd>
+      <dt className="text-syanor-ink/60">{label}</dt>
+      <dd className="font-medium text-syanor-ink">{value}</dd>
     </div>
   );
 }
