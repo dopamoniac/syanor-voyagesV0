@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   variant?: "full" | "light";
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function Logo({ variant = "full", className }: LogoProps) {
+export default function Logo({ variant = "full", className, style }: LogoProps) {
   const [imgError, setImgError] = useState(false);
 
   if (imgError) {
@@ -34,6 +35,7 @@ export default function Logo({ variant = "full", className }: LogoProps) {
       width={600}
       height={225}
       onError={() => setImgError(true)}
+      style={style}
       className={cn(
         "block h-auto w-auto object-contain",
         className ?? (variant === "light"

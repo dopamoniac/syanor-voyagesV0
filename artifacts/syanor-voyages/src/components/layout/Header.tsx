@@ -412,18 +412,18 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile hamburger — hidden at lg+ */}
+          {/* Mobile menu toggle — hidden at lg+ */}
           <button
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Ouvrir le menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-syanor-emerald transition hover:bg-syanor-emerald/8 lg:hidden"
+            className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full border border-syanor-gold/25 bg-syanor-emerald/6 text-syanor-emerald transition-all duration-200 hover:border-syanor-emerald/40 hover:bg-syanor-emerald/12 active:scale-[0.94] lg:hidden"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-            </svg>
+            <span className="block h-[1.5px] w-[18px] rounded-full bg-current transition-all duration-300" />
+            <span className="block h-[1.5px] w-[13px] self-end rounded-full bg-current transition-all duration-300" />
+            <span className="block h-[1.5px] w-[18px] rounded-full bg-current transition-all duration-300" />
           </button>
         </div>
       </header>

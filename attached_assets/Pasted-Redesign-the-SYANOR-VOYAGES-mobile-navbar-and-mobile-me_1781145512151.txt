@@ -1,0 +1,301 @@
+Redesign the SYANOR VOYAGES mobile navbar and mobile menu into a much more premium, luxurious, and professional experience.
+
+Current issue:
+The mobile navbar/menu works, but visually it does not feel premium enough.
+It feels too standard and not refined enough for the SYANOR luxury brand.
+
+I want the mobile navigation to feel:
+- more premium
+- more elegant
+- more luxurious
+- more polished
+- more app-like
+- more high-end
+- more world-class
+
+This is not just a functional fix.
+This is a full premium redesign of the MOBILE navigation experience.
+
+GOAL:
+Make the mobile navbar and mobile menu feel like a luxury travel app / premium concierge platform.
+
+The result should feel:
+- clean
+- cinematic
+- elegant
+- glassy
+- premium
+- smooth
+- easy to use
+- launch-ready
+
+IMPORTANT:
+Do not just keep the current layout and tweak colors.
+I want a true refinement and redesign of the MOBILE header/menu system.
+
+1. MOBILE HEADER REDESIGN
+Redesign the top mobile header bar.
+
+Current mobile header feels too basic.
+Make it more premium and balanced.
+
+Requirements:
+- compact but elegant height
+- clean logo placement
+- refined menu toggle
+- better spacing
+- stronger visual hierarchy
+- more premium materials
+
+Suggested header structure:
+- logo on the left
+- one or two premium action icons on the right if needed
+- main menu toggle on the right
+- optional WhatsApp shortcut only if it is very clean and balanced
+
+Header style:
+- ivory / pearl translucent background
+- soft blur / glass effect
+- subtle shadow
+- fine gold bottom hairline
+- perfect padding
+- not bulky
+- not too empty
+
+Logo:
+- keep logo crisp and clean
+- not too small
+- not too large
+- perfectly aligned vertically
+- no awkward background box
+
+Menu toggle:
+- replace any cheap/basic hamburger feeling
+- use a refined icon button
+- elegant circular or rounded-square button
+- subtle glass/emerald treatment
+- premium hover/tap feedback
+- animated transition between open and close states
+
+2. MOBILE MENU PANEL REDESIGN
+The mobile menu drawer/panel needs a much stronger premium redesign.
+
+Current feeling is too basic.
+I want it to feel like a curated luxury navigation panel.
+
+Use:
+- full-height premium panel
+- app-like structure
+- emerald luxury background or layered glass dark-emerald surface
+- soft gradients
+- subtle texture if tasteful
+- gold details
+- clean dividers
+- premium spacing
+- no cramped layout
+
+The panel must feel intentional and art-directed.
+
+3. CONTENT ORGANIZATION
+Organize the mobile menu into elegant premium sections.
+
+Suggested grouped structure:
+
+A. Main navigation
+- Accueil
+- Offres
+- Blog
+- FAQ
+- Contact
+
+B. Omra & Hajj
+- Omra 2026
+- Omra 2027
+- Hajj 2027
+- Omra Plus
+- Ramadan
+
+C. Départs
+- Nice
+- Marseille
+- Lyon
+- Paris
+- Toulouse
+- Bruxelles
+
+D. Services
+- Billets avion
+- Billets bateau
+- Voyages organisés
+- Séjour sur mesure
+- Pack Premium / VIP
+- Visa
+- Formation
+- Assistance
+
+E. Quick actions
+- WhatsApp
+- Appeler
+- Demander un devis
+
+Do not make it feel like one long raw list.
+Group it beautifully.
+
+4. MONTH CHIPS / OMRA SECTION
+The month chips area in mobile currently feels okay structurally, but needs stronger premium treatment.
+
+Improve:
+- chip sizing
+- spacing
+- typography
+- shadows
+- active states
+- selected states
+- readable departure count
+- horizontal scroll polish
+
+Month chips must feel like premium travel filters, not basic pills.
+
+Use:
+- rounded premium pills
+- thin gold border
+- emerald active state
+- subtle glow
+- clear text hierarchy
+- smooth touch feedback
+
+5. BETTER MENU VISUAL HIERARCHY
+Improve the typography and rhythm of the menu.
+
+Use:
+- stronger section labels
+- smaller uppercase gold section headings
+- cleaner spacing between groups
+- larger primary links
+- softer secondary metadata
+- consistent font treatment
+- better line-height
+- no clutter
+
+The user should understand the menu instantly.
+
+6. LUXURY ACTION AREA AT THE BOTTOM
+The bottom area of the mobile menu should feel very premium.
+
+Current bottom CTA area can be much better.
+
+Create a stronger bottom action block including:
+- WhatsApp button
+- Appeler button
+- Demander un devis primary CTA
+
+Design:
+- beautiful spacing
+- premium pill buttons
+- clear hierarchy
+- primary CTA strongest
+- supporting action buttons elegant but secondary
+
+The “Demander un devis” CTA should feel luxurious and irresistible.
+
+7. OPEN/CLOSE TRANSITIONS
+Upgrade mobile menu transitions.
+
+I want:
+- smooth panel entrance
+- soft backdrop fade
+- slight slide / fade for grouped content
+- luxury easing
+- no abrupt opening
+- no cheap motion
+
+Suggested motion:
+- panel slides in smoothly
+- background overlay fades in
+- menu groups appear with subtle stagger
+- close animation smooth and fast
+
+Respect prefers-reduced-motion.
+
+8. ACTIVE STATES
+Make the menu feel smarter with better active states.
+
+For current page / active menu item:
+- highlight clearly
+- emerald/gold treatment
+- maybe subtle background pill
+- no ugly underline
+- no default browser feel
+
+9. MOBILE UX IMPROVEMENTS
+This must be designed specifically for mobile usability.
+
+Requirements:
+- large touch targets
+- comfortable spacing
+- no crowded chips
+- no accidental taps
+- no horizontal overflow
+- sticky header works cleanly
+- body scroll lock when menu is open if appropriate
+- menu content scrolls smoothly
+- bottom action area remains easy to access
+
+10. LOOK AND FEEL
+This mobile navigation must feel:
+- more premium than now
+- less generic
+- less template-like
+- more branded
+- more “luxury travel concierge”
+- more like a premium mobile app
+
+Think:
+- Apple-level polish
+- premium travel brand
+- luxury concierge UI
+- elegant glass surfaces
+- clean gold details
+- refined emerald depth
+
+But do NOT make it overly dark or heavy.
+Keep it elegant and tasteful.
+
+11. DO NOT BREAK FUNCTIONALITY
+Keep or improve:
+- menu links
+- grouped content
+- month navigation
+- city links
+- CTA links
+- quote CTA
+- WhatsApp / phone actions
+- routing behavior
+- scroll-to-top on route change
+
+12. BOTH STATES MATTER
+Design both:
+- closed mobile header state
+- open menu state
+
+Both must feel premium.
+Do not focus only on the open drawer.
+
+13. FINAL CHECK
+Before finishing:
+- mobile navbar looks premium
+- logo is aligned
+- menu toggle is refined
+- menu panel feels luxurious
+- groups are well organized
+- month chips feel premium
+- bottom action CTA area is strong
+- transitions are smooth
+- mobile experience feels app-like
+- no overflow
+- no cramped layout
+- build/typecheck passes
+
+Expected result:
+The mobile navbar and mobile menu should become one of the most premium parts of the website.
+It must feel luxurious, smooth, professional, branded, and much more impressive than the current version.

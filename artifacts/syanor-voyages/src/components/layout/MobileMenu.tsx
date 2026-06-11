@@ -13,28 +13,84 @@ interface MobileMenuProps {
 }
 
 const SERVICES = [
-  { label: "Billets Avion", href: "/services/billets-avion", icon: "airplane" },
-  { label: "Billets Bateau", href: "/services/billets-bateau", icon: "anchor" },
-  { label: "Voyages Organisés", href: "/voyages-organises", icon: "route" },
-  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure", icon: "compass" },
-  { label: "Packs Premium / VIP", href: "/services#packs", icon: "diamond" },
+  { label: "Billets Avion",      href: "/services/billets-avion",  icon: "airplane"  },
+  { label: "Billets Bateau",     href: "/services/billets-bateau", icon: "anchor"    },
+  { label: "Voyages Organisés",  href: "/voyages-organises",        icon: "route"     },
+  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure",       icon: "compass"   },
+  { label: "Packs Premium / VIP",href: "/services#packs",           icon: "diamond"   },
+  { label: "Visa & Assistance",  href: "/visas",                    icon: "clipboard" },
+  { label: "Formation Omra",     href: "/formation",                icon: "book-open" },
 ];
 
-const AIDE = [
-  { label: "FAQ", href: "/faq" },
-  { label: "Blog", href: "/blog" },
-  { label: "Visas", href: "/visas" },
-  { label: "Formation", href: "/formation" },
-  { label: "Contact", href: "/contact" },
+const QUICK_NAV = [
+  { label: "Accueil",  href: "/",        icon: "compass"  },
+  { label: "Offres",   href: "/offres",  icon: "star"     },
+  { label: "Blog",     href: "/blog",    icon: "book"     },
+  { label: "FAQ",      href: "/faq",     icon: "shield"   },
+  { label: "Contact",  href: "/contact", icon: "phone"    },
 ];
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+const WA_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z";
+
+function ChevronRight() {
   return (
-    <div className="border-b border-syanor-gold/15 py-5">
-      <p className="mb-3 px-1 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-        {title}
+    <svg className="ml-auto h-3.5 w-3.5 shrink-0 text-white/20 transition-colors group-hover:text-white/35" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+      <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ArrowRight() {
+  return (
+    <svg className="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-4 flex items-center gap-3">
+      <p className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.22em] text-syanor-gold/70">
+        {children}
       </p>
-      {children}
+      <div className="h-px flex-1 bg-gradient-to-r from-syanor-gold/25 to-transparent" aria-hidden="true" />
+    </div>
+  );
+}
+
+function MonthChips({ months, year, href }: {
+  months: ReturnType<typeof getMonthsByYear>;
+  year: string;
+  href: string;
+}) {
+  return (
+    <div className="mb-5">
+      <p className="mb-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/30">
+        Omra {year}
+      </p>
+      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
+        {months.map((m) => (
+          <Link
+            key={m.slug}
+            href={m.href}
+            className="flex shrink-0 flex-col items-center gap-0.5 rounded-xl border border-syanor-gold/20 bg-white/[0.04] px-3.5 py-2.5 transition-all duration-200 hover:border-syanor-gold/45 hover:bg-white/[0.08] active:scale-[0.96]"
+          >
+            <span className="text-sm font-semibold leading-none text-syanor-ivory">{m.label}</span>
+            {m.departureCount > 0 && (
+              <span className="mt-1 text-[0.6rem] font-medium leading-none text-syanor-gold">
+                {m.departureCount} départ{m.departureCount > 1 ? "s" : ""}
+              </span>
+            )}
+          </Link>
+        ))}
+      </div>
+      <Link
+        href={href}
+        className="mt-1.5 inline-flex items-center gap-1.5 text-[0.68rem] font-medium text-syanor-gold/55 transition-colors hover:text-syanor-gold"
+      >
+        Voir tout Omra {year} <ArrowRight />
+      </Link>
     </div>
   );
 }
@@ -56,194 +112,222 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
   return (
     <>
-      {/* Backdrop */}
+      {/* ── BACKDROP ─────────────────────────────────────────── */}
       <div
         aria-hidden="true"
-        className={`fixed inset-0 z-[59] bg-syanor-royal/40 backdrop-blur-[2px] transition-opacity duration-400 lg:hidden ${
+        onClick={onClose}
+        className={`fixed inset-0 z-[59] bg-black/55 backdrop-blur-[3px] transition-opacity duration-500 lg:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
-        onClick={onClose}
       />
 
-      {/* Panel — slides in from right */}
+      {/* ── PANEL ────────────────────────────────────────────── */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Menu de navigation"
-        className={`fixed inset-y-0 right-0 z-[60] flex w-full max-w-sm flex-col bg-syanor-emerald shadow-[−8px_0_40px_rgba(0,0,0,0.25)] transition-all duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
-          open ? "pointer-events-auto translate-x-0 opacity-100" : "pointer-events-none translate-x-full opacity-0"
+        className={`fixed inset-y-0 right-0 z-[60] flex w-full max-w-[340px] flex-col overflow-hidden shadow-[−16px_0_80px_rgba(0,0,0,0.4)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ background: "linear-gradient(168deg,#063F33 0%,#022B24 55%,#011a15 100%)" }}
       >
-        {/* Header */}
-        <div className="flex shrink-0 items-center justify-between px-5 py-4 border-b border-syanor-gold/15">
-          <Link href="/" onClick={onClose} aria-label="SYANOR VOYAGES">
-            <Logo variant="light" className="max-w-[130px]" />
+        {/* Ambient gold glow — top-right */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 55% 32% at 100% 0%,rgba(201,162,74,0.13),transparent)" }}
+        />
+        {/* Ambient depth — bottom-left */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 65% 28% at 0% 100%,rgba(2,43,36,0.7),transparent)" }}
+        />
+
+        {/* ── HEADER ─────────────────────────────────────────── */}
+        <div className="relative z-10 flex shrink-0 items-center justify-between border-b border-white/[0.06] px-5 py-4">
+          <Link href="/" onClick={onClose} aria-label="SYANOR VOYAGES — Accueil">
+            <Logo
+              className="max-w-[118px]"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
           </Link>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Fermer le menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full text-syanor-ivory/70 transition-all duration-200 hover:bg-syanor-royal/60 hover:text-syanor-gold"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            </svg>
-          </button>
+
+          <div className="flex items-center gap-2">
+            {/* WhatsApp shortcut */}
+            <a
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contacter sur WhatsApp"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-syanor-gold/30 text-syanor-gold/75 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/10 hover:text-syanor-gold active:scale-[0.94]"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={WA_PATH} />
+              </svg>
+            </a>
+
+            {/* Close */}
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Fermer le menu"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.10] text-white/45 transition-all duration-200 hover:border-white/25 hover:bg-white/[0.07] hover:text-white active:scale-[0.94]"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Scrollable body */}
-        <nav className="flex-1 overflow-y-auto px-5 pb-4" aria-label="Navigation mobile">
+        {/* ── SCROLLABLE BODY ────────────────────────────────── */}
+        <nav
+          className="relative z-10 flex-1 overflow-y-auto overscroll-contain px-5 py-6"
+          aria-label="Navigation mobile"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {/* Quick Nav grid */}
+          <div className="mb-7">
+            <SectionLabel>Navigation</SectionLabel>
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+              {QUICK_NAV.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className="flex flex-col items-center gap-1.5 rounded-2xl border border-white/[0.07] bg-white/[0.04] px-2 py-3 text-center transition-all duration-200 hover:border-syanor-gold/30 hover:bg-white/[0.07] active:scale-[0.95]"
+                >
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-syanor-gold/10 text-syanor-gold" aria-hidden="true">
+                    <Icon name={item.icon} className="h-3.5 w-3.5" />
+                  </span>
+                  <span className="text-[0.68rem] font-medium leading-tight text-syanor-ivory/70">{item.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Omra & Hajj */}
-          <Section title="Omra & Hajj">
-            <div className="space-y-4">
-              {/* Omra 2026 */}
-              <div>
-                <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-wide text-syanor-champagne/60">
-                  Omra 2026
-                </p>
-                <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
-                  {months2026.map((m) => (
-                    <Link
-                      key={m.slug}
-                      href={m.href}
-                      onClick={onClose}
-                      className="flex shrink-0 flex-col items-center rounded-xl border border-syanor-gold/25 bg-syanor-royal/60 px-3 py-2 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/80 active:scale-[0.97]"
-                    >
-                      <span className="text-sm font-semibold text-syanor-ivory">{m.label}</span>
-                      {m.departureCount > 0 && (
-                        <span className="mt-0.5 text-[0.65rem] text-syanor-gold">{m.departureCount} départ{m.departureCount > 1 ? "s" : ""}</span>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-                <Link href="/omra-2026" onClick={onClose} className="mt-2 block text-xs font-medium text-syanor-gold/80 transition-colors hover:text-syanor-gold">
-                  → Voir tout Omra 2026
-                </Link>
-              </div>
+          <div className="mb-7">
+            <SectionLabel>Omra & Hajj</SectionLabel>
 
-              {/* Omra 2027 */}
-              <div>
-                <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-wide text-syanor-champagne/60">
-                  Omra 2027
-                </p>
-                <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
-                  {months2027.map((m) => (
-                    <Link
-                      key={m.slug}
-                      href={m.href}
-                      onClick={onClose}
-                      className="flex shrink-0 flex-col items-center rounded-xl border border-syanor-gold/25 bg-syanor-royal/60 px-3 py-2 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/80 active:scale-[0.97]"
-                    >
-                      <span className="text-sm font-semibold text-syanor-ivory">{m.label}</span>
-                      {m.departureCount > 0 && (
-                        <span className="mt-0.5 text-[0.65rem] text-syanor-gold">{m.departureCount} départ{m.departureCount > 1 ? "s" : ""}</span>
-                      )}
-                    </Link>
-                  ))}
-                </div>
-                <Link href="/omra-2027" onClick={onClose} className="mt-2 block text-xs font-medium text-syanor-gold/80 transition-colors hover:text-syanor-gold">
-                  → Voir tout Omra 2027
-                </Link>
-              </div>
+            <MonthChips months={months2026} year="2026" href="/omra-2026" />
+            <MonthChips months={months2027} year="2027" href="/omra-2027" />
 
+            <div className="space-y-1.5">
               {/* Hajj 2027 */}
               <Link
                 href="/hajj-2027"
                 onClick={onClose}
-                className="flex items-center gap-3 rounded-xl border border-syanor-gold/30 bg-syanor-royal/40 px-4 py-3 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/60 active:scale-[0.98]"
+                className="group flex items-center gap-3 rounded-xl border border-syanor-gold/20 bg-white/[0.04] px-4 py-3 transition-all duration-200 hover:border-syanor-gold/40 hover:bg-white/[0.07] active:scale-[0.98]"
               >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-syanor-royal/60 text-syanor-gold" aria-hidden="true">
-                  <Icon name="crescent" className="h-5 w-5" />
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-syanor-gold/12 text-syanor-gold" aria-hidden="true">
+                  <Icon name="crescent" className="h-4 w-4" />
                 </span>
-                <div>
-                  <span className="block text-sm font-semibold text-syanor-ivory">Hajj 2027</span>
-                  <span className="block text-xs text-syanor-champagne/60">Pré-inscription ouverte</span>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-syanor-ivory">Hajj 2027</p>
+                  <p className="text-[0.62rem] text-white/38">Pré-inscription ouverte</p>
                 </div>
+                <ChevronRight />
+              </Link>
+              {/* Omra Plus / Ramadan */}
+              <Link
+                href="/omra-hajj/omra-plus"
+                onClick={onClose}
+                className="group flex items-center gap-3 rounded-xl border border-syanor-gold/20 bg-white/[0.04] px-4 py-3 transition-all duration-200 hover:border-syanor-gold/40 hover:bg-white/[0.07] active:scale-[0.98]"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-syanor-gold/12 text-syanor-gold" aria-hidden="true">
+                  <Icon name="sparkle" className="h-4 w-4" />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-syanor-ivory">Omra Plus · Ramadan</p>
+                  <p className="text-[0.62rem] text-white/38">Expérience spirituelle premium</p>
+                </div>
+                <ChevronRight />
               </Link>
             </div>
-          </Section>
+          </div>
 
           {/* Villes de départ */}
-          <Section title="Villes de départ">
+          <div className="mb-7">
+            <SectionLabel>Villes de départ</SectionLabel>
             <div className="grid grid-cols-2 gap-2">
               {departureCities.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/depart/${c.slug}`}
                   onClick={onClose}
-                  className="flex items-center gap-2 rounded-xl border border-syanor-gold/20 bg-syanor-royal/40 px-3 py-2.5 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/60 active:scale-[0.97]"
+                  className="flex items-center justify-between gap-2 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3.5 py-2.5 transition-all duration-200 hover:border-syanor-gold/25 hover:bg-white/[0.06] active:scale-[0.97]"
                 >
-                  <span className="text-sm font-medium text-syanor-ivory">{c.name}</span>
+                  <span className="text-sm font-medium text-syanor-ivory/75">{c.name}</span>
                   {c.confirmed && (
-                    <span className="ml-auto h-2 w-2 shrink-0 rounded-full bg-syanor-gold" aria-label="confirmé" />
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-syanor-gold" aria-label="confirmé" />
                   )}
                 </Link>
               ))}
             </div>
-          </Section>
+          </div>
 
           {/* Services */}
-          <Section title="Services">
-            <div className="space-y-1">
+          <div className="mb-2">
+            <SectionLabel>Services</SectionLabel>
+            <div className="space-y-0.5">
               {SERVICES.map((s) => (
                 <Link
                   key={s.href}
                   href={s.href}
                   onClick={onClose}
-                  className="flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-syanor-royal/50 active:scale-[0.98]"
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-white/[0.06] active:scale-[0.98]"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-royal text-syanor-gold transition-colors duration-200 group-hover:bg-syanor-gold group-hover:text-syanor-royal" aria-hidden="true">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-syanor-gold/65 transition-colors group-hover:bg-syanor-gold/14 group-hover:text-syanor-gold" aria-hidden="true">
                     <Icon name={s.icon} className="h-3.5 w-3.5" />
                   </span>
-                  <span className="text-sm font-medium text-syanor-ivory">{s.label}</span>
+                  <span className="text-sm font-medium text-syanor-ivory/70 transition-colors group-hover:text-syanor-ivory">
+                    {s.label}
+                  </span>
+                  <ChevronRight />
                 </Link>
               ))}
             </div>
-          </Section>
-
-          {/* Aide & Préparation */}
-          <Section title="Aide & Préparation">
-            <div className="grid grid-cols-2 gap-1">
-              {AIDE.map((a) => (
-                <Link
-                  key={a.href}
-                  href={a.href}
-                  onClick={onClose}
-                  className="rounded-xl px-3 py-2 text-sm font-medium text-syanor-champagne/80 transition-all duration-200 hover:bg-syanor-royal/40 hover:text-syanor-gold"
-                >
-                  {a.label}
-                </Link>
-              ))}
-            </div>
-          </Section>
+          </div>
         </nav>
 
-        {/* Bottom CTA */}
-        <div className="shrink-0 border-t border-syanor-gold/20 p-5 pb-safe">
-          <div className="mb-3 grid grid-cols-2 gap-3">
+        {/* ── BOTTOM CTA AREA ───────────────────────────────── */}
+        <div
+          className="relative z-10 shrink-0 border-t border-white/[0.06] px-5 pb-6 pt-4"
+          style={{ paddingBottom: "max(24px, env(safe-area-inset-bottom))" }}
+        >
+          {/* Secondary actions */}
+          <div className="mb-3 flex gap-2.5">
             <a
               href={CONTACT.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full border border-syanor-gold/40 py-2.5 text-sm font-medium text-syanor-ivory transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/40 active:scale-[0.97]"
+              className="flex flex-1 items-center justify-center gap-2 rounded-full border border-syanor-gold/30 py-2.5 text-sm font-medium text-syanor-ivory/70 transition-all duration-200 hover:border-syanor-gold hover:text-syanor-gold active:scale-[0.96]"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d={WA_PATH} />
               </svg>
               WhatsApp
             </a>
             <a
               href={CONTACT.phoneHref}
-              className="flex items-center justify-center gap-2 rounded-full border border-syanor-gold/40 py-2.5 text-sm font-medium text-syanor-ivory transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-royal/40 active:scale-[0.97]"
+              className="flex flex-1 items-center justify-center gap-2 rounded-full border border-white/[0.12] py-2.5 text-sm font-medium text-syanor-ivory/55 transition-all duration-200 hover:border-white/30 hover:text-syanor-ivory active:scale-[0.96]"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.19 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Appeler
             </a>
           </div>
-          <Link href="/contact#quote" onClick={onClose} className="btn-gold w-full">
+
+          {/* Primary CTA */}
+          <Link
+            href="/contact#quote"
+            onClick={onClose}
+            className="btn-gold flex w-full items-center justify-center gap-2 py-3.5 text-base"
+          >
+            <Icon name="sparkle" className="h-4 w-4" aria-hidden="true" />
             Demander un devis
           </Link>
         </div>
