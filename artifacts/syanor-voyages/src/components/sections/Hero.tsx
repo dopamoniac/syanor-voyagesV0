@@ -90,7 +90,7 @@ export default function Hero() {
 
             {/* Eyebrow */}
             <p className="eyebrow">
-              BILLETS · SÉJOURS SUR MESURE · OMRA &amp; HAJJ
+              BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE
             </p>
 
             {/* Headline */}
