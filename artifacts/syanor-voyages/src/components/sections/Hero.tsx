@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="relative flex min-h-[92vh] flex-col justify-start lg:justify-center overflow-hidden bg-syanor-ivory"
+      className="relative flex min-h-[92vh] flex-col justify-start overflow-hidden bg-syanor-ivory"
       style={{ minHeight: "max(92vh, 780px)" }}
     >
       {/* ── HERO BACKGROUND IMAGE ── */}
@@ -82,7 +82,7 @@ export default function Hero() {
         aria-hidden="true"
       />
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-24 text-[color:var(--color-amber-400)]">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-[96px] text-[color:var(--color-amber-400)]">
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
