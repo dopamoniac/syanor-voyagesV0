@@ -51,6 +51,11 @@ const typeOptions = [
   "Billet bateau",
   "Voyage organisé",
   "Séjour sur mesure",
+  "Pack personnalisé",
+  "Visa",
+  "Formation",
+  "Assurance",
+  "Hôtel & Transferts",
 ];
 
 const destinationOptions = [

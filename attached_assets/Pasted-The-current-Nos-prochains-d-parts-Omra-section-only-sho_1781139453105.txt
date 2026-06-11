@@ -1,0 +1,234 @@
+The current “Nos prochains départs Omra” section only shows 6 cards. That is not enough.
+
+SYANOR VOYAGES is a full premium travel agency with many activities and many offers. Do not make the website feel like the agency only has 6 departures.
+
+TASK:
+Expand the offers/departures system so the website clearly shows a rich catalogue of choices, not only 6 cards.
+
+IMPORTANT:
+Homepage can show 6 featured/upcoming cards as a preview, but the full website must contain many offers and service choices.
+
+The user journey should be:
+Homepage preview → Voir tous les départs → full offers catalogue with filters → offer detail → smart quote form.
+
+REQUIRED FIX:
+
+1. Homepage section
+Keep “Nos prochains départs Omra” with 6 featured cards if needed, but add:
+- CTA: “Voir tous les départs”
+- CTA: “Explorer toutes nos offres”
+- Text note: “Retrouvez l’ensemble des départs Omra 2026–2027, billets, séjours et offres sur mesure dans notre catalogue.”
+
+Also add a small row/chip section under the 6 cards:
+- Omra 2026
+- Omra 2027
+- Hajj 2027
+- Billets Avion
+- Billets Bateau
+- Séjours Sur Mesure
+- Packs Premium / VIP
+- Visas
+
+Each chip links to the correct page or filtered /offres view.
+
+2. Full /offres page
+The /offres page must show the complete catalogue, not only 6 cards.
+
+It must include:
+- All 14 real Omra dates provided
+- September 2026 placeholder “dates à confirmer”
+- Omra Plus
+- Ramadan
+- Hajj 2027
+- Billet avion international
+- Billet bateau / ferry
+- Voyage organisé
+- Séjour sur mesure
+- Pack Premium / VIP
+- Visa assistance
+- Hôtel + transferts
+- Formation / accompagnement
+
+Create at least 20 to 28 offer/service cards in the catalogue.
+
+3. Omra dates
+Add all real Omra dates:
+
+Route:
+Nice / Marseille → Médine
+Retour:
+Jeddah → Nice / Marseille
+Prix:
+Sur demande
+Disponibilité:
+À confirmer
+
+Dates:
+- 18/10/2026 → 29/10/2026
+- 28/10/2026 → 08/11/2026
+- 11/11/2026 → 22/11/2026
+- 25/11/2026 → 06/12/2026
+- 20/12/2026 → 31/12/2026
+- 22/12/2026 → 02/01/2027
+- 17/01/2027 → 28/01/2027
+- 04/02/2027 → 15/02/2027
+- 16/02/2027 → 27/02/2027
+- 27/02/2027 → 10/03/2027
+- 09/03/2027 → 25/03/2027
+- 16/02/2027 → 22/03/2027, durée 34 jours
+- 22/03/2027 → 02/04/2027
+- 05/04/2027 → 16/04/2027
+
+Also add:
+- Omra Septembre 2026: dates à confirmer
+
+4. Add non-Omra agency offer cards
+SYANOR is not only Omra. Add realistic placeholder cards for all activities:
+
+Billets:
+- Billet Avion International
+- Billet Avion Flexible
+- Billet Bateau / Ferry
+- Traversée avec véhicule
+- Billets Groupe
+
+Voyages religieux:
+- Omra Plus
+- Omra Ramadan
+- Hajj 2027
+- Ziyarat accompagnées
+- Formation avant départ
+
+Sur mesure:
+- Séjour sur Mesure
+- Pack Premium / VIP
+- Voyage organisé
+- Voyage de Noces
+- Séjour famille
+
+Assistance:
+- Visa Assistance
+- Hôtel + Transferts
+- Assurance Voyage
+- Assistance 24/7
+- Accompagnement administratif
+
+Use “Sur demande”, “À confirmer”, or “Prix indicatif” when no real price exists.
+Do not invent official prices.
+
+5. Filters
+The offers catalogue must have professional filters:
+- Service type
+- Year
+- Month
+- Departure city
+- Destination
+- Transport
+- Comfort level
+- Availability
+- Budget / price status
+
+Filter categories must include:
+- Omra
+- Hajj
+- Ramadan
+- Omra Plus
+- Billet avion
+- Billet bateau
+- Voyage organisé
+- Séjour sur mesure
+- Pack Premium / VIP
+- Visa
+- Hôtel / Transferts
+- Formation
+
+6. Visual organization
+Do not show all offers as a messy endless grid.
+
+Organize the /offres page into sections or tabs:
+
+Option A:
+Tabs:
+- Tous
+- Omra 2026
+- Omra 2027
+- Hajj & Ramadan
+- Billets
+- Sur Mesure
+- Assistance
+
+Option B:
+Grouped sections:
+- Départs Omra 2026–2027
+- Billets Avion & Bateau
+- Voyages Spirituels
+- Séjours Sur Mesure
+- Packs Premium / VIP
+- Assistance & Visas
+
+Use the best option for UX.
+
+7. Homepage preview logic
+Homepage should show:
+- 6 next/featured departures only
+- Then CTA to full catalogue
+- Then activity chips or category cards so users understand the agency has many services
+
+Do not make the homepage look like SYANOR only has 6 offers.
+
+8. Offer detail pages
+Every catalogue card should link to:
+- A real detail page if it is a real offer
+or
+- A smart quote form prefilled if it is a request-based service
+
+For Omra date cards:
+Link to /offres/[slug] and “Choisir ce départ”.
+
+For request-based services:
+Link to /contact?service=[service]#quote
+
+9. Smart quote prefill
+Every CTA must prefill the quote form:
+- service
+- offer
+- departureDate if available
+- returnDate if available
+- city
+- route
+- comfort level if selected
+
+10. Design
+All cards must keep the premium image-based Booking-style design:
+- Image top area
+- Gold date/category badge
+- Emerald/ivory body
+- Route display
+- Included chips
+- Status badge
+- Price label
+- CTA
+
+For non-date services, use service-card visuals:
+- Billet avion image
+- Billet bateau image
+- Visa/passport image
+- Premium stay image
+- VIP transfer image
+- Formation image
+
+11. Final check
+Before finishing:
+- Homepage does not feel limited to 6 offers.
+- /offres shows a rich catalogue.
+- All 14 Omra dates exist.
+- Other agency activities are visible.
+- Filters work.
+- CTAs work.
+- Smart quote form is prefilled.
+- Mobile layout is premium.
+- No fake official prices.
+- Build passes.
+
+Final expectation:
+SYANOR must feel like a full premium travel agency platform with many choices, not a small agency with only 6 cards.

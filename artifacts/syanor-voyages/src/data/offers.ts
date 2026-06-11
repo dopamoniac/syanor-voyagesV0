@@ -671,6 +671,170 @@ export const offers: TravelOffer[] = [
     priceFrom: "Sur demande",
     availabilityStatus: "Sur demande",
   },
+
+  // ─── BILLETS AVION SUPPLÉMENTAIRES ───
+
+  {
+    id: "billet-avion-flexible",
+    slug: "billet-avion-flexible",
+    title: "Billet Avion Flexible",
+    category: "Billet avion",
+    summary: "Vols à dates flexibles avec modification possible — idéal pour les voyageurs dont le planning peut évoluer.",
+    transportType: "Avion",
+    includedServices: ["Recherche d'itinéraire", "Modification de date", "Aller simple ou aller-retour", "Assistance réservation"],
+    priceFrom: "Prix indicatif",
+    availabilityStatus: "Disponible",
+  },
+
+  {
+    id: "billets-groupe",
+    slug: "billets-avion-groupe",
+    title: "Billets Avion Groupe",
+    category: "Billet avion",
+    summary: "Réservations de groupe à tarif négocié pour associations, familles et communautés voyageant ensemble.",
+    transportType: "Avion",
+    includedServices: ["Tarif groupe négocié", "Siège blocs adjacents", "Coordination embarquement", "Assistance dédiée groupe"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Sur demande",
+  },
+
+  // ─── BILLETS BATEAU SUPPLÉMENTAIRES ───
+
+  {
+    id: "traversee-vehicule",
+    slug: "traversee-ferry-avec-vehicule",
+    title: "Traversée Ferry avec Véhicule",
+    category: "Billet bateau",
+    summary: "Embarquement pour votre voiture ou camping-car sur les grandes lignes Méditerranée et Mer du Nord.",
+    transportType: "Bateau",
+    includedServices: ["Passage véhicule", "Cabine ou fauteuil", "Traversée aller-retour disponible", "Conseils ports et horaires"],
+    priceFrom: "Prix indicatif",
+    availabilityStatus: "Disponible",
+  },
+
+  // ─── VOYAGES RELIGIEUX SUPPLÉMENTAIRES ───
+
+  {
+    id: "ziyarat-accompagnees",
+    slug: "ziyarat-accompagnees",
+    title: "Ziyarat Accompagnées",
+    category: "Omra",
+    summary: "Visites des lieux saints de Médine et Makkah avec un accompagnateur francophone qualifié et un programme spirituel structuré.",
+    transportType: "Sur mesure",
+    includedServices: ["Accompagnateur francophone", "Visite des lieux saints", "Programme spirituel", "Transferts inclus"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Sur demande",
+  },
+
+  // ─── SUR MESURE SUPPLÉMENTAIRES ───
+
+  {
+    id: "voyage-noces",
+    slug: "voyage-de-noces-sur-mesure",
+    title: "Voyage de Noces Sur Mesure",
+    category: "Séjour sur mesure",
+    summary: "Un voyage romantique entièrement personnalisé pour les jeunes mariés : destination, hébergement et activités au choix.",
+    transportType: "Sur mesure",
+    comfortLevel: "VIP",
+    includedServices: ["Hôtel de prestige", "Transferts privés", "Programme romantique", "Assistance dédiée", "Surprises à la demande"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Sur demande",
+  },
+
+  {
+    id: "sejour-famille",
+    slug: "sejour-famille-sur-mesure",
+    title: "Séjour Famille Sur Mesure",
+    category: "Séjour sur mesure",
+    summary: "Voyage familial composé autour de vos enfants et vos envies : activités adaptées, hébergement spacieux et rythme à votre mesure.",
+    transportType: "Sur mesure",
+    comfortLevel: "Premium",
+    includedServices: ["Hébergement famille", "Transferts confortables", "Activités enfants", "Programme flexible", "Assistance dédiée"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Sur demande",
+  },
+
+  // ─── VISA & ASSISTANCE ───
+
+  {
+    id: "visa-assistance",
+    slug: "visa-assistance-omra-hajj",
+    title: "Visa Assistance — Omra & Hajj",
+    category: "Visa",
+    summary: "Accompagnement complet pour l'obtention de votre visa Omra ou Hajj : constitution du dossier, vérification et suivi jusqu'à l'obtention.",
+    transportType: "Sur mesure",
+    includedServices: ["Constitution du dossier", "Vérification des pièces", "Suivi de la demande", "Conseils sanitaires", "Réponse en 48h"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Disponible",
+  },
+
+  {
+    id: "hotel-transferts",
+    slug: "hotel-et-transferts",
+    title: "Hôtel + Transferts",
+    category: "Hôtel & Transferts",
+    summary: "Réservation d'hôtel à Makkah ou Médine avec transferts aéroport inclus — pour les pèlerins qui préfèrent organiser leur vol eux-mêmes.",
+    transportType: "Sur mesure",
+    comfortLevel: "Standard",
+    hotelLevel: "Hôtels 3★ à 5★ selon budget",
+    includedServices: ["Hébergement Médine / Makkah", "Transfert aéroport ↔ hôtel", "Sélection d'hôtels vérifiés", "Assistance à l'arrivée"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Disponible",
+  },
+
+  {
+    id: "assurance-voyage",
+    slug: "assurance-voyage",
+    title: "Assurance Voyage",
+    category: "Assurance",
+    summary: "Couverture complète pour vos voyages religieux et séjours à l'étranger : annulation, rapatriement, frais médicaux et bagages.",
+    transportType: "Sur mesure",
+    includedServices: ["Annulation / interruption", "Frais médicaux à l'étranger", "Rapatriement d'urgence", "Perte ou retard bagages", "Assistance 24h/24"],
+    priceFrom: "Prix indicatif",
+    availabilityStatus: "Disponible",
+  },
+
+  // ─── FORMATION ───
+
+  {
+    id: "formation-omra",
+    slug: "formation-avant-depart-omra",
+    title: "Formation Avant Départ — Omra",
+    category: "Formation",
+    summary: "Séance de préparation spirituelle et pratique avant votre Omra : rites, déroulement, conseils vestimentaires, santé et prières essentielles.",
+    transportType: "Sur mesure",
+    includedServices: ["Guide des rites de l'Omra", "Conseils pratiques & santé", "Questions-réponses animé", "Support PDF à emporter", "En présentiel ou en ligne"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Disponible",
+  },
+
+  // ─── ACCOMPAGNEMENT ADMINISTRATIF ───
+
+  {
+    id: "accompagnement-admin",
+    slug: "accompagnement-administratif",
+    title: "Accompagnement Administratif",
+    category: "Visa",
+    summary: "Aide à la constitution de vos dossiers de voyage : visa, vaccination, renouvellement passeport, traduction — un interlocuteur unique pour toutes vos démarches.",
+    transportType: "Sur mesure",
+    includedServices: ["Dossier visa", "Conseils vaccination", "Traduction documents", "Suivi renouvellement passeport", "Accompagnement personnalisé"],
+    priceFrom: "Sur demande",
+    availabilityStatus: "Disponible",
+  },
+
+  // ─── ASSISTANCE 24/7 ───
+
+  {
+    id: "assistance-24h",
+    slug: "assistance-voyage-24h",
+    title: "Assistance Voyage 24h/24",
+    category: "Pack personnalisé",
+    summary: "Une ligne directe disponible à toute heure pour nos clients en déplacement : urgences, modifications, informations et soutien sur place.",
+    transportType: "Sur mesure",
+    includedServices: ["Ligne directe 24h/24 7j/7", "Gestion urgences sur place", "Modifications de réservation", "Liaison avec partenaires locaux", "Suivi personnalisé"],
+    priceFrom: "Inclus avec nos packs",
+    availabilityStatus: "Disponible",
+  },
 ];
 
 export function getOfferBySlug(slug: string): TravelOffer | undefined {

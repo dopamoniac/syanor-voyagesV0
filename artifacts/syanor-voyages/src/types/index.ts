@@ -7,7 +7,11 @@ export type ServiceCategory =
   | "Ramadan"
   | "Voyage organisé"
   | "Séjour sur mesure"
-  | "Pack personnalisé";
+  | "Pack personnalisé"
+  | "Visa"
+  | "Formation"
+  | "Assurance"
+  | "Hôtel & Transferts";
 
 export type TransportType = "Avion" | "Bateau" | "Mixte" | "Sur mesure";
 export type ComfortLevel = "Standard" | "Premium" | "VIP";

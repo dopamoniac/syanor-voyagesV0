@@ -68,12 +68,44 @@ export default function NextDepartures() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-syanor-ink/55">
-          Tarifs sur devis ·{" "}
-          <Link href="/contact#quote" className="font-medium text-syanor-emerald hover:underline">
-            Demander une proposition personnalisée
-          </Link>
-        </p>
+        {/* Category chips */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+          {[
+            { label: "Omra 2026", href: "/offres?service=Omra&year=2026" },
+            { label: "Omra 2027", href: "/offres?service=Omra&year=2027" },
+            { label: "Hajj 2027", href: "/offres?service=Hajj" },
+            { label: "Ramadan", href: "/offres?service=Ramadan" },
+            { label: "Billets Avion", href: "/offres?service=Billet+avion" },
+            { label: "Billets Bateau", href: "/offres?service=Billet+bateau" },
+            { label: "Séjours Sur Mesure", href: "/offres?service=Séjour+sur+mesure" },
+            { label: "Packs Premium / VIP", href: "/offres?service=Pack+personnalisé" },
+            { label: "Visa & Assistance", href: "/offres?service=Visa" },
+            { label: "Formation Omra", href: "/offres?service=Formation" },
+          ].map((chip) => (
+            <Link
+              key={chip.label}
+              href={chip.href}
+              className="rounded-full border border-syanor-gold/25 bg-white/60 px-4 py-1.5 text-xs font-medium text-syanor-ink/70 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/8 hover:text-syanor-emerald"
+            >
+              {chip.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Catalogue note + CTAs */}
+        <div className="mt-8 flex flex-col items-center gap-3 text-center">
+          <p className="max-w-xl text-sm text-syanor-ink/50">
+            Retrouvez l'ensemble des départs Omra 2026–2027, billets, séjours et offres sur mesure dans notre catalogue complet.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link href="/offres" className="btn-primary text-sm">
+              Explorer toutes nos offres
+            </Link>
+            <Link href="/contact#quote" className="btn-secondary text-sm">
+              Demander une offre sur mesure
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
