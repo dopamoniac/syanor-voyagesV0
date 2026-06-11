@@ -9,6 +9,7 @@ import Link from "@/components/Link";
 import { getCityBySlug } from "@/data/cities";
 import { getOffersByCity } from "@/data/offers";
 import { quoteUrl } from "@/lib/utils";
+import Icon from "@/components/ui/Icon";
 
 interface Props {
   city: string;
@@ -125,15 +126,15 @@ export default function DepartCityPage({ city: cityParam }: Props) {
         <div className="mx-auto max-w-4xl px-6 md:px-8">
           <div className="flex flex-col items-center gap-4 md:flex-row md:justify-center">
             {[
-              { city: city.name, desc: "Votre départ", icon: "✈" },
-              { city: "Médine", desc: "Arrivée & Ziyarat", icon: "🕌" },
-              { city: "Makkah", desc: "La Omra", icon: "🕋" },
-              { city: city.country === "Belgique" ? "Bruxelles" : city.name, desc: "Retour", icon: "🛬" },
+              { city: city.name, desc: "Votre départ", icon: "airplane" },
+              { city: "Médine", desc: "Arrivée & Ziyarat", icon: "crescent" },
+              { city: "Makkah", desc: "La Omra", icon: "building" },
+              { city: city.country === "Belgique" ? "Bruxelles" : city.name, desc: "Retour", icon: "airplane" },
             ].map((step, i) => (
               <div key={`${step.city}-${i}`} className="flex items-center gap-4">
                 <div className="text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-syanor-gold/40 bg-syanor-royal text-lg">
-                    {step.icon}
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-syanor-gold/40 bg-syanor-royal">
+                    <Icon name={step.icon} className="h-5 w-5 text-syanor-champagne" />
                   </div>
                   <p className="mt-2 text-sm font-semibold text-syanor-ivory">{step.city}</p>
                   <p className="text-xs text-syanor-champagne/70">{step.desc}</p>
