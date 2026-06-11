@@ -16,15 +16,19 @@ export default function Hero() {
       style={{ minHeight: "max(92vh, 780px)" }}
     >
       {/* ── HERO BACKGROUND IMAGE ── */}
-      <img
-        src="/hero-bg.jpg"
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "65% center" }}
-        loading="eager"
-        decoding="async"
-      />
+      <picture className="absolute inset-0 h-full w-full" aria-hidden="true">
+        {/* Mobile — 9:16 premium shot (objects bottom-right, open space top-left) */}
+        <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
+        {/* Desktop — landscape scene */}
+        <img
+          src="/hero-bg.jpg"
+          alt=""
+          className="h-full w-full object-cover"
+          style={{ objectPosition: "65% center" }}
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
       {/* Solid ivory left 30%, fades softly to transparent at 72% */}
       <div
