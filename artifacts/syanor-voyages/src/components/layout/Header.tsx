@@ -10,8 +10,8 @@ import { omraMonths, getMonthsByYear } from "@/data/months";
 import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 
-// Pages whose hero is dark — navbar must always show the light glass background
-const FORCE_BG_ROUTES = ["/contact", "/a-propos", "/formation", "/visas"];
+// All pages except the homepage have a dark hero — always show the glass navbar
+// Homepage (/) has its own cinematic hero that starts transparent
 
 const SERVICE_ICON: Record<string, string> = {
   "/services/billets-avion": "airplane",
@@ -319,7 +319,7 @@ export default function Header() {
   const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
-  const forceBg = FORCE_BG_ROUTES.some((r) => location === r || location.startsWith(r + "/"));
+  const forceBg = location !== "/";
   const showBg = scrolled || forceBg;
 
   useEffect(() => {
