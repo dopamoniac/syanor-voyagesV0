@@ -109,7 +109,7 @@ export default function Hero() {
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
-          <div className="pb-16 pt-3 text-right lg:py-0 lg:text-left">
+          <div className="pb-16 pt-3 text-left lg:py-0 lg:text-left">
 
             {/* Eyebrow */}
             <p className="eyebrow">
@@ -144,7 +144,7 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-end lg:justify-start">
+            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-start lg:justify-start">
               <Link href="/contact#quote" className="btn-primary w-full sm:w-auto">
                 Demander un devis personnalisé
               </Link>
@@ -154,7 +154,7 @@ export default function Hero() {
             </div>
 
             {/* Trust pills */}
-            <ul className="mt-8 flex flex-wrap justify-end gap-x-5 gap-y-2 lg:justify-start">
+            <ul className="mt-8 flex flex-wrap justify-start gap-x-5 gap-y-2 lg:justify-start">
               {trustPills.map((pill) => (
                 <li
                   key={pill}
