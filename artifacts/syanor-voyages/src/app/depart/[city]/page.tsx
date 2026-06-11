@@ -178,7 +178,17 @@ export default function DepartCityPage({ city: cityParam }: Props) {
                         </Link>
                       </td>
                       <td className="py-3">
-                        <Link href={quoteUrl({ service: "Omra", departureDate: o.departureDate, city: city.name })} className="text-xs font-medium text-syanor-gold hover:underline">
+                        <Link
+                          href={quoteUrl({
+                            service: "Omra",
+                            offer: o.title,
+                            city: city.name,
+                            ...(o.returnDate
+                              ? { programmed: true, departureDate: o.departureDate, returnDate: o.returnDate }
+                              : {}),
+                          })}
+                          className="text-xs font-medium text-syanor-gold hover:underline"
+                        >
                           Demander →
                         </Link>
                       </td>
@@ -223,7 +233,17 @@ export default function DepartCityPage({ city: cityParam }: Props) {
                         </Link>
                       </td>
                       <td className="py-3">
-                        <Link href={quoteUrl({ service: "Omra", departureDate: o.departureDate, city: city.name })} className="text-xs font-medium text-syanor-gold hover:underline">
+                        <Link
+                          href={quoteUrl({
+                            service: "Omra",
+                            offer: o.title,
+                            city: city.name,
+                            ...(o.returnDate
+                              ? { programmed: true, departureDate: o.departureDate, returnDate: o.returnDate }
+                              : {}),
+                          })}
+                          className="text-xs font-medium text-syanor-gold hover:underline"
+                        >
                           Demander →
                         </Link>
                       </td>

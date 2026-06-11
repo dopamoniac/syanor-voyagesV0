@@ -161,7 +161,17 @@ export default function Omra2027Page() {
                         </span>
                       </td>
                       <td className="py-3">
-                        <Link href={quoteUrl({ service: "Omra", departureDate: o.departureDate, month: o.monthSlug })} className="text-xs font-medium text-syanor-gold hover:underline">
+                        <Link
+                          href={quoteUrl({
+                            service: "Omra",
+                            offer: o.title,
+                            month: o.monthSlug,
+                            ...(o.returnDate
+                              ? { programmed: true, departureDate: o.departureDate, returnDate: o.returnDate }
+                              : {}),
+                          })}
+                          className="text-xs font-medium text-syanor-gold hover:underline"
+                        >
                           Demander →
                         </Link>
                       </td>

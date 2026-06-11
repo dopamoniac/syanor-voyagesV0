@@ -109,7 +109,13 @@ export default function OmraByMonth() {
                     <p className="mt-0.5 text-xs text-syanor-ink/55">{offer.duration}</p>
                   )}
                   <Link
-                    href={quoteUrl({ service: offer.category, offer: offer.title, departureDate: offer.departureDate })}
+                    href={quoteUrl({
+                      service: offer.category,
+                      offer: offer.title,
+                      ...(offer.returnDate
+                        ? { programmed: true, departureDate: offer.departureDate, returnDate: offer.returnDate }
+                        : {}),
+                    })}
                     className="mt-3 block text-xs font-semibold text-syanor-emerald hover:underline"
                   >
                     Demander ce départ →

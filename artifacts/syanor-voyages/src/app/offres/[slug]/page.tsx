@@ -135,6 +135,9 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
     destination: offer.arrivalCity,
     transport: offer.transportType,
     comfort: offer.comfortLevel,
+    ...(offer.returnDate
+      ? { programmed: true, departureDate: offer.departureDate, returnDate: offer.returnDate }
+      : {}),
   });
   const related = getRelatedOffers(offer, 3);
   const faqItems = getFaqForOffer(offer.category);
