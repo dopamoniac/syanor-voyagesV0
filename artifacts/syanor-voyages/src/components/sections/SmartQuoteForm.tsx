@@ -420,6 +420,7 @@ function SmartQuoteFormInner() {
     const departureDate = sp.get("departureDate");
     const returnDate   = sp.get("returnDate");
     const roomType     = sp.get("roomType");
+    const programmed   = sp.get("programmed");
 
     if (service || offer || city) wasPrefilled.current = true;
 
@@ -434,6 +435,13 @@ function SmartQuoteFormInner() {
     };
     const normService = service ? (serviceMap[service] ?? service as ServiceCategory) : "";
 
+    // Only auto-fill fixed dates for programmed Omra/Hajj offers
+    const omraTypes = new Set(["Omra", "Hajj", "Omra Plus", "Ramadan"]);
+    const isOmraProgrammed =
+      programmed === "true" &&
+      !!normService &&
+      omraTypes.has(normService);
+
     setData((d) => ({
       ...d,
       serviceType:   normService || d.serviceType,
@@ -445,8 +453,8 @@ function SmartQuoteFormInner() {
       comfort:       (comfort      as ComfortLevel) || d.comfort,
       transport:     (transport    as TransportType) || d.transport,
       destination:   destination  ?? d.destination,
-      departureDate: departureDate ?? d.departureDate,
-      returnDate:    returnDate   ?? d.returnDate,
+      departureDate: isOmraProgrammed ? (departureDate ?? d.departureDate) : d.departureDate,
+      returnDate:    isOmraProgrammed ? (returnDate   ?? d.returnDate)    : d.returnDate,
       roomType:      (roomType     as RoomType) || d.roomType,
     }));
 

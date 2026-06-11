@@ -57,8 +57,10 @@ export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Pr
   const cta = quoteUrl({
     service: offer.category,
     offer: offer.title,
-    departureDate: offer.departureDate,
     city: offer.departureCity,
+    ...(offer.returnDate
+      ? { programmed: true, departureDate: offer.departureDate, returnDate: offer.returnDate }
+      : {}),
   });
 
   return (

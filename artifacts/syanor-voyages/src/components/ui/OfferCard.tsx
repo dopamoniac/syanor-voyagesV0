@@ -255,7 +255,13 @@ export default function OfferCard({ offer }: { offer: TravelOffer }) {
               href={
                 isComplete
                   ? `/offres/${offer.slug}`
-                  : quoteUrl({ service: offer.category, offer: offer.title })
+                  : quoteUrl({
+                      service: offer.category,
+                      offer: offer.title,
+                      ...(offer.returnDate
+                        ? { programmed: true, departureDate: offer.departureDate, returnDate: offer.returnDate }
+                        : {}),
+                    })
               }
               className={cn(
                 "flex-[2] rounded-full px-3 py-2.5 text-center text-xs font-semibold transition-all duration-200",

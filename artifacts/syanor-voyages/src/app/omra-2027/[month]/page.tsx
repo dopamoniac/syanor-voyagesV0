@@ -138,7 +138,14 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
                   </div>
 
                   <Link
-                    href={quoteUrl({ service: "Omra", offer: offer.title, departureDate: offer.departureDate, city: "Nice / Marseille" })}
+                    href={quoteUrl({
+                      service: "Omra",
+                      offer: offer.title,
+                      city: "Nice / Marseille",
+                      ...(offer.returnDate
+                        ? { programmed: true, departureDate: offer.departureDate, returnDate: offer.returnDate }
+                        : {}),
+                    })}
                     className="mt-4 block w-full rounded-full bg-syanor-emerald px-5 py-2.5 text-center text-sm font-medium text-syanor-champagne transition hover:bg-syanor-gold hover:text-syanor-royal"
                   >
                     Demander ce départ
