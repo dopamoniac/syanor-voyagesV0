@@ -147,10 +147,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         {/* ── HEADER ─────────────────────────────────────────── */}
         <div className="relative z-10 flex shrink-0 items-center justify-between border-b border-white/[0.06] px-5 py-4">
           <Link href="/" onClick={onClose} aria-label="SYANOR VOYAGES — Accueil">
-            <Logo
-              className="max-w-[118px]"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
+            <Logo className="max-w-[118px]" />
           </Link>
 
           <div className="flex items-center gap-2">
