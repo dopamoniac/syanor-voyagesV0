@@ -117,7 +117,7 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h1 className="mt-4 font-playfair text-5xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem]" style={{ color: "#0e0a02" }}>
+            <h1 className="mt-4 font-playfair font-bold sm:text-5xl md:text-h1 lg:text-[3.6rem] text-[70px]" style={{ color: "#0e0a02" }}>
               Voyagez en toute{" "}
               <span className="lg:hidden" style={{
                 background: "linear-gradient(135deg,#C9A24A 0%,#e8c97a 50%,#C9A24A 100%)",
@@ -125,7 +125,7 @@ export default function Hero() {
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}>sérénité.</span>
-              <span className="hidden lg:inline">sérénité.</span>
+              <span className="hidden lg:inline text-[#c9a24a]">sérénité.</span>
             </h1>
 
             {/* Sub */}
