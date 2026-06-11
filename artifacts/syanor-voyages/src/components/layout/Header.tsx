@@ -1,5 +1,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocation } from "wouter";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
@@ -8,6 +9,9 @@ import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
 import { omraMonths, getMonthsByYear } from "@/data/months";
 import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
+
+// Pages whose hero is dark — navbar must always show the light glass background
+const FORCE_BG_ROUTES = ["/contact", "/a-propos", "/formation", "/visas"];
 
 const SERVICE_ICON: Record<string, string> = {
   "/services/billets-avion": "airplane",
@@ -309,10 +313,14 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps
 }
 
 export default function Header() {
+  const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
+
+  const forceBg = FORCE_BG_ROUTES.some((r) => location === r || location.startsWith(r + "/"));
+  const showBg = scrolled || forceBg;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -357,7 +365,7 @@ export default function Header() {
         ref={headerRef}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled
+          showBg
             ? "border-b border-syanor-gold/20 bg-syanor-ivory/94 shadow-sm backdrop-blur-xl"
             : "bg-transparent"
         )}
