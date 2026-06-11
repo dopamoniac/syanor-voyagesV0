@@ -419,7 +419,7 @@ export default function Header() {
             aria-label="Ouvrir le menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full transition-all duration-200 active:scale-[0.94] lg:hidden"
+            className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[7px] rounded-full transition-all duration-200 active:scale-[0.94] lg:hidden"
             style={{
               background: "#063F33",
               border: "1px solid rgba(212,175,55,0.45)",
