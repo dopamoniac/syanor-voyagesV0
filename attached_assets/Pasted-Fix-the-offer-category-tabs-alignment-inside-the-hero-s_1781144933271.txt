@@ -1,0 +1,79 @@
+Fix the offer category tabs alignment inside the hero search/filter card.
+
+PROBLEM:
+The category tabs:
+- Omra & Hajj
+- Billet avion
+- Billet bateau
+- Voyage organisé
+- Sur mesure
+
+are currently aligned to the left. I want them centered visually inside the white filter card.
+
+GOAL:
+Center the whole tabs row horizontally inside the search/filter card while keeping a premium, balanced look.
+
+DESKTOP REQUIREMENTS:
+- The tabs row must be horizontally centered inside the white card.
+- Tabs should have consistent spacing between them.
+- The active tab should remain emerald green with white text.
+- Inactive tabs should stay clean and readable.
+- The row should feel balanced, not stuck to the left.
+- Do not stretch the tabs across the full width.
+- Do not make the tabs too far apart.
+- Keep the white filter card width and design premium.
+
+Use this layout logic:
+- wrapper: flex
+- justify-content: center
+- align-items: center
+- gap: 24px or responsive gap
+- width: 100%
+
+Example CSS/Tailwind logic:
+Tabs container:
+className="flex w-full items-center justify-center gap-4 md:gap-6"
+
+If tabs need wrapping:
+className="flex w-full flex-wrap items-center justify-center gap-3 md:gap-5"
+
+MOBILE REQUIREMENTS:
+On mobile, the tabs should remain clean.
+Choose the best option:
+1. Centered wrap layout if they fit nicely
+or
+2. Horizontal scroll inside the tabs container only
+
+Important:
+- The page itself must not horizontally scroll.
+- Only the tabs container can scroll if needed.
+- Active tab should be visible first.
+- No broken spacing.
+- No tabs squeezed too much.
+
+Recommended mobile:
+className="flex w-full items-center gap-3 overflow-x-auto px-2 scrollbar-hide sm:justify-center"
+
+Desktop:
+className="sm:justify-center"
+
+FILTER CARD:
+Make sure the parent card does not force left alignment.
+If the parent has:
+justify-start
+items-start
+text-left
+remove or override for the tabs row.
+
+QUALITY CHECK:
+- Tabs centered on desktop
+- Tabs clean on tablet
+- Tabs usable on mobile
+- No horizontal overflow
+- No layout shift
+- Active tab remains beautiful
+- Filter inputs below remain aligned properly
+- The whole search/filter card feels premium and balanced
+
+FINAL RESULT:
+The category tabs must be visually centered inside the filter card, giving a clean luxury travel booking UI, not a left-aligned basic layout.

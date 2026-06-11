@@ -80,7 +80,7 @@ export default function SmartSearchPanel() {
       <div className="rounded-2xl border border-syanor-gold/20 bg-white/96 shadow-card-hover">
         {/* Service tabs — horizontal scroll on mobile, wrap on sm+ */}
         <div className="no-scrollbar overflow-x-auto border-b border-syanor-gold/15">
-          <div className="flex min-w-max gap-1 p-3 sm:min-w-0 sm:flex-wrap sm:p-4">
+          <div className="flex min-w-max gap-1 p-3 sm:min-w-0 sm:flex-wrap sm:justify-center sm:p-4">
             {services.map((s) => (
               <button
                 key={s.key}
