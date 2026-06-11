@@ -1,0 +1,377 @@
+Upgrade the Contact / Devis personnalisé page into one of the strongest conversion sections of the entire SYANOR VOYAGES website.
+
+Current issue:
+The quote/contact section is too simple.
+“Devis personnalisé — Demandez votre devis en 4 étapes” is not enough.
+The page must feel more premium, more reassuring, more beautiful, more intelligent, and more conversion-focused.
+
+GOAL:
+Make the contact and quote experience feel like a luxury travel concierge funnel, not a basic contact form.
+
+The client must feel:
+- Guided
+- Reassured
+- In control
+- Able to choose easily
+- Supported by a serious premium agency
+- Confident to submit the request
+
+This page should be one of the most polished parts of the website.
+
+PAGE TITLE DIRECTION:
+Replace or improve the current title area.
+
+Possible title:
+“Construisons votre voyage sur mesure.”
+
+Subtitle:
+“En quelques étapes, sélectionnez votre service, vos dates, votre niveau de confort et vos préférences. L’équipe SYANOR VOYAGES vous prépare une proposition claire et personnalisée.”
+
+Add a premium trust line:
+“Billets, Omra, Hajj, séjours, visas, hôtels, transferts: votre demande est traitée avec attention et confidentialité.”
+
+STRUCTURE:
+Create a premium two-column layout on desktop.
+
+Left side:
+Smart quote form.
+
+Right side:
+Luxury reassurance / contact panel.
+
+On mobile:
+Form first, then reassurance blocks, all beautifully stacked.
+
+RIGHT SIDE PREMIUM PANEL:
+Add a sticky or semi-sticky luxury contact/conversion panel on desktop.
+
+It should include:
+
+1. “Pourquoi demander un devis SYANOR ?”
+- Proposition personnalisée
+- Conseils selon vos dates
+- Choix du confort
+- Accompagnement humain
+- Réponse claire et structurée
+
+2. Contact shortcuts:
+- WhatsApp
+- Téléphone
+- Email
+
+3. Trust note:
+“Vos informations sont utilisées uniquement pour traiter votre demande.”
+
+4. Mini process:
+- Vous choisissez votre besoin
+- Nous analysons les options
+- Vous recevez une proposition adaptée
+- Vous validez sereinement
+
+5. Optional premium badge:
+“Réponse personnalisée”
+“Accompagnement avant, pendant et après le voyage”
+
+DESIGN:
+The quote page must use the Apple-level luxury glass system:
+- Ivory / pearl background
+- Glass cards
+- Emerald accents
+- Thin gold borders
+- Soft shadows
+- Smooth transitions
+- Premium rounded corners
+- Beautiful spacing
+- No basic form styling
+- No default browser inputs
+
+The form should feel like a premium app, not a boring form.
+
+SMART QUOTE FORM:
+Keep the 4-step logic, but make it much stronger visually and functionally.
+
+Step 1:
+“Choisissez votre service”
+
+Use beautiful service cards with icons and short labels:
+- Billet avion
+- Billet bateau
+- Omra
+- Hajj
+- Omra Plus
+- Ramadan
+- Voyage organisé
+- Séjour sur mesure
+- Pack Premium / VIP
+- Visa
+
+Each card must have:
+- Premium icon
+- Short description
+- Selected state with gold border and emerald glow
+- Smooth hover
+- Mobile tap-friendly layout
+
+Step 2:
+“Détails du voyage”
+
+Dynamic fields depending on service.
+
+For Omra / Hajj:
+- Offre sélectionnée if prefilled
+- Ville de départ
+- Date de départ souhaitée
+- Date de retour souhaitée
+- Nombre de voyageurs
+- Période souhaitée
+- Route if prefilled
+
+For Billet avion:
+- Aller simple / aller-retour
+- Ville de départ
+- Destination
+- Date de départ
+- Date de retour
+- Nombre de passagers
+- Classe souhaitée
+
+For Billet bateau:
+- Aller simple / aller-retour
+- Port / ville de départ
+- Destination
+- Date de départ
+- Date de retour
+- Nombre de passagers
+- Véhicule: oui / non
+- Cabine: oui / non
+
+For Séjour sur mesure:
+- Destination
+- Dates souhaitées
+- Durée
+- Nombre de voyageurs
+- Hôtel souhaité
+- Transport
+- Budget indicatif
+
+For Visa:
+- Destination
+- Type de visa
+- Date de départ
+- Nationalité du passeport
+- Assistance souhaitée
+
+Step 3:
+“Confort & accompagnement”
+
+Dynamic options:
+- Niveau de confort: Standard / Premium / VIP
+- Type de chambre: Quad / Triple / Double / Individuelle
+- Formation avant départ
+- Ziyarat
+- Visa assistance
+- Transferts
+- Hôtel
+- Assurance voyage
+- Assistance 24/7
+- Budget indicatif
+
+Use option cards or beautiful toggle chips, not ugly checkboxes.
+
+Step 4:
+“Vos coordonnées”
+
+Fields:
+- Nom complet
+- Téléphone
+- Email
+- Méthode de contact préférée:
+  WhatsApp / Téléphone / Email
+- Message complémentaire
+
+Add reassurance below:
+“Un conseiller SYANOR VOYAGES reviendra vers vous avec une proposition adaptée à votre demande.”
+
+PROGRESS INDICATOR:
+Upgrade the step progress bar.
+
+It should show:
+1. Service
+2. Voyage
+3. Confort
+4. Contact
+
+Design:
+- Elegant horizontal stepper on desktop
+- Compact step indicator on mobile
+- Gold active step
+- Emerald completed steps
+- Smooth animated progress line
+
+FORM INTERACTIONS:
+Make interactions premium:
+- Smooth next/back transitions
+- Step fade/slide
+- Input focus glow
+- Selected cards animate softly
+- Validation errors appear elegantly
+- Success state feels celebratory but refined
+
+VALIDATION:
+Use friendly French validation messages:
+- “Veuillez choisir un service.”
+- “Indiquez au moins une ville de départ.”
+- “Ajoutez un numéro de téléphone ou une adresse email.”
+- “Veuillez renseigner votre nom complet.”
+
+Do not show harsh technical errors.
+
+PREFILL LOGIC:
+This is very important.
+
+The quote form must read URL params and prefill automatically:
+- service
+- offer
+- city
+- month
+- departureDate
+- returnDate
+- comfort
+- roomType
+- route
+
+Examples:
+- /contact?service=omra&offer=omra-octobre-2026&departureDate=18/10/2026#quote
+- /contact?service=billet-avion#quote
+- /contact?service=sejour-sur-mesure&comfort=vip#quote
+
+When prefilled:
+- Show a premium summary card at the top of the form:
+  “Votre demande”
+  Service: Omra
+  Départ: 18 Octobre 2026
+  Retour: 29 Octobre 2026
+  Ville: Nice / Marseille
+  Offre: Omra Octobre 2026
+
+This summary must make the client feel that the system understood their choice.
+
+SUCCESS STATE:
+After submit, show a premium success screen.
+
+Title:
+“Votre demande a bien été envoyée.”
+
+Text:
+“Merci. L’équipe SYANOR VOYAGES va analyser votre projet et revenir vers vous avec une proposition personnalisée.”
+
+Actions:
+- “Contacter sur WhatsApp”
+- “Voir nos départs”
+- “Retour à l’accueil”
+
+Also show:
+“Votre demande concerne: [service/offre]”
+
+CONTACT PAGE SECTIONS:
+Below or around the form, add premium support blocks:
+
+1. “Une demande, plusieurs possibilités”
+Explain that client can request:
+- Billet seul
+- Pack complet
+- Voyage spirituel
+- Séjour premium
+- Assistance visa
+- Voyage sur mesure
+
+2. “Besoin d’une réponse rapide ?”
+Show WhatsApp and phone CTA.
+
+3. “Informations utiles”
+- Plus vos dates sont précises, plus la proposition sera adaptée.
+- Pour Omra/Hajj, indiquez le nombre de voyageurs et le niveau de confort souhaité.
+- Pour billets avion/bateau, indiquez départ, destination et dates.
+
+4. Small FAQ on contact page:
+- Quand vais-je recevoir une réponse ?
+- Puis-je demander seulement un billet ?
+- Puis-je modifier ma demande après envoi ?
+- Proposez-vous des packs famille ou groupe ?
+- Mes données sont-elles confidentielles ?
+
+VISUAL QUALITY:
+This page must be visually stronger:
+- Add a premium background visual or abstract travel route pattern
+- Use subtle glass layers
+- Use a luxury card for the form
+- Add refined icons
+- Add gold separators
+- Add soft emerald glow
+- Keep the layout clean and breathable
+
+No cheap icons.
+No basic forms.
+No default select style.
+No ugly checkboxes.
+No boring contact page.
+
+MOBILE:
+Mobile is critical.
+
+On mobile:
+- Step form should feel like a premium app flow
+- Full-width cards
+- Large tap targets
+- Sticky bottom Next button if useful
+- Progress visible but compact
+- Contact shortcuts easy to tap
+- No cramped inputs
+- No horizontal scroll
+- WhatsApp CTA visible after success
+- Form should not feel long or tiring
+
+DESKTOP:
+On desktop:
+- Form card should be large and elegant
+- Side reassurance panel should make the page feel rich
+- Keep strong spacing
+- Avoid huge empty areas
+- Make it feel like a premium concierge booking page
+
+API:
+Keep submit connected to /api/quote.
+Validate server-side.
+Do not fake email sending if no credentials exist.
+Keep TODO for Resend/Nodemailer integration.
+Make sure it remains Vercel-ready.
+
+GLOBAL CTA LINKS:
+Make sure all CTAs across the site link to the improved quote form with prefill:
+- Choisir ce départ
+- Demander un devis
+- Demander Premium
+- Demander VIP
+- Demander un billet
+- Demander une traversée
+- Créer mon séjour
+- Assistance visa
+
+FINAL CHECK:
+Before finishing:
+- Contact page looks premium and not basic
+- Devis form is clearly stronger
+- 4-step flow works
+- URL prefill works
+- Dynamic fields work by service
+- Summary card appears when prefilled
+- Mobile is excellent
+- Success state is premium
+- WhatsApp CTA is present
+- Form validation is friendly
+- Build/typecheck passes
+- No console errors
+
+Expected result:
+The Contact / Devis page must become a luxury intelligent booking funnel.
+It should feel like SYANOR has a serious concierge system, not just a contact form.
