@@ -1,5 +1,6 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QuoteProvider } from "@/components/providers/QuoteContext";
+import ScrollToTop from "@/components/ScrollToTop";
 
 import Home from "@/app/page";
 import AProposPage from "@/app/a-propos/page";
@@ -113,6 +114,7 @@ function App() {
   return (
     <QuoteProvider>
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <ScrollToTop />
         <Router />
       </WouterRouter>
     </QuoteProvider>

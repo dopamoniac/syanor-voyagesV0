@@ -1,0 +1,273 @@
+Upgrade the entire SYANOR VOYAGES website with a premium luxury transition and motion system.
+
+Current issue:
+The website structure/design is improving, but transitions still feel too basic.
+I want the whole experience to feel smoother, more luxurious, more fluid, and more premium.
+
+TASK:
+Add refined luxury transitions across the full website:
+- between sections
+- on buttons
+- on cards
+- on filters
+- on forms
+- on accordions
+- on menus
+- on page navigation
+
+Also fix page navigation behavior:
+When the user clicks a link and opens a new page, the browser must always start at the TOP of the new page.
+Do not keep the old scroll position.
+
+IMPORTANT:
+Do not add cheap animations.
+Do not make the site feel childish.
+Do not add heavy/slow effects.
+Motion must feel Apple-level, luxury, smooth, clean, and controlled.
+
+GLOBAL MOTION STYLE:
+Use:
+- soft fade
+- smooth slide-up
+- subtle scale
+- premium hover lift
+- gentle blur/glass transitions
+- refined easing
+- route/page fade-in
+- card image slow zoom on hover
+- button press microinteraction
+- filter chip active transitions
+- form step transitions
+- accordion open/close animation
+- mobile menu smooth entrance
+- sticky CTA smooth reveal
+
+Avoid:
+- bouncing animations
+- aggressive zooms
+- cheap spinners
+- random delays everywhere
+- slow annoying transitions
+- flashy effects
+- motion that hurts performance
+
+MOTION TIMING:
+Use a consistent transition system:
+- Fast microinteractions: 150ms to 220ms
+- Normal UI transitions: 250ms to 350ms
+- Section reveals: 450ms to 700ms
+- Page transition: 250ms to 450ms
+
+Use premium easing:
+- cubic-bezier(0.22, 1, 0.36, 1)
+- or similar smooth luxury easing
+
+CREATE GLOBAL MOTION TOKENS:
+Add CSS variables or Tailwind utilities if possible:
+- --ease-luxury
+- --duration-fast
+- --duration-normal
+- --duration-slow
+- --shadow-lift
+- --glow-gold-soft
+- --glow-emerald-soft
+
+Apply them globally.
+
+SECTION TRANSITIONS:
+Add reveal animations for major sections:
+- Fade in
+- Slight upward movement
+- Soft stagger for cards
+- Respect prefers-reduced-motion
+
+Sections should appear smoothly when they enter the viewport.
+Do not animate too aggressively.
+Do not make users wait.
+
+CARD TRANSITIONS:
+Apply to all card systems:
+- Service cards
+- Offer cards
+- Departure cards
+- Formula cards
+- Blog cards
+- City cards
+- Month cards
+- Related cards
+
+Hover behavior:
+- slight translateY(-4px to -8px)
+- subtle shadow increase
+- subtle gold/emerald border glow
+- image zoom 1.03 max
+- smooth transition
+- no layout shift
+
+BUTTON TRANSITIONS:
+Upgrade all buttons globally.
+
+Primary buttons:
+- subtle lift on hover
+- gold highlight/glow
+- active press scale 0.98
+- smooth shadow transition
+- no harsh color jump
+
+Secondary buttons:
+- soft glass background hover
+- emerald/gold border transition
+- gentle text color refinement
+
+Button transitions must feel premium and tactile.
+
+FILTER TRANSITIONS:
+Upgrade filter chips and panels.
+
+Filter chip:
+- smooth selected/unselected state
+- gold border on active
+- emerald fill on selected
+- subtle scale/press effect
+- no flicker
+
+Filter drawer / bottom sheet on mobile:
+- smooth slide-up
+- soft backdrop fade
+- clear apply/reset transition
+- no abrupt open/close
+
+FORM TRANSITIONS:
+Upgrade smart quote form.
+
+- Step changes should animate smoothly
+- Previous/Next should slide/fade
+- Validation errors should appear smoothly
+- Success state should feel premium
+- Inputs should have refined focus transitions
+- Radio/cards should animate on selection
+- Progress bar should animate between steps
+
+MEGA MENU AND MOBILE MENU:
+Desktop mega menus:
+- smooth fade/slide down
+- subtle glass blur
+- no abrupt pop
+- close smoothly
+
+Mobile menu:
+- app-like entrance
+- grouped links stagger subtly
+- backdrop fade
+- body scroll lock when open if appropriate
+- close animation smooth
+
+ACCORDIONS:
+FAQ accordions must open/close smoothly:
+- height transition or CSS grid transition
+- icon rotation
+- soft fade for content
+- no jumpy layout
+
+PAGE TRANSITIONS:
+Add lightweight page transition if possible with current stack:
+- page content fades/slides in on route change
+- transition must be fast and clean
+- no heavy dependency unless already available
+
+If using React/Vite/Wouter:
+- Create a global `ScrollToTop` component using `useLocation`.
+- On every route change, call:
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+- Mount it near the router root.
+- Optionally add a `PageTransition` wrapper around routed pages.
+
+If using Next.js App Router:
+- Create a client component using `usePathname`.
+- On pathname change, call:
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+- Mount it in the root layout.
+- Add a lightweight page transition wrapper if compatible.
+
+IMPORTANT PAGE SCROLL BEHAVIOR:
+When navigating to any new route:
+- Always start at the top of the page.
+- Do not preserve previous scroll position.
+- This must work for:
+  /offres
+  /offres/[slug]
+  /services
+  /omra-2026
+  /omra-2027
+  /depart/[city]
+  /blog
+  /contact
+  all pages
+
+For anchor links like /contact#quote:
+- Navigate to the page
+- Then scroll smoothly to #quote after page load
+- Do not break quote form prefill
+
+ANCHOR SCROLL:
+For same-page section links:
+- Use smooth scroll
+- Add proper scroll-margin-top so sticky navbar does not cover the target
+- Example:
+  scroll-margin-top: 110px
+
+PERFORMANCE:
+Keep motion performant:
+- Animate transform and opacity when possible
+- Avoid animating width/height unless necessary
+- Use will-change only where useful
+- Do not overuse blur
+- Respect prefers-reduced-motion
+- Keep mobile smooth
+
+ACCESSIBILITY:
+Add:
+@media (prefers-reduced-motion: reduce) {
+  disable or simplify animations
+}
+
+Users with reduced motion should still have a clean experience.
+
+GLOBAL IMPLEMENTATION:
+Do not patch one or two buttons only.
+Apply this motion system globally to shared components:
+- Button
+- Card
+- OfferCard
+- PremiumDepartureCard
+- ImageServiceCard
+- PackComparisonCards
+- Accordion
+- MegaMenu
+- MobileMenu
+- SmartQuoteForm
+- Filter chips
+- StickyMobileCTA
+- Page wrapper
+- Section wrapper / Reveal component
+
+If there is an existing Reveal component, improve it and reuse it everywhere.
+
+FINAL CHECK:
+Before finishing:
+- Buttons feel premium
+- Cards hover smoothly
+- Sections reveal elegantly
+- Menus open/close smoothly
+- Filters animate cleanly
+- Forms transition step-by-step
+- Accordions are smooth
+- Page navigation always starts at top
+- Anchor links still work correctly
+- Mobile remains fast
+- prefers-reduced-motion is respected
+- Build/typecheck passes
+
+Expected result:
+The website must feel smoother, more luxurious, and more alive.
+Every click, hover, card, menu, section, and page transition should feel premium, Apple-level, and launch-ready.

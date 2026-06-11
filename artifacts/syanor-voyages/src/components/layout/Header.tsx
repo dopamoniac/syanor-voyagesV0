@@ -289,7 +289,7 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps
       {isOpen && (
         <div
           className={cn(
-            "absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2.5",
+            "absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2.5 mega-panel",
             panelWidth
           )}
           role="region"

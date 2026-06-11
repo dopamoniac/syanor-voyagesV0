@@ -7,7 +7,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="page-enter">{children}</main>
       <Footer />
       <WhatsAppButton />
     </>
