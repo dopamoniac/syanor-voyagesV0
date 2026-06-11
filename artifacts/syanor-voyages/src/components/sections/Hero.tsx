@@ -95,7 +95,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem] text-[#0e0a02]">
-              Voyagez avec élégance,&nbsp;sérénité<br />et confiance.
+              Voyagez en toute sérénité.
             </h1>
 
             {/* Sub */}
