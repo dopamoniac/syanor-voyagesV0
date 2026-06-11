@@ -162,7 +162,7 @@ export function SpiritualPreview() {
             </div>
           </div>
           <Reveal className="mx-auto w-full max-w-md">
-            <div className="card-emerald flex aspect-square flex-col items-center justify-center p-10 text-center">
+            <div className="card-emerald flex aspect-square flex-col items-center justify-center p-10 text-center bg-[#fcf4e1]">
               <Icon name="crescent" className="h-20 w-20 text-syanor-gold" />
               <p className="mt-6 font-playfair text-2xl text-[#000000]">
                 Makkah &amp; Madinah
