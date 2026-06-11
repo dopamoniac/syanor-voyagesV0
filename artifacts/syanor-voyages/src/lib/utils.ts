@@ -21,6 +21,22 @@ export function scrollToId(id: string): void {
 // Service categories considered "programmed" — only these get auto-filled dates
 const PROGRAMMED_SERVICES = new Set(["omra", "hajj", "omra-plus", "ramadan", "Omra", "Hajj", "Omra Plus", "Ramadan"]);
 
+// Convert French offer date strings ("18 Oct. 2026") → ISO format ("2026-10-18")
+const FR_MONTHS: Record<string, string> = {
+  "jan": "01", "fév": "02", "mar": "03", "avr": "04",
+  "mai": "05", "juin": "06", "juil": "07", "août": "08",
+  "sept": "09", "oct": "10", "nov": "11", "déc": "12",
+};
+export function parseFrenchDate(str?: string): string | undefined {
+  if (!str) return undefined;
+  const m = str.match(/^(\d{1,2})\s+([A-Za-zÀ-ÿ]+)\.?\s+(\d{4})$/);
+  if (!m) return undefined;
+  const [, day, mon, year] = m;
+  const month = FR_MONTHS[mon.toLowerCase().slice(0, 4)];
+  if (!month) return undefined;
+  return `${year}-${month}-${day.padStart(2, "0")}`;
+}
+
 export function quoteUrl(params: {
   service?: string;
   offer?: string;
@@ -44,14 +60,14 @@ export function quoteUrl(params: {
   if (params.month) sp.set("month", params.month);
   if (params.roomType) sp.set("roomType", params.roomType);
 
-  // Only pass fixed dates for programmed Omra/Hajj offers
+  // Only pass fixed dates for programmed Omra/Hajj offers — convert to ISO for date inputs
   const isOmraType = params.service ? PROGRAMMED_SERVICES.has(params.service) : false;
   if (params.programmed && isOmraType) {
     sp.set("programmed", "true");
-    if (params.departureDate) sp.set("departureDate", params.departureDate);
-    if (params.returnDate) sp.set("returnDate", params.returnDate);
-  } else if (!params.programmed && params.departureDate && isOmraType) {
-    // Legacy: departureDate without programmed flag — treat as non-programmed, pass no dates
+    const dep = parseFrenchDate(params.departureDate) ?? params.departureDate;
+    const ret = parseFrenchDate(params.returnDate) ?? params.returnDate;
+    if (dep) sp.set("departureDate", dep);
+    if (ret) sp.set("returnDate", ret);
   }
 
   const qs = sp.toString();

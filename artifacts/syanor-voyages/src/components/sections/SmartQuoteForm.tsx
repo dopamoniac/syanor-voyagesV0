@@ -363,10 +363,10 @@ function SelectField({
    TEXT / DATE FIELD
 ───────────────────────────────────────────────────────────────── */
 function TextField({
-  id, label, type = "text", value, onChange, placeholder, required = false, error, autoComplete,
+  id, label, type = "text", value, onChange, placeholder, required = false, error, autoComplete, readOnly = false,
 }: {
   id: string; label: string; type?: string; value: string; onChange: (v: string) => void;
-  placeholder?: string; required?: boolean; error?: string; autoComplete?: string;
+  placeholder?: string; required?: boolean; error?: string; autoComplete?: string; readOnly?: boolean;
 }) {
   return (
     <div>
@@ -377,12 +377,14 @@ function TextField({
         id={id}
         type={type}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={readOnly ? () => {} : (e) => onChange(e.target.value)}
         placeholder={placeholder}
         autoComplete={autoComplete}
+        readOnly={readOnly}
         className={cn(
           "input-base",
-          error && "border-red-400 ring-2 ring-red-400/15"
+          error && "border-red-400 ring-2 ring-red-400/15",
+          readOnly && "cursor-not-allowed bg-syanor-pearl/70 text-syanor-ink/60"
         )}
       />
       {error && (
@@ -405,6 +407,7 @@ function SmartQuoteFormInner() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [isProgrammedOmra, setIsProgrammedOmra] = useState(false);
   const wasPrefilled = useRef(false);
 
   /* URL prefill */
@@ -441,6 +444,8 @@ function SmartQuoteFormInner() {
       programmed === "true" &&
       !!normService &&
       omraTypes.has(normService);
+
+    setIsProgrammedOmra(isOmraProgrammed);
 
     setData((d) => ({
       ...d,
@@ -732,25 +737,40 @@ function SmartQuoteFormInner() {
             )}
 
             {/* Dates */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              <TextField
-                id="sqf-dep"
-                label="Date de départ souhaitée"
-                type="date"
-                value={data.departureDate}
-                onChange={(v) => update("departureDate", v)}
-                required
-                error={errors.departureDate}
-              />
-              {!isVisa && (
-                <TextField
-                  id="sqf-ret"
-                  label="Date de retour souhaitée"
-                  type="date"
-                  value={data.returnDate}
-                  onChange={(v) => update("returnDate", v)}
-                />
+            <div>
+              {isProgrammedOmra && (
+                <div className="mb-3 flex items-start gap-2 rounded-xl border border-syanor-gold/30 bg-syanor-gold/5 px-4 py-2.5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-0.5 shrink-0 text-syanor-gold" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  <p className="text-xs leading-relaxed text-syanor-ink/70">
+                    <span className="font-semibold text-syanor-ink">Dates fixées par le programme Omra sélectionné.</span>
+                    {data.selectedOffer && <span className="ml-1 text-syanor-emerald">{data.selectedOffer}</span>}
+                  </p>
+                </div>
               )}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <TextField
+                  id="sqf-dep"
+                  label="Date de départ souhaitée"
+                  type="date"
+                  value={data.departureDate}
+                  onChange={(v) => update("departureDate", v)}
+                  required
+                  error={errors.departureDate}
+                  readOnly={isProgrammedOmra}
+                />
+                {!isVisa && (
+                  <TextField
+                    id="sqf-ret"
+                    label="Date de retour souhaitée"
+                    type="date"
+                    value={data.returnDate}
+                    onChange={(v) => update("returnDate", v)}
+                    readOnly={isProgrammedOmra}
+                  />
+                )}
+              </div>
             </div>
 
             {/* Travelers */}
