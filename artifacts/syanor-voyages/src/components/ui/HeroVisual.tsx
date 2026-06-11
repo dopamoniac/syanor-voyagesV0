@@ -70,14 +70,14 @@ export default function HeroVisual() {
         </span>
       </div>
 
-      {/* ── Séjours sur Mesure — right center ── */}
+      {/* ── Omra & Hajj — right center ── */}
       <span className="float-delay-1 absolute right-[4%] top-[55%] rounded-full border border-syanor-gold/45 bg-syanor-pearl/95 px-3 py-1.5 text-[0.68rem] font-semibold text-syanor-emerald shadow-card backdrop-blur-sm">
-        Séjours sur Mesure
+        Omra &amp; Hajj
       </span>
 
-      {/* ── Omra & Hajj — bottom center-left, near Kaaba ── */}
+      {/* ── Séjours sur Mesure — bottom center-left, near Kaaba ── */}
       <span className="float-delay-2 absolute bottom-[18%] left-[28%] rounded-full border border-syanor-gold/45 bg-syanor-pearl/95 px-3 py-1.5 text-[0.68rem] font-semibold text-syanor-emerald shadow-card backdrop-blur-sm">
-        Omra &amp; Hajj
+        Séjours sur Mesure
       </span>
     </div>
   );
