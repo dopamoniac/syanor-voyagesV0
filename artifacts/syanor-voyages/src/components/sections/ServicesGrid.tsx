@@ -16,7 +16,7 @@ interface ServiceGroup {
   category: string;
   groupIcon: string;
   services: ServiceItem[];
-  photoLayout?: "landscape" | "portrait";
+  photoLayout?: "landscape" | "portrait" | "assistance";
 }
 
 const GROUPS: ServiceGroup[] = [
@@ -132,10 +132,32 @@ const GROUPS: ServiceGroup[] = [
   {
     category: "Assistance",
     groupIcon: "shield",
+    photoLayout: "assistance",
     services: [
-      { icon: "clipboard", title: "Assistance Visa", desc: "Dossier complet, démarches simplifiées, suivi jusqu'à obtention", href: "/contact?service=Visa#quote" },
-      { icon: "book-open", title: "Formation Omra", desc: "Préparation spirituelle pré-départ, rites et pratiques", href: "/omra-hajj#formation" },
-      { icon: "shield", title: "Assurance Voyage", desc: "Couverture internationale premium, assistance 24h/24", href: "/contact#quote" },
+      {
+        icon: "clipboard",
+        title: "Assistance Visa",
+        desc: "Dossier complet, démarches simplifiées, suivi jusqu'à obtention",
+        href: "/contact?service=Visa#quote",
+        image: "/services/assistance-visa.png",
+        alt: "Documents de voyage, passeport et dossier visa SYANOR",
+      },
+      {
+        icon: "book-open",
+        title: "Formation Omra",
+        desc: "Préparation spirituelle pré-départ, rites et pratiques",
+        href: "/omra-hajj#formation",
+        image: "/services/formation-omra.png",
+        alt: "Préparation spirituelle pour le pèlerinage Omra",
+      },
+      {
+        icon: "shield",
+        title: "Assurance Voyage",
+        desc: "Couverture internationale premium, assistance 24h/24",
+        href: "/contact#quote",
+        image: "/services/assurance-voyage.png",
+        alt: "Assurance voyage premium avec protection internationale",
+      },
     ],
   },
 ];
@@ -220,6 +242,62 @@ function PhotoCard({ svc, delay, aspectRatio = "3/2" }: PhotoCardProps) {
   );
 }
 
+function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
+  return (
+    <Reveal delay={delay}>
+      <Link
+        href={svc.href}
+        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_2px_16px_rgba(6,63,51,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(6,63,51,0.13)]"
+      >
+        {/* Image */}
+        <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+          <img
+            src={svc.image}
+            alt={svc.alt ?? svc.title}
+            loading="lazy"
+            className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          />
+          {/* Subtle bottom fade so icon badge blends in */}
+          <div
+            className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
+            style={{ background: "linear-gradient(to top, rgba(255,249,237,0.55) 0%, transparent 100%)" }}
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* Icon badge — sits right below the image edge */}
+        <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
+          <span
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
+            aria-hidden="true"
+          >
+            <Icon name={svc.icon} className="h-5 w-5" />
+          </span>
+
+          <p className="font-playfair text-base font-semibold text-syanor-ink transition-colors group-hover:text-syanor-emerald">
+            {svc.title}
+          </p>
+          <p className="text-xs leading-relaxed text-syanor-ink/55">{svc.desc}</p>
+
+          <span className="mt-1 inline-flex items-center gap-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-syanor-emerald">
+            En savoir plus
+            <svg
+              className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
 export default function ServicesGrid() {
   return (
     <section className="section-pad bg-syanor-pearl">
@@ -268,6 +346,19 @@ export default function ServicesGrid() {
                         svc={svc}
                         delay={gi * 80 + si * 60}
                         aspectRatio="3/4"
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {/* Assistance cards — image top, content below */}
+                {group.photoLayout === "assistance" && (
+                  <div className="grid gap-5 sm:grid-cols-3">
+                    {group.services.map((svc, si) => (
+                      <AssistanceCard
+                        key={svc.title}
+                        svc={svc}
+                        delay={gi * 80 + si * 60}
                       />
                     ))}
                   </div>

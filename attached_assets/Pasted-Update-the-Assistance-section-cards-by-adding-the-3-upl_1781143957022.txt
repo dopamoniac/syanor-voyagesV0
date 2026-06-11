@@ -1,0 +1,116 @@
+Update the “Assistance” section cards by adding the 3 uploaded images to the cards.
+
+GOAL:
+The Assistance section currently has 3 simple cards with icons only:
+- Assistance Visa
+- Formation Omra
+- Assurance Voyage
+
+I want each card to have a premium image at the top, then the icon/title/text/CTA below it.
+The section must look more professional, more visual, and more premium.
+
+USE THESE 3 UPLOADED IMAGES:
+1. For “Assistance Visa”
+Use the image with passport, travel documents, globe, and visa folder.
+This should represent visa assistance and travel documents.
+
+2. For “Formation Omra”
+Use the image with open spiritual book, Kaaba visual, prayer beads, compass, and green notebook.
+This should represent Omra training / spiritual preparation.
+
+3. For “Assurance Voyage”
+Use the image with travel documents, passport, suitcase, shield/check/medical-style protection elements.
+This should represent travel insurance and protection.
+
+CARD DESIGN:
+Each Assistance card should have:
+- image at the top
+- image ratio around 16:10 or 4:3
+- rounded top corners
+- object-fit: cover
+- premium soft shadow
+- subtle hover lift on desktop
+- icon badge under or slightly overlapping the image
+- title
+- short description
+- “En savoir plus →” CTA
+
+VISUAL STYLE:
+Keep the SYANOR luxury style:
+- ivory / pearl background
+- white premium cards
+- emerald green text/icons
+- gold accent details
+- soft shadows
+- rounded corners
+- elegant spacing
+- no harsh borders
+- no cheap card look
+
+LAYOUT:
+Desktop:
+- 3 cards in one row
+- equal height
+- consistent spacing
+- images same height
+- cards aligned perfectly
+
+Tablet:
+- 2 columns if needed
+
+Mobile:
+- 1 card per row
+- images full width
+- clean spacing
+- no horizontal overflow
+- cards should feel premium and easy to read
+
+IMPORTANT:
+Do not distort the images.
+Do not crop important objects badly.
+Use object-position center.
+Make sure all three cards look visually consistent.
+Use Next/Image if this is a Next.js project.
+Add lazy loading for performance.
+
+CONTENT:
+Keep the existing titles and descriptions:
+
+Card 1:
+Title: Assistance Visa
+Description: Dossier complet, démarches simplifiées, suivi jusqu'à obtention
+
+Card 2:
+Title: Formation Omra
+Description: Préparation spirituelle pré-départ, rites et pratiques
+
+Card 3:
+Title: Assurance Voyage
+Description: Couverture internationale premium, assistance 24h/24
+
+CTA:
+En savoir plus →
+
+INTERACTION:
+On hover desktop:
+- card moves up slightly
+- image zooms very subtly
+- shadow becomes more elegant
+- CTA color turns gold or emerald
+
+On mobile:
+- no aggressive hover effects
+- clean tap-friendly card
+
+QUALITY CHECK:
+- No stretched images
+- No blurry images
+- No overflow
+- No inconsistent card heights
+- No broken mobile layout
+- No image covering the text
+- No layout shift
+- Section must look premium and production-ready
+
+FINAL RESULT:
+The Assistance section should look like a high-end luxury travel agency section with 3 beautiful image cards, clear content, and a polished premium mobile-first design.
