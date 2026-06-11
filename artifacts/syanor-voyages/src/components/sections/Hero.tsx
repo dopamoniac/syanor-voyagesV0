@@ -29,14 +29,37 @@ export default function Hero() {
           decoding="async"
         />
       </picture>
-      {/* ── OVERLAY 0 (mobile only): soft dark smoke for text legibility ── */}
+      {/* ── SMOKE A (mobile only): slow ivory mist — upper-left drift ── */}
       <div
-        className="pointer-events-none absolute inset-0 z-10 lg:hidden"
-        style={{
-          background:
-            "linear-gradient(175deg, rgba(2,20,14,0.38) 0%, rgba(2,20,14,0.22) 40%, rgba(2,20,14,0.10) 70%, transparent 100%)",
-        }}
+        className="pointer-events-none absolute z-10 lg:hidden"
         aria-hidden="true"
+        style={{
+          top: "-10%",
+          left: "-15%",
+          width: "75%",
+          height: "65%",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse at center, rgba(255,249,237,0.09) 0%, transparent 70%)",
+          filter: "blur(28px)",
+          animation: "smoke-drift-a 26s ease-in-out infinite",
+          willChange: "transform",
+        }}
+      />
+      {/* ── SMOKE B (mobile only): slow warm mist — mid drift ── */}
+      <div
+        className="pointer-events-none absolute z-10 lg:hidden"
+        aria-hidden="true"
+        style={{
+          top: "30%",
+          left: "-20%",
+          width: "65%",
+          height: "55%",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse at center, rgba(255,246,225,0.07) 0%, transparent 70%)",
+          filter: "blur(36px)",
+          animation: "smoke-drift-b 32s ease-in-out infinite",
+          willChange: "transform",
+        }}
       />
       {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
       {/* Solid ivory left 30%, fades softly to transparent at 72% */}
