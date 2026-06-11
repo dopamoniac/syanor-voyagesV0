@@ -29,6 +29,15 @@ export default function Hero() {
           decoding="async"
         />
       </picture>
+      {/* ── OVERLAY 0 (mobile only): soft dark smoke for text legibility ── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10 lg:hidden"
+        style={{
+          background:
+            "linear-gradient(175deg, rgba(2,20,14,0.38) 0%, rgba(2,20,14,0.22) 40%, rgba(2,20,14,0.10) 70%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
       {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
       {/* Solid ivory left 30%, fades softly to transparent at 72% */}
       <div
