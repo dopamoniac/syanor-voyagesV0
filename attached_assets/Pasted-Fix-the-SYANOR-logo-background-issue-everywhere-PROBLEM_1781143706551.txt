@@ -1,0 +1,93 @@
+Fix the SYANOR logo background issue everywhere.
+
+PROBLEM:
+The navbar logo was improved, but it still has an unwanted background behind it.
+I want the logo to appear clean and professional with a transparent background.
+Remove any white circle, white rectangle, ivory box, badge, blob, or container behind the logo.
+
+GOAL:
+The SYANOR Voyages logo must look like a real premium brand logo:
+- transparent background
+- no visible box behind it
+- no white blob
+- no fake badge
+- no cropped shape
+- no stretched logo
+- no low-quality rendering
+
+FIX EVERYWHERE:
+Apply this to:
+- desktop navbar logo
+- mobile navbar logo
+- mobile drawer/menu logo
+- footer logo
+- any other place where the logo appears
+
+IMPORTANT:
+Use the correct transparent logo asset.
+Prefer SVG or transparent PNG.
+If the current logo image has a baked-in white background, replace it with a transparent version or create/use a cleaned transparent asset.
+
+CSS CLEANUP:
+Remove classes/styles like:
+- bg-white
+- bg-cream
+- bg-ivory
+- rounded-full
+- rounded-xl
+- p-2
+- p-3
+- shadow behind logo
+- border around logo
+- backdrop blur on logo container
+- filter invert
+- brightness
+- opacity tricks
+
+The logo wrapper should be transparent.
+
+Correct logo structure example:
+
+<div className="logo-wrapper flex items-center">
+  <img
+    src="/assets/syanor-logo-transparent.png"
+    alt="SYANOR Voyages"
+    className="h-auto w-[150px] object-contain"
+  />
+</div>
+
+DESKTOP:
+- Logo width around 160px to 180px
+- Transparent background
+- Perfect vertical alignment
+- No container visible behind logo
+
+MOBILE:
+- Logo width around 130px to 150px
+- Transparent background
+- Must stay sharp and readable
+- No white blob in mobile navbar
+- No white blob inside mobile drawer
+
+MOBILE DRAWER SPECIAL:
+If the drawer background is dark emerald and the normal logo is not readable, do NOT add a white blob behind it.
+Instead use a proper transparent light/gold version of the logo for dark backgrounds.
+For example:
+- desktop/mobile navbar: normal transparent logo
+- dark mobile drawer: transparent light/gold logo
+
+Do not fake readability with a white circle or box.
+
+QUALITY CHECK:
+After fixing:
+- The logo should blend naturally into the navbar
+- No visible background shape behind the logo
+- No white circle
+- No white square
+- No cropped edges
+- No distortion
+- Logo is sharp on desktop and mobile
+- Navbar looks premium and clean
+
+FINAL RESULT:
+The logo must look professionally integrated into the navbar with a fully transparent background, like a luxury brand website.
