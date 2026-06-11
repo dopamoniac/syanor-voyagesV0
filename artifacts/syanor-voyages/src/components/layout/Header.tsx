@@ -419,11 +419,16 @@ export default function Header() {
             aria-label="Ouvrir le menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full border border-syanor-gold/25 bg-syanor-emerald/6 text-syanor-emerald transition-all duration-200 hover:border-syanor-emerald/40 hover:bg-syanor-emerald/12 active:scale-[0.94] lg:hidden"
+            className="flex h-10 w-10 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full transition-all duration-200 active:scale-[0.94] lg:hidden"
+            style={{
+              background: "#063F33",
+              border: "1px solid rgba(212,175,55,0.45)",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.22), 0 1px 4px rgba(0,0,0,0.14)",
+            }}
           >
-            <span className="block h-[1.5px] w-[18px] rounded-full bg-current transition-all duration-300" />
-            <span className="block h-[1.5px] w-[13px] self-end rounded-full bg-current transition-all duration-300" />
-            <span className="block h-[1.5px] w-[18px] rounded-full bg-current transition-all duration-300" />
+            <span className="block h-[2px] w-[18px] rounded-full" style={{ background: "#e8c87a" }} />
+            <span className="block h-[2px] w-[13px] self-end rounded-full" style={{ background: "#e8c87a" }} />
+            <span className="block h-[2px] w-[18px] rounded-full" style={{ background: "#e8c87a" }} />
           </button>
         </div>
       </header>
