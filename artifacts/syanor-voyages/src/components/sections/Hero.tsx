@@ -25,7 +25,6 @@ export default function Hero() {
         loading="eager"
         decoding="async"
       />
-
       {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
       {/* Solid ivory left 30%, fades softly to transparent at 72% */}
       <div
@@ -36,7 +35,6 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       {/* ── OVERLAY 2: Top fade — navbar bleed ── */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
@@ -46,7 +44,6 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       {/* ── OVERLAY 3: Bottom fade — smooth transition to page ── */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28"
@@ -56,7 +53,6 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       {/* ── OVERLAY 4: Subtle gold shimmer behind visual zone ── */}
       <div
         className="pointer-events-none absolute z-10 hidden lg:block"
@@ -72,9 +68,8 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-20 md:px-10 lg:pt-24">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-20 md:px-10 lg:pt-24 text-[color:var(--color-amber-400)]">
         <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
 
           {/* ── TEXT COLUMN ── */}
@@ -86,8 +81,8 @@ export default function Hero() {
             </p>
 
             {/* Headline */}
-            <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.08] text-syanor-ink sm:text-5xl md:text-h1 lg:text-[3.6rem]">
-              Voyagez avec élégance,&nbsp;sérénité et confiance.
+            <h1 className="mt-4 font-playfair text-4xl font-bold leading-[1.08] sm:text-5xl md:text-h1 lg:text-[3.6rem] text-[#b47c33]">
+              Voyagez avec élégance,&nbsp;sérénité<br />et confiance.
             </h1>
 
             {/* Sub */}
