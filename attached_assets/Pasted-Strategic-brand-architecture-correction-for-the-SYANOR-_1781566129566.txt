@@ -1,0 +1,429 @@
+Strategic brand architecture correction for the SYANOR VOYAGES website.
+
+Important:
+I did not send the previous prompt to the agent.
+Use this prompt as the correct final direction.
+
+Do NOT use SIYAJJ anywhere.
+Do NOT create a department called SIYAJJ.
+Do NOT create a department called Omra Factory.
+
+Correct brand architecture:
+
+SYANOR VOYAGES is the only main brand and parent agency.
+
+SYANOR VOYAGES has two clear universes:
+
+1. SYANOR VOYAGES, agence de voyages premium
+   For general travel services:
+
+* Billets avion
+* Billets bateau / ferry
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Hôtels
+* Transferts
+* Visas
+* Assistance voyage
+* Voyages de noces
+* Groupes
+* Billets internationaux
+* Séjours personnalisés
+
+2. SYANOR VOYAGES, univers Omra & Hajj
+   For spiritual travel:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Omra Plus
+* Ramadan
+* Ziyarat
+* Formation avant départ
+* Préparation des rites
+* Accompagnement spirituel
+* Départs Omra par mois
+* Départs Omra par ville
+* Packs Omra
+* Préinscription Hajj
+* Assistance avant, pendant et après le voyage spirituel
+
+Omra Factory must be mentioned ONLY as a partner, not as a brand department.
+
+Correct usage:
+
+* “en partenariat avec Omra Factory”
+* “Programmes Omra & Hajj proposés par SYANOR VOYAGES, en partenariat avec Omra Factory”
+* “L’univers Omra & Hajj de SYANOR VOYAGES, en partenariat avec Omra Factory”
+
+Incorrect usage:
+
+* “SIYAJJ”
+* “Omra Factory by SYANOR”
+* “Omra Factory” as the main department name
+* “Omra Factory” in the main navigation as if it is the brand
+* Any replacement of SYANOR VOYAGES by Omra Factory
+
+Main goal:
+The website must clearly show that SYANOR VOYAGES is a full premium travel agency, not only an Omra agency.
+
+At the same time, Omra, Hajj, Ramadan, Ziyarat and spiritual preparation must have their own strong dedicated universe inside the SYANOR VOYAGES website.
+
+The user must understand immediately:
+SYANOR VOYAGES = global premium travel agency.
+SYANOR VOYAGES Omra & Hajj = specialized spiritual travel universe, in partnership with Omra Factory.
+
+Navigation update:
+
+Main desktop navigation should be:
+
+* Accueil
+* Billets
+* Séjours & Voyages
+* Omra & Hajj
+* Offres
+* Départs
+* Blog
+* Contact
+* CTA: Demander un devis
+
+Mega menu Billets:
+
+* Billets avion
+* Billets bateau / ferry
+* Billets groupe
+* Vols internationaux
+* Traversées avec véhicule
+
+Mega menu Séjours & Voyages:
+
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Voyages de noces
+* Hôtels & transferts
+* Assistance voyage
+* Visas
+
+Mega menu Omra & Hajj:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Omra Plus
+* Ramadan
+* Ziyarat
+* Formation avant départ
+* Départs par ville
+* Départs par mois
+
+Inside the Omra & Hajj mega menu, add a small premium note:
+“En partenariat avec Omra Factory”
+
+Routes:
+
+Do NOT create /siyajj routes.
+
+Keep or create clean SEO routes like:
+
+General SYANOR VOYAGES routes:
+
+* /
+* /services
+* /services/billets-avion
+* /services/billets-bateau
+* /voyages-organises
+* /sejours-sur-mesure
+* /visas
+* /a-propos
+* /contact
+* /offres
+* /blog
+* /faq
+
+Omra & Hajj routes:
+
+* /omra-hajj
+* /omra-2026
+* /omra-2027
+* /hajj-2027
+* /omra-plus
+* /ramadan
+* /formation
+* /ziyarat
+* /depart/nice
+* /depart/marseille
+* /depart/lyon
+* /depart/paris
+* /depart/toulouse
+* /depart/bruxelles
+
+If existing Omra pages already exist, keep them and update the branding/copy.
+Do not break SEO routes.
+Do not create confusing duplicate brand routes.
+
+Homepage update:
+
+The homepage must introduce the two SYANOR universes clearly.
+
+Add a premium section:
+
+Title:
+“Deux univers, une même exigence.”
+
+Card 1:
+SYANOR VOYAGES
+
+Title:
+Votre agence de voyages premium.
+
+Text:
+Billets d’avion, traversées bateau, séjours sur mesure, voyages organisés, hôtels, transferts, visas et assistance voyage.
+
+CTA:
+Découvrir les services SYANOR
+
+Visual:
+Plane, ferry, passport, hotel, premium travel, route lines.
+
+Card 2:
+SYANOR VOYAGES Omra & Hajj
+
+Title:
+Votre univers Omra, Hajj & Ramadan.
+
+Text:
+Omra, Hajj, Ramadan, Ziyarat, formation avant départ et accompagnement spirituel, en partenariat avec Omra Factory.
+
+CTA:
+Découvrir Omra & Hajj
+
+Visual:
+Makkah/Madinah inspiration, Islamic geometry, lanterns, sacred journey mood.
+
+This section must make the brand architecture clear without splitting the brand into unrelated companies.
+
+Design direction:
+
+SYANOR VOYAGES general travel visual identity:
+
+* Ivory
+* Pearl
+* Champagne
+* Emerald
+* Gold
+* Premium global travel
+* Luxury concierge
+* Plane
+* Ferry
+* Hotel
+* Luggage
+* Passport
+* Route visuals
+
+SYANOR VOYAGES Omra & Hajj visual identity:
+Still coherent with SYANOR, but more spiritual:
+
+* Deeper emerald
+* Gold accents
+* Islamic geometry
+* Makkah / Madinah inspired visuals
+* Lanterns
+* Sacred journey atmosphere
+* Formation and accompaniment visuals
+
+Everything must stay under one coherent SYANOR VOYAGES luxury design system.
+
+Content update:
+
+On general travel pages, use:
+
+* SYANOR VOYAGES
+* Agence de voyages premium
+* Billets, séjours, voyages organisés, sur mesure, assistance
+
+On Omra/Hajj pages, use:
+
+* SYANOR VOYAGES Omra & Hajj
+* Univers Omra & Hajj de SYANOR VOYAGES
+* En partenariat avec Omra Factory
+* Voyages spirituels organisés avec préparation, accompagnement et assistance
+
+Example copy for Omra/Hajj hub:
+“L’univers Omra & Hajj de SYANOR VOYAGES accompagne vos voyages spirituels avec des départs structurés, une préparation avant départ, un suivi humain et une organisation claire, en partenariat avec Omra Factory.”
+
+Do not overuse Omra Factory.
+Mention it as a partner line, not as the main identity.
+
+Offers catalogue update:
+
+The /offres page should have clear category tabs:
+
+* Toutes les offres
+* Billets
+* Séjours & Voyages
+* Omra & Hajj
+* Assistance & Visas
+* Premium / VIP
+
+For general travel offers, show badge:
+“SYANOR VOYAGES”
+
+For spiritual offers, show badge:
+“Omra & Hajj”
+
+On Omra/Hajj offer detail pages, show small partner note:
+“En partenariat avec Omra Factory”
+
+Do not show Omra Factory as the main badge.
+
+Smart quote form update:
+
+Step 1 should ask:
+“Quel univers vous intéresse ?”
+
+Choice card 1:
+SYANOR VOYAGES
+
+Description:
+Billets, séjours, voyages organisés, packs premium, visas, transferts et assistance voyage.
+
+Choice card 2:
+Omra & Hajj
+
+Description:
+Omra, Hajj, Ramadan, Ziyarat, formation et accompagnement spirituel, en partenariat avec Omra Factory.
+
+Then show service choices depending on selected universe.
+
+For SYANOR VOYAGES:
+
+* Billet avion
+* Billet bateau
+* Voyage organisé
+* Séjour sur mesure
+* Pack Premium / VIP
+* Visa
+* Hôtel + transferts
+* Assistance voyage
+
+For Omra & Hajj:
+
+* Omra
+* Hajj
+* Omra Plus
+* Ramadan
+* Ziyarat
+* Formation
+* Accompagnement spirituel
+
+URL params:
+Use:
+universe=syanor
+or
+universe=omra-hajj
+
+Examples:
+
+* /contact?universe=omra-hajj&service=omra&offer=omra-octobre-2026#quote
+* /contact?universe=syanor&service=billet-avion#quote
+
+Mobile menu update:
+
+Mobile menu should clearly show two premium blocks:
+
+SYANOR VOYAGES:
+
+* Billets avion
+* Billets bateau
+* Séjours sur mesure
+* Voyages organisés
+* Packs VIP
+* Visas
+* Assistance
+
+Omra & Hajj:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Omra Plus
+* Ramadan
+* Formation
+* Départs par ville
+
+Under Omra & Hajj, add a small premium line:
+“En partenariat avec Omra Factory”
+
+Mobile menu must feel premium, app-like, luxury and clean.
+
+SEO update:
+
+Homepage title:
+SYANOR VOYAGES | Agence de voyages premium, Omra & Hajj
+
+Homepage description:
+SYANOR VOYAGES accompagne vos billets, traversées, séjours sur mesure et voyages organisés. Son univers Omra & Hajj propose Omra, Hajj, Ramadan et accompagnement spirituel, en partenariat avec Omra Factory.
+
+Omra & Hajj page title:
+Omra & Hajj | SYANOR VOYAGES
+
+Omra & Hajj page description:
+Découvrez l’univers Omra & Hajj de SYANOR VOYAGES: Omra 2026, Omra 2027, Hajj 2027, Ramadan, Ziyarat, formation et accompagnement spirituel, en partenariat avec Omra Factory.
+
+Billets page title:
+Billets Avion & Bateau | SYANOR VOYAGES
+
+Billets page description:
+Réservez vos billets d’avion et traversées bateau avec SYANOR VOYAGES, agence premium dédiée aux déplacements, séjours et assistance voyage.
+
+Visual quality requirement:
+
+Apply this update with the current premium Apple-level luxury design system:
+
+* Ivory / pearl / champagne backgrounds
+* Emerald and gold accents
+* Glass cards
+* Premium cards
+* Image-based thematic cards
+* Smooth luxury transitions
+* App-like mobile navigation
+* Premium buttons
+* Professional filters
+* Smart quote form
+* No cheap UI
+* No basic cards
+* No default-looking forms
+
+Important:
+This is a strategic brand architecture correction, not only a text replacement.
+
+The full site must now feel like one premium SYANOR VOYAGES platform with two clear universes:
+
+1. General travel services
+2. Omra & Hajj spiritual travel, in partnership with Omra Factory
+
+Final check:
+
+Before finishing:
+
+* No SIYAJJ anywhere.
+* Omra Factory is only mentioned as a partner.
+* SYANOR VOYAGES remains the parent/main brand.
+* General travel services are clear and strong.
+* Omra & Hajj universe is clear and strong.
+* Navigation is simpler and clearer.
+* Mobile menu separates both universes.
+* Offers catalogue separates categories properly.
+* Quote form first separates SYANOR general travel vs Omra & Hajj.
+* SEO metadata reflects the corrected structure.
+* No confusing brand hierarchy.
+* No broken routes.
+* Build/typecheck passes.
+
+Final expectation:
+The website must feel clearer, stronger, more professional and more premium.
+SYANOR VOYAGES is the main brand.
+Omra & Hajj is a specialized universe inside SYANOR VOYAGES.
+Omra Factory is only a partner mention.

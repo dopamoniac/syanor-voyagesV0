@@ -17,6 +17,7 @@ type CabinClass = "Économique" | "Affaires" | "Première";
 type RoomType = "Quadruple" | "Triple" | "Double" | "Individuelle";
 
 interface FormData {
+  universe: "" | "syanor" | "omra-hajj";
   serviceType: ServiceCategory | "Visa" | "";
   departureCity: string;
   destination: string;
@@ -48,6 +49,7 @@ interface FormData {
 }
 
 const initialData: FormData = {
+  universe: "",
   serviceType: "",
   departureCity: "",
   destination: "",
@@ -81,18 +83,25 @@ const initialData: FormData = {
 /* ─────────────────────────────────────────────────────────────────
    CONSTANTS
 ───────────────────────────────────────────────────────────────── */
-const SERVICE_OPTIONS: { key: ServiceCategory | "Visa"; icon: string; label: string; desc: string }[] = [
-  { key: "Omra",            icon: "crescent",   label: "Omra",          desc: "Petit pèlerinage, toute l'année" },
-  { key: "Hajj",            icon: "crescent",   label: "Hajj",          desc: "Grand pèlerinage annuel" },
-  { key: "Omra Plus",       icon: "crescent",   label: "Omra Plus",     desc: "Séjour prolongé 21–34 jours" },
-  { key: "Ramadan",         icon: "sparkle",    label: "Ramadan",       desc: "Omra pendant le mois sacré" },
-  { key: "Billet avion",    icon: "airplane",   label: "Billet avion",  desc: "Vol international" },
-  { key: "Billet bateau",   icon: "anchor",     label: "Billet bateau", desc: "Ferry & traversées" },
-  { key: "Voyage organisé", icon: "route",      label: "Voyage organisé",desc: "Circuit & séjour groupe" },
-  { key: "Séjour sur mesure",icon: "compass",   label: "Sur mesure",    desc: "Voyage entièrement personnalisé" },
-  { key: "Pack personnalisé",icon: "diamond",   label: "Pack VIP",      desc: "Billet + hôtel + transferts" },
-  { key: "Visa",            icon: "clipboard",  label: "Visa",          desc: "Assistance & démarches" },
+const SERVICE_OPTIONS_SYANOR: { key: ServiceCategory | "Visa"; icon: string; label: string; desc: string }[] = [
+  { key: "Billet avion",     icon: "airplane",  label: "Billet avion",   desc: "Vol international" },
+  { key: "Billet bateau",    icon: "anchor",    label: "Billet bateau",  desc: "Ferry & traversées" },
+  { key: "Voyage organisé",  icon: "route",     label: "Voyage organisé",desc: "Circuit & séjour groupe" },
+  { key: "Séjour sur mesure",icon: "compass",   label: "Sur mesure",     desc: "Voyage entièrement personnalisé" },
+  { key: "Pack personnalisé",icon: "diamond",   label: "Pack VIP",       desc: "Billet + hôtel + transferts" },
+  { key: "Visa",             icon: "clipboard", label: "Visa",           desc: "Assistance & démarches" },
 ];
+
+const SERVICE_OPTIONS_OMRA: { key: ServiceCategory | "Visa"; icon: string; label: string; desc: string }[] = [
+  { key: "Omra",             icon: "crescent",  label: "Omra",           desc: "Petit pèlerinage, toute l'année" },
+  { key: "Hajj",             icon: "crescent",  label: "Hajj",           desc: "Grand pèlerinage annuel" },
+  { key: "Omra Plus",        icon: "crescent",  label: "Omra Plus",      desc: "Séjour prolongé 21–34 jours" },
+  { key: "Ramadan",          icon: "sparkle",   label: "Ramadan",        desc: "Omra pendant le mois sacré" },
+  { key: "Séjour sur mesure",icon: "book-open", label: "Ziyarat",        desc: "Visites des lieux saints" },
+  { key: "Visa",             icon: "shield",    label: "Accompagnement", desc: "Suivi spirituel & formation" },
+];
+
+const SERVICE_OPTIONS = [...SERVICE_OPTIONS_SYANOR, ...SERVICE_OPTIONS_OMRA];
 
 const COMFORT_OPTIONS: ComfortLevel[] = ["Standard", "Premium", "VIP"];
 const ROOM_TYPES: RoomType[] = ["Quadruple", "Triple", "Double", "Individuelle"];
@@ -101,12 +110,13 @@ const BUDGET_OPTIONS = ["< 1 000 €", "1 000 – 1 500 €", "1 500 – 2 500 �
 const CABIN_OPTIONS: CabinClass[] = ["Économique", "Affaires", "Première"];
 const FLIGHT_TYPE_OPTIONS: FlightType[] = ["Aller-retour", "Aller simple"];
 const CONTACT_METHODS: ContactMethod[] = ["WhatsApp", "Téléphone", "Email"];
-const STEP_LABELS = ["Service", "Voyage", "Options", "Contact"];
+const STEP_LABELS = ["Univers", "Service", "Voyage", "Options", "Contact"];
 const STEP_TITLES: Record<number, string> = {
-  1: "Choisissez votre service",
-  2: "Détails du voyage",
-  3: "Confort & options",
-  4: "Vos coordonnées",
+  1: "Quel univers vous intéresse ?",
+  2: "Choisissez votre service",
+  3: "Détails du voyage",
+  4: "Confort & options",
+  5: "Vos coordonnées",
 };
 
 /* ─────────────────────────────────────────────────────────────────
@@ -425,7 +435,9 @@ function SmartQuoteFormInner() {
     const roomType     = sp.get("roomType");
     const programmed   = sp.get("programmed");
 
-    if (service || offer || city) wasPrefilled.current = true;
+    const universe  = sp.get("universe");
+
+    if (service || offer || city || universe) wasPrefilled.current = true;
 
     // Normalise service slug → ServiceCategory
     const serviceMap: Record<string, ServiceCategory | "Visa"> = {
@@ -447,8 +459,16 @@ function SmartQuoteFormInner() {
 
     setIsProgrammedOmra(isOmraProgrammed);
 
+    const omraServices = new Set(["Omra", "Hajj", "Omra Plus", "Ramadan"]);
+    const normUniverse: "" | "syanor" | "omra-hajj" =
+      universe === "omra-hajj" ? "omra-hajj" :
+      universe === "syanor"    ? "syanor" :
+      normService && omraServices.has(normService) ? "omra-hajj" :
+      normService ? "syanor" : "";
+
     setData((d) => ({
       ...d,
+      universe:      normUniverse || d.universe,
       serviceType:   normService || d.serviceType,
       selectedOffer: offer        ?? d.selectedOffer,
       departureCity: city
@@ -463,7 +483,8 @@ function SmartQuoteFormInner() {
       roomType:      (roomType     as RoomType) || d.roomType,
     }));
 
-    if (service) setStep(2);
+    if (service) setStep(3);
+    else if (universe) setStep(2);
   }, [search]);
 
   const update = <K extends keyof FormData>(key: K, val: FormData[K]) =>
@@ -485,15 +506,17 @@ function SmartQuoteFormInner() {
   /* Per-step validation */
   function validateStep(s: number): boolean {
     const e: Partial<Record<keyof FormData, string>> = {};
-    if (s === 1 && !data.serviceType)
+    if (s === 1 && !data.universe)
+      e.universe = "Veuillez choisir un univers.";
+    if (s === 2 && !data.serviceType)
       e.serviceType = "Veuillez choisir un service.";
-    if (s === 2) {
+    if (s === 3) {
       if (!data.departureCity.trim())
         e.departureCity = "Indiquez au moins une ville de départ.";
       if (!data.departureDate)
         e.departureDate = "Indiquez une date de départ souhaitée.";
     }
-    if (s === 4) {
+    if (s === 5) {
       if (!data.fullName.trim())
         e.fullName = "Veuillez renseigner votre nom complet.";
       if (!data.phone.trim() && !data.email.trim())
@@ -506,7 +529,7 @@ function SmartQuoteFormInner() {
   }
 
   function nextStep() {
-    if (validateStep(step)) setStep((s) => Math.min(s + 1, 4));
+    if (validateStep(step)) setStep((s) => Math.min(s + 1, 5));
   }
 
   function goBack(targetStep: number) {
@@ -519,7 +542,7 @@ function SmartQuoteFormInner() {
   /* Submit */
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!validateStep(4)) return;
+    if (!validateStep(5)) return;
     setSubmitState("loading");
     setErrorMsg("");
     try {
@@ -622,11 +645,11 @@ function SmartQuoteFormInner() {
       {/* Step heading */}
       <div className="mb-6">
         <p className="text-[0.65rem] font-semibold uppercase tracking-widest text-syanor-gold/80">
-          Étape {step} sur 4
+          Étape {step} sur 5
         </p>
         <p className="mt-1 font-playfair text-xl text-syanor-ink">
           {STEP_TITLES[step]}
-          {step === 2 && data.serviceType && (
+          {step === 3 && data.serviceType && (
             <span className="ml-2 font-sans text-sm font-normal text-syanor-gold">— {data.serviceType}</span>
           )}
         </p>
@@ -635,13 +658,91 @@ function SmartQuoteFormInner() {
       {/* Animated step content */}
       <div key={step} style={{ animation: "stepFadeIn 0.26s cubic-bezier(0.22,1,0.36,1) both" }}>
 
-        {/* ── STEP 1: Service selection ── */}
+        {/* ── STEP 1: Universe selector ── */}
         {step === 1 && (
+          <div className="space-y-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {/* SYANOR VOYAGES — general travel */}
+              <button
+                type="button"
+                onClick={() => { update("universe", "syanor"); update("serviceType", ""); setErrors({}); }}
+                className={`group flex flex-col items-start rounded-2xl border p-5 text-left transition-all duration-200 active:scale-[0.97] cursor-pointer ${
+                  data.universe === "syanor"
+                    ? "border-syanor-emerald bg-syanor-emerald/5 shadow-[0_0_0_1px_rgba(6,63,51,0.18),0_4px_20px_rgba(6,63,51,0.10)]"
+                    : "border-syanor-gold/18 bg-syanor-pearl hover:border-syanor-gold/50 hover:shadow-card hover:-translate-y-0.5"
+                }`}
+              >
+                <div className="mb-3 flex gap-2">
+                  {["airplane","anchor","compass"].map((ic) => (
+                    <span key={ic} className={`flex h-9 w-9 items-center justify-center rounded-xl transition-colors ${data.universe === "syanor" ? "bg-syanor-emerald text-syanor-gold" : "bg-syanor-emerald/8 text-syanor-emerald group-hover:bg-syanor-emerald/15"}`} aria-hidden="true">
+                      <Icon name={ic} className="h-4 w-4" />
+                    </span>
+                  ))}
+                </div>
+                <span className={`mb-1 text-[0.65rem] font-bold uppercase tracking-widest ${data.universe === "syanor" ? "text-syanor-emerald" : "text-syanor-ink/40"}`}>
+                  Agence de voyages premium
+                </span>
+                <span className="block text-base font-bold text-syanor-ink">SYANOR VOYAGES</span>
+                <span className="mt-1.5 block text-[0.72rem] leading-relaxed text-syanor-ink/50">
+                  Billets, séjours, voyages organisés, packs premium, visas, transferts et assistance voyage.
+                </span>
+                {data.universe === "syanor" && (
+                  <span className="mt-3 inline-flex items-center gap-1 rounded-full bg-syanor-emerald/10 px-2.5 py-1 text-[0.62rem] font-semibold text-syanor-emerald">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true"><path d="M5 12l4 4 10-10" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    Sélectionné
+                  </span>
+                )}
+              </button>
+
+              {/* Omra & Hajj universe */}
+              <button
+                type="button"
+                onClick={() => { update("universe", "omra-hajj"); update("serviceType", ""); setErrors({}); }}
+                className={`group relative flex flex-col items-start overflow-hidden rounded-2xl border p-5 text-left transition-all duration-200 active:scale-[0.97] cursor-pointer ${
+                  data.universe === "omra-hajj"
+                    ? "border-syanor-gold bg-syanor-gold/5 shadow-[0_0_0_1px_rgba(201,162,74,0.22),0_4px_20px_rgba(201,162,74,0.10)]"
+                    : "border-syanor-gold/18 bg-syanor-pearl hover:border-syanor-gold/50 hover:shadow-card hover:-translate-y-0.5"
+                }`}
+                style={data.universe === "omra-hajj" ? { background: "linear-gradient(135deg, #fdf6e8 0%, #fff9ed 100%)" } : undefined}
+              >
+                <div className="mb-3 flex gap-2">
+                  {["crescent","sparkle","book-open"].map((ic) => (
+                    <span key={ic} className={`flex h-9 w-9 items-center justify-center rounded-xl transition-colors ${data.universe === "omra-hajj" ? "bg-syanor-gold/15 text-syanor-gold" : "bg-syanor-gold/8 text-syanor-gold group-hover:bg-syanor-gold/15"}`} aria-hidden="true">
+                      <Icon name={ic} className="h-4 w-4" />
+                    </span>
+                  ))}
+                </div>
+                <span className={`mb-1 text-[0.65rem] font-bold uppercase tracking-widest ${data.universe === "omra-hajj" ? "text-syanor-gold" : "text-syanor-ink/40"}`}>
+                  Univers spirituel
+                </span>
+                <span className="block text-base font-bold text-syanor-ink">Omra & Hajj</span>
+                <span className="mt-1.5 block text-[0.72rem] leading-relaxed text-syanor-ink/50">
+                  Omra, Hajj, Ramadan, Ziyarat, formation et accompagnement spirituel, en partenariat avec Omra Factory.
+                </span>
+                {data.universe === "omra-hajj" && (
+                  <span className="mt-3 inline-flex items-center gap-1 rounded-full bg-syanor-gold/15 px-2.5 py-1 text-[0.62rem] font-semibold text-syanor-gold">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true"><path d="M5 12l4 4 10-10" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    Sélectionné
+                  </span>
+                )}
+              </button>
+            </div>
+            {(errors as Record<string, string>).universe && (
+              <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-red-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01" strokeLinecap="round"/></svg>
+                {(errors as Record<string, string>).universe}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* ── STEP 2: Service selection ── */}
+        {step === 2 && (
           <div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {SERVICE_OPTIONS.map((svc) => (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {(data.universe === "omra-hajj" ? SERVICE_OPTIONS_OMRA : data.universe === "syanor" ? SERVICE_OPTIONS_SYANOR : SERVICE_OPTIONS).map((svc) => (
                 <ServiceCard
-                  key={svc.key}
+                  key={svc.key + svc.label}
                   svc={svc}
                   selected={data.serviceType === svc.key}
                   onClick={() => {
@@ -660,8 +761,8 @@ function SmartQuoteFormInner() {
           </div>
         )}
 
-        {/* ── STEP 2: Trip details ── */}
-        {step === 2 && (
+        {/* ── STEP 3: Trip details ── */}
+        {step === 3 && (
           <div className="space-y-5">
             {/* Pre-selected offer */}
             {data.selectedOffer && (
@@ -816,8 +917,8 @@ function SmartQuoteFormInner() {
           </div>
         )}
 
-        {/* ── STEP 3: Comfort & options ── */}
-        {step === 3 && (
+        {/* ── STEP 4: Comfort & options ── */}
+        {step === 4 && (
           <div className="space-y-6">
 
             {/* Comfort (spiritual + custom) */}
@@ -928,8 +1029,8 @@ function SmartQuoteFormInner() {
           </div>
         )}
 
-        {/* ── STEP 4: Contact info ── */}
-        {step === 4 && (
+        {/* ── STEP 5: Contact info ── */}
+        {step === 5 && (
           <div className="space-y-5">
             {/* Recap card */}
             <div className="rounded-2xl border border-syanor-gold/20 bg-gradient-to-r from-syanor-champagne/20 to-syanor-pearl/40 px-5 py-4">
@@ -1029,7 +1130,7 @@ function SmartQuoteFormInner() {
           <div aria-hidden="true" />
         )}
 
-        {step < 4 ? (
+        {step < 5 ? (
           <button type="button" onClick={nextStep} className="btn-primary">
             Continuer →
           </button>

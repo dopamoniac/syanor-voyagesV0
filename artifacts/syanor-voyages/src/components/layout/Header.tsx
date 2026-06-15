@@ -14,14 +14,21 @@ import { cn } from "@/lib/utils";
 // Homepage (/) has its own cinematic hero that starts transparent
 
 const SERVICE_ICON: Record<string, string> = {
-  "/services/billets-avion": "airplane",
-  "/services/billets-bateau": "anchor",
-  "/voyages-organises": "route",
-  "/sejours-sur-mesure": "compass",
-  "/services#packs": "diamond",
-  "/visas": "clipboard",
-  "/formation": "book-open",
-  "/omra-hajj": "crescent",
+  "/services/billets-avion":       "airplane",
+  "/services/billets-bateau":      "anchor",
+  "/services/billets-avion#groupe":"users",
+  "/services/billets-avion#intl":  "globe",
+  "/services/billets-bateau#vehicule": "route",
+  "/voyages-organises":            "route",
+  "/sejours-sur-mesure":           "compass",
+  "/services#packs":               "diamond",
+  "/sejours-sur-mesure#noces":     "sparkle",
+  "/sejours-sur-mesure#hotels":    "building",
+  "/visas#assistance":             "shield",
+  "/visas":                        "clipboard",
+  "/formation":                    "book-open",
+  "/ziyarat":                      "crescent",
+  "/omra-hajj":                    "crescent",
 };
 
 function OmraMegaPanel({ onClose }: { onClose: () => void }) {
@@ -165,18 +172,21 @@ function OmraMegaPanel({ onClose }: { onClose: () => void }) {
 
       {/* Footer bar */}
       <div className="flex items-center justify-between rounded-b-2xl border-t border-syanor-gold/10 bg-syanor-pearl/60 px-5 py-3">
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
           <Link href="/visas" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
             Visa Omra
           </Link>
           <Link href="/formation" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-            Formation spirituelle
+            Formation
           </Link>
           <Link href="/faq" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
             FAQ
           </Link>
+          <span className="text-[0.6rem] italic text-syanor-ink/35">
+            en partenariat avec Omra Factory
+          </span>
         </div>
-        <Link href="/contact#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+        <Link href="/contact?universe=omra-hajj#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
           Demander un devis →
         </Link>
       </div>
@@ -184,9 +194,49 @@ function OmraMegaPanel({ onClose }: { onClose: () => void }) {
   );
 }
 
-function ServicesMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
+function BilletsMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
   return (
     <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-5 shadow-card-hover">
+      <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+        SYANOR VOYAGES — Billets
+      </p>
+      <div className="grid grid-cols-2 gap-1">
+        {item.children!.map((child) => (
+          <Link
+            key={child.href}
+            href={child.href}
+            onClick={onClose}
+            className="group/item flex items-start gap-3 rounded-xl px-4 py-3 transition hover:bg-syanor-champagne/40"
+          >
+            <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover/item:bg-syanor-emerald group-hover/item:text-syanor-gold" aria-hidden="true">
+              <Icon name={SERVICE_ICON[child.href] ?? "airplane"} className="h-4 w-4" />
+            </span>
+            <div>
+              <span className="block text-sm font-semibold text-syanor-ink group-hover/item:text-syanor-emerald">
+                {child.label}
+              </span>
+              {child.desc && (
+                <span className="mt-0.5 block text-xs text-syanor-ink/55">{child.desc}</span>
+              )}
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
+        <Link href="/contact?universe=syanor&service=billet-avion#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+          Demander un devis billets →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function SejoursMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
+  return (
+    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory p-5 shadow-card-hover">
+      <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
+        SYANOR VOYAGES — Séjours & Voyages
+      </p>
       <div className="grid grid-cols-2 gap-1">
         {item.children!.map((child) => (
           <Link
@@ -210,8 +260,8 @@ function ServicesMegaPanel({ item, onClose }: { item: NavItem; onClose: () => vo
         ))}
       </div>
       <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
-        <Link href="/contact#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
-          Demander un devis pour tous nos services →
+        <Link href="/contact?universe=syanor#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+          Demander un devis séjour →
         </Link>
       </div>
     </div>
@@ -250,7 +300,10 @@ interface MegaMenuWrapperProps {
 }
 
 function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
-  const panelWidth = item.label === "Omra & Hajj" ? "w-[680px]" : "w-[520px]";
+  const panelWidth =
+    item.label === "Omra & Hajj"       ? "w-[680px]" :
+    item.label === "Séjours & Voyages" ? "w-[520px]" :
+    item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Enter" || e.key === " ") {
@@ -301,8 +354,10 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps
         >
           {item.label === "Omra & Hajj" ? (
             <OmraMegaPanel onClose={onClose} />
-          ) : item.label === "Services" ? (
-            <ServicesMegaPanel item={item} onClose={onClose} />
+          ) : item.label === "Billets" ? (
+            <BilletsMegaPanel item={item} onClose={onClose} />
+          ) : item.label === "Séjours & Voyages" ? (
+            <SejoursMegaPanel item={item} onClose={onClose} />
           ) : (
             <DefaultMegaPanel item={item} onClose={onClose} />
           )}

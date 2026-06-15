@@ -9,6 +9,7 @@ import {
   CustomStaysPreview,
 } from "@/components/sections/HomePreviews";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import UniversesSection from "@/components/sections/UniversesSection";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Testimonials from "@/components/sections/Testimonials";
 import FaqSection from "@/components/sections/FaqSection";
@@ -35,6 +36,9 @@ export default function Home() {
 
       {/* Services overview — 14 activities in 4 groups */}
       <ServicesGrid />
+
+      {/* Two universes brand section */}
+      <UniversesSection />
 
       {/* Featured offers */}
       <OffersPreview />
