@@ -178,8 +178,24 @@ export default function OmraHajjPage() {
         className="relative min-h-[88vh] overflow-hidden"
         style={{ background: "linear-gradient(145deg, #011a15 0%, #022B24 45%, #063F33 100%)" }}
       >
-        {/* Ambient layers */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        {/* Mobile-only luxury background image */}
+        <img
+          src="/brand/hero-mobile-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center block lg:hidden"
+          style={{ zIndex: 1 }}
+          loading="eager"
+        />
+        {/* Mobile-only dark overlay — keeps white text readable over light image */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 block lg:hidden"
+          style={{ background: "linear-gradient(160deg, rgba(2,27,19,0.72) 0%, rgba(2,43,36,0.62) 60%, rgba(6,63,51,0.55) 100%)", zIndex: 2 }}
+        />
+
+        {/* Ambient layers — desktop only */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 55% at 80% 20%, rgba(201,162,74,0.18), transparent)" }} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 45% at 10% 85%, rgba(6,63,51,0.5), transparent)" }} />
           {/* Geometric ring decoration */}

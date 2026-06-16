@@ -1,0 +1,102 @@
+Apply the new mobile luxury background image across all internal hero pages of the website.
+
+Use this image:
+`/mnt/data/a_clean_abstract_luxury_background_scene_a_soft.png`
+
+First, copy/import the image into the project assets, for example:
+`public/images/backgrounds/hero-mobile-luxury.png`
+
+TASK:
+Use this image as the full background for the hero section on MOBILE ONLY.
+
+VERY IMPORTANT:
+Do NOT touch the main homepage / Accueil hero.
+The Accueil hero must stay exactly as it is.
+
+Apply this only to internal page heroes on mobile screens.
+
+Pages concerned:
+
+* Offres
+* Services
+* Billets avion
+* Billets bateau
+* Séjours & Voyages
+* Séjours sur mesure
+* Voyages organisés
+* Premium / VIP
+* Omra Factory
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Ramadan
+* Formation
+* Ziyarat
+* Visas / Assistance
+* Contact / Devis
+* Blog
+* FAQ
+* City departure pages
+* Month departure pages
+* any other internal page hero
+
+STRICT RULES:
+
+* Mobile version only
+* Do not change desktop hero backgrounds
+* Do not change the Accueil homepage hero
+* Do not change text
+* Do not change icons
+* Do not change buttons
+* Do not change layout
+* Do not change spacing unless absolutely needed for background fit
+* Do not touch hero image cards
+* Do not redesign anything else
+
+ONLY replace the mobile hero background image/surface.
+
+IMPLEMENTATION:
+On mobile breakpoints only, use:
+
+* background-image: url(...)
+* background-size: cover
+* background-position: center
+* background-repeat: no-repeat
+
+Remove or override any mobile green/blue/dark emerald background layer that hides the image.
+
+Make sure there is no:
+
+* green overlay
+* blue overlay
+* dark emerald tint
+* heavy gradient hiding the image
+* repeated old hero background
+
+If readability needs support, add only a very subtle light/cream overlay, not a green overlay.
+
+MOBILE QUALITY:
+The image must:
+
+* cover the full hero zone
+* crop beautifully on mobile
+* load fast
+* not distort
+* not create horizontal overflow
+* stay crisp and premium
+* keep text readable
+
+DESKTOP:
+Leave desktop exactly as it is.
+This task is mobile-only.
+
+FINAL CHECK:
+
+* Accueil hero unchanged
+* Desktop heroes unchanged
+* All internal mobile hero pages use the new luxury image background
+* No green/blue tint remains on mobile internal heroes
+* Text, icons, buttons and layout are preserved
+* Mobile is fast and clean
+* No broken routes
+* Build/typecheck passes

@@ -402,12 +402,21 @@ export default function PageHero({
       className="relative flex overflow-hidden"
       style={{ minHeight: "88vh" }}
     >
-      {/* ── Ivory/gold luxury background image — no overlay ── */}
+      {/* ── Background image: desktop ── */}
       <img
         src="/brand/hero-bg.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center hidden lg:block"
+        loading="eager"
+        decoding="async"
+      />
+      {/* ── Background image: mobile only ── */}
+      <img
+        src="/brand/hero-mobile-bg.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center block lg:hidden"
         loading="eager"
         decoding="async"
       />
