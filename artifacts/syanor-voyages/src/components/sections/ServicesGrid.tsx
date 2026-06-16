@@ -3,6 +3,9 @@ import Icon from "@/components/ui/Icon";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
 
+/* ───────────────────────────────────────────────────────────────
+   DATA
+─────────────────────────────────────────────────────────────── */
 interface ServiceItem {
   icon: string;
   title: string;
@@ -16,7 +19,7 @@ interface ServiceGroup {
   category: string;
   groupIcon: string;
   services: ServiceItem[];
-  photoLayout?: "landscape" | "portrait" | "assistance";
+  photoLayout?: "landscape" | "portrait" | "premium" | "assistance";
 }
 
 const GROUPS: ServiceGroup[] = [
@@ -91,7 +94,7 @@ const GROUPS: ServiceGroup[] = [
     ],
   },
   {
-    category: "Sur Mesure",
+    category: "Séjours & Voyages",
     groupIcon: "compass",
     photoLayout: "portrait",
     services: [
@@ -101,7 +104,7 @@ const GROUPS: ServiceGroup[] = [
         desc: "Circuits structurés avec programme, transport, hébergement et accompagnement dédié.",
         href: "/voyages-organises",
         image: "/services/sur-mesure/voyages-organises.png",
-        alt: "Voyages organisés avec guide dans un décor islamique premium",
+        alt: "Voyages organisés avec guide dans un décor premium",
       },
       {
         icon: "compass",
@@ -109,13 +112,13 @@ const GROUPS: ServiceGroup[] = [
         desc: "Vos dates, votre budget, votre confort et vos envies réunis dans un voyage unique.",
         href: "/sejours-sur-mesure",
         image: "/services/sur-mesure/sejour-sur-mesure.png",
-        alt: "Séjour sur mesure avec arrivée privée dans un hôtel islamique de luxe",
+        alt: "Séjour sur mesure avec arrivée privée dans un hôtel de luxe",
       },
       {
         icon: "diamond",
         title: "Pack Premium / VIP",
         desc: "Transferts privés, hôtels sélectionnés et assistance personnalisée.",
-        href: "/services#packs",
+        href: "/contact?service=Pack+personnalis%C3%A9#quote",
         image: "/services/sur-mesure/pack-premium-vip.png",
         alt: "Pack Premium VIP avec terrasse orientale au coucher du soleil",
       },
@@ -125,36 +128,37 @@ const GROUPS: ServiceGroup[] = [
         desc: "Une lune de miel sur mesure, élégante et pensée dans les moindres détails.",
         href: "/contact?service=S%C3%A9jour+sur+mesure#quote",
         image: "/services/sur-mesure/voyage-de-noces.png",
-        alt: "Voyage de noces halal dans une terrasse orientale romantique",
+        alt: "Voyage de noces dans une terrasse orientale romantique",
       },
     ],
   },
   {
     category: "Premium & VIP",
     groupIcon: "diamond",
+    photoLayout: "premium",
     services: [
       {
         icon: "diamond",
         title: "Pack Premium / VIP",
-        desc: "Billet + hôtel 5★ + transfert privé + assistance complète",
-        href: "/services#packs",
+        desc: "Billet + hôtel 5★ + transfert privé + assistance personnalisée complète",
+        href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "building",
         title: "Hôtels Premium",
-        desc: "Sélection 4 & 5 étoiles, palaces et riads de prestige",
+        desc: "Sélection rigoureuse de 4 & 5 étoiles, palaces et riads de prestige",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "bus",
         title: "Transferts Privés",
-        desc: "Chauffeur privé ou minibus VIP — aéroport, hôtel, site",
+        desc: "Chauffeur privé ou minibus VIP — aéroport, hôtel, lieux saints",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "sparkle",
         title: "Travel Concierge",
-        desc: "Un conseiller dédié qui orchestre votre voyage de A à Z",
+        desc: "Un conseiller dédié qui orchestre chaque détail de votre voyage de A à Z",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
     ],
@@ -192,79 +196,299 @@ const GROUPS: ServiceGroup[] = [
   },
 ];
 
+/* ───────────────────────────────────────────────────────────────
+   ARROW ICON — shared micro-element
+─────────────────────────────────────────────────────────────── */
+function ArrowIcon({ className = "h-3 w-3" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────
+   1. CINEMA PHOTO CARD  (Billets landscape + Religieux / Séjours portrait)
+─────────────────────────────────────────────────────────────── */
 interface PhotoCardProps {
   svc: ServiceItem;
   delay: number;
   aspectRatio?: string;
 }
 
-function PhotoCard({ svc, delay, aspectRatio = "3/2" }: PhotoCardProps) {
+function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
   return (
     <Reveal delay={delay}>
       <Link
         href={svc.href}
         className="group relative block overflow-hidden rounded-2xl"
         style={{ aspectRatio }}
+        aria-label={svc.title}
       >
-        {/* Background photo */}
+        {/* Photo */}
         <img
           src={svc.image}
           alt={svc.alt ?? svc.title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.07]"
           loading="lazy"
         />
 
-        {/* Dark smoke overlay — heavy at bottom, transparent at top */}
+        {/* Deep cinematic gradient — transparent top, opaque bottom */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(2,15,10,0.92) 0%, rgba(2,15,10,0.60) 38%, rgba(2,15,10,0.22) 65%, rgba(2,15,10,0.04) 100%)",
+              "linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.06) 28%, rgba(2,8,6,0.55) 60%, rgba(2,8,6,0.90) 82%, rgba(2,8,6,0.96) 100%)",
           }}
           aria-hidden="true"
         />
 
-        {/* Subtle top vignette so icon is readable */}
+        {/* Hover tint — warm emerald wash from top */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.28) 0%, transparent 60%)",
-          }}
+          className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-25"
+          style={{ background: "linear-gradient(180deg, rgba(6,63,51,0.5) 0%, transparent 55%)" }}
           aria-hidden="true"
         />
 
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-between p-5">
-          {/* Icon top-left */}
+        {/* Category badge — top-left frosted pill */}
+        <div
+          className="absolute left-3.5 top-3.5 flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[0.6rem] font-bold uppercase tracking-wider text-syanor-gold/90 backdrop-blur-md"
+          style={{
+            background: "rgba(2,43,36,0.55)",
+            border: "1px solid rgba(201,162,74,0.22)",
+          }}
+          aria-hidden="true"
+        >
+          <Icon name={svc.icon} className="h-2.5 w-2.5" />
+          <span>{svc.title}</span>
+        </div>
+
+        {/* Bottom content */}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <p
+            className="font-playfair text-xl font-bold leading-tight text-white"
+            style={{ textShadow: "0 1px 10px rgba(0,0,0,0.45)" }}
+          >
+            {svc.title}
+          </p>
+          <p className="mt-1.5 text-[0.72rem] leading-relaxed text-white/62">{svc.desc}</p>
+
+          {/* CTA bar */}
+          <div className="mt-4 flex items-center gap-2.5 border-t border-white/10 pt-3.5">
+            <span className="flex-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-white">
+              Découvrir
+            </span>
+            <span
+              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-syanor-gold transition-all duration-300 group-hover:bg-syanor-gold group-hover:text-syanor-royal"
+              style={{ background: "rgba(201,162,74,0.18)", border: "1px solid rgba(201,162,74,0.25)" }}
+              aria-hidden="true"
+            >
+              <ArrowIcon className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom-edge gold reveal line */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+          style={{ background: "linear-gradient(to right, rgba(201,162,74,0.8), rgba(201,162,74,0.2))" }}
+          aria-hidden="true"
+        />
+      </Link>
+    </Reveal>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────
+   2. PREMIUM VIP CARD  (dark emerald glass — no image)
+─────────────────────────────────────────────────────────────── */
+function PremiumVIPCard({
+  svc,
+  delay,
+  index,
+}: {
+  svc: ServiceItem;
+  delay: number;
+  index: number;
+}) {
+  const num = String(index + 1).padStart(2, "0");
+
+  return (
+    <Reveal delay={delay}>
+      <Link
+        href={svc.href}
+        className="group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(2,43,36,0.40)]"
+        style={{
+          background: "linear-gradient(148deg, #022B24 0%, #063F33 55%, #083e2e 100%)",
+          border: "1px solid rgba(201,162,74,0.20)",
+        }}
+      >
+        {/* Ambient gold glow top-right */}
+        <div
+          className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-10 transition-opacity duration-500 group-hover:opacity-22"
+          style={{ background: "radial-gradient(circle, rgba(201,162,74,0.7), transparent 70%)" }}
+          aria-hidden="true"
+        />
+
+        {/* Border brightens overlay on hover */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{ boxShadow: "inset 0 0 0 1px rgba(201,162,74,0.38)" }}
+          aria-hidden="true"
+        />
+
+        {/* Number + icon row */}
+        <div className="mb-5 flex items-start justify-between">
+          <span className="select-none font-mono text-[0.52rem] font-bold tracking-[0.32em] text-syanor-gold/32">
+            {num}
+          </span>
           <span
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/10 text-syanor-gold backdrop-blur-sm transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:border-syanor-emerald"
+            className="flex h-11 w-11 items-center justify-center rounded-xl text-syanor-gold transition-all duration-300 group-hover:shadow-[0_4px_20px_rgba(201,162,74,0.22)]"
+            style={{
+              background: "rgba(201,162,74,0.10)",
+              border: "1px solid rgba(201,162,74,0.20)",
+            }}
             aria-hidden="true"
           >
-            <Icon name={svc.icon} className="h-4 w-4" />
+            <Icon name={svc.icon} className="h-5 w-5" />
           </span>
+        </div>
 
-          {/* Text bottom */}
-          <div>
-            <p className="font-playfair text-lg font-semibold leading-tight text-white drop-shadow-sm">
+        {/* Title */}
+        <h4 className="font-playfair text-lg font-semibold leading-snug text-syanor-ivory">
+          {svc.title}
+        </h4>
+
+        {/* Gold divider — expands on hover */}
+        <div
+          className="my-3.5 h-px rounded-full transition-all duration-300 group-hover:w-14"
+          style={{
+            width: "2rem",
+            background: "linear-gradient(to right, rgba(201,162,74,0.55), transparent)",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Desc */}
+        <p className="flex-1 text-[0.75rem] leading-relaxed text-syanor-champagne/48">
+          {svc.desc}
+        </p>
+
+        {/* CTA */}
+        <div className="mt-5 flex items-center gap-2 text-[0.68rem] font-semibold tracking-wide text-syanor-gold/60 transition-all duration-200 group-hover:gap-3 group-hover:text-syanor-gold">
+          Découvrir
+          <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
+/* ───────────────────────────────────────────────────────────────
+   3. ASSISTANCE CARD  (horizontal: image left, content right)
+─────────────────────────────────────────────────────────────── */
+function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
+  return (
+    <Reveal delay={delay}>
+      <Link
+        href={svc.href}
+        className="group flex overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(6,63,51,0.12)]"
+        style={{
+          background: "linear-gradient(135deg, #FFF9ED 0%, #f8f2e1 100%)",
+          border: "1px solid rgba(201,162,74,0.16)",
+          minHeight: "172px",
+        }}
+      >
+        {/* Left: photo or icon block */}
+        {svc.image ? (
+          <div className="relative w-[38%] shrink-0 overflow-hidden">
+            <img
+              src={svc.image}
+              alt={svc.alt ?? svc.title}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+            />
+            {/* Right-edge fade to card bg */}
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-10"
+              style={{ background: "linear-gradient(to right, transparent, #FFF9ED)" }}
+              aria-hidden="true"
+            />
+          </div>
+        ) : (
+          <div
+            className="flex w-[38%] shrink-0 items-center justify-center"
+            style={{
+              background: "linear-gradient(148deg, #022B24, #063F33)",
+            }}
+          >
+            <span
+              className="flex h-14 w-14 items-center justify-center rounded-2xl text-syanor-gold"
+              style={{
+                background: "rgba(201,162,74,0.12)",
+                border: "1px solid rgba(201,162,74,0.22)",
+              }}
+              aria-hidden="true"
+            >
+              <Icon name={svc.icon} className="h-7 w-7" />
+            </span>
+          </div>
+        )}
+
+        {/* Right: content */}
+        <div className="relative flex flex-1 flex-col justify-between p-5">
+          {/* Gold left accent */}
+          <div
+            className="absolute inset-y-4 left-0 w-[2px] rounded-r-full transition-all duration-300 group-hover:inset-y-2"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(201,162,74,0.58), rgba(201,162,74,0.06))",
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="pl-2">
+            {/* Icon badge */}
+            <span
+              className="mb-3.5 flex h-8 w-8 items-center justify-center rounded-lg text-syanor-emerald transition-all duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
+              style={{
+                background: "rgba(6,63,51,0.08)",
+                border: "1px solid rgba(6,63,51,0.10)",
+              }}
+              aria-hidden="true"
+            >
+              <Icon name={svc.icon} className="h-4 w-4" />
+            </span>
+
+            <p className="font-playfair text-base font-semibold leading-snug text-syanor-ink transition-colors duration-200 group-hover:text-syanor-emerald">
               {svc.title}
             </p>
-            <p className="mt-1.5 text-xs leading-relaxed text-white/75">
-              {svc.desc}
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-white">
-              En savoir plus
-              <svg
-                className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                aria-hidden="true"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
+
+            {/* Gold micro divider */}
+            <div
+              className="my-2 h-px rounded-full transition-all duration-300 group-hover:w-10"
+              style={{
+                width: "1.5rem",
+                background:
+                  "linear-gradient(to right, rgba(201,162,74,0.42), transparent)",
+              }}
+              aria-hidden="true"
+            />
+
+            <p className="text-[0.72rem] leading-relaxed text-syanor-ink/52">{svc.desc}</p>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-4 flex items-center gap-1.5 pl-2 text-[0.68rem] font-semibold text-syanor-gold transition-all duration-200 group-hover:gap-2.5 group-hover:text-syanor-emerald">
+            En savoir plus
+            <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
           </div>
         </div>
       </Link>
@@ -272,157 +496,100 @@ function PhotoCard({ svc, delay, aspectRatio = "3/2" }: PhotoCardProps) {
   );
 }
 
-function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
+/* ───────────────────────────────────────────────────────────────
+   GROUP HEADER  (editorial numbered section indicator)
+─────────────────────────────────────────────────────────────── */
+function GroupHeader({ group, index }: { group: ServiceGroup; index: number }) {
   return (
-    <Reveal delay={delay}>
-      <Link
-        href={svc.href}
-        className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_2px_16px_rgba(6,63,51,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(6,63,51,0.13)]"
+    <div className="mb-6 flex items-center gap-3">
+      <span className="select-none font-mono text-[0.52rem] font-bold tracking-[0.28em] text-syanor-gold/38">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span
+        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-emerald text-syanor-gold"
+        aria-hidden="true"
       >
-        {/* Image */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
-          <img
-            src={svc.image}
-            alt={svc.alt ?? svc.title}
-            loading="lazy"
-            className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-          />
-          {/* Subtle bottom fade so icon badge blends in */}
-          <div
-            className="pointer-events-none absolute bottom-0 left-0 right-0 h-16"
-            style={{ background: "linear-gradient(to top, rgba(255,249,237,0.55) 0%, transparent 100%)" }}
-            aria-hidden="true"
-          />
-        </div>
-
-        {/* Icon badge — sits right below the image edge */}
-        <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
-          <span
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
-            aria-hidden="true"
-          >
-            <Icon name={svc.icon} className="h-5 w-5" />
-          </span>
-
-          <p className="font-playfair text-base font-semibold text-syanor-ink transition-colors group-hover:text-syanor-emerald">
-            {svc.title}
-          </p>
-          <p className="text-xs leading-relaxed text-syanor-ink/55">{svc.desc}</p>
-
-          <span className="mt-1 inline-flex items-center gap-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-syanor-emerald">
-            En savoir plus
-            <svg
-              className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-        </div>
-      </Link>
-    </Reveal>
+        <Icon name={group.groupIcon} className="h-3.5 w-3.5" />
+      </span>
+      <h3 className="font-playfair text-xl font-semibold text-syanor-ink">{group.category}</h3>
+      <div className="flex-1 border-t border-syanor-gold/12" aria-hidden="true" />
+    </div>
   );
 }
 
+/* ───────────────────────────────────────────────────────────────
+   SECTION
+─────────────────────────────────────────────────────────────── */
 export default function ServicesGrid() {
   return (
-    <section className="section-pad bg-syanor-pearl">
+    <section className="section-pad bg-syanor-pearl" id="services">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <SectionHeader
           eyebrow="Nos services"
           title="Tout ce dont vous avez besoin pour voyager."
+          subtitle="Billets, séjours, voyages organisés, pèlerinages, packs VIP et assistance — un seul interlocuteur pour l'ensemble de votre projet voyage."
         />
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-14 space-y-16">
           {GROUPS.map((group, gi) => (
-            <Reveal key={group.category} delay={gi * 80}>
-              <div>
-                {/* Category label */}
-                <div className="mb-4 flex items-center gap-3">
-                  <span
-                    className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-emerald text-syanor-gold"
-                    aria-hidden="true"
-                  >
-                    <Icon name={group.groupIcon} className="h-3.5 w-3.5" />
-                  </span>
-                  <h3 className="font-playfair text-lg text-syanor-ink">{group.category}</h3>
-                  <div className="flex-1 border-t border-syanor-gold/20" aria-hidden="true" />
+            <div key={group.category}>
+              <GroupHeader group={group} index={gi} />
+
+              {/* ── BILLETS (landscape 3-col) ── */}
+              {group.photoLayout === "landscape" && (
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {group.services.map((svc, si) => (
+                    <CinemaPhotoCard
+                      key={svc.title}
+                      svc={svc}
+                      delay={gi * 60 + si * 55}
+                      aspectRatio="4/3"
+                    />
+                  ))}
                 </div>
+              )}
 
-                {/* Photo cards for Billets (landscape) */}
-                {group.photoLayout === "landscape" && (
-                  <div className="grid gap-4 sm:grid-cols-3">
-                    {group.services.map((svc, si) => (
-                      <PhotoCard
-                        key={svc.title}
-                        svc={svc}
-                        delay={gi * 80 + si * 60}
-                        aspectRatio="3/2"
-                      />
-                    ))}
-                  </div>
-                )}
+              {/* ── PORTRAIT (Religieux + Séjours — 4-col) ── */}
+              {group.photoLayout === "portrait" && (
+                <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
+                  {group.services.map((svc, si) => (
+                    <CinemaPhotoCard
+                      key={svc.title}
+                      svc={svc}
+                      delay={gi * 60 + si * 55}
+                      aspectRatio="2/3"
+                    />
+                  ))}
+                </div>
+              )}
 
-                {/* Photo cards for Voyages Religieux (portrait, 4-col) */}
-                {group.photoLayout === "portrait" && (
-                  <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-                    {group.services.map((svc, si) => (
-                      <PhotoCard
-                        key={svc.title}
-                        svc={svc}
-                        delay={gi * 80 + si * 60}
-                        aspectRatio="3/4"
-                      />
-                    ))}
-                  </div>
-                )}
+              {/* ── PREMIUM VIP (dark glass 2×2 grid) ── */}
+              {group.photoLayout === "premium" && (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {group.services.map((svc, si) => (
+                    <PremiumVIPCard
+                      key={svc.title}
+                      svc={svc}
+                      delay={gi * 60 + si * 55}
+                      index={si}
+                    />
+                  ))}
+                </div>
+              )}
 
-                {/* Assistance cards — image top, content below */}
-                {group.photoLayout === "assistance" && (
-                  <div className="grid gap-5 sm:grid-cols-3">
-                    {group.services.map((svc, si) => (
-                      <AssistanceCard
-                        key={svc.title}
-                        svc={svc}
-                        delay={gi * 80 + si * 60}
-                      />
-                    ))}
-                  </div>
-                )}
-
-                {/* White cards for other groups */}
-                {!group.photoLayout && (
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {group.services.map((svc, si) => (
-                      <Reveal key={svc.title} delay={gi * 80 + si * 50}>
-                        <Link
-                          href={svc.href}
-                          className="group flex flex-col rounded-2xl border border-syanor-gold/15 bg-white p-5 transition-all duration-250 hover:-translate-y-0.5 hover:border-syanor-gold/35 hover:shadow-card"
-                        >
-                          <span
-                            className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-syanor-emerald/8 text-syanor-emerald transition-colors duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
-                            aria-hidden="true"
-                          >
-                            <Icon name={svc.icon} className="h-4.5 w-4.5" />
-                          </span>
-                          <p className="font-playfair text-sm font-medium text-syanor-ink transition-colors group-hover:text-syanor-emerald">
-                            {svc.title}
-                          </p>
-                          <p className="mt-1 text-xs leading-relaxed text-syanor-ink/55">{svc.desc}</p>
-                          <span className="mt-3 text-[0.65rem] font-semibold text-syanor-gold transition-colors group-hover:text-syanor-emerald">
-                            En savoir plus →
-                          </span>
-                        </Link>
-                      </Reveal>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </Reveal>
+              {/* ── ASSISTANCE (horizontal cards) ── */}
+              {group.photoLayout === "assistance" && (
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {group.services.map((svc, si) => (
+                    <AssistanceCard
+                      key={svc.title}
+                      svc={svc}
+                      delay={gi * 60 + si * 55}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>

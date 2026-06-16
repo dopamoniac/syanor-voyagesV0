@@ -1,0 +1,232 @@
+The current service/category boxes and cards are not good enough visually.
+
+They are too generic, too standard, and not artistic enough.
+I want a much more creative, premium, elegant, and clean card system across this page and across the whole website.
+
+IMPORTANT:
+Do not keep the current boxes with only small tweaks.
+I want a true redesign of the card / box system.
+
+WHAT I DON’T LIKE:
+- The current boxes feel too basic
+- Some cards feel like standard templates
+- The white cards especially feel flat and uninspired
+- The composition is not artistic enough
+- The visual hierarchy is too ordinary
+- The cards do not feel luxury enough
+- The sections feel too “assembled” instead of beautifully designed
+
+GOAL:
+Make all these boxes/cards feel:
+- more creative
+- more artistic
+- more premium
+- more elegant
+- cleaner
+- more high-end
+- more original
+- more luxury travel brand
+- more Apple-level in finish
+- more editorial / design-driven
+
+PAGES / SECTIONS CONCERNED:
+Apply this redesign to all similar boxes across the whole website, especially:
+- service category cards
+- offer category boxes
+- “Voyages Religieux” cards
+- “Premium & VIP” cards
+- “Assistance” cards
+- “Billets” cards
+- “Séjours & Voyages” cards
+- homepage preview cards
+- service grids
+- booking / reservation boxes
+- quote CTA cards
+- related content cards
+
+DESIGN DIRECTION:
+I want the card system to feel like a premium mix of:
+- Apple-level cleanliness
+- luxury travel editorial design
+- high-end booking interface
+- artistic brand presentation
+- modern premium UI
+- elegant hospitality/travel presentation
+
+VISUAL STYLE:
+Please redesign the boxes with a stronger artistic direction:
+- layered compositions
+- refined glass surfaces
+- subtle depth
+- premium materials
+- elegant image treatment
+- better spacing
+- stronger typography hierarchy
+- more intentional layouts
+
+The cards should not feel like simple rectangles with text.
+They should feel designed.
+
+CARD SYSTEM REQUIREMENTS:
+
+1. IMAGE-LED PREMIUM CARDS
+For major service categories, use a more immersive image-led design:
+- strong thematic image
+- soft dark smoke / cinematic gradient overlay
+- elegant text placement
+- better contrast
+- premium category badge
+- refined CTA line
+- tasteful hover movement
+- subtle zoom/parallax if appropriate
+
+2. CREATIVE COMPOSITION
+Introduce more interesting composition:
+- some cards can be horizontal, some vertical if layout allows
+- better rhythm between large and small cards
+- visual hierarchy inside sections
+- more breathing room
+- premium spacing between groups
+
+3. PREMIUM PLAIN CARDS MUST BE UPGRADED
+The current plain light cards are too basic.
+If some cards remain light/ivory-based, they must become much more premium:
+- glass/pearl surface
+- subtle gradient
+- embossed or layered feel
+- more refined icons
+- luxury divider lines
+- soft gold accents
+- better typography
+- richer CTA treatment
+- stronger hover state
+
+No more boring white flat cards.
+
+4. STRONGER CATEGORY DIFFERENTIATION
+Each category block should have its own visual atmosphere while staying in the SYANOR system.
+
+Examples:
+- Billets → airport / travel / movement / transport feeling
+- Voyages Religieux → spiritual, calm, sacred, elegant
+- Séjours & Voyages → lifestyle, travel, destination, tailored experience
+- Premium & VIP → luxurious, polished, concierge feel
+- Assistance → trust, preparation, documents, support
+
+Each section should feel coherent and thematic.
+
+5. BETTER ICON TREATMENT
+The current icon treatment is not premium enough in some places.
+Upgrade icon presentation:
+- refined icon containers
+- gold or emerald micro-accent
+- subtle depth
+- less “default UI” feeling
+- more premium visual language
+
+6. STRONGER TYPOGRAPHY HIERARCHY
+Improve text hierarchy:
+- more elegant titles
+- better subtitle rhythm
+- less cramped text
+- stronger CTA readability
+- cleaner line lengths
+- premium editorial spacing
+
+7. BETTER CTA DESIGN
+All “En savoir plus” / CTA lines inside the cards should feel more premium:
+- better arrow treatment
+- subtle motion
+- cleaner positioning
+- more elegant hover
+- not too small
+- visually integrated into the card
+
+8. HOVER / INTERACTION
+All cards should have refined motion:
+- soft lift
+- slight scale or depth effect
+- elegant overlay movement
+- smooth luxury easing
+- subtle shadow refinement
+- no aggressive animation
+
+Respect prefers-reduced-motion.
+
+9. SECTION PRESENTATION
+Do not only redesign individual cards.
+Also improve the section composition:
+- better section heading alignment
+- more premium separators
+- more breathing room
+- more coherent card spacing
+- stronger visual flow from one section to another
+
+10. BOOKING / RESERVATION BOXES
+Also redesign all reservation / booking / devis boxes in the same premium language:
+- more artistic
+- more clean
+- more luxurious
+- image-supported when useful
+- glass surfaces
+- better hierarchy
+- better CTA buttons
+- premium inputs
+- no basic form-box feeling
+
+11. ARTISTIC BUT CLEAN
+Very important:
+I do not want messy creativity.
+I want:
+- artistic
+- elegant
+- minimal enough
+- clean
+- premium
+- luxury
+- high taste
+
+So:
+more design soul, but still clean and usable.
+
+12. CONSISTENT DESIGN SYSTEM
+Create one coherent premium card language for the whole site:
+- image cards
+- light glass cards
+- reservation boxes
+- service previews
+- offer cards
+- CTA cards
+
+Everything should feel like one refined design system.
+
+13. SPECIFIC FIX FOR THE CURRENT SECTIONS
+From the screenshots:
+- The image cards are a better direction than the plain cards, but still need more refinement
+- The plain Premium & VIP cards are too generic and must be fully elevated
+- The Assistance cards also need more personality and polish
+- I want all these sections to feel more editorial and more premium, not like repeated templates
+
+14. QUALITY EXPECTATION
+Think like:
+- senior product designer
+- art director
+- luxury travel brand designer
+- premium booking-platform UI designer
+
+I do not want “acceptable”.
+I want beautiful work.
+
+FINAL EXPECTATION:
+Redesign these boxes/cards so that when someone sees the page they immediately feel:
+- premium
+- creative
+- elegant
+- professional
+- luxurious
+- clean
+- thoughtfully designed
+
+I want the cards/boxes across the site to become one of the strongest visual assets of the SYANOR VOYAGES experience.
+
+Please implement a real redesign, not just minor improvements.
