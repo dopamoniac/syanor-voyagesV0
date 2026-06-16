@@ -6,14 +6,15 @@ import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/sections/FaqSection";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
+import PremiumDepartureCard from "@/components/ui/PremiumDepartureCard";
 import { offers } from "@/data/offers";
 import { omraMonths } from "@/data/months";
 import { quoteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Omra & Hajj | SYANOR VOYAGES",
+  title: "Omra Factory — Omra & Hajj | SYANOR VOYAGES",
   description:
-    "L'univers Omra & Hajj de SYANOR VOYAGES. Omra 2026, Omra 2027, Hajj 2027, Omra Plus, Ramadan, formation avant départ et accompagnement spirituel. En partenariat avec Omra Factory.",
+    "Omra Factory, département Omra & Hajj de SYANOR VOYAGES. Omra 2026, Omra 2027, Hajj 2027, Omra Plus, Ramadan, Ziyarat, formation et accompagnement spirituel.",
   alternates: { canonical: "/omra-hajj" },
 };
 
@@ -199,7 +200,7 @@ export default function OmraHajjPage() {
             <div className="mb-6 inline-flex items-center gap-3">
               <span className="h-px w-8 bg-syanor-gold/50" aria-hidden="true" />
               <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-syanor-gold">
-                SYANOR VOYAGES — Univers spirituel
+                Omra Factory — Département Omra & Hajj de SYANOR VOYAGES
               </span>
             </div>
 
@@ -211,9 +212,8 @@ export default function OmraHajjPage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-syanor-champagne/65 sm:text-lg">
-              Un univers dédié aux voyages spirituels : Omra, Hajj, Ramadan, Ziyarat,
-              formation avant départ et accompagnement humain.{" "}
-              <span className="italic text-syanor-champagne/45">En partenariat avec Omra Factory.</span>
+              Omra, Hajj, Ramadan, Ziyarat, formation avant départ et accompagnement spirituel.{" "}
+              <span className="font-medium text-syanor-gold/70">Omra Factory accompagne vos voyages spirituels au sein de SYANOR VOYAGES.</span>
             </p>
 
             {/* Quick pills */}
@@ -282,7 +282,7 @@ export default function OmraHajjPage() {
       <section className="section-pad bg-syanor-ivory">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mb-10 text-center">
-            <p className="eyebrow mb-2">Départs Omra</p>
+            <p className="eyebrow mb-2">Omra Factory — Départs Omra</p>
             <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Choisissez votre saison</h2>
             <div className="mx-auto mt-3 h-px w-12 bg-gradient-to-r from-transparent via-syanor-gold/50 to-transparent" aria-hidden="true" />
           </div>
@@ -296,7 +296,9 @@ export default function OmraHajjPage() {
               >
                 <div className="mb-5 flex items-start justify-between">
                   <div>
-                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-syanor-gold/70">Saison</p>
+                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.22)" }}>
+                      Omra Factory
+                    </span>
                     <h3 className="font-playfair text-3xl font-bold text-syanor-ivory">Omra 2026</h3>
                     <p className="mt-1 text-sm text-white/45">Nice · Marseille → Médine, retour Djeddah</p>
                   </div>
@@ -335,7 +337,9 @@ export default function OmraHajjPage() {
               >
                 <div className="mb-5 flex items-start justify-between">
                   <div>
-                    <p className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-syanor-gold/70">Saison</p>
+                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.22)" }}>
+                      Omra Factory
+                    </span>
                     <h3 className="font-playfair text-3xl font-bold text-syanor-ink">Omra 2027</h3>
                     <p className="mt-1 text-sm text-syanor-ink/45">Nice · Marseille → Médine, retour Djeddah</p>
                   </div>
@@ -402,88 +406,7 @@ export default function OmraHajjPage() {
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {upcomingOffers.map((offer, i) => (
-                <Reveal key={offer.id} delay={(i % 3) * 60}>
-                  <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/18 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
-                    {/* Card header */}
-                    <div
-                      className="relative flex items-start justify-between px-5 py-4"
-                      style={{ background: "linear-gradient(135deg, #063F33 0%, #022B24 100%)" }}
-                    >
-                      <div>
-                        <p className="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-syanor-gold/70">{offer.category}</p>
-                        <h3 className="mt-0.5 font-playfair text-lg font-bold text-syanor-ivory leading-tight">{offer.title}</h3>
-                      </div>
-                      <span
-                        className="shrink-0 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold"
-                        style={{
-                          background: offer.availabilityStatus === "Confirmé" ? "rgba(201,162,74,0.15)" : "rgba(255,255,255,0.06)",
-                          color: offer.availabilityStatus === "Confirmé" ? "#C9A24A" : "rgba(255,255,255,0.45)",
-                          border: `1px solid ${offer.availabilityStatus === "Confirmé" ? "rgba(201,162,74,0.3)" : "rgba(255,255,255,0.10)"}`,
-                        }}
-                      >
-                        {offer.availabilityStatus ?? "Sur demande"}
-                      </span>
-                    </div>
-
-                    {/* Card body */}
-                    <div className="flex flex-1 flex-col gap-3 p-5">
-                      {/* Route */}
-                      <div className="flex items-center gap-2 rounded-xl bg-syanor-champagne/30 px-3.5 py-2.5">
-                        <Icon name="airplane" className="h-3.5 w-3.5 shrink-0 text-syanor-gold" aria-hidden="true" />
-                        <span className="text-[0.72rem] font-medium text-syanor-ink/70">{offer.outboundRoute}</span>
-                      </div>
-
-                      {/* Info grid */}
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="rounded-lg bg-syanor-champagne/20 px-3 py-2">
-                          <p className="text-[0.58rem] font-semibold uppercase tracking-wider text-syanor-ink/35">Départ</p>
-                          <p className="mt-0.5 text-xs font-semibold text-syanor-ink">{offer.departureDate}</p>
-                        </div>
-                        <div className="rounded-lg bg-syanor-champagne/20 px-3 py-2">
-                          <p className="text-[0.58rem] font-semibold uppercase tracking-wider text-syanor-ink/35">Durée</p>
-                          <p className="mt-0.5 text-xs font-semibold text-syanor-ink">{offer.duration}</p>
-                        </div>
-                        <div className="rounded-lg bg-syanor-champagne/20 px-3 py-2">
-                          <p className="text-[0.58rem] font-semibold uppercase tracking-wider text-syanor-ink/35">Confort</p>
-                          <p className="mt-0.5 text-xs font-semibold text-syanor-ink">{offer.comfortLevel}</p>
-                        </div>
-                        <div className="rounded-lg bg-syanor-champagne/20 px-3 py-2">
-                          <p className="text-[0.58rem] font-semibold uppercase tracking-wider text-syanor-ink/35">Prix</p>
-                          <p className="mt-0.5 text-xs font-semibold text-syanor-gold">{offer.priceFrom}</p>
-                        </div>
-                      </div>
-
-                      {/* Included tags */}
-                      {offer.includedServices && offer.includedServices.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5">
-                          {offer.includedServices.slice(0, 3).map((s) => (
-                            <span key={s} className="flex items-center gap-1 rounded-full bg-syanor-emerald/6 px-2.5 py-1 text-[0.6rem] font-medium text-syanor-emerald">
-                              <Icon name="check" className="h-2.5 w-2.5" aria-hidden="true" />
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-
-                      {/* CTAs */}
-                      <div className="mt-auto flex gap-2 pt-1">
-                        <Link
-                          href={quoteUrl({ service: offer.category, offer: offer.slug })}
-                          className="flex-1 rounded-full bg-syanor-emerald py-2.5 text-center text-sm font-semibold text-syanor-ivory transition-all hover:bg-syanor-royal active:scale-[0.97]"
-                        >
-                          Choisir ce départ
-                        </Link>
-                        <Link
-                          href={`/offres/${offer.slug}`}
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-syanor-gold/25 text-syanor-gold transition-all hover:border-syanor-gold hover:bg-syanor-gold/8 active:scale-[0.97]"
-                          aria-label="Voir les détails"
-                        >
-                          <Icon name="arrow-right" className="h-4 w-4" aria-hidden="true" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
+                <PremiumDepartureCard key={offer.id} offer={offer} index={i} delay={(i % 3) * 60} />
               ))}
             </div>
           </div>
@@ -566,7 +489,7 @@ export default function OmraHajjPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mb-10 text-center">
             <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">
-              SYANOR VOYAGES — Accompagnement
+              Omra Factory — Accompagnement spirituel
             </p>
             <h2 className="font-playfair text-3xl font-bold text-syanor-ivory">
               Préparation, formation et accompagnement

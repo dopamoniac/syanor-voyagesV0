@@ -238,7 +238,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </Link>
           </div>
 
-          {/* ── Omra & Hajj universe ── */}
+          {/* ── Omra Factory universe ── */}
           <div className="mb-7">
             {/* Section label with universe branding — label IS a link */}
             <div className="mb-4 flex items-center gap-3">
@@ -247,7 +247,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 onClick={onClose}
                 className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.22em] text-syanor-gold hover:underline"
               >
-                Omra & Hajj ↗
+                Omra Factory ↗
               </Link>
               <div className="h-px flex-1 bg-gradient-to-r from-syanor-gold/25 to-transparent" aria-hidden="true" />
             </div>
@@ -275,20 +275,20 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               ))}
             </div>
 
-            {/* Partner note */}
+            {/* Omra Factory dept note */}
             <div className="mt-3 flex items-center gap-2 rounded-xl border border-syanor-gold/12 bg-syanor-gold/5 px-4 py-2.5">
               <div className="h-px w-3 bg-syanor-gold/30" aria-hidden="true" />
-              <p className="text-[0.62rem] italic text-syanor-champagne/45">
-                En partenariat avec Omra Factory
+              <p className="text-[0.62rem] font-medium text-syanor-gold/60">
+                Omra Factory — département Omra & Hajj de SYANOR VOYAGES
               </p>
             </div>
 
             <Link
-              href="/contact?universe=omra-hajj#quote"
+              href="/contact?universe=omra-factory#quote"
               onClick={onClose}
               className="mt-3 inline-flex items-center gap-1.5 text-[0.68rem] font-medium text-syanor-gold/55 transition-colors hover:text-syanor-gold"
             >
-              Demander un devis Omra & Hajj <ArrowRight />
+              Demander un devis Omra Factory <ArrowRight />
             </Link>
           </div>
 

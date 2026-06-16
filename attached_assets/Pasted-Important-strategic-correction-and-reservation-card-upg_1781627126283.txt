@@ -1,0 +1,410 @@
+Important strategic correction and reservation-card upgrade.
+
+We need to fix the brand architecture and improve all reservation cards across the website.
+
+BRAND ARCHITECTURE UPDATE:
+
+SYANOR VOYAGES remains the main premium travel agency.
+
+SYANOR VOYAGES covers the general travel universe:
+
+* Billets avion
+* Billets bateau / ferry
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Hôtels
+* Transferts
+* Visas
+* Assistance voyage
+* Voyages de noces
+* Groupes
+* Travel concierge
+* General premium travel services
+
+OMRA FACTORY is now the dedicated Omra & Hajj department inside the SYANOR ecosystem.
+
+Omra Factory covers:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Omra Plus
+* Ramadan
+* Ziyarat
+* Formation avant départ
+* Préparation des rites
+* Accompagnement spirituel
+* Départs Omra par ville
+* Départs Omra par mois
+* Packs Omra
+* Préinscription Hajj
+* Spiritual travel support
+
+Important:
+Omra Factory is not just a partner mention anymore.
+Omra Factory must be treated as the dedicated Omra & Hajj department.
+
+Do not use SIYAJJ.
+
+Correct wording:
+
+* “Omra Factory, département Omra & Hajj de SYANOR VOYAGES”
+* “L’univers Omra & Hajj par Omra Factory”
+* “Omra Factory accompagne vos voyages spirituels au sein de SYANOR VOYAGES”
+
+Main website understanding:
+The website must clearly separate two worlds:
+
+1. SYANOR VOYAGES, general premium travel agency
+2. Omra Factory, dedicated Omra & Hajj department
+
+NAVIGATION:
+Update navigation and wording if needed:
+
+Main nav:
+
+* Accueil
+* Billets
+* Séjours & Voyages
+* Omra Factory
+* Offres
+* Départs
+* Blog
+* Contact
+
+The Omra Factory nav item should link to the Omra/Hajj hub page.
+
+Suggested routes:
+
+* /omra-factory
+* /omra-factory/omra-2026
+* /omra-factory/omra-2027
+* /omra-factory/hajj-2027
+* /omra-factory/ramadan
+* /omra-factory/formation
+* /omra-factory/ziyarat
+* /omra-factory/departs/nice
+* /omra-factory/departs/marseille
+* /omra-factory/departs/lyon
+* /omra-factory/departs/paris
+* /omra-factory/departs/toulouse
+* /omra-factory/departs/bruxelles
+
+If existing routes like /omra-hajj, /omra-2026, /depart/nice already exist:
+
+* Keep them working
+* Add redirects or aliases if useful
+* But update page branding to Omra Factory
+* Do not break current links
+
+HOMEPAGE / UNIVERSE SECTION:
+The homepage should clearly present:
+
+Card 1:
+SYANOR VOYAGES
+Agence de voyages premium.
+Billets, séjours, voyages organisés, packs VIP, visas, hôtels, transferts et assistance.
+
+CTA:
+Découvrir SYANOR VOYAGES
+
+Card 2:
+OMRA FACTORY
+Département Omra & Hajj de SYANOR VOYAGES.
+Omra, Hajj, Ramadan, Ziyarat, formation et accompagnement spirituel.
+
+CTA:
+Découvrir Omra Factory
+
+RESERVATION CARDS UPGRADE:
+This is the most important visual/UX task.
+
+The current “Départs Omra”, “Choisissez votre saison” and “Départs disponibles” cards are too basic.
+
+I want all Omra reservation cards and all service reservation cards across the site to become much more professional, premium, image-led, and connected to the quote/reservation system.
+
+Apply this to:
+
+* Départs Omra season cards
+* Omra 2026 card
+* Omra 2027 card
+* Départs disponibles cards
+* individual Omra departure cards
+* Omra offer cards
+* city departure cards
+* month departure cards
+* offer detail booking boxes
+* service reservation cards
+* billets avion reservation cards
+* billets bateau reservation cards
+* séjours sur mesure reservation cards
+* VIP / premium reservation cards
+* contact/devis summary boxes
+* all cards that lead to a reservation or quote
+
+CARD VISUAL DIRECTION:
+Reservation cards must feel:
+
+* premium
+* clean
+* Apple-level
+* Booking-level clear
+* high-trust
+* image-supported
+* luxury travel focused
+* easy to understand
+* conversion-focused
+
+No basic flat cards.
+No generic white boxes.
+No boring list cards.
+No cards that feel like admin panels.
+
+OMRA DEPARTURE CARD DESIGN:
+Each Omra departure card should include:
+
+1. A premium image zone
+   Use a spiritual travel image:
+
+* Makkah / Madinah atmosphere
+* pilgrims
+* mosque architecture
+* sacred journey mood
+* warm gold light
+* elegant dark smoke overlay for text if needed
+
+2. Clear date block
+   Show:
+
+* departure date
+* return date
+* duration
+* route
+
+Example:
+Départ: 18 Octobre 2026
+Retour: 29 Octobre 2026
+Durée: 12 jours / 11 nuits
+Route: Nice / Marseille → Médine, retour Jeddah → Nice / Marseille
+
+3. Comfort / package chips
+   Show:
+
+* Standard
+* Premium
+* VIP
+* Quadruple / Triple / Double / Individuelle if relevant
+* Visa
+* Transferts
+* Hébergement
+* Ziyarat
+* Formation
+
+4. Price/status area
+   Show:
+
+* Sur demande
+* À confirmer
+* Préinscription if relevant
+
+5. Reservation CTA
+   Primary CTA:
+   “Choisir ce départ”
+
+Secondary CTA:
+“Voir détails”
+
+6. Quote prefill
+   Every “Choisir ce départ” button must link to the smart quote form with prefilled URL params.
+
+Example:
+`/contact?universe=omra-factory&service=omra&offer=omra-18-octobre-2026&departureDate=18/10/2026&returnDate=29/10/2026&city=nice-marseille#quote`
+
+The quote form must understand the selected departure.
+
+SEASON CARDS:
+Upgrade “Omra 2026” and “Omra 2027” season cards.
+
+Current cards are too basic.
+
+Make them premium:
+
+* image or artistic visual zone
+* clean month chips
+* departure count
+* route summary
+* comfort summary
+* CTA to see all departures
+* CTA to ask for quote
+* clear Omra Factory branding
+
+Design:
+
+* glass panel
+* ivory/gold background
+* emerald accent only where needed
+* image strip or image corner
+* premium shadows
+* no flat default card
+
+“Choisissez votre saison” should feel like a premium selector, not simple boxes.
+
+DEPARTS DISPONIBLES:
+Upgrade “Départs disponibles” cards.
+
+Current cards are too simple and not visual enough.
+
+Make them:
+
+* more image-led
+* more luxury
+* more readable
+* more reservation-oriented
+* connected to quote system
+* consistent with premium Omra Factory visual style
+
+They should look like real travel offer cards, not backend cards.
+
+SERVICE RESERVATION CARDS:
+For SYANOR general travel services, create equivalent premium reservation cards.
+
+Examples:
+
+Billets avion card:
+
+* image: airport / plane / ticket
+* choices: aller simple, aller-retour, multi-destination
+* fields or chips: départ, destination, dates, passagers, classe
+* CTA: Demander un billet
+* prefill: universe=syanor&service=billet-avion
+
+Billets bateau card:
+
+* image: ferry / port / sea route
+* choices: aller simple, aller-retour, véhicule, cabine
+* CTA: Demander une traversée
+* prefill: universe=syanor&service=billet-bateau
+
+Séjours sur mesure card:
+
+* image: hotel / terrace / destination
+* choices: destination, dates, voyageurs, budget, comfort
+* CTA: Créer mon séjour
+* prefill: universe=syanor&service=sejour-sur-mesure
+
+Packs Premium / VIP card:
+
+* image: private transfer / hotel arrival / concierge
+* choices: VIP, hotel, transfers, assistance
+* CTA: Demander un pack VIP
+* prefill: universe=syanor&service=pack-premium-vip
+
+Visa / Assistance card:
+
+* image: passport / documents
+* CTA: Demander une assistance
+* prefill: universe=syanor&service=visa
+
+QUOTE SYSTEM CONNECTION:
+All reservation cards across the website must connect properly to the smart quote form.
+
+Every CTA should pass correct params:
+
+* universe=syanor or universe=omra-factory
+* service
+* offer if relevant
+* departureDate if relevant
+* returnDate if relevant
+* city if relevant
+* comfort if relevant
+* roomType if relevant
+
+The smart quote form must show a clear summary:
+“Votre demande”
+with the selected service/offer/date/route.
+
+This is crucial.
+
+DESIGN SYSTEM:
+Create or improve reusable components:
+
+* ReservationCard
+* OmraDepartureCard
+* SeasonSelectorCard
+* ServiceReservationCard
+* OfferReservationBox
+* QuotePrefillSummary
+
+Use these consistently instead of many different basic cards.
+
+VISUAL QUALITY:
+Reservation cards should use:
+
+* premium images
+* glass surfaces
+* ivory / pearl / champagne background
+* emerald and gold accents
+* soft shadows
+* smooth hover
+* clean chips
+* elegant CTA
+* premium status badges
+* no default browser style
+* no generic boxes
+
+MOBILE:
+Mobile version is critical.
+
+On mobile:
+
+* reservation cards must be image-led and beautiful
+* text must be readable
+* CTAs must be large and easy to tap
+* cards must not be cramped
+* no horizontal overflow
+* chips should wrap cleanly
+* images must crop well
+* quote CTA must work perfectly
+
+DESKTOP:
+On desktop:
+
+* cards should feel premium and balanced
+* 3-column grids should align correctly
+* image zones should create visual impact
+* no empty-looking cards
+* no repetitive boring layout
+
+IMPORTANT:
+Do not only update Omra cards.
+The same premium reservation logic must apply across the whole website:
+
+* Omra Factory reservation cards
+* SYANOR VOYAGES service reservation cards
+* offer cards
+* booking boxes
+* quote modules
+
+FINAL CHECK:
+Before finishing:
+
+* Omra Factory is treated as the Omra/Hajj department, not just partner.
+* SYANOR VOYAGES remains the main agency for general travel.
+* No SIYAJJ anywhere.
+* “Départs Omra” season cards are premium and visual.
+* “Départs disponibles” cards are premium and image-led.
+* All Omra departure cards connect to the quote system.
+* All service reservation cards connect to the quote system.
+* CTAs prefill the smart quote form correctly.
+* Cards look professional on desktop and mobile.
+* No basic reservation cards remain.
+* No broken routes.
+* No console errors.
+* Build/typecheck passes.
+
+Final result:
+The website must feel like a real premium travel booking platform.
+SYANOR VOYAGES handles general travel.
+Omra Factory handles the Omra & Hajj department.
+All reservation cards must be clean, premium, image-led, and connected to the quote/devis system.

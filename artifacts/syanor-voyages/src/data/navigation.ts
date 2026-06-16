@@ -37,7 +37,7 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
-    label: "Omra & Hajj",
+    label: "Omra Factory",
     href: "/omra-hajj",
     children: [
       { label: "Omra 2026",       href: "/omra-2026",           desc: "Oct., Nov., Déc. depuis Nice/Marseille" },

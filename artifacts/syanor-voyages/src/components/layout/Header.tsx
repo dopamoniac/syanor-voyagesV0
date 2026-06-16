@@ -182,12 +182,12 @@ function OmraMegaPanel({ onClose }: { onClose: () => void }) {
           <Link href="/faq" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
             FAQ
           </Link>
-          <span className="text-[0.6rem] italic text-syanor-ink/35">
-            en partenariat avec Omra Factory
+          <span className="text-[0.6rem] font-medium text-syanor-ink/40">
+            Omra Factory — département Omra & Hajj
           </span>
         </div>
-        <Link href="/contact?universe=omra-hajj#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
-          Demander un devis →
+        <Link href="/contact?universe=omra-factory#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+          Demander un devis Omra Factory →
         </Link>
       </div>
     </div>
@@ -302,7 +302,7 @@ interface MegaMenuWrapperProps {
 
 function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
   const panelWidth =
-    item.label === "Omra & Hajj"       ? "w-[680px]" :
+    item.label === "Omra Factory"      ? "w-[680px]" :
     item.label === "Séjours & Voyages" ? "w-[520px]" :
     item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
 
@@ -383,7 +383,7 @@ function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrappe
           role="region"
           aria-label={`Menu ${item.label}`}
         >
-          {item.label === "Omra & Hajj" ? (
+          {item.label === "Omra Factory" ? (
             <OmraMegaPanel onClose={onClose} />
           ) : item.label === "Billets" ? (
             <BilletsMegaPanel item={item} onClose={onClose} />
@@ -469,7 +469,7 @@ export default function Header() {
                 <MegaMenuWrapper
                   key={item.label}
                   item={item}
-                  href={item.label === "Omra & Hajj" ? "/omra-hajj" : undefined}
+                  href={item.label === "Omra Factory" ? "/omra-hajj" : undefined}
                   isOpen={openMegaMenu === item.label}
                   onOpen={() => handleMegaOpen(item.label)}
                   onClose={handleMegaClose}

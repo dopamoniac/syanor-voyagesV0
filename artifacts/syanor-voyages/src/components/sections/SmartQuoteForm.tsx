@@ -461,7 +461,7 @@ function SmartQuoteFormInner() {
 
     const omraServices = new Set(["Omra", "Hajj", "Omra Plus", "Ramadan"]);
     const normUniverse: "" | "syanor" | "omra-hajj" =
-      universe === "omra-hajj" ? "omra-hajj" :
+      universe === "omra-hajj" || universe === "omra-factory" ? "omra-hajj" :
       universe === "syanor"    ? "syanor" :
       normService && omraServices.has(normService) ? "omra-hajj" :
       normService ? "syanor" : "";
@@ -694,7 +694,7 @@ function SmartQuoteFormInner() {
                 )}
               </button>
 
-              {/* Omra & Hajj universe */}
+              {/* Omra Factory universe */}
               <button
                 type="button"
                 onClick={() => { update("universe", "omra-hajj"); update("serviceType", ""); setErrors({}); }}
@@ -713,11 +713,11 @@ function SmartQuoteFormInner() {
                   ))}
                 </div>
                 <span className={`mb-1 text-[0.65rem] font-bold uppercase tracking-widest ${data.universe === "omra-hajj" ? "text-syanor-gold" : "text-syanor-ink/40"}`}>
-                  Univers spirituel
+                  Omra Factory
                 </span>
                 <span className="block text-base font-bold text-syanor-ink">Omra & Hajj</span>
                 <span className="mt-1.5 block text-[0.72rem] leading-relaxed text-syanor-ink/50">
-                  Omra, Hajj, Ramadan, Ziyarat, formation et accompagnement spirituel, en partenariat avec Omra Factory.
+                  Omra, Hajj, Ramadan, Ziyarat, formation et accompagnement spirituel — département Omra & Hajj de SYANOR VOYAGES.
                 </span>
                 {data.universe === "omra-hajj" && (
                   <span className="mt-3 inline-flex items-center gap-1 rounded-full bg-syanor-gold/15 px-2.5 py-1 text-[0.62rem] font-semibold text-syanor-gold">
