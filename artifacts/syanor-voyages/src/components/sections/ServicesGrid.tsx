@@ -33,7 +33,7 @@ const GROUPS: ServiceGroup[] = [
         icon: "airplane",
         title: "Billets Avion",
         badge: "Vols internationaux",
-        desc: "Vols internationaux, réservation optimisée, assistance complète",
+        desc: "Vols internationaux, réservation optimisée, assistance complète de A à Z",
         href: "/services/billets-avion",
         image: "/services/billets-avion.jpg",
         alt: "Billet d'avion international avec SYANOR VOYAGES",
@@ -216,108 +216,138 @@ const GROUPS: ServiceGroup[] = [
 ];
 
 /* ───────────────────────────────────────────────────────────────
-   ARROW ICON — shared micro-element
+   ARROW ICON
 ─────────────────────────────────────────────────────────────── */
 function ArrowIcon({ className = "h-3 w-3" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      aria-hidden="true"
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
       <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
 /* ───────────────────────────────────────────────────────────────
-   1. CINEMA PHOTO CARD  (Billets landscape + Religieux / Séjours portrait)
+   1. CINEMA PHOTO CARD
+   — frosted glass content panel, fill or aspect-ratio mode
 ─────────────────────────────────────────────────────────────── */
 interface PhotoCardProps {
   svc: ServiceItem;
   delay: number;
   aspectRatio?: string;
+  /** Use fill mode: card stretches to 100% of its container's height */
+  fill?: boolean;
+  /** Use fixed-height panoramic mode for featured cards */
+  featured?: boolean;
+  titleSize?: "lg" | "xl" | "2xl" | "3xl";
 }
 
-function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
+function CinemaPhotoCard({
+  svc,
+  delay,
+  aspectRatio = "4/3",
+  fill = false,
+  featured = false,
+  titleSize = "xl",
+}: PhotoCardProps) {
+  const titleClass =
+    titleSize === "3xl" ? "text-3xl lg:text-4xl"
+    : titleSize === "2xl" ? "text-2xl lg:text-3xl"
+    : titleSize === "lg" ? "text-lg"
+    : "text-xl";
+
   return (
-    <Reveal delay={delay}>
+    <Reveal delay={delay} className={fill ? "h-full" : undefined}>
       <Link
         href={svc.href}
-        className="group relative block overflow-hidden rounded-[22px]"
-        style={{ aspectRatio }}
+        className={[
+          "group relative block cursor-pointer overflow-hidden rounded-[24px]",
+          fill ? "h-full w-full" : "",
+          featured ? "h-56 sm:h-72 lg:h-[400px]" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+        style={!fill && !featured ? { aspectRatio } : undefined}
         aria-label={svc.title}
       >
-        {/* Photo */}
+        {/* Photo — zooms on hover */}
         <img
           src={svc.image}
           alt={svc.alt ?? svc.title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.07]"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.08]"
           loading="lazy"
         />
 
-        {/* Deep cinematic gradient */}
+        {/* Subtle top vignette */}
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.06) 28%, rgba(2,8,6,0.55) 60%, rgba(2,8,6,0.90) 82%, rgba(2,8,6,0.96) 100%)",
-          }}
+          className="pointer-events-none absolute inset-x-0 top-0 h-28"
+          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, transparent 100%)" }}
           aria-hidden="true"
         />
 
-        {/* Hover tint — warm emerald wash from top */}
+        {/* Hover: emerald top wash */}
         <div
-          className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-25"
-          style={{ background: "linear-gradient(180deg, rgba(6,63,51,0.5) 0%, transparent 55%)" }}
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-25"
+          style={{ background: "linear-gradient(to bottom, rgba(6,63,51,0.65) 0%, transparent 50%)" }}
           aria-hidden="true"
         />
 
-        {/* Premium badge — top-left */}
+        {/* Badge — top left */}
         {svc.badge && (
           <div
-            className="absolute left-3.5 top-3.5 rounded-full px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-syanor-gold/90 backdrop-blur-sm"
-            style={{
-              background: "rgba(2,43,36,0.62)",
-              border: "1px solid rgba(201,162,74,0.30)",
-            }}
+            className="absolute left-4 top-4 z-10 rounded-full px-3 py-1 text-[0.58rem] font-bold uppercase tracking-[0.15em] text-syanor-gold/95 backdrop-blur-md"
+            style={{ background: "rgba(2,43,36,0.65)", border: "1px solid rgba(201,162,74,0.40)" }}
           >
             {svc.badge}
           </div>
         )}
 
-        {/* Bottom content */}
-        <div className="absolute inset-x-0 bottom-0 p-5">
+        {/* ── FROSTED GLASS CONTENT PANEL ── */}
+        <div
+          className="absolute inset-x-0 bottom-0 z-10 px-5 pb-5 pt-5"
+          style={{
+            background: "rgba(2, 14, 10, 0.90)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            borderTop: "1px solid rgba(201,162,74,0.24)",
+          }}
+        >
+          {/* Gold accent line — expands on hover */}
+          <div
+            className="mb-3 h-[1.5px] rounded-full transition-all duration-500 group-hover:w-16"
+            style={{ width: "2.5rem", background: "linear-gradient(to right, #C9A24A, rgba(201,162,74,0.12))" }}
+            aria-hidden="true"
+          />
+
+          {/* Title */}
           <p
-            className="font-playfair text-xl font-bold leading-tight text-white"
-            style={{ textShadow: "0 1px 10px rgba(0,0,0,0.45)" }}
+            className={`font-playfair font-bold leading-tight text-white ${titleClass}`}
+            style={{ textShadow: "0 1px 10px rgba(0,0,0,0.35)" }}
           >
             {svc.title}
           </p>
-          <p className="mt-1.5 text-[0.72rem] leading-relaxed text-white/62">{svc.desc}</p>
 
-          {/* CTA bar */}
-          <div className="mt-4 flex items-center gap-2.5 border-t border-white/10 pt-3.5">
-            <span className="flex-1 text-[0.68rem] font-semibold tracking-wide text-syanor-gold transition-colors duration-200 group-hover:text-white">
-              Découvrir
-            </span>
-            <span
-              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-syanor-gold transition-all duration-300 group-hover:bg-syanor-gold group-hover:text-syanor-royal"
-              style={{ background: "rgba(201,162,74,0.18)", border: "1px solid rgba(201,162,74,0.25)" }}
-              aria-hidden="true"
-            >
-              <ArrowIcon className="h-2.5 w-2.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </span>
+          {/* Description */}
+          <p className="mt-1.5 line-clamp-2 text-[0.74rem] leading-relaxed text-white/55">
+            {svc.desc}
+          </p>
+
+          {/* CTA pill button */}
+          <div
+            className="mt-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-[0.72rem] font-bold tracking-wide text-syanor-gold transition-all duration-300 group-hover:bg-syanor-gold group-hover:text-[#021A12] group-hover:shadow-[0_4px_24px_rgba(201,162,74,0.40)]"
+            style={{
+              background: "rgba(201,162,74,0.12)",
+              border: "1px solid rgba(201,162,74,0.42)",
+            }}
+          >
+            Découvrir
+            <ArrowIcon className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
           </div>
         </div>
 
-        {/* Bottom-edge gold reveal line */}
+        {/* Bottom gold reveal line */}
         <div
-          className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
-          style={{ background: "linear-gradient(to right, rgba(201,162,74,0.8), rgba(201,162,74,0.2))" }}
+          className="absolute inset-x-0 bottom-0 z-20 h-[2.5px] origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+          style={{ background: "linear-gradient(to right, #C9A24A, rgba(201,162,74,0.10))" }}
           aria-hidden="true"
         />
       </Link>
@@ -326,53 +356,51 @@ function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
 }
 
 /* ───────────────────────────────────────────────────────────────
-   2. PREMIUM VIP CARD  (dark emerald glass — no image)
+   2. PREMIUM VIP CARD
+   — horizontal strip: icon panel left, content right
 ─────────────────────────────────────────────────────────────── */
-function PremiumVIPCard({
-  svc,
-  delay,
-  index,
-}: {
-  svc: ServiceItem;
-  delay: number;
-  index: number;
-}) {
+function PremiumVIPCard({ svc, delay, index }: { svc: ServiceItem; delay: number; index: number }) {
   const num = String(index + 1).padStart(2, "0");
 
   return (
     <Reveal delay={delay}>
       <Link
         href={svc.href}
-        className="group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-[22px] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(2,43,36,0.40)]"
+        className="group relative flex min-h-[156px] overflow-hidden rounded-[22px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_64px_rgba(2,43,36,0.45)]"
         style={{
-          background: "linear-gradient(148deg, #022B24 0%, #063F33 55%, #083e2e 100%)",
-          border: "1px solid rgba(201,162,74,0.20)",
+          background: "linear-gradient(125deg, #011915 0%, #022B24 50%, #041e16 100%)",
+          border: "1px solid rgba(201,162,74,0.22)",
         }}
       >
-        {/* Ambient gold glow top-right */}
+        {/* Left: icon + number section */}
         <div
-          className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-10 transition-opacity duration-500 group-hover:opacity-22"
-          style={{ background: "radial-gradient(circle, rgba(201,162,74,0.7), transparent 70%)" }}
-          aria-hidden="true"
-        />
+          className="relative flex w-[30%] shrink-0 flex-col items-center justify-center gap-2 px-4 py-5"
+          style={{
+            background: "linear-gradient(145deg, rgba(201,162,74,0.06) 0%, rgba(201,162,74,0.02) 100%)",
+            borderRight: "1px solid rgba(201,162,74,0.10)",
+          }}
+        >
+          {/* Radial ambient glow */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-15 transition-opacity duration-500 group-hover:opacity-35"
+            style={{ background: "radial-gradient(circle at 50% 42%, rgba(201,162,74,0.55), transparent 68%)" }}
+            aria-hidden="true"
+          />
 
-        {/* Border brightens overlay on hover */}
-        <div
-          className="pointer-events-none absolute inset-0 rounded-[22px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-          style={{ boxShadow: "inset 0 0 0 1px rgba(201,162,74,0.38)" }}
-          aria-hidden="true"
-        />
-
-        {/* Number + icon row */}
-        <div className="mb-5 flex items-start justify-between">
-          <span className="select-none font-mono text-[0.52rem] font-bold tracking-[0.32em] text-syanor-gold/32">
+          {/* Large faded number behind icon */}
+          <span
+            className="absolute select-none font-serif text-[3rem] font-bold leading-none text-syanor-gold/[0.07] transition-colors duration-300 group-hover:text-syanor-gold/[0.14]"
+            aria-hidden="true"
+          >
             {num}
           </span>
+
+          {/* Icon */}
           <span
-            className="flex h-11 w-11 items-center justify-center rounded-xl text-syanor-gold transition-all duration-300 group-hover:shadow-[0_4px_20px_rgba(201,162,74,0.22)]"
+            className="relative z-10 flex h-12 w-12 items-center justify-center rounded-xl text-syanor-gold transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_4px_18px_rgba(201,162,74,0.28)]"
             style={{
               background: "rgba(201,162,74,0.10)",
-              border: "1px solid rgba(201,162,74,0.20)",
+              border: "1px solid rgba(201,162,74,0.26)",
             }}
             aria-hidden="true"
           >
@@ -380,40 +408,47 @@ function PremiumVIPCard({
           </span>
         </div>
 
-        {/* Title */}
-        <h4 className="font-playfair text-lg font-semibold leading-snug text-syanor-ivory">
-          {svc.title}
-        </h4>
+        {/* Right: content */}
+        <div className="relative flex flex-1 flex-col justify-between px-5 py-5">
+          {/* Hover border highlight overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 rounded-r-[22px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{ boxShadow: "inset 0 0 0 1px rgba(201,162,74,0.32)" }}
+            aria-hidden="true"
+          />
 
-        {/* Gold divider — expands on hover */}
-        <div
-          className="my-3.5 h-px rounded-full transition-all duration-300 group-hover:w-14"
-          style={{
-            width: "2rem",
-            background: "linear-gradient(to right, rgba(201,162,74,0.55), transparent)",
-          }}
-          aria-hidden="true"
-        />
+          <div>
+            {/* Badge chip */}
+            {svc.badge && (
+              <span
+                className="mb-3 inline-block rounded-full px-2 py-0.5 text-[0.52rem] font-bold uppercase tracking-widest text-syanor-gold/50"
+                style={{ border: "1px solid rgba(201,162,74,0.20)" }}
+              >
+                {svc.badge}
+              </span>
+            )}
 
-        {/* Desc */}
-        <p className="flex-1 text-[0.75rem] leading-relaxed text-syanor-champagne/48">
-          {svc.desc}
-        </p>
+            <h4 className="font-playfair text-[1.1rem] font-semibold leading-snug text-syanor-ivory">
+              {svc.title}
+            </h4>
 
-        {/* CTA + badge row */}
-        <div className="mt-5 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[0.68rem] font-semibold tracking-wide text-syanor-gold/60 transition-all duration-200 group-hover:gap-3 group-hover:text-syanor-gold">
+            {/* Expanding gold rule */}
+            <div
+              className="my-2.5 h-px rounded-full transition-all duration-400 group-hover:w-12"
+              style={{ width: "1.75rem", background: "linear-gradient(to right, rgba(201,162,74,0.60), transparent)" }}
+              aria-hidden="true"
+            />
+
+            <p className="text-[0.74rem] leading-relaxed text-white/32">
+              {svc.desc}
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-4 flex items-center gap-2 text-[0.68rem] font-semibold tracking-wide text-syanor-gold/55 transition-all duration-200 group-hover:gap-3 group-hover:text-syanor-gold">
             Découvrir
             <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
           </div>
-          {svc.badge && (
-            <span
-              className="rounded-full px-2 py-0.5 text-[0.52rem] font-bold uppercase tracking-widest text-syanor-gold/50"
-              style={{ border: "1px solid rgba(201,162,74,0.18)" }}
-            >
-              {svc.badge}
-            </span>
-          )}
         </div>
       </Link>
     </Reveal>
@@ -421,49 +456,55 @@ function PremiumVIPCard({
 }
 
 /* ───────────────────────────────────────────────────────────────
-   3. ASSISTANCE CARD  (horizontal: image left, content right)
+   3. ASSISTANCE CARD
+   — horizontal: photo left, content right with background number
 ─────────────────────────────────────────────────────────────── */
-function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
+function AssistanceCard({ svc, delay, index }: { svc: ServiceItem; delay: number; index: number }) {
+  const num = String(index + 1).padStart(2, "0");
+
   return (
     <Reveal delay={delay}>
       <Link
         href={svc.href}
-        className="group flex overflow-hidden rounded-[22px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(6,63,51,0.12)]"
+        className="group flex overflow-hidden rounded-[22px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(6,63,51,0.13)]"
         style={{
-          background: "linear-gradient(135deg, #FFF9ED 0%, #f8f2e1 100%)",
-          border: "1px solid rgba(201,162,74,0.16)",
-          minHeight: "172px",
+          background: "linear-gradient(135deg, #FDFAF4 0%, #FFF9ED 100%)",
+          border: "1px solid rgba(201,162,74,0.18)",
+          minHeight: "200px",
         }}
       >
-        {/* Left: photo or icon block */}
+        {/* Left: photo */}
         {svc.image ? (
-          <div className="relative w-[38%] shrink-0 overflow-hidden">
+          <div className="relative w-[42%] shrink-0 overflow-hidden">
             <img
               src={svc.image}
               alt={svc.alt ?? svc.title}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+              className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.07]"
             />
-            {/* Right-edge fade to card bg */}
+            {/* Subtle right-edge fade */}
             <div
-              className="pointer-events-none absolute inset-y-0 right-0 w-10"
+              className="pointer-events-none absolute inset-y-0 right-0 w-12"
               style={{ background: "linear-gradient(to right, transparent, #FFF9ED)" }}
               aria-hidden="true"
             />
+            {/* Number chip over image */}
+            <div
+              className="absolute left-3 top-3 rounded-full px-2 py-0.5 font-mono text-[0.55rem] font-bold tracking-[0.22em] text-white/80 backdrop-blur-sm"
+              style={{ background: "rgba(2,43,36,0.48)", border: "1px solid rgba(201,162,74,0.25)" }}
+              aria-hidden="true"
+            >
+              {num}
+            </div>
           </div>
         ) : (
           <div
-            className="flex w-[38%] shrink-0 items-center justify-center"
-            style={{
-              background: "linear-gradient(148deg, #022B24, #063F33)",
-            }}
+            className="flex w-[42%] shrink-0 items-center justify-center"
+            style={{ background: "linear-gradient(148deg, #022B24, #063F33)" }}
           >
             <span
               className="flex h-14 w-14 items-center justify-center rounded-2xl text-syanor-gold"
-              style={{
-                background: "rgba(201,162,74,0.12)",
-                border: "1px solid rgba(201,162,74,0.22)",
-              }}
+              style={{ background: "rgba(201,162,74,0.12)", border: "1px solid rgba(201,162,74,0.22)" }}
               aria-hidden="true"
             >
               <Icon name={svc.icon} className="h-7 w-7" />
@@ -473,50 +514,46 @@ function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
 
         {/* Right: content */}
         <div className="relative flex flex-1 flex-col justify-between p-5">
-          {/* Gold left accent */}
+          {/* Large ghost number in background */}
+          <span
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none font-serif text-[5.5rem] font-bold leading-none text-syanor-ink/[0.04]"
+            aria-hidden="true"
+          >
+            {num}
+          </span>
+
+          {/* Left gold accent bar */}
           <div
             className="absolute inset-y-4 left-0 w-[2px] rounded-r-full transition-all duration-300 group-hover:inset-y-2"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(201,162,74,0.58), rgba(201,162,74,0.06))",
-            }}
+            style={{ background: "linear-gradient(to bottom, rgba(201,162,74,0.60), rgba(201,162,74,0.06))" }}
             aria-hidden="true"
           />
 
-          <div className="pl-2">
+          <div className="relative pl-3">
             {/* Badge */}
             {svc.badge && (
               <span
-                className="mb-2.5 inline-block rounded-full px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-wider text-syanor-emerald/70"
-                style={{
-                  background: "rgba(6,63,51,0.07)",
-                  border: "1px solid rgba(6,63,51,0.10)",
-                }}
+                className="mb-2.5 inline-block rounded-full px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-wider text-syanor-emerald/75"
+                style={{ background: "rgba(6,63,51,0.07)", border: "1px solid rgba(6,63,51,0.12)" }}
               >
                 {svc.badge}
               </span>
             )}
 
-            <p className="font-playfair text-base font-semibold leading-snug text-syanor-ink transition-colors duration-200 group-hover:text-syanor-emerald">
+            <p className="font-playfair text-[1.05rem] font-semibold leading-snug text-syanor-ink transition-colors duration-200 group-hover:text-syanor-emerald">
               {svc.title}
             </p>
 
-            {/* Gold micro divider */}
             <div
               className="my-2 h-px rounded-full transition-all duration-300 group-hover:w-10"
-              style={{
-                width: "1.5rem",
-                background:
-                  "linear-gradient(to right, rgba(201,162,74,0.42), transparent)",
-              }}
+              style={{ width: "1.5rem", background: "linear-gradient(to right, rgba(201,162,74,0.48), transparent)" }}
               aria-hidden="true"
             />
 
             <p className="text-[0.72rem] leading-relaxed text-syanor-ink/52">{svc.desc}</p>
           </div>
 
-          {/* CTA */}
-          <div className="mt-4 flex items-center gap-1.5 pl-2 text-[0.68rem] font-semibold text-syanor-gold transition-all duration-200 group-hover:gap-2.5 group-hover:text-syanor-emerald">
+          <div className="relative mt-4 flex items-center gap-1.5 pl-3 text-[0.68rem] font-semibold text-syanor-gold transition-all duration-200 group-hover:gap-2.5 group-hover:text-syanor-emerald">
             En savoir plus
             <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
           </div>
@@ -527,11 +564,11 @@ function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
 }
 
 /* ───────────────────────────────────────────────────────────────
-   GROUP HEADER  (editorial numbered section indicator)
+   GROUP HEADER
 ─────────────────────────────────────────────────────────────── */
 function GroupHeader({ group, index }: { group: ServiceGroup; index: number }) {
   return (
-    <div className="mb-6 flex items-center gap-3">
+    <div className="mb-7 flex items-center gap-3">
       <span className="select-none font-mono text-[0.52rem] font-bold tracking-[0.28em] text-syanor-gold/38">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -565,56 +602,90 @@ export default function ServicesGrid() {
             <div key={group.category}>
               <GroupHeader group={group} index={gi} />
 
-              {/* ── BILLETS (landscape 3-col) ── */}
+              {/* ── BILLETS: panoramic featured + 2 landscape ── */}
               {group.photoLayout === "landscape" && (
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {group.services.map((svc, si) => (
-                    <CinemaPhotoCard
-                      key={svc.title}
-                      svc={svc}
-                      delay={gi * 60 + si * 55}
-                      aspectRatio="4/3"
-                    />
-                  ))}
+                <div className="space-y-4">
+                  {/* Featured panoramic card */}
+                  <CinemaPhotoCard
+                    svc={group.services[0]}
+                    delay={gi * 60}
+                    featured
+                    titleSize="3xl"
+                  />
+                  {/* Two smaller landscape cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {group.services.slice(1).map((svc, si) => (
+                      <CinemaPhotoCard
+                        key={svc.title}
+                        svc={svc}
+                        delay={gi * 60 + (si + 1) * 80}
+                        aspectRatio="4/3"
+                        titleSize="xl"
+                      />
+                    ))}
+                  </div>
                 </div>
               )}
 
-              {/* ── PORTRAIT (Religieux + Séjours — 4-col) ── */}
+              {/* ── PORTRAIT: panoramic featured + 3 portrait cards ── */}
               {group.photoLayout === "portrait" && (
-                <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-                  {group.services.map((svc, si) => (
-                    <CinemaPhotoCard
-                      key={svc.title}
-                      svc={svc}
-                      delay={gi * 60 + si * 55}
-                      aspectRatio="2/3"
-                    />
-                  ))}
+                <div className="space-y-4">
+                  {/* Featured panoramic card */}
+                  <CinemaPhotoCard
+                    svc={group.services[0]}
+                    delay={gi * 60}
+                    featured
+                    titleSize="2xl"
+                  />
+                  {/* Three portrait cards — handle mobile orphan for 3-card rows */}
+                  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+                    {group.services.slice(1).map((svc, si, arr) => {
+                      const isOrphan = si === arr.length - 1 && arr.length % 2 === 1;
+                      return (
+                        <div
+                          key={svc.title}
+                          className={
+                            isOrphan
+                              ? "col-span-2 aspect-[16/9] sm:col-span-1 sm:aspect-[3/4]"
+                              : "aspect-[3/4]"
+                          }
+                        >
+                          <CinemaPhotoCard
+                            svc={svc}
+                            delay={gi * 60 + (si + 1) * 70}
+                            fill
+                            titleSize="lg"
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
 
-              {/* ── PREMIUM VIP (dark glass 2×2 → 4-col on xl) ── */}
+              {/* ── PREMIUM VIP: horizontal strip cards, 2-col grid ── */}
               {group.photoLayout === "premium" && (
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="grid gap-4 sm:grid-cols-2">
                   {group.services.map((svc, si) => (
                     <PremiumVIPCard
                       key={svc.title}
                       svc={svc}
-                      delay={gi * 60 + si * 55}
+                      delay={gi * 60 + si * 60}
                       index={si}
                     />
                   ))}
                 </div>
               )}
 
-              {/* ── ASSISTANCE (horizontal cards) ── */}
+              {/* ── ASSISTANCE: horizontal photo cards, 3-col ── */}
               {group.photoLayout === "assistance" && (
                 <div className="grid gap-4 sm:grid-cols-3">
                   {group.services.map((svc, si) => (
                     <AssistanceCard
                       key={svc.title}
                       svc={svc}
-                      delay={gi * 60 + si * 55}
+                      delay={gi * 60 + si * 60}
+                      index={si}
                     />
                   ))}
                 </div>
