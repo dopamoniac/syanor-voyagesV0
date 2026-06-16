@@ -1,0 +1,71 @@
+Stop the current card redesign. The result is not good.
+
+Problem:
+- Mobile cards are too dark and heavy.
+- Images are barely visible.
+- Cards feel too big, uncomfortable, and not pleasant to scan.
+- The layout looks forced and not premium.
+- Text is taking over the image.
+- The cards do not feel clean or luxury.
+
+I want a cleaner, brighter, more balanced card system for BOTH desktop and mobile.
+
+Main direction:
+Use premium image-first cards, but make the image clearly visible and beautifully cropped.
+
+Mobile requirements:
+- Each card should be vertical, clean, and easy to read.
+- Image must be fully visible at the top of the card.
+- Image height: around 170px to 210px.
+- Use object-fit: cover.
+- Use object-position: center.
+- Do NOT cover the whole image with dark overlay.
+- Only add a soft bottom gradient if text is on the image.
+- Better option: put text BELOW the image on a clean ivory or emerald content panel.
+- Cards should not be too tall.
+- Cards should have balanced padding: 18px to 22px.
+- Border radius: 24px.
+- Gap between cards: 22px.
+- CTA must be clear and aligned at the bottom.
+- No cramped text.
+- No huge empty dark blocks.
+
+Desktop requirements:
+- Use a clean responsive grid.
+- Image should be visible and attractive.
+- Cards should feel editorial and premium.
+- Do not make all cards huge dark rectangles.
+- Keep spacing airy and elegant.
+
+Recommended card structure:
+Card:
+1. Top image area
+   - height 190px mobile
+   - height 240px desktop
+   - rounded top corners
+   - badge top-left
+2. Bottom content area
+   - ivory or deep emerald depending on category
+   - title
+   - short description
+   - small meta row
+   - CTA button or arrow
+
+Category themes:
+- Billets: ivory card body, emerald text, gold accents
+- Voyages Religieux: warm ivory/gold card body, cinematic images
+- Séjours & Voyages: pearl/cream body, elegant lifestyle feel
+- Premium & VIP: deep emerald body with gold text, but not too dark
+- Assistance: clean ivory trust cards with small image/icon
+
+Very important:
+- Restore image visibility.
+- Do not hide images behind black overlays.
+- Do not make mobile cards 90% text.
+- Do not use huge dark panels.
+- Do not only change badges.
+- Actually redesign the layout into clean image + content cards.
+- Preserve all existing routes, links, CTAs, and booking logic.
+
+Expected result:
+The cards should feel luxury, calm, premium, easy on the eye, and clearly different from the current heavy version.
