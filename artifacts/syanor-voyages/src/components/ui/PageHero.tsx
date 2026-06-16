@@ -400,25 +400,30 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className="relative flex overflow-hidden bg-syanor-royal"
+      className="relative flex overflow-hidden"
       style={{ minHeight: "88vh" }}
     >
-      {/* ── Layered ambient glow ── */}
-      <div
-        className="pointer-events-none absolute -left-40 top-0 h-[600px] w-[600px] rounded-full opacity-25"
-        style={{ background: "radial-gradient(circle, rgba(201,162,74,0.35), transparent 65%)" }}
+      {/* ── Background image ── */}
+      <img
+        src="/brand/hero-bg.png"
+        alt=""
         aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+        loading="eager"
+        decoding="async"
       />
+
+      {/* ── Dark emerald overlay — preserves readability while letting gold lines show through ── */}
       <div
-        className="pointer-events-none absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full opacity-15"
-        style={{ background: warm ? "radial-gradient(circle, rgba(201,162,74,0.40), transparent 65%)" : "radial-gradient(circle, rgba(6,100,80,0.60), transparent 65%)" }}
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "linear-gradient(155deg, rgba(2,43,36,0.62) 0%, rgba(2,43,36,0.74) 45%, rgba(2,43,36,0.82) 100%)" }}
         aria-hidden="true"
       />
 
-      {/* ── Subtle grain overlay ── */}
+      {/* ── Subtle gold glow accent (top-left, echoes the image pattern) ── */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "180px" }}
+        className="pointer-events-none absolute -left-20 -top-10 h-[400px] w-[400px] rounded-full opacity-20"
+        style={{ background: "radial-gradient(circle, rgba(201,162,74,0.50), transparent 65%)" }}
         aria-hidden="true"
       />
 
