@@ -24,6 +24,7 @@ export default function Omra2026Page() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/religieux/omra.png"
         eyebrow="Programme Omra 2026"
         title="Omra 2026 — Départs depuis Nice & Marseille"
         subtitle="Trois mois de départs confirmés : octobre, novembre et décembre 2026. Accompagnement spirituel complet, hôtels sélectionnés, transferts et Ziyarat inclus."

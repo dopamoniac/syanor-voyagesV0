@@ -41,6 +41,7 @@ export default function VoyagesOrganisesPage() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/sur-mesure/voyages-organises.png"
         eyebrow="Voyages organisés"
         title="Des voyages organisés, pensés dans le moindre détail."
         subtitle="Famille, groupe, culture ou premium : un programme structuré, un transport coordonné et un accompagnement dédié, pour voyager l'esprit léger."

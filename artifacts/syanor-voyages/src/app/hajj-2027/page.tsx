@@ -39,6 +39,7 @@ export default function Hajj2027Page() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/religieux/hajj.png"
         eyebrow="Hajj 2027"
         title="Hajj 2027 — Accomplissez le cinquième pilier"
         subtitle="SYANOR VOYAGES prépare un programme Hajj 2027 complet : organisation, préparation des rites, hébergement et accompagnement à chaque étape. Les pré-inscriptions sont ouvertes."

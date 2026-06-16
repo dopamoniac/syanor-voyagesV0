@@ -32,6 +32,7 @@ export default function BlogPage() {
   return (
     <SiteLayout>
       <PageHero
+        visual="editorial"
         eyebrow="Le magazine SYANOR"
         title="Blog — Conseils & guides voyage"
         subtitle="Guides pratiques, conseils de préparation spirituelle, informations visa et astuces de voyage rédigés par l'équipe SYANOR VOYAGES."

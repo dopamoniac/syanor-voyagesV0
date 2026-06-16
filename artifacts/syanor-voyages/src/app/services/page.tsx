@@ -81,6 +81,7 @@ export default function ServicesPage() {
   return (
     <SiteLayout>
       <PageHero
+        visual="services"
         eyebrow="Nos services"
         title="Un univers de voyage complet, pensé pour votre sérénité."
         subtitle="De la réservation d'un simple billet à l'organisation complète d'un séjour premium, SYANOR VOYAGES couvre l'ensemble de vos besoins de voyage."

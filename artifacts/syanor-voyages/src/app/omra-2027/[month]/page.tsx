@@ -52,6 +52,7 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/religieux/omra-plus.png"
         eyebrow={`Omra ${month.year}`}
         title={`Omra ${month.labelFull} — Départs Nice & Marseille`}
         subtitle={month.description}

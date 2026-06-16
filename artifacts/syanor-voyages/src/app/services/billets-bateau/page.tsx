@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 const quoteHref = quoteUrl({ service: "Billet bateau", transport: "Bateau" });
 
 const config: DeepServiceConfig = {
+  heroImage: "/services/billets-bateau.jpg",
   eyebrow: "Billets bateau / ferry",
   title: "Traversées ferry : organisées, claires et accompagnées.",
   subtitle:

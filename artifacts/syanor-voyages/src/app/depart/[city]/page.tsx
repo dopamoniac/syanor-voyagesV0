@@ -56,6 +56,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
   return (
     <SiteLayout>
       <PageHero
+        visual="routes"
         eyebrow={`Départ ${city.name}`}
         title={city.seoTitle.replace(" | SYANOR VOYAGES", "")}
         subtitle={city.heroDescription}

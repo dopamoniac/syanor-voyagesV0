@@ -186,6 +186,7 @@ export default function FaqPage() {
   return (
     <SiteLayout>
       <PageHero
+        visual="editorial"
         eyebrow="Questions fréquentes"
         title="FAQ — Toutes vos questions"
         subtitle="Retrouvez les réponses aux questions les plus fréquentes sur la Omra, le Hajj, les billets, les visas et la réservation."

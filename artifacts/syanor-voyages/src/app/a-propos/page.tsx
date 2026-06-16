@@ -39,6 +39,7 @@ export default function AProposPage() {
   return (
     <SiteLayout>
       <PageHero
+        visual="identity"
         eyebrow="À propos"
         title="SYANOR VOYAGES — La Renaissance du Voyage."
         subtitle="Une agence de voyages premium dédiée à transformer chaque projet en une expérience claire, sereine et soignée."

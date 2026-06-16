@@ -36,6 +36,7 @@ export default function SejoursSurMesurePage() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/sur-mesure/sejour-sur-mesure.png"
         eyebrow="Séjours sur mesure"
         title="Un voyage conçu entièrement autour de vous."
         subtitle="Destination, dates, transport, confort, budget et options VIP : composez un séjour qui vous ressemble, avec une assistance dédiée."

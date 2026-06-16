@@ -41,6 +41,7 @@ export default function FormationPage() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/formation-omra.png"
         eyebrow="Accompagnement & formation"
         title="Préparez votre voyage spirituel avec clarté et sérénité."
         subtitle="Une préparation complète, avant le départ, pendant les rites et tout au long du séjour, pour vivre votre voyage en confiance."

@@ -35,6 +35,7 @@ export default function VisasPage() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/assistance-visa.png"
         eyebrow="Visa & démarches"
         title="Assistance visa Omra et Arabie Saoudite"
         subtitle="SYANOR prend en charge l'intégralité de votre dossier visa Omra. Documents, délais, suivi : nous gérons tout pour que vous vous concentriez sur votre voyage spirituel."

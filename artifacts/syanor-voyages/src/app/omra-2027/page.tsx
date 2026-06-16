@@ -24,6 +24,7 @@ export default function Omra2027Page() {
   return (
     <SiteLayout>
       <PageHero
+        image="/services/religieux/omra-plus.png"
         eyebrow="Programme Omra 2027"
         title="Omra 2027 — Départs depuis Nice & Marseille"
         subtitle="Quatre mois de départs au programme : janvier, février, mars et avril 2027, dont un séjour exceptionnel de 34 jours. Accompagnement spirituel complet, hôtels et Ziyarat."
