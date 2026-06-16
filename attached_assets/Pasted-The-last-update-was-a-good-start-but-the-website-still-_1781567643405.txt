@@ -1,0 +1,474 @@
+The last update was a good start, but the website still needs a much stronger strategic and visual upgrade.
+
+I do not want only technical changes.
+I want the website to truly understand the SYANOR VOYAGES business, structure the activities clearly, and feel like a premium world-class travel platform.
+
+IMPORTANT BRAND STRUCTURE:
+Do NOT use SIYAJJ.
+SYANOR VOYAGES is the main and only brand.
+Omra & Hajj is a specialized universe inside SYANOR VOYAGES.
+Omra Factory is only a partner mention.
+
+Correct wording:
+“SYANOR VOYAGES Omra & Hajj”
+“L’univers Omra & Hajj de SYANOR VOYAGES”
+“En partenariat avec Omra Factory”
+
+Do NOT make Omra Factory the main brand.
+Do NOT make SIYAJJ appear anywhere.
+
+MAIN GOAL:
+Make the website much better, cleaner, more premium, more understandable, more functional, and more visually impressive.
+
+The site must clearly show two universes:
+
+1. SYANOR VOYAGES
+   General premium travel agency:
+
+* Billets avion
+* Billets bateau / ferry
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Voyages de noces
+* Hôtels
+* Transferts
+* Visas
+* Assistance voyage
+* Groupes
+
+2. SYANOR VOYAGES Omra & Hajj
+   Spiritual travel universe:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Omra Plus
+* Ramadan
+* Ziyarat
+* Formation avant départ
+* Préparation des rites
+* Accompagnement spirituel
+* Départs par ville
+* Départs par mois
+* En partenariat avec Omra Factory
+
+The user must understand this immediately without confusion.
+
+NAVBAR FIX:
+The “Omra & Hajj” item in the navbar must be clickable.
+
+Current issue:
+The Omra & Hajj nav item only behaves like a dropdown trigger, but I also want it to work as a real main entry page.
+
+Required behavior:
+
+* Clicking “Omra & Hajj” should go to /omra-hajj
+* The dropdown/mega-menu should still open on hover or chevron interaction
+* If needed, separate the label and chevron:
+
+  * Label “Omra & Hajj” links to /omra-hajj
+  * Chevron opens the mega menu
+* On mobile, “Omra & Hajj” should clearly link to the Omra & Hajj hub page
+* The menu should not trap the user inside dropdowns only
+
+CREATE / IMPROVE THE OMRA & HAJJ HUB PAGE:
+Build a strong homepage for the spiritual universe at:
+
+/omra-hajj
+
+This page must be the real home for SYANOR VOYAGES Omra & Hajj.
+
+It must not be a small basic page.
+It must feel like a premium dedicated sub-universe inside the SYANOR site.
+
+Page structure:
+
+1. Premium hero section
+   Title idea:
+   “Omra & Hajj avec SYANOR VOYAGES”
+
+Subtitle:
+“Un univers dédié aux voyages spirituels: Omra, Hajj, Ramadan, Ziyarat, formation avant départ et accompagnement humain, en partenariat avec Omra Factory.”
+
+Hero CTA:
+
+* Voir les départs Omra
+* Demander un devis
+
+Hero visual:
+Use a beautiful themed image related to Omra/Hajj:
+
+* Makkah or Madinah inspired atmosphere
+* Islamic geometry
+* lanterns
+* pilgrims
+* sacred journey mood
+* emerald/gold/ivory tone
+* professional cinematic visual
+* no random low-quality image
+
+2. Omra 2026 / Omra 2027 cards
+   Show two premium cards:
+
+* Omra 2026
+* Omra 2027
+
+Each card must link to its page and show:
+
+* months available
+* departure cities
+* route: Nice / Marseille → Médine, retour Jeddah → Nice / Marseille
+* CTA
+
+3. Next Omra departures
+   Show upcoming Omra departure cards with:
+
+* image
+* date
+* return date
+* duration
+* route
+* availability
+* price label “Sur demande”
+* CTA “Choisir ce départ”
+* CTA “Voir détails”
+
+4. Omra Plus / Ramadan / Hajj 2027
+   Create strong cards for:
+
+* Omra Plus
+* Ramadan
+* Hajj 2027
+
+Each should have:
+
+* themed image
+* short explanation
+* CTA
+* clear status: Sur demande / Préinscription / À confirmer
+
+5. Formation & accompagnement
+   Section:
+   “Préparation, formation et accompagnement”
+
+Explain:
+
+* Formation avant départ
+* Préparation des rites
+* Supports pratiques
+* Accompagnement sur place
+* Ziyarat
+* Suivi avant, pendant et après
+
+Use premium educational/spiritual visuals.
+
+6. Départs par ville
+   Show city cards:
+
+* Nice
+* Marseille
+* Lyon
+* Paris
+* Toulouse
+* Bruxelles
+
+Each card links to the city departure page.
+
+7. Omra step-by-step timeline
+   Add a premium “Votre Omra étape par étape” timeline:
+
+* Départ vers Médine
+* Arrivée à Médine
+* Visites de Médine
+* Préparation à la Omra
+* Départ vers La Mecque
+* Accomplissement de la Omra
+* Visites de La Mecque
+* Séjour à La Mecque
+* Retour
+
+8. Partner note
+   Add a refined small section:
+   “En partenariat avec Omra Factory”
+
+Important:
+This must be a partner note, not the main brand.
+SYANOR VOYAGES remains the brand.
+
+9. FAQ
+   Add Omra/Hajj FAQ:
+
+* Proposez-vous des départs Omra avec dates ?
+* Peut-on partir depuis Nice ou Marseille ?
+* La formation est-elle incluse ?
+* Peut-on choisir son niveau de confort ?
+* Proposez-vous Hajj 2027 ?
+* Comment demander un devis ?
+
+10. CTA final
+    Strong bottom CTA:
+    “Préparons votre voyage spirituel ensemble.”
+    Buttons:
+
+* Voir les départs
+* Demander un devis
+
+HERO IMAGES FOR EVERY MAIN PAGE:
+The website must have professional themed visuals for every major hero section.
+
+Do not use the same generic visual everywhere.
+Each page must have a hero image or premium visual block related to its activity.
+
+Required hero visual themes:
+
+Homepage:
+Global luxury travel: globe, plane, ferry, passport, ticket, hotel, Kaaba reference, premium travel universe.
+
+Billets avion:
+Airport, premium plane, boarding, passport, ticket, travel route.
+
+Billets bateau:
+Ferry, sea route, port, ticket, boarding with vehicle if relevant.
+
+Séjours & Voyages:
+Luxury travel lifestyle, hotel, luggage, destination, guided travel.
+
+Séjours sur mesure:
+Premium hotel, terrace, tailored stay, concierge travel.
+
+Voyages organisés:
+Group travel, guide, itinerary, cultural discovery.
+
+Packs Premium / VIP:
+Private transfer, luxury concierge, hotel arrival, high-end service.
+
+Visas:
+Passport, documents, travel preparation, administrative assistance.
+
+Formation:
+Guide/booklet, calm preparation, Islamic geometry, learning atmosphere.
+
+Omra & Hajj:
+Makkah/Madinah inspired, lanterns, pilgrims, sacred journey.
+
+Hajj 2027:
+Preparation, sacred travel, group support, spiritual seriousness.
+
+Blog:
+Editorial travel/preparation visual.
+
+Contact / Devis:
+Luxury concierge support, travel planner, route, form, warm reassurance.
+
+IMAGE RULES:
+Images must be:
+
+* theme-related
+* premium
+* cinematic
+* light-luxury compatible
+* not random
+* not cheap stock feeling
+* optimized
+* responsive
+* properly cropped
+* consistent with ivory/emerald/gold identity
+
+If no real image is available, create a premium CSS/SVG visual block instead of leaving the page empty or generic.
+
+ACTIVITY UNDERSTANDING:
+The website must not just display pages.
+It must understand the activities.
+
+For every activity page, add:
+
+* what the service is
+* who it is for
+* what SYANOR handles
+* available choices/options
+* process
+* included services
+* CTA to quote
+* related offers
+* FAQ
+
+Examples:
+
+Billets avion page:
+Show:
+
+* aller simple
+* aller-retour
+* multi-destination
+* flexible dates
+* passengers
+* cabin preference
+* assistance premium
+
+Billets bateau page:
+Show:
+
+* ferry/traversée
+* aller simple/aller-retour
+* vehicle option
+* cabin option
+* port/destination
+* documents
+
+Séjours sur mesure:
+Show:
+
+* destination
+* dates
+* hotel level
+* transfers
+* budget
+* VIP option
+* family/couple/group
+
+Omra:
+Show:
+
+* month
+* city
+* date
+* route
+* room type
+* comfort level
+* formation
+* ziyarat
+* visa assistance
+
+The website must feel like a choice platform, not a brochure.
+
+GLOBAL DESIGN QUALITY:
+Everything must feel clean, premium, professional and high-level.
+
+Apply:
+
+* Apple-level glass cards
+* ivory / pearl / champagne backgrounds
+* emerald and gold accents
+* refined typography
+* professional cards
+* smooth luxury transitions
+* premium buttons
+* clean filters
+* no cheap icons
+* no default form style
+* no basic boxes
+* no unfinished UI
+
+Cards:
+Every card on the website should feel premium:
+
+* image or themed visual
+* soft smoke overlay if image-based
+* clean CTA
+* premium spacing
+* hover transition
+* no flat basic cards
+
+Filters:
+Make filters professional:
+
+* service type
+* year
+* month
+* city
+* comfort
+* room type
+* availability
+* transport
+* budget/status
+
+Mobile:
+Mobile must feel like a premium travel app:
+
+* clean mobile header
+* beautiful mobile menu
+* large tap targets
+* clear grouped navigation
+* no horizontal overflow
+* cards readable
+* filters easy
+* quote form smooth
+* sticky CTA where useful
+
+CTA AND PREFILL:
+All CTAs must work and prefill the quote form correctly.
+
+Examples:
+
+* /contact?universe=omra-hajj&service=omra&offer=omra-octobre-2026#quote
+* /contact?universe=syanor&service=billet-avion#quote
+* /contact?universe=syanor&service=sejour-sur-mesure&comfort=vip#quote
+
+When users click:
+
+* Choisir ce départ
+* Demander un devis
+* Demander Premium
+* Demander VIP
+* Demander un billet
+* Créer mon séjour
+
+The quote form should understand their choice.
+
+PAGE NAVIGATION:
+When clicking to a new page:
+
+* always start at the top of the new page
+* do not keep old scroll position
+* anchor links like /contact#quote must still scroll to the form after page load
+
+QUALITY EXPECTATION:
+I want real good work, not just checklist completion.
+
+Do not only create routes.
+Do not only say “done”.
+Do not only update text.
+Make the site feel better.
+
+I want:
+
+* cleaner structure
+* stronger Omra & Hajj hub page
+* clickable Omra & Hajj navbar item
+* professional hero images per page theme
+* clearer activity logic
+* better cards
+* better sections
+* better mobile
+* better design taste
+* better conversion flow
+* premium high-level finish
+
+FINAL CHECK:
+Before finishing:
+
+1. “Omra & Hajj” navbar item is clickable to /omra-hajj.
+2. Mega menu still works.
+3. /omra-hajj is a strong dedicated hub page.
+4. SYANOR VOYAGES remains the main brand.
+5. Omra Factory is only mentioned as partner.
+6. No SIYAJJ anywhere.
+7. General travel services are not hidden.
+8. Every major page has a themed hero visual.
+9. Cards across the site feel premium.
+10. Mobile menu and mobile pages feel premium.
+11. CTAs prefill the smart quote form.
+12. New pages start at the top after navigation.
+13. No broken routes.
+14. Build/typecheck passes.
+15. No console errors.
+16. Website is Vercel-ready.
+
+Final result:
+The website must feel like a premium SYANOR VOYAGES platform with two clear universes:
+
+* general premium travel services
+* Omra & Hajj spiritual travel, en partenariat avec Omra Factory
+
+Make it clean, functional, premium, visually impressive, and ready for a serious public launch.

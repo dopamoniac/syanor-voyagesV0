@@ -32,6 +32,7 @@ import FaqPage from "@/app/faq/page";
 import BlogPage from "@/app/blog/page";
 import BlogArticlePage from "@/app/blog/[slug]/page";
 import Hajj2027Page from "@/app/hajj-2027/page";
+import ZiyaratPage from "@/app/ziyarat/page";
 
 function NotFound() {
   return (
@@ -98,6 +99,7 @@ function Router() {
       <Route path="/visas" component={VisasPage} />
       <Route path="/faq" component={FaqPage} />
       <Route path="/hajj-2027" component={Hajj2027Page} />
+      <Route path="/ziyarat" component={ZiyaratPage} />
 
       {/* ── Blog ── */}
       <Route path="/blog" component={BlogPage} />

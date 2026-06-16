@@ -240,11 +240,15 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
           {/* ── Omra & Hajj universe ── */}
           <div className="mb-7">
-            {/* Section label with universe branding */}
+            {/* Section label with universe branding — label IS a link */}
             <div className="mb-4 flex items-center gap-3">
-              <p className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">
-                Omra & Hajj
-              </p>
+              <Link
+                href="/omra-hajj"
+                onClick={onClose}
+                className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.22em] text-syanor-gold hover:underline"
+              >
+                Omra & Hajj ↗
+              </Link>
               <div className="h-px flex-1 bg-gradient-to-r from-syanor-gold/25 to-transparent" aria-hidden="true" />
             </div>
 

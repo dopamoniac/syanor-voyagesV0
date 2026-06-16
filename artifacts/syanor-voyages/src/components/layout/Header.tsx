@@ -294,54 +294,85 @@ function DefaultMegaPanel({ item, onClose }: { item: NavItem; onClose: () => voi
 
 interface MegaMenuWrapperProps {
   item: NavItem;
+  href?: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
+function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
   const panelWidth =
     item.label === "Omra & Hajj"       ? "w-[680px]" :
     item.label === "Séjours & Voyages" ? "w-[520px]" :
     item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
 
-  function handleKeyDown(e: React.KeyboardEvent) {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      isOpen ? onClose() : onOpen();
-    } else if (e.key === "Escape") {
-      onClose();
-    } else if (e.key === "ArrowDown" && !isOpen) {
-      e.preventDefault();
-      onOpen();
-    }
-  }
+  const labelCls = cn(
+    "whitespace-nowrap text-[0.8rem] font-medium transition-colors duration-150",
+    isOpen ? "text-syanor-emerald" : "text-syanor-ink/75 hover:text-syanor-emerald"
+  );
+  const chevronCls = cn(
+    "flex h-5 w-5 items-center justify-center rounded-full transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
+    isOpen ? "text-syanor-emerald bg-syanor-emerald/8" : "text-syanor-ink/40 hover:text-syanor-emerald hover:bg-syanor-emerald/6"
+  );
 
   return (
-    <div className="relative">
-      <button
-        type="button"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        onClick={() => (isOpen ? onClose() : onOpen())}
-        onKeyDown={handleKeyDown}
-        className={cn(
-          "group flex items-center gap-0.5 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
-          isOpen ? "text-syanor-emerald" : "text-syanor-ink/75 hover:text-syanor-emerald"
-        )}
-      >
-        {item.label}
-        <svg
-          className={cn("h-3 w-3 opacity-50 transition-transform duration-200", isOpen && "rotate-180")}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          aria-hidden="true"
+    <div className="relative flex items-center">
+      {href ? (
+        /* Split: label = link, chevron = dropdown trigger */
+        <>
+          <Link
+            href={href}
+            onClick={onClose}
+            className={cn("rounded-full px-2.5 py-1.5", labelCls)}
+          >
+            {item.label}
+          </Link>
+          <button
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            aria-label={`Menu ${item.label}`}
+            onClick={() => (isOpen ? onClose() : onOpen())}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") onClose();
+              if ((e.key === "Enter" || e.key === " ") && !isOpen) { e.preventDefault(); onOpen(); }
+            }}
+            className={cn("mr-1", chevronCls)}
+          >
+            <svg
+              className={cn("h-3 w-3 transition-transform duration-200", isOpen && "rotate-180")}
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </>
+      ) : (
+        /* Single button: label + chevron together */
+        <button
+          type="button"
+          aria-haspopup="true"
+          aria-expanded={isOpen}
+          onClick={() => (isOpen ? onClose() : onOpen())}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); isOpen ? onClose() : onOpen(); }
+            else if (e.key === "Escape") onClose();
+            else if (e.key === "ArrowDown" && !isOpen) { e.preventDefault(); onOpen(); }
+          }}
+          className={cn(
+            "group flex items-center gap-0.5 rounded-full px-2.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
+            labelCls
+          )}
         >
-          <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
+          {item.label}
+          <svg
+            className={cn("h-3 w-3 opacity-50 transition-transform duration-200", isOpen && "rotate-180")}
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      )}
 
       {isOpen && (
         <div
@@ -438,6 +469,7 @@ export default function Header() {
                 <MegaMenuWrapper
                   key={item.label}
                   item={item}
+                  href={item.label === "Omra & Hajj" ? "/omra-hajj" : undefined}
                   isOpen={openMegaMenu === item.label}
                   onOpen={() => handleMegaOpen(item.label)}
                   onClose={handleMegaClose}
