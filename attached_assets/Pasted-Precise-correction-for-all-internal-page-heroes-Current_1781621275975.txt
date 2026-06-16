@@ -1,0 +1,123 @@
+Precise correction for all internal page heroes.
+
+Current issue:
+The hero pages still have a blue / green / dark emerald overlay effect.
+The new ivory/gold background image is not visible cleanly because there is still a colored layer above it or blended with it.
+
+I want you to remove that colored effect completely.
+
+VERY IMPORTANT:
+Do NOT touch the homepage hero.
+Leave the Accueil / homepage hero exactly as it is.
+
+Apply this only to internal page heroes across the website.
+
+Use this background image:
+`/mnt/data/fond_abstrait_élégant_en_ivoire_et_or.png`
+
+TASK:
+For every internal page hero, remove the blue/green/dark emerald background surface and replace it with the ivory/gold image as the full hero background.
+
+Pages concerned:
+
+* Offres
+* Services
+* Billets avion
+* Billets bateau
+* Séjours & Voyages
+* Séjours sur mesure
+* Voyages organisés
+* Premium / VIP
+* Omra & Hajj
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Ramadan
+* Formation
+* Ziyarat
+* Visas / Assistance
+* Contact / Devis
+* Blog
+* FAQ
+* City departure pages
+* Month departure pages
+* any other internal page hero
+
+DO NOT apply this to:
+
+* homepage / Accueil hero
+
+STRICT RULES:
+
+* Do not change the hero text content
+* Do not change the hero titles
+* Do not change the icons
+* Do not change the buttons
+* Do not change the CTA labels
+* Do not change the right-side image cards
+* Do not change the hero layout
+* Do not redesign the hero
+* Do not modify the homepage hero
+* Only replace the green/blue hero background surface with the image
+
+REMOVE COMPLETELY:
+Remove or override any remaining:
+
+* dark emerald overlay
+* blue/green gradient overlay
+* `bg-emerald`
+* `bg-syanor-green`
+* `from-emerald`
+* `to-emerald`
+* opacity green layer
+* `mix-blend`
+* `backdrop` tint that makes the image look green/blue
+* `::before` or `::after` pseudo-elements adding green/blue color
+* radial green overlays
+* dark gradient masks
+
+The ivory/gold image must be visible as the actual hero background, not hidden behind a green tint.
+
+BACKGROUND IMPLEMENTATION:
+Use the image as:
+
+* full hero background
+* `background-size: cover`
+* `background-position: center`
+* no distortion
+* full width and full height of the hero zone
+
+For mobile:
+
+* keep it optimized
+* crop cleanly
+* no weird zoom
+* no horizontal overflow
+* no heavy loading
+* use proper optimized asset handling if available
+
+For desktop:
+
+* cover the whole hero zone cleanly
+* keep the old page-specific right image/card exactly as it is
+* keep all content in place
+
+READABILITY:
+Do not redesign text.
+If contrast becomes impossible after removing the green overlay, only adjust the text color utility minimally so the same text remains readable.
+Do not change typography, spacing, wording, icons, buttons, or layout.
+
+FINAL EXPECTATION:
+All internal page heroes should now have:
+
+* no blue/green overlay
+* no dark emerald surface
+* the ivory/gold background image fully visible
+* existing hero text preserved
+* existing buttons preserved
+* existing icons preserved
+* existing right-side images preserved
+* desktop and mobile both working
+* homepage hero untouched
+
+This is a precise background replacement task, not a redesign.
