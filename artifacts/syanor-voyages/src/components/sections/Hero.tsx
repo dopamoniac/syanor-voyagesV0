@@ -17,7 +17,6 @@ export default function Hero() {
       style={{ minHeight: "max(92vh, 780px)" }}
     >
       {/* ── HERO BACKGROUND — mobile: static image, desktop: looping video ── */}
-
       {/* Mobile image (lg+ hidden — never loads the video on small screens) */}
       <picture className="absolute inset-0 h-full w-full lg:hidden" aria-hidden="true">
         <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
@@ -30,7 +29,6 @@ export default function Hero() {
           decoding="async"
         />
       </picture>
-
       {/* Desktop video — autoplay, muted, loop; falls back to poster if unsupported */}
       <video
         className="absolute inset-0 hidden h-full w-full object-cover lg:block"
@@ -45,7 +43,6 @@ export default function Hero() {
       >
         <source src="/videos/syanor-hero-loop.mp4" type="video/mp4" />
       </video>
-
       {/* ── SMOKE A (mobile only) ── */}
       <div
         className="pointer-events-none absolute z-10 lg:hidden"
@@ -71,7 +68,6 @@ export default function Hero() {
           willChange: "transform",
         }}
       />
-
       {/* ── OVERLAYS ── */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full"
@@ -99,7 +95,6 @@ export default function Hero() {
         }}
         aria-hidden="true"
       />
-
       {/* ── CONTENT LAYER ── */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-[96px]">
         <div className="grid items-center gap-0 lg:grid-cols-[52%_48%]" style={{ minHeight: "calc(92vh - 5rem)" }}>
@@ -110,9 +105,7 @@ export default function Hero() {
             {/* Brand eyebrow */}
             <div className="mb-5 inline-flex items-center gap-2.5">
               <span className="h-px w-6 bg-syanor-gold/50" aria-hidden="true" />
-              <p className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">
-                Agence de voyages premium
-              </p>
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">Agence de voyages </p>
             </div>
 
             {/* Headline */}

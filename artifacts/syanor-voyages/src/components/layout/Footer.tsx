@@ -30,10 +30,8 @@ export default function Footer() {
         style={{ background: "radial-gradient(circle, rgba(201,162,74,0.18), transparent 65%)" }}
         aria-hidden="true"
       />
-
       {/* Gold hairline at top */}
       <div className="h-px bg-gradient-to-r from-transparent via-syanor-gold/50 to-transparent" aria-hidden="true" />
-
       <div className="relative mx-auto max-w-7xl px-6 py-16 md:px-8 md:py-20">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 
@@ -127,9 +125,7 @@ export default function Footer() {
           <p className="text-xs text-syanor-pearl/45">
             © 2025–2026 SYANOR VOYAGES · Tous droits réservés
           </p>
-          <p className="text-xs text-syanor-pearl/35">
-            Agence de voyages premium · Nice, France
-          </p>
+          <p className="text-xs text-syanor-pearl/35">Agence de voyages  · Nice, France</p>
         </div>
       </div>
     </footer>
