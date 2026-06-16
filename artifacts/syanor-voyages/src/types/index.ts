@@ -93,6 +93,7 @@ export interface Service {
   icon: string;
   serviceType: ServiceCategory;
   href: string;
+  group?: string;
 }
 
 export interface FaqItem {

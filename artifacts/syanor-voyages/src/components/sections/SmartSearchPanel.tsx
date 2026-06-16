@@ -7,31 +7,29 @@ import { omraMonths } from "@/data/months";
 import { offers } from "@/data/offers";
 
 type ServiceKey =
-  | "Omra"
   | "Billet avion"
   | "Billet bateau"
+  | "Voyage organisé"
   | "Séjour sur mesure"
-  | "Voyage organisé";
+  | "Omra";
 
-const services: { key: ServiceKey; icon: string; label: string; shortLabel: string }[] = [
+const SERVICE_TABS: { key: ServiceKey; icon: string; label: string; shortLabel: string }[] = [
+  { key: "Billet avion",      icon: "airplane", label: "Billet Avion",      shortLabel: "Avion"   },
+  { key: "Billet bateau",     icon: "anchor",   label: "Billet Bateau",     shortLabel: "Bateau"  },
+  { key: "Voyage organisé",   icon: "route",    label: "Voyage Organisé",   shortLabel: "Voyages" },
+  { key: "Séjour sur mesure", icon: "sparkle",  label: "Sur Mesure",        shortLabel: "Mesure"  },
   { key: "Omra",              icon: "crescent", label: "Omra & Hajj",       shortLabel: "Omra"    },
-  { key: "Billet avion",      icon: "airplane", label: "Billet avion",      shortLabel: "Avion"   },
-  { key: "Billet bateau",     icon: "anchor",   label: "Billet bateau",     shortLabel: "Bateau"  },
-  { key: "Voyage organisé",   icon: "route",    label: "Voyage organisé",   shortLabel: "Voyages" },
-  { key: "Séjour sur mesure", icon: "sparkle",  label: "Sur mesure",        shortLabel: "Mesure"  },
 ];
 
 const COMFORT_OPTIONS = ["Standard", "Premium", "VIP"] as const;
-const BUDGET_OPTIONS = ["< 1 000 €", "1 000–1 500 €", "1 500–2 500 €", "2 500–4 000 €", "> 4 000 €"] as const;
+const BUDGET_OPTIONS  = ["< 1 000 €", "1 000–1 500 €", "1 500–2 500 €", "2 500–4 000 €", "> 4 000 €"] as const;
 
-/** Returns true if at least one offer matches the given filters */
 function hasMatchingOffers(service: string, city: string, month: string): boolean {
   return offers.some((o) => {
     const matchService =
       !service ||
       o.category === service ||
-      (service === "Omra" &&
-        (o.category === "Omra Plus" || o.category === "Ramadan" || o.category === "Hajj"));
+      (service === "Omra" && (o.category === "Omra Plus" || o.category === "Ramadan" || o.category === "Hajj"));
     const matchCity =
       !city ||
       (Array.isArray(o.cityTags) && o.cityTags.includes(city)) ||
@@ -41,30 +39,44 @@ function hasMatchingOffers(service: string, city: string, month: string): boolea
   });
 }
 
+/* ── Premium Input ─────────────────────────────────────── */
+function PremiumField({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <span className="text-[0.62rem] font-bold uppercase tracking-[0.18em] text-syanor-gold/80">
+        {label}
+      </span>
+      {children}
+    </div>
+  );
+}
+
+const fieldClass =
+  "w-full rounded-xl border border-syanor-gold/20 bg-syanor-ivory/80 px-3.5 py-2.5 text-sm text-syanor-ink placeholder:text-syanor-ink/35 transition-all duration-200 focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/12 hover:border-syanor-gold/40";
+
 export default function SmartSearchPanel() {
   const [, setLocation] = useLocation();
-  const [service, setService] = useState<ServiceKey>("Omra");
-  const [city, setCity] = useState("");
-  const [month, setMonth] = useState("");
-  const [destination, setDestination] = useState("");
+  const [service, setService]           = useState<ServiceKey>("Billet avion");
+  const [city, setCity]                 = useState("");
+  const [month, setMonth]               = useState("");
+  const [destination, setDestination]   = useState("");
   const [departureDate, setDepartureDate] = useState("");
-  const [travelers, setTravelers] = useState(1);
-  const [comfort, setComfort] = useState<(typeof COMFORT_OPTIONS)[number] | "">("");
-  const [budget, setBudget] = useState<(typeof BUDGET_OPTIONS)[number] | "">("");
-  const [expanded, setExpanded] = useState(false);
+  const [travelers, setTravelers]       = useState(1);
+  const [comfort, setComfort]           = useState<(typeof COMFORT_OPTIONS)[number] | "">("");
+  const [budget, setBudget]             = useState<(typeof BUDGET_OPTIONS)[number] | "">("");
+  const [expanded, setExpanded]         = useState(false);
 
   function handleSearch() {
     const sp = new URLSearchParams();
-    if (service) sp.set("service", service);
-    if (city) sp.set("city", city);
-    if (month) sp.set("month", month);
-    if (destination) sp.set("destination", destination);
+    if (service)      sp.set("service", service);
+    if (city)         sp.set("city", city);
+    if (month)        sp.set("month", month);
+    if (destination)  sp.set("destination", destination);
     if (departureDate) sp.set("departureDate", departureDate);
     if (travelers > 1) sp.set("travelers", String(travelers));
-    if (comfort) sp.set("comfort", comfort);
-    if (budget) sp.set("budget", budget);
+    if (comfort)      sp.set("comfort", comfort);
+    if (budget)       sp.set("budget", budget);
 
-    // Route to /offres if matching offers exist, otherwise prefill /contact#quote
     if (hasMatchingOffers(service, city, month)) {
       setLocation(`/offres?${sp.toString()}`);
     } else {
@@ -72,156 +84,190 @@ export default function SmartSearchPanel() {
     }
   }
 
-  const isOmra = service === "Omra";
+  const isOmra   = service === "Omra";
   const isBillet = service === "Billet avion" || service === "Billet bateau";
 
   return (
-    <section className="relative z-10 -mt-8 mx-auto max-w-5xl px-4 md:px-8">
-      <div className="rounded-2xl border border-syanor-gold/20 bg-white/96 shadow-card-hover">
-        {/* Service tabs — horizontal scroll on mobile, wrap on sm+ */}
-        <div className="no-scrollbar overflow-x-auto border-b border-syanor-gold/15">
-          <div className="flex min-w-max gap-1 p-3 sm:min-w-0 sm:flex-wrap sm:justify-center sm:p-4">
-            {services.map((s) => (
-              <button
-                key={s.key}
-                type="button"
-                onClick={() => setService(s.key)}
-                className={cn(
-                  "flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2.5 text-sm font-medium transition-all",
-                  service === s.key
-                    ? "bg-syanor-emerald text-syanor-ivory shadow-sm"
-                    : "text-syanor-ink/65 hover:bg-syanor-emerald/8 hover:text-syanor-emerald"
-                )}
-              >
-                <Icon name={s.icon} className="h-3.5 w-3.5" aria-hidden="true" />
-                <span className="hidden sm:inline">{s.label}</span>
-                <span className="sm:hidden">{s.shortLabel}</span>
-              </button>
-            ))}
+    <section
+      className="relative z-10 mx-auto -mt-7 max-w-5xl px-4 md:px-8"
+      aria-label="Recherche de voyages"
+    >
+      {/* Glass card */}
+      <div
+        className="overflow-hidden rounded-2xl shadow-[0_8px_48px_rgba(6,63,51,0.12),0_2px_8px_rgba(6,63,51,0.06)]"
+        style={{
+          background: "rgba(255,249,237,0.97)",
+          border: "1px solid rgba(201,162,74,0.22)",
+          backdropFilter: "blur(16px)",
+        }}
+      >
+        {/* ── Service tab bar ── */}
+        <div
+          className="border-b"
+          style={{ borderColor: "rgba(201,162,74,0.14)", background: "rgba(255,249,237,0.6)" }}
+        >
+          <div className="no-scrollbar flex overflow-x-auto px-2 pt-2 pb-0">
+            {SERVICE_TABS.map((s) => {
+              const active = service === s.key;
+              return (
+                <button
+                  key={s.key}
+                  type="button"
+                  onClick={() => setService(s.key)}
+                  className={cn(
+                    "group relative flex shrink-0 items-center gap-1.5 rounded-t-xl px-4 py-2.5 text-[0.8rem] font-medium transition-all duration-200",
+                    active
+                      ? "bg-white text-syanor-emerald shadow-[0_-1px_8px_rgba(6,63,51,0.06)] after:absolute after:bottom-[-1px] after:inset-x-0 after:h-px after:bg-white"
+                      : "text-syanor-ink/55 hover:bg-white/60 hover:text-syanor-emerald"
+                  )}
+                  aria-pressed={active}
+                >
+                  <Icon
+                    name={s.icon}
+                    className={cn("h-3.5 w-3.5 transition-colors", active ? "text-syanor-gold" : "text-syanor-ink/40 group-hover:text-syanor-gold")}
+                    aria-hidden="true"
+                  />
+                  <span className="hidden sm:inline">{s.label}</span>
+                  <span className="sm:hidden">{s.shortLabel}</span>
+                  {active && (
+                    <span className="absolute bottom-[-1px] inset-x-3 h-[2px] rounded-t-full bg-gradient-to-r from-syanor-emerald to-syanor-gold" aria-hidden="true" />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Main search row */}
+        {/* ── Main search row ── */}
         <div className="grid gap-3 p-4 sm:grid-cols-[1fr_1fr_auto]">
-          {/* City */}
-          <div>
-            <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-              Ville de départ
-            </label>
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="w-full rounded-xl border border-syanor-gold/25 bg-syanor-ivory px-3 py-2.5 text-sm text-syanor-ink focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/10"
-            >
-              <option value="">Toutes les villes</option>
-              {departureCities.map((c) => (
-                <option key={c.slug} value={c.slug}>
-                  {c.name} ({c.airportCode}){!c.confirmed ? " — sur demande" : ""}
-                </option>
-              ))}
-            </select>
-          </div>
 
-          {/* Month (Omra) or destination (others) */}
-          <div>
-            <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-              {isOmra ? "Mois de départ" : isBillet ? "Destination" : "Période / destination"}
-            </label>
-            {isOmra ? (
+          {/* City of departure */}
+          <PremiumField label="Ville de départ">
+            <div className="relative">
               <select
-                value={month}
-                onChange={(e) => setMonth(e.target.value)}
-                className="w-full rounded-xl border border-syanor-gold/25 bg-syanor-ivory px-3 py-2.5 text-sm text-syanor-ink focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/10"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                className={cn(fieldClass, "cursor-pointer appearance-none pr-8")}
               >
-                <option value="">Tous les mois</option>
-                {omraMonths.map((m) => (
-                  <option key={`${m.year}-${m.slug}`} value={m.slug}>
-                    {m.labelFull}
-                    {m.departureCount > 0
-                      ? ` — ${m.departureCount} départ${m.departureCount > 1 ? "s" : ""}`
-                      : ""}
+                <option value="">Toutes les villes</option>
+                {departureCities.map((c) => (
+                  <option key={c.slug} value={c.slug}>
+                    {c.name} ({c.airportCode}){!c.confirmed ? " — sur demande" : ""}
                   </option>
                 ))}
               </select>
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-syanor-ink/35" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </div>
+          </PremiumField>
+
+          {/* Month (Omra) / destination (others) */}
+          <PremiumField label={isOmra ? "Mois de départ" : isBillet ? "Destination" : "Destination / période"}>
+            {isOmra ? (
+              <div className="relative">
+                <select
+                  value={month}
+                  onChange={(e) => setMonth(e.target.value)}
+                  className={cn(fieldClass, "cursor-pointer appearance-none pr-8")}
+                >
+                  <option value="">Tous les mois</option>
+                  {omraMonths.map((m) => (
+                    <option key={`${m.year}-${m.slug}`} value={m.slug}>
+                      {m.labelFull}
+                      {m.departureCount > 0 ? ` — ${m.departureCount} départ${m.departureCount > 1 ? "s" : ""}` : ""}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-syanor-ink/35" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </div>
             ) : (
               <input
                 type="text"
-                placeholder={isBillet ? "Ex. Tunis, Casablanca…" : "Ex. Turquie, Andalousie…"}
+                placeholder={isBillet ? "Ex. Tunis, Casablanca, Istanbul…" : "Ex. Turquie, Andalousie, Maroc…"}
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
-                className="w-full rounded-xl border border-syanor-gold/25 bg-syanor-ivory px-3 py-2.5 text-sm text-syanor-ink placeholder:text-syanor-ink/35 focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/10"
+                className={fieldClass}
               />
             )}
-          </div>
+          </PremiumField>
 
-          {/* CTA */}
+          {/* Search CTA */}
           <div className="flex items-end">
             <button
               type="button"
               onClick={handleSearch}
-              className="btn-primary w-full justify-center sm:w-auto whitespace-nowrap"
+              className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-syanor-emerald px-5 py-2.5 text-sm font-semibold text-syanor-ivory shadow-[0_4px_16px_rgba(6,63,51,0.22)] transition-all duration-200 hover:bg-syanor-royal hover:shadow-[0_8px_24px_rgba(6,63,51,0.30)] active:scale-[0.97] sm:w-auto"
+              aria-label="Rechercher"
             >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               Voir les options
             </button>
           </div>
         </div>
 
-        {/* Expand / collapse advanced fields */}
-        <div className="px-4 pb-3">
+        {/* ── Advanced options toggle ── */}
+        <div className="border-t px-4 pb-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
-            className="text-xs font-medium text-syanor-emerald/70 hover:text-syanor-emerald flex items-center gap-1"
+            className="mt-3 flex items-center gap-1.5 text-xs font-medium text-syanor-emerald/65 transition-colors hover:text-syanor-emerald"
           >
-            {expanded ? "Moins de critères ▲" : "Plus de critères (dates, voyageurs, confort, budget) ▼"}
+            <svg
+              className={cn("h-3.5 w-3.5 transition-transform duration-200", expanded && "rotate-180")}
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {expanded ? "Masquer les filtres avancés" : "Dates, voyageurs, confort, budget"}
           </button>
 
           {expanded && (
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {/* Departure date */}
-              <div>
-                <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-                  Date de départ
-                </label>
+              {/* Date */}
+              <PremiumField label="Date de départ">
                 <input
                   type="date"
                   value={departureDate}
                   onChange={(e) => setDepartureDate(e.target.value)}
-                  className="w-full rounded-xl border border-syanor-gold/25 bg-syanor-ivory px-3 py-2.5 text-sm text-syanor-ink focus:border-syanor-emerald focus:outline-none focus:ring-2 focus:ring-syanor-emerald/10"
+                  className={fieldClass}
                 />
-              </div>
+              </PremiumField>
 
               {/* Travelers */}
-              <div>
-                <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-                  Voyageurs
-                </label>
+              <PremiumField label="Voyageurs">
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     aria-label="Retirer un voyageur"
                     onClick={() => setTravelers((t) => Math.max(1, t - 1))}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/30 text-syanor-emerald hover:bg-syanor-emerald hover:text-white transition"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/30 text-sm font-bold text-syanor-emerald transition-all hover:bg-syanor-emerald hover:border-syanor-emerald hover:text-syanor-ivory active:scale-[0.95]"
                   >
                     −
                   </button>
-                  <span className="w-8 text-center font-semibold text-syanor-ink text-sm">{travelers}</span>
+                  <span className="w-8 text-center text-sm font-semibold text-syanor-ink">{travelers}</span>
                   <button
                     type="button"
                     aria-label="Ajouter un voyageur"
                     onClick={() => setTravelers((t) => Math.min(30, t + 1))}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/30 text-syanor-emerald hover:bg-syanor-emerald hover:text-white transition"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-syanor-gold/30 text-sm font-bold text-syanor-emerald transition-all hover:bg-syanor-emerald hover:border-syanor-emerald hover:text-syanor-ivory active:scale-[0.95]"
                   >
                     +
                   </button>
                 </div>
-              </div>
+              </PremiumField>
 
               {/* Comfort */}
-              <div>
-                <label className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-                  Confort
-                </label>
+              <PremiumField label="Niveau de confort">
                 <div className="flex flex-wrap gap-1.5">
                   {COMFORT_OPTIONS.map((c) => (
                     <button
@@ -229,41 +275,38 @@ export default function SmartSearchPanel() {
                       type="button"
                       onClick={() => setComfort(comfort === c ? "" : c)}
                       className={cn(
-                        "rounded-full border px-3 py-1.5 text-xs font-medium transition",
+                        "rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 active:scale-[0.96]",
                         comfort === c
-                          ? "border-syanor-emerald bg-syanor-emerald text-syanor-ivory"
-                          : "border-syanor-gold/25 bg-white text-syanor-ink/65 hover:border-syanor-gold"
+                          ? "border-syanor-emerald bg-syanor-emerald text-syanor-ivory shadow-sm"
+                          : "border-syanor-gold/22 bg-white/60 text-syanor-ink/65 hover:border-syanor-gold/50 hover:bg-white"
                       )}
                     >
                       {c}
                     </button>
                   ))}
                 </div>
-              </div>
+              </PremiumField>
 
-              {/* Budget range */}
-              <div className="sm:col-span-2 lg:col-span-4">
-                <label className="mb-1.5 block text-[0.7rem] font-semibold uppercase tracking-wider text-syanor-gold">
-                  Budget indicatif (par personne)
-                </label>
-                <div className="flex flex-wrap gap-2">
+              {/* Budget — full width */}
+              <PremiumField label="Budget indicatif (par personne)">
+                <div className="flex flex-wrap gap-1.5">
                   {BUDGET_OPTIONS.map((b) => (
                     <button
                       key={b}
                       type="button"
                       onClick={() => setBudget(budget === b ? "" : b)}
                       className={cn(
-                        "rounded-full border px-4 py-2 text-xs font-medium transition",
+                        "rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 active:scale-[0.96]",
                         budget === b
-                          ? "border-syanor-emerald bg-syanor-emerald text-syanor-ivory"
-                          : "border-syanor-gold/25 bg-white text-syanor-ink/65 hover:border-syanor-gold"
+                          ? "border-syanor-gold bg-syanor-gold text-syanor-royal shadow-sm"
+                          : "border-syanor-gold/22 bg-white/60 text-syanor-ink/65 hover:border-syanor-gold/50 hover:bg-white"
                       )}
                     >
                       {b}
                     </button>
                   ))}
                 </div>
-              </div>
+              </PremiumField>
             </div>
           )}
         </div>

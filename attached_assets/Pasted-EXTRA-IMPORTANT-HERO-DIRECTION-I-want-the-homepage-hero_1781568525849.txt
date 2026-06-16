@@ -1,0 +1,170 @@
+EXTRA IMPORTANT HERO DIRECTION:
+
+I want the homepage hero to communicate immediately that SYANOR VOYAGES is first and foremost a premium travel agency, while also clearly showing that it has a strong Omra & Hajj universe.
+
+The hero must not feel 100% only Omra-focused.
+The homepage overall can include Omra & Hajj, but the HERO and first visual impression must speak mainly about a premium travel agency.
+
+HERO POSITIONING:
+Make the homepage hero speak approximately:
+- 90% SYANOR VOYAGES as a premium travel agency
+- 10% Omra & Hajj presence as an important specialized universe
+
+The user must understand in the first seconds:
+- this is a travel agency
+- it offers many services
+- it also has Omra & Hajj
+
+HERO MESSAGE:
+The hero should clearly present:
+- voyages
+- billets
+- séjours
+- assistance
+- premium travel
+- and a visible path toward Omra & Hajj
+
+Do not make the hero look like a purely religious-travel landing page.
+
+HERO CTA STRUCTURE:
+Replace or refine the current hero buttons so they clearly separate the two universes.
+
+Suggested primary hero buttons:
+- Voyages
+- Omra & Hajj
+
+Alternative refined wording if needed:
+- Découvrir SYANOR Voyages
+- Découvrir Omra & Hajj
+
+Or:
+- Nos Voyages
+- Univers Omra & Hajj
+
+The idea is:
+one CTA for the general travel agency universe,
+one CTA for the Omra & Hajj universe.
+
+HERO CONTENT DIRECTION:
+The hero title/subtitle/copy should mainly talk about SYANOR VOYAGES as a premium agency.
+
+Example direction:
+- agency premium
+- billets avion / bateau
+- séjours sur mesure
+- voyages organisés
+- packs premium
+- assistance voyage
+- visas / transferts
+- and mention Omra & Hajj as one strong specialized universe
+
+The wording must make the user understand that SYANOR is broader than Omra.
+
+HERO VISUAL DIRECTION:
+The hero visual should also reflect this balance.
+
+I want a premium global-travel visual language first:
+- globe
+- airplane
+- travel routes
+- ferry / travel movement
+- luggage / passport / destination mood
+- luxury travel atmosphere
+
+Then add subtle Omra & Hajj references:
+- elegant sacred-travel touch
+- discreet Kaaba / Makkah / Islamic geometry cues
+- not dominant over the main travel-agency message
+
+The hero must feel:
+- premium
+- global
+- elegant
+- agency-first
+- luxury
+- modern
+- clean
+
+Do not make the hero look like only an Omra website.
+
+HOMEPAGE FIRST IMPRESSION:
+From the hero and first sections, the client must immediately understand:
+1. This is a premium travel agency.
+2. It offers many travel services.
+3. It also has a strong Omra & Hajj universe.
+4. It can handle different kinds of travel needs.
+
+You can still keep Omra & Hajj highlighted in:
+- a dedicated homepage section
+- some featured posters/cards
+- a dedicated universe block
+- featured departures
+but not as the dominant message of the hero.
+
+RESERVATION / BOOKING BOXES:
+This is very important.
+
+All reservation / booking / quote / search boxes across the entire site must become much more premium visually.
+
+I want them to feel:
+- luxury
+- professional
+- very clean
+- Apple-level
+- Booking-level clarity
+- Google-level cleanliness
+- premium product design quality
+
+They must not feel like basic form boxes.
+
+Add or improve:
+- premium themed images or image-backed visual zones where appropriate
+- luxury glass panels
+- very clean layout
+- strong hierarchy
+- elegant spacing
+- custom inputs
+- beautiful dropdowns
+- premium focus states
+- soft shadows
+- thin gold borders
+- emerald accents
+- refined icons
+- image + UI harmony
+
+For reservation boxes, the visual quality should feel similar to:
+- Apple product polish
+- Booking clarity
+- Google cleanliness
+- high-end travel booking interface
+
+Examples of places to apply this:
+- homepage search / booking box
+- contact / devis form
+- Omra departure booking box
+- service page quote blocks
+- city departure pages
+- month pages
+- offer detail booking boxes
+- smart quote steps
+- sticky CTA booking modules
+
+IMAGE REQUIREMENT FOR BOOKING BOXES:
+When a reservation module has a visual zone, use proper premium travel imagery or thematic visual support.
+
+For example:
+- billets avion → airport / plane / boarding visuals
+- billets bateau → ferry / port / sea route visuals
+- séjours sur mesure → hotel / terrace / destination visuals
+- Omra & Hajj → sacred journey / elegant spiritual visuals
+- visas / assistance → passport / documents / travel support visuals
+
+The booking/reservation areas must feel desirable, premium, and high-trust.
+
+FINAL HERO EXPECTATION:
+When someone lands on the homepage, they should think:
+“This is a serious premium travel agency, and they also have a dedicated Omra & Hajj universe.”
+
+FINAL UI EXPECTATION:
+All reservation boxes on all pages should feel world-class, elegant, premium, and extremely clean.
+They should look like premium product UI, not normal website forms.

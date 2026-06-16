@@ -2,24 +2,23 @@ import Link from "@/components/Link";
 import HeroVisual from "@/components/ui/HeroVisual";
 
 const trustPills = [
-  "Assistance personnalisée",
-  "Offres sur mesure",
-  "Départs accompagnés",
-  "Service premium",
+  "Billets avion & bateau",
+  "Séjours sur mesure",
+  "Voyages organisés",
+  "Omra & Hajj",
+  "Assistance visa",
 ];
 
 export default function Hero() {
   return (
     <section
       id="accueil"
-      className="relative flex min-h-[92vh] flex-col justify-start overflow-hidden bg-syanor-ivory"
+      className="relative flex flex-col justify-start overflow-hidden bg-syanor-ivory"
       style={{ minHeight: "max(92vh, 780px)" }}
     >
       {/* ── HERO BACKGROUND IMAGE ── */}
       <picture className="absolute inset-0 h-full w-full" aria-hidden="true">
-        {/* Mobile — 9:16 premium shot (objects bottom-right, open space top-left) */}
         <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
-        {/* Desktop — landscape scene */}
         <img
           src="/hero-bg.jpg"
           alt=""
@@ -29,15 +28,13 @@ export default function Hero() {
           decoding="async"
         />
       </picture>
-      {/* ── SMOKE A (mobile only): slow ivory mist — upper-left drift ── */}
+
+      {/* ── SMOKE A (mobile only) ── */}
       <div
         className="pointer-events-none absolute z-10 lg:hidden"
         aria-hidden="true"
         style={{
-          top: "-10%",
-          left: "-15%",
-          width: "75%",
-          height: "65%",
+          top: "-10%", left: "-15%", width: "75%", height: "65%",
           borderRadius: "50%",
           background: "radial-gradient(ellipse at center, rgba(255,249,237,0.09) 0%, transparent 70%)",
           filter: "blur(28px)",
@@ -45,15 +42,11 @@ export default function Hero() {
           willChange: "transform",
         }}
       />
-      {/* ── SMOKE B (mobile only): slow warm mist — mid drift ── */}
       <div
         className="pointer-events-none absolute z-10 lg:hidden"
         aria-hidden="true"
         style={{
-          top: "30%",
-          left: "-20%",
-          width: "65%",
-          height: "55%",
+          top: "30%", left: "-20%", width: "65%", height: "55%",
           borderRadius: "50%",
           background: "radial-gradient(ellipse at center, rgba(255,246,225,0.07) 0%, transparent 70%)",
           filter: "blur(36px)",
@@ -61,97 +54,107 @@ export default function Hero() {
           willChange: "transform",
         }}
       />
-      {/* ── OVERLAY 1: Left-to-right ivory wash for text legibility ── */}
-      {/* Solid ivory left 30%, fades softly to transparent at 72% */}
+
+      {/* ── OVERLAYS ── */}
       <div
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full"
         style={{
-          background:
-            "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 26%, rgba(255,249,237,0.94) 40%, rgba(255,249,237,0.72) 54%, rgba(255,249,237,0.28) 68%, transparent 82%)",
+          background: "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 26%, rgba(255,249,237,0.94) 40%, rgba(255,249,237,0.72) 54%, rgba(255,249,237,0.28) 68%, transparent 82%)",
         }}
         aria-hidden="true"
       />
-      {/* ── OVERLAY 2: Top fade — navbar bleed ── */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(255,249,237,0.80) 0%, rgba(255,249,237,0.30) 60%, transparent 100%)",
-        }}
+        style={{ background: "linear-gradient(to bottom, rgba(255,249,237,0.80) 0%, rgba(255,249,237,0.30) 60%, transparent 100%)" }}
         aria-hidden="true"
       />
-      {/* ── OVERLAY 3: Bottom fade — smooth transition to page ── */}
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28"
-        style={{
-          background:
-            "linear-gradient(to top, #FFF9ED 0%, rgba(255,249,237,0.55) 55%, transparent 100%)",
-        }}
+        style={{ background: "linear-gradient(to top, #FFF9ED 0%, rgba(255,249,237,0.55) 55%, transparent 100%)" }}
         aria-hidden="true"
       />
-      {/* ── OVERLAY 4: Subtle gold shimmer behind visual zone ── */}
       <div
         className="pointer-events-none absolute z-10 hidden lg:block"
         style={{
-          right: "8%",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "560px",
-          height: "560px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(201,162,74,0.06) 0%, transparent 68%)",
+          right: "8%", top: "50%", transform: "translateY(-50%)",
+          width: "560px", height: "560px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(201,162,74,0.06) 0%, transparent 68%)",
         }}
         aria-hidden="true"
       />
+
       {/* ── CONTENT LAYER ── */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-[96px] text-[color:var(--color-amber-400)]">
-        <div className="grid min-h-[calc(92vh-5rem)] items-center gap-0 lg:grid-cols-[52%_48%]">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-[96px]">
+        <div className="grid items-center gap-0 lg:grid-cols-[52%_48%]" style={{ minHeight: "calc(92vh - 5rem)" }}>
 
           {/* ── TEXT COLUMN ── */}
-          <div className="pb-16 pt-3 text-left lg:py-0 lg:text-left">
+          <div className="pb-16 pt-3 text-left lg:py-0">
 
-            {/* Eyebrow */}
-            <p className="eyebrow">
-              BILLETS · OMRA &amp; HAJJ · SÉJOURS SUR MESURE
-            </p>
+            {/* Brand eyebrow */}
+            <div className="mb-5 inline-flex items-center gap-2.5">
+              <span className="h-px w-6 bg-syanor-gold/50" aria-hidden="true" />
+              <p className="text-[0.62rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">
+                Agence de voyages premium
+              </p>
+            </div>
 
             {/* Headline */}
-            <h1 className="mt-4 font-playfair font-bold sm:text-5xl md:text-h1 lg:text-[3.6rem] text-[70px]" style={{ color: "#0e0a02" }}>
+            <h1
+              className="font-playfair font-bold leading-[1.08] text-[clamp(2.6rem,5.5vw,4rem)]"
+              style={{ color: "#0e0a02" }}
+            >
               Voyagez en toute{" "}
-              <span className="lg:hidden" style={{
-                background: "linear-gradient(135deg,#C9A24A 0%,#e8c97a 50%,#C9A24A 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>sérénité.</span>
+              <span
+                className="lg:hidden"
+                style={{
+                  background: "linear-gradient(135deg,#C9A24A 0%,#e8c97a 50%,#C9A24A 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                sérénité.
+              </span>
               <span className="hidden lg:inline text-[#c9a24a]">sérénité.</span>
             </h1>
 
             {/* Sub */}
-            <p className="ml-auto mt-6 max-w-[540px] font-inter text-base leading-relaxed text-syanor-ink/68 lg:mx-0">
+            <p className="mt-6 max-w-[520px] font-inter text-base leading-relaxed text-syanor-ink/68">
               SYANOR VOYAGES vous accompagne pour vos billets d&apos;avion et de bateau,
-              vos voyages spirituels, vos séjours organisés et vos projets sur
-              mesure selon vos exigences.
+              vos séjours sur mesure, vos voyages organisés, vos visas — et votre
+              pèlerinage Omra &amp; Hajj.
             </p>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-start lg:justify-start">
-              <Link href="/contact#quote" className="btn-primary w-full sm:w-auto">
-                Demander un devis personnalisé
+            {/* ── SPLIT CTAs ── */}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              {/* Primary — general travel */}
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-syanor-emerald px-6 py-3.5 text-sm font-semibold text-syanor-ivory shadow-[0_4px_20px_rgba(6,63,51,0.25)] transition-all duration-200 hover:bg-syanor-royal hover:shadow-[0_8px_32px_rgba(6,63,51,0.35)] active:scale-[0.97]"
+              >
+                <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Nos voyages & services
               </Link>
-              <Link href="/services" className="btn-secondary w-full sm:w-auto">
-                Découvrir nos services
+
+              {/* Secondary — Omra & Hajj universe */}
+              <Link
+                href="/omra-hajj"
+                className="group inline-flex items-center gap-2.5 rounded-full border border-syanor-gold/40 bg-syanor-gold/8 px-6 py-3.5 text-sm font-semibold text-syanor-ink/80 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/15 hover:text-syanor-ink active:scale-[0.97]"
+              >
+                {/* Crescent icon */}
+                <svg className="h-4 w-4 shrink-0 text-syanor-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+                Univers Omra &amp; Hajj
               </Link>
             </div>
 
-            {/* Trust pills */}
-            <ul className="mt-8 flex flex-wrap justify-start gap-x-5 gap-y-2 lg:justify-start">
+            {/* Service pills */}
+            <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
               {trustPills.map((pill) => (
-                <li
-                  key={pill}
-                  className="flex items-center gap-2 text-sm text-syanor-ink/65"
-                >
+                <li key={pill} className="flex items-center gap-2 text-sm text-syanor-ink/60">
                   <span className="text-syanor-gold" aria-hidden="true">✦</span>
                   {pill}
                 </li>

@@ -1,0 +1,433 @@
+Final high-level upgrade for SYANOR VOYAGES.
+
+The website is improving, but I want one last serious premium push before launch.
+
+This is not a small polish.
+This is the “ready to launch tonight” upgrade.
+
+MAIN GOAL:
+Make SYANOR VOYAGES feel like a world-class premium travel platform, not a normal agency website.
+
+The site must feel:
+
+* clean
+* luxurious
+* creative
+* professional
+* Apple-level
+* easy to use
+* visually impressive
+* conversion-focused
+* ready for real clients
+
+BRAND RULE:
+SYANOR VOYAGES is the main brand.
+Do not use SIYAJJ.
+Omra Factory is only mentioned as a partner for Omra & Hajj content:
+“en partenariat avec Omra Factory”
+
+1. ADD MORE SYANOR VOYAGES SERVICES
+
+SYANOR VOYAGES must feel like a complete premium travel agency, not only billets and Omra.
+
+Add more coherent services to the SYANOR VOYAGES service universe.
+
+Keep the existing services:
+
+* Billets avion
+* Billets bateau / ferry
+* Voyages organisés
+* Séjours sur mesure
+* Packs Premium / VIP
+* Hôtels
+* Transferts
+* Visas
+* Assistance voyage
+* Voyages de noces
+* Omra & Hajj
+* Ramadan
+* Ziyarat
+* Formation avant départ
+
+Add extra premium services that make sense for a serious travel agency:
+
+Suggested additional services:
+
+* Réservation hôtels premium
+* Transferts aéroport privés
+* Location de voiture avec chauffeur
+* Assurance voyage
+* Voyages en groupe
+* Voyages famille
+* Week-ends premium
+* City breaks
+* Séjours balnéaires
+* Séjours business
+* Travel concierge
+* Assistance documents
+* Assistance bagages
+* Service VIP aéroport
+* Organisation circuits culturels
+* Packages famille
+* Packages couple
+* Packages corporate / groupes
+* Billets multi-destinations
+* Itinéraires complexes
+* Assistance 24/7 pendant le voyage
+
+Do not add useless random services.
+Only add services that feel coherent, premium, and commercially useful.
+
+Update:
+
+* services data
+* services page
+* homepage service preview
+* mega menus if needed
+* quote form service choices
+* offer catalogue filters
+* relevant CTAs
+
+Group services clearly:
+A. Billets & déplacements
+B. Séjours & voyages
+C. Premium & VIP
+D. Assistance & documents
+E. Omra & Hajj
+
+2. LANDING PAGE CREATIVE UPGRADE
+
+Upgrade the homepage to another level of creativity.
+
+The homepage should not feel like a list of sections.
+It should feel like a premium travel experience.
+
+Improve:
+
+* hero impact
+* visual rhythm
+* section transitions
+* storytelling
+* service grouping
+* activity clarity
+* choice panels
+* premium images
+* CTAs
+* mobile experience
+
+Homepage must show clearly:
+
+* SYANOR VOYAGES as a premium travel agency
+* Billets avion and bateau
+* Séjours sur mesure
+* Voyages organisés
+* Packs VIP
+* Omra & Hajj universe
+* Assistance, visas, hotels, transfers
+* Smart quote and reservation system
+
+Add or improve creative sections:
+
+* “Construisez votre voyage en quelques choix”
+* “Deux univers, une même exigence”
+* “Nos services premium”
+* “Prochains départs & offres”
+* “Choisissez votre formule”
+* “Votre voyage, notre méthode”
+* “Pourquoi SYANOR”
+* “Devis intelligent en 4 étapes”
+
+Make the homepage feel like the gateway to a real platform, not only a beautiful landing page.
+
+3. RESERVATION BOXES MUST BE PREMIUM EVERYWHERE
+
+This is very important.
+
+Every reservation box, booking box, quote box, offer CTA box, and choice module across the entire website must be upgraded.
+
+No basic boxes.
+No default forms.
+No flat white cards.
+No cheap UI.
+
+Reservation boxes must feel Apple-level, luxury, clean, and premium.
+
+Apply this to:
+
+* Homepage smart search panel
+* Contact / devis form
+* Offer detail reservation box
+* Omra departure cards
+* Service page quote blocks
+* City departure pages
+* Month pages
+* Omra & Hajj hub
+* Billets avion page
+* Billets bateau page
+* Séjours sur mesure page
+* Pack Premium / VIP page
+* Visas page
+* Mobile sticky CTA
+* Any “Demander un devis” module
+
+Reservation box design requirements:
+
+* Glass effect
+* Ivory / pearl translucent panel
+* Emerald accents
+* Thin gold border
+* Soft luxury shadow
+* Perfect spacing
+* Strong hierarchy
+* Smooth hover/focus states
+* Premium icons
+* Clean buttons
+* No ugly default selects
+* No harsh borders
+* No cramped mobile layout
+
+Each reservation box should include clear choices:
+
+* service
+* date
+* departure city
+* destination
+* travelers
+* comfort level
+* budget/status
+* selected offer if relevant
+* CTA
+
+The user must feel:
+“I can choose easily and request exactly what I want.”
+
+4. APPLE-LEVEL FORM AND INPUT SYSTEM
+
+Upgrade all forms globally.
+
+Inputs, selects, checkboxes, radio buttons, toggles, chips, and step cards must all feel premium.
+
+Use:
+
+* custom select styling
+* glass input backgrounds
+* smooth focus glow
+* emerald/gold active states
+* elegant labels
+* helper text
+* friendly validation
+* premium spacing
+* mobile-friendly fields
+
+Do not leave any native/default ugly form elements.
+
+5. SMART QUOTE FORM FINAL UPGRADE
+
+The quote form is the conversion heart of the site.
+
+It must feel like a luxury travel concierge funnel.
+
+Keep or improve the 5-step flow:
+
+1. Univers
+2. Service
+3. Voyage
+4. Options
+5. Contact
+
+Step 1:
+Let user choose:
+
+* SYANOR VOYAGES
+* Omra & Hajj
+
+Step 2:
+Show services depending on universe.
+
+Step 3:
+Dynamic trip fields.
+
+Step 4:
+Comfort, room type, assistance, visa, transfers, budget.
+
+Step 5:
+Contact details.
+
+Add:
+
+* premium progress stepper
+* summary card when prefilled
+* animated transitions
+* success state
+* WhatsApp CTA
+* friendly validation
+* URL prefill support
+* mobile full app-like experience
+
+All CTAs across the website must prefill this form.
+
+6. PREMIUM CARD CONSISTENCY
+
+Audit every card across the site.
+
+Every card must feel premium and thematic:
+
+* service cards
+* offer cards
+* city cards
+* month cards
+* blog cards
+* formula cards
+* reservation cards
+* related offer cards
+* FAQ preview cards
+
+Use theme-related visuals where appropriate.
+
+Card design:
+
+* image or premium visual block
+* glass body
+* gold/emerald accent
+* strong CTA
+* smooth hover
+* refined spacing
+* no cheap icons
+* no basic white card leftovers
+
+7. HERO IMAGES BY PAGE THEME
+
+Every major page should have a hero visual related to its theme.
+
+Examples:
+
+* Homepage: global luxury travel universe
+* Billets avion: plane, airport, passport, route
+* Billets bateau: ferry, port, sea route
+* Séjours sur mesure: hotel, terrace, luggage, destination
+* Voyages organisés: guide, group, itinerary
+* Packs VIP: private transfer, luxury hotel, concierge
+* Visas: passport, documents
+* Formation: guide, booklet, Islamic geometry
+* Omra & Hajj: Makkah/Madinah, lanterns, sacred journey
+* Contact: premium travel concierge / planner
+
+Images must be:
+
+* premium
+* related to the theme
+* optimized
+* cleanly cropped
+* responsive
+* coherent with ivory, emerald, gold
+* not random
+* not low quality
+
+8. MOBILE MUST BE ELITE
+
+Mobile must feel like a premium app.
+
+Check all pages:
+
+* navbar
+* mobile menu
+* homepage
+* offer cards
+* filters
+* reservation boxes
+* smart quote form
+* service pages
+* Omra & Hajj pages
+* contact page
+
+Requirements:
+
+* no horizontal scroll
+* large tap targets
+* app-like menu
+* premium sticky CTA
+* cards readable
+* filters easy
+* forms smooth
+* images cropped beautifully
+* no cramped sections
+* no cheap mobile layouts
+
+9. LUXURY TRANSITIONS
+
+Add refined motion globally:
+
+* button hover and press
+* card hover
+* section reveal
+* form step transition
+* menu open/close
+* filter drawer
+* accordion open
+* sticky CTA reveal
+
+Keep motion smooth, premium, and fast.
+Respect prefers-reduced-motion.
+
+10. PAGE NAVIGATION FIX
+
+When user clicks a new page:
+
+* always scroll to top
+* do not keep old scroll position
+
+For anchor links like /contact#quote:
+
+* open the page
+* then scroll smoothly to the quote section
+* keep form prefill working
+
+11. QUALITY STANDARD
+
+This should not feel like “good enough”.
+It should feel like a real premium launch.
+
+Final look:
+
+* clean
+* high taste
+* luxury
+* Apple-level glass
+* professional
+* creative
+* coherent
+* easy for clients
+* ready for Vercel
+
+12. FINAL CHECKLIST
+
+Before finishing:
+
+* Add coherent extra SYANOR services
+* Upgrade homepage creativity
+* Make reservation boxes premium across all pages
+* Upgrade all forms and inputs
+* Upgrade smart quote funnel
+* Make all cards premium and consistent
+* Add theme-related hero visuals
+* Make mobile elite
+* Add luxury transitions
+* Fix scroll-to-top on page navigation
+* Keep SYANOR as main brand
+* Omra Factory only as partner mention
+* No SIYAJJ anywhere
+* No cheap icons
+* No default UI
+* No basic cards
+* No broken routes
+* No console errors
+* Build/typecheck passes
+* Vercel-ready
+
+Final expectation:
+I want this website locked for launch tonight.
+Make it cleaner, smarter, more premium, more creative, and more conversion-focused.
+
+Think like a senior product designer, luxury travel brand strategist, and full-stack engineer.
+Do not only complete tasks.
+Make the experience feel world-class.

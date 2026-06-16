@@ -130,6 +130,36 @@ const GROUPS: ServiceGroup[] = [
     ],
   },
   {
+    category: "Premium & VIP",
+    groupIcon: "diamond",
+    services: [
+      {
+        icon: "diamond",
+        title: "Pack Premium / VIP",
+        desc: "Billet + hôtel 5★ + transfert privé + assistance complète",
+        href: "/services#packs",
+      },
+      {
+        icon: "building",
+        title: "Hôtels Premium",
+        desc: "Sélection 4 & 5 étoiles, palaces et riads de prestige",
+        href: "/contact?service=Pack+personnalis%C3%A9#quote",
+      },
+      {
+        icon: "bus",
+        title: "Transferts Privés",
+        desc: "Chauffeur privé ou minibus VIP — aéroport, hôtel, site",
+        href: "/contact?service=Pack+personnalis%C3%A9#quote",
+      },
+      {
+        icon: "sparkle",
+        title: "Travel Concierge",
+        desc: "Un conseiller dédié qui orchestre votre voyage de A à Z",
+        href: "/contact?service=Pack+personnalis%C3%A9#quote",
+      },
+    ],
+  },
+  {
     category: "Assistance",
     groupIcon: "shield",
     photoLayout: "assistance",

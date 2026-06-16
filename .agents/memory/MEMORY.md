@@ -2,3 +2,4 @@
 - [Pre-existing TS errors](preexisting-ts-errors.md) — 5 errors in ConfiguratorSection, ActivityConfigurator, alert-dialog (button casing), chart are pre-existing; do not touch.
 - [Emoji → SVG Icon rule](emoji-icon-migration.md) — data fields use icon name strings; rendering uses `<Icon name={x} />`. breadcrumb.tsx (lowercase shadcn) conflicts with Breadcrumb.tsx — keep only uppercase.
 - [backdrop-filter stacking context](backdrop-filter-stacking.md) — backdrop-blur on a container traps child z-index; dropdowns appear behind sibling cards.
+- [Icon availability](icon-availability.md) — "car" and "heart" do NOT exist in Icon.tsx; use "bus" and "star" respectively. Always grep Icon.tsx before using new icon names in data files or ServicesGrid.
