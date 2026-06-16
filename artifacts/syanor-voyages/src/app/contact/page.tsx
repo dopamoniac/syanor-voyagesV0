@@ -174,12 +174,21 @@ export default function ContactPage() {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden pb-16 pt-28">
-        {/* Ivory/gold luxury background image — no overlay */}
+        {/* Background image: desktop */}
         <img
           src="/brand/hero-bg.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center hidden lg:block"
+          loading="eager"
+          decoding="async"
+        />
+        {/* Background image: mobile only */}
+        <img
+          src="/brand/hero-mobile-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center block lg:hidden"
           loading="eager"
           decoding="async"
         />
