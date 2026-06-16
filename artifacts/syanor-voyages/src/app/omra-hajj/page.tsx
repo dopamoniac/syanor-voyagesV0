@@ -185,23 +185,23 @@ export default function OmraHajjPage() {
           loading="eager"
         />
 
-        {/* ── Global soft tone to reduce harsh contrast ── */}
+        {/* ── Smoke/mist — soft haze only where text sits, image fully visible right ── */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
-          style={{ background: "rgba(255,249,220,0.12)" }}
+          style={{ background: "radial-gradient(ellipse 58% 80% at 18% 52%, rgba(255,250,228,0.52) 0%, rgba(255,250,228,0.22) 42%, transparent 66%)" }}
         />
-        {/* ── Champagne/ivory gradient on left — text readable, image visible right ── */}
+        {/* ── Very subtle bottom darkening — helps category cards sit cleanly ── */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{ background: "linear-gradient(98deg, rgba(255,249,220,0.72) 0%, rgba(255,249,220,0.52) 22%, rgba(255,249,220,0.18) 44%, rgba(255,249,220,0.00) 62%)" }}
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
+          style={{ background: "linear-gradient(to top, rgba(15,8,2,0.18) 0%, transparent 100%)" }}
         />
-        {/* ── Mobile: full ivory wash so text is always readable ── */}
+        {/* ── Mobile: slightly stronger smoke for small screens ── */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 lg:hidden"
-          style={{ background: "rgba(255,249,220,0.70)" }}
+          style={{ background: "rgba(255,250,228,0.38)" }}
         />
 
         {/* ── Content ── */}
