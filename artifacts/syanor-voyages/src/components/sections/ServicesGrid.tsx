@@ -11,6 +11,7 @@ interface ServiceItem {
   title: string;
   desc: string;
   href: string;
+  badge?: string;
   image?: string;
   alt?: string;
 }
@@ -31,6 +32,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "airplane",
         title: "Billets Avion",
+        badge: "Vols internationaux",
         desc: "Vols internationaux, réservation optimisée, assistance complète",
         href: "/services/billets-avion",
         image: "/services/billets-avion.jpg",
@@ -39,6 +41,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "anchor",
         title: "Billets Bateau",
+        badge: "Ferry & traversée",
         desc: "Ferry & traversées, avec ou sans véhicule, tous ports",
         href: "/services/billets-bateau",
         image: "/services/billets-bateau.jpg",
@@ -47,6 +50,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "users",
         title: "Billets Groupes",
+        badge: "Tarif groupe",
         desc: "Tarifs groupes, coordination collective, départs multiples",
         href: "/contact?service=Billet+avion#quote",
         image: "/services/billets-groupes.jpg",
@@ -62,6 +66,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "crescent",
         title: "Omra",
+        badge: "Petit pèlerinage",
         desc: "Petit pèlerinage toute l'année, rites et accompagnement complet.",
         href: "/omra-hajj",
         image: "/services/religieux/omra.png",
@@ -70,6 +75,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "crescent",
         title: "Omra Plus",
+        badge: "Séjour 21–34 nuits",
         desc: "Séjour prolongé 21–34 nuits, programme approfondi.",
         href: "/omra-hajj",
         image: "/services/religieux/omra-plus.png",
@@ -78,6 +84,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "crescent",
         title: "Hajj",
+        badge: "Grand pèlerinage",
         desc: "Grand pèlerinage annuel, accompagnement structuré.",
         href: "/omra-hajj",
         image: "/services/religieux/hajj.png",
@@ -86,6 +93,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "sparkle",
         title: "Omra Ramadan",
+        badge: "Mois sacré",
         desc: "Expérience spirituelle du mois sacré, atmosphère unique.",
         href: "/omra-hajj",
         image: "/services/religieux/omra-ramadan.png",
@@ -101,6 +109,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "route",
         title: "Voyages Organisés",
+        badge: "Circuit guidé",
         desc: "Circuits structurés avec programme, transport, hébergement et accompagnement dédié.",
         href: "/voyages-organises",
         image: "/services/sur-mesure/voyages-organises.png",
@@ -109,6 +118,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "compass",
         title: "Séjour sur Mesure",
+        badge: "Sur mesure",
         desc: "Vos dates, votre budget, votre confort et vos envies réunis dans un voyage unique.",
         href: "/sejours-sur-mesure",
         image: "/services/sur-mesure/sejour-sur-mesure.png",
@@ -117,6 +127,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "diamond",
         title: "Pack Premium / VIP",
+        badge: "VIP",
         desc: "Transferts privés, hôtels sélectionnés et assistance personnalisée.",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
         image: "/services/sur-mesure/pack-premium-vip.png",
@@ -125,6 +136,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "star",
         title: "Voyage de Noces",
+        badge: "Lune de miel",
         desc: "Une lune de miel sur mesure, élégante et pensée dans les moindres détails.",
         href: "/contact?service=S%C3%A9jour+sur+mesure#quote",
         image: "/services/sur-mesure/voyage-de-noces.png",
@@ -140,24 +152,28 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "diamond",
         title: "Pack Premium / VIP",
+        badge: "Service dédié",
         desc: "Billet + hôtel 5★ + transfert privé + assistance personnalisée complète",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "building",
         title: "Hôtels Premium",
+        badge: "5★ Sélection",
         desc: "Sélection rigoureuse de 4 & 5 étoiles, palaces et riads de prestige",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "bus",
         title: "Transferts Privés",
+        badge: "Transfert VIP",
         desc: "Chauffeur privé ou minibus VIP — aéroport, hôtel, lieux saints",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
       {
         icon: "sparkle",
         title: "Travel Concierge",
+        badge: "Conciergerie",
         desc: "Un conseiller dédié qui orchestre chaque détail de votre voyage de A à Z",
         href: "/contact?service=Pack+personnalis%C3%A9#quote",
       },
@@ -171,6 +187,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "clipboard",
         title: "Assistance Visa",
+        badge: "Accompagnement",
         desc: "Dossier complet, démarches simplifiées, suivi jusqu'à obtention",
         href: "/contact?service=Visa#quote",
         image: "/services/assistance-visa.png",
@@ -179,6 +196,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "book-open",
         title: "Formation Omra",
+        badge: "Formation",
         desc: "Préparation spirituelle pré-départ, rites et pratiques",
         href: "/omra-hajj#formation",
         image: "/services/formation-omra.png",
@@ -187,6 +205,7 @@ const GROUPS: ServiceGroup[] = [
       {
         icon: "shield",
         title: "Assurance Voyage",
+        badge: "Protection",
         desc: "Couverture internationale premium, assistance 24h/24",
         href: "/contact#quote",
         image: "/services/assurance-voyage.png",
@@ -228,7 +247,7 @@ function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
     <Reveal delay={delay}>
       <Link
         href={svc.href}
-        className="group relative block overflow-hidden rounded-2xl"
+        className="group relative block overflow-hidden rounded-[22px]"
         style={{ aspectRatio }}
         aria-label={svc.title}
       >
@@ -240,7 +259,7 @@ function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
           loading="lazy"
         />
 
-        {/* Deep cinematic gradient — transparent top, opaque bottom */}
+        {/* Deep cinematic gradient */}
         <div
           className="absolute inset-0"
           style={{
@@ -257,18 +276,18 @@ function CinemaPhotoCard({ svc, delay, aspectRatio = "4/3" }: PhotoCardProps) {
           aria-hidden="true"
         />
 
-        {/* Category badge — top-left frosted pill */}
-        <div
-          className="absolute left-3.5 top-3.5 flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[0.6rem] font-bold uppercase tracking-wider text-syanor-gold/90 backdrop-blur-md"
-          style={{
-            background: "rgba(2,43,36,0.55)",
-            border: "1px solid rgba(201,162,74,0.22)",
-          }}
-          aria-hidden="true"
-        >
-          <Icon name={svc.icon} className="h-2.5 w-2.5" />
-          <span>{svc.title}</span>
-        </div>
+        {/* Premium badge — top-left */}
+        {svc.badge && (
+          <div
+            className="absolute left-3.5 top-3.5 rounded-full px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.14em] text-syanor-gold/90 backdrop-blur-sm"
+            style={{
+              background: "rgba(2,43,36,0.62)",
+              border: "1px solid rgba(201,162,74,0.30)",
+            }}
+          >
+            {svc.badge}
+          </div>
+        )}
 
         {/* Bottom content */}
         <div className="absolute inset-x-0 bottom-0 p-5">
@@ -324,7 +343,7 @@ function PremiumVIPCard({
     <Reveal delay={delay}>
       <Link
         href={svc.href}
-        className="group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(2,43,36,0.40)]"
+        className="group relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-[22px] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(2,43,36,0.40)]"
         style={{
           background: "linear-gradient(148deg, #022B24 0%, #063F33 55%, #083e2e 100%)",
           border: "1px solid rgba(201,162,74,0.20)",
@@ -339,7 +358,7 @@ function PremiumVIPCard({
 
         {/* Border brightens overlay on hover */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 rounded-[22px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{ boxShadow: "inset 0 0 0 1px rgba(201,162,74,0.38)" }}
           aria-hidden="true"
         />
@@ -381,10 +400,20 @@ function PremiumVIPCard({
           {svc.desc}
         </p>
 
-        {/* CTA */}
-        <div className="mt-5 flex items-center gap-2 text-[0.68rem] font-semibold tracking-wide text-syanor-gold/60 transition-all duration-200 group-hover:gap-3 group-hover:text-syanor-gold">
-          Découvrir
-          <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+        {/* CTA + badge row */}
+        <div className="mt-5 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-[0.68rem] font-semibold tracking-wide text-syanor-gold/60 transition-all duration-200 group-hover:gap-3 group-hover:text-syanor-gold">
+            Découvrir
+            <ArrowIcon className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </div>
+          {svc.badge && (
+            <span
+              className="rounded-full px-2 py-0.5 text-[0.52rem] font-bold uppercase tracking-widest text-syanor-gold/50"
+              style={{ border: "1px solid rgba(201,162,74,0.18)" }}
+            >
+              {svc.badge}
+            </span>
+          )}
         </div>
       </Link>
     </Reveal>
@@ -399,7 +428,7 @@ function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
     <Reveal delay={delay}>
       <Link
         href={svc.href}
-        className="group flex overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(6,63,51,0.12)]"
+        className="group flex overflow-hidden rounded-[22px] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(6,63,51,0.12)]"
         style={{
           background: "linear-gradient(135deg, #FFF9ED 0%, #f8f2e1 100%)",
           border: "1px solid rgba(201,162,74,0.16)",
@@ -455,17 +484,18 @@ function AssistanceCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
           />
 
           <div className="pl-2">
-            {/* Icon badge */}
-            <span
-              className="mb-3.5 flex h-8 w-8 items-center justify-center rounded-lg text-syanor-emerald transition-all duration-200 group-hover:bg-syanor-emerald group-hover:text-syanor-gold"
-              style={{
-                background: "rgba(6,63,51,0.08)",
-                border: "1px solid rgba(6,63,51,0.10)",
-              }}
-              aria-hidden="true"
-            >
-              <Icon name={svc.icon} className="h-4 w-4" />
-            </span>
+            {/* Badge */}
+            {svc.badge && (
+              <span
+                className="mb-2.5 inline-block rounded-full px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-wider text-syanor-emerald/70"
+                style={{
+                  background: "rgba(6,63,51,0.07)",
+                  border: "1px solid rgba(6,63,51,0.10)",
+                }}
+              >
+                {svc.badge}
+              </span>
+            )}
 
             <p className="font-playfair text-base font-semibold leading-snug text-syanor-ink transition-colors duration-200 group-hover:text-syanor-emerald">
               {svc.title}
@@ -563,9 +593,9 @@ export default function ServicesGrid() {
                 </div>
               )}
 
-              {/* ── PREMIUM VIP (dark glass 2×2 grid) ── */}
+              {/* ── PREMIUM VIP (dark glass 2×2 → 4-col on xl) ── */}
               {group.photoLayout === "premium" && (
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                   {group.services.map((svc, si) => (
                     <PremiumVIPCard
                       key={svc.title}

@@ -1,0 +1,109 @@
+Upgrade ALL service cards across the website, both desktop and mobile.
+
+Goal:
+The current cards feel too basic and visually repetitive. Redesign all card categories into a premium, creative, world-class luxury travel card system.
+
+Do not change booking logic, routes, forms, or data. Only upgrade the visual design, layout, spacing, hierarchy, and responsiveness.
+
+Card categories to upgrade:
+
+1. Billets
+
+* Billets Avion
+* Billets Bateau
+* Billets Groupes
+
+2. Voyages Religieux
+
+* Omra
+* Omra Plus
+* Hajj
+* Ramadan
+
+3. Séjours & Voyages
+
+* Voyages Organisés
+* Séjour sur Mesure
+* Pack Premium VIP
+* Voyage de Noces
+
+4. Premium & VIP
+
+* Pack Premium
+* VIP
+* Hôtels Premium
+* Transferts Privés
+* Travel Concierge
+
+5. Assistance
+
+* Assistance Visa
+* Formation Omra
+* Assurance Voyage
+
+Design direction:
+Make every card feel like a premium travel collection, not a boring service box.
+
+Use:
+
+* High-quality image area or elegant visual illustration area
+* Deep emerald, ivory, champagne, gold, black, and midnight blue accents
+* Better typography hierarchy
+* Luxury badges
+* Subtle shadows
+* Fine borders
+* Soft gradients
+* Premium hover effects on desktop
+* Smooth tap effect on mobile
+* Clear CTA button or arrow
+* More whitespace
+* Better icon placement
+
+Desktop layout:
+
+* Use elegant responsive grids.
+* Cards should not all look identical.
+* Use creative variation by category:
+
+  * Billets: clean transport-inspired cards with airplane/ferry/group visual cues
+  * Voyages Religieux: cinematic spiritual cards with warm gold imagery
+  * Séjours & Voyages: editorial lifestyle cards, brighter and elegant
+  * Premium & VIP: darker luxury cards with gold accents
+  * Assistance: clean trust/service cards with light ivory background
+
+Mobile layout:
+
+* Cards must be beautiful and easy to scan.
+* Use one card per row or premium horizontal cards where suitable.
+* Keep touch targets large.
+* Avoid clutter.
+* Text must remain readable.
+* Images must crop correctly with object-fit: cover.
+* Each card must feel intentional, not squeezed.
+
+Creative requirements:
+
+* Add category-specific visual identity.
+* Add small premium badges like “Sur mesure”, “Premium”, “VIP”, “Accompagnement”, “Service dédié”.
+* Add refined hover/tap animation:
+
+  * Desktop: slight lift, image zoom, gold arrow movement
+  * Mobile: subtle press effect
+* Add consistent card radius: 22px to 28px.
+* Add soft premium shadows.
+* Add thin gold or ivory borders.
+* Use gradients carefully, not too much.
+* Keep everything elegant and clean.
+
+Important:
+
+* Do not create childish or flashy cards.
+* Do not use too many icons.
+* Do not make the section overcrowded.
+* Do not break existing buttons.
+* Do not break selected offer/contact form logic.
+* Preserve all existing content and links.
+* Make the design consistent with SYANOR Voyages luxury branding.
+
+Expected result:
+All cards across the website should feel premium, modern, creative, and high-end on both desktop and mobile. The user should instantly understand that SYANOR Voyages is a serious luxury travel agency with organized trips, spiritual journeys, premium service, VIP support, and complete assistance.
