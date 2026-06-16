@@ -173,40 +173,39 @@ export default function ContactPage() {
     <SiteLayout>
 
       {/* ── HERO ── */}
-      <section
-        className="relative overflow-hidden pb-16 pt-28"
-        style={{ background: "linear-gradient(135deg, #022B24 0%, #063F33 70%)" }}
-      >
-        {/* Dot pattern */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.045]"
-          style={{ backgroundImage: "radial-gradient(circle, #C9A24A 1px, transparent 1px)", backgroundSize: "32px 32px" }}
+      <section className="relative overflow-hidden pb-16 pt-28">
+        {/* Ivory/gold luxury background image — no overlay */}
+        <img
+          src="/brand/hero-bg.png"
+          alt=""
           aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+          loading="eager"
+          decoding="async"
         />
-        {/* Ambient glow */}
-        <div className="pointer-events-none absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-syanor-gold/6 blur-3xl" aria-hidden="true" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-syanor-emerald/25 blur-3xl" aria-hidden="true" />
+        {/* Gold hairline top */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(201,162,74,0.50), transparent)" }} aria-hidden="true" />
 
         <div className="relative mx-auto max-w-7xl px-5 md:px-8">
           <div className="max-w-2xl">
             {/* Eyebrow */}
-            <p className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-syanor-gold/80">
-              <span className="h-px w-8 bg-syanor-gold/40" aria-hidden="true" />
+            <p className="inline-flex items-center gap-2 text-[0.7rem] font-bold uppercase tracking-[0.18em]" style={{ color: "#C9A24A" }}>
+              <span className="h-px w-8" style={{ background: "rgba(201,162,74,0.55)" }} aria-hidden="true" />
               Contact & Devis personnalisé
             </p>
 
             {/* Title */}
-            <h1 className="mt-4 font-playfair text-4xl leading-tight text-syanor-ivory sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-playfair text-4xl leading-tight sm:text-5xl lg:text-6xl" style={{ color: "#022B24" }}>
               Construisons votre voyage sur mesure.
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-5 text-lg leading-relaxed text-syanor-champagne/70">
+            <p className="mt-5 text-lg leading-relaxed" style={{ color: "rgba(2,43,36,0.72)" }}>
               En quelques étapes, sélectionnez votre service, vos dates, votre niveau de confort et vos préférences. L'équipe SYANOR VOYAGES vous prépare une proposition claire et personnalisée.
             </p>
 
             {/* Trust line */}
-            <p className="mt-3 text-sm text-syanor-gold/60">
+            <p className="mt-3 text-sm" style={{ color: "#C9A24A" }}>
               Billets · Omra · Hajj · Séjours · Visas · Hôtels · Transferts — votre demande est traitée avec attention et confidentialité.
             </p>
 
@@ -215,7 +214,8 @@ export default function ContactPage() {
               {["Réponse sous 24h", "Accompagnement complet", "Conseiller dédié"].map((badge) => (
                 <span
                   key={badge}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-syanor-gold/20 bg-syanor-royal/50 px-4 py-1.5 text-xs font-medium text-syanor-champagne/75"
+                  className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium"
+                  style={{ border: "1px solid rgba(201,162,74,0.35)", background: "rgba(6,63,51,0.06)", color: "rgba(2,43,36,0.75)" }}
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-syanor-gold" aria-hidden="true" />
                   {badge}
@@ -224,6 +224,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+        {/* Ivory bottom fade */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16" style={{ background: "linear-gradient(to bottom, transparent, rgba(255,249,237,0.70))" }} aria-hidden="true" />
       </section>
 
       {/* ── MAIN 2-COL SECTION ── */}
