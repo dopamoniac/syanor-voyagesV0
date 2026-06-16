@@ -1,0 +1,60 @@
+Upgrade the Omra Factory page hero section only.
+
+Goal:
+Make the Omra Factory hero feel premium, cinematic, clean, and luxury. Remove the current heavy green hero theme.
+
+Important:
+I will upload a new background image. Use that uploaded image as the main hero background.
+
+Required changes:
+- Remove the current dark green hero background.
+- Remove the existing right-side image card.
+- Use the uploaded image as the full hero background.
+- The uploaded image must cover the entire hero area with object-fit: cover.
+- Add a soft dark-to-transparent overlay only where needed for text readability.
+- Keep the image visible and premium, do not hide it with heavy green overlays.
+- Add a subtle champagne/ivory gradient on the left side behind the text.
+- Keep the text readable and elegant.
+
+Hero content:
+- Keep the Omra Factory positioning.
+- Add/keep the main categories inside the hero:
+  - Omra
+  - Omra Plus
+  - Hajj
+  - Ramadan
+- Show them as elegant mini cards or premium pills under the main CTA area.
+- They should look clean, luxury, and clickable.
+- Do not make them huge.
+- Do not cover the hero image too much.
+
+Design direction:
+- Light luxury, not dark green.
+- Ivory, champagne, soft gold, deep emerald only for accents.
+- More cinematic and emotional.
+- More premium travel agency feeling.
+- Less blocky, less heavy, less dashboard style.
+
+Desktop:
+- Hero height: around 85vh.
+- Text content on the left.
+- Background image visible across the section.
+- Categories appear below CTA as refined cards/pills.
+
+Mobile:
+- Hero should remain readable.
+- Use the uploaded image with correct object-position.
+- Add stronger ivory overlay behind text if needed.
+- Categories should stack nicely in 2x2 grid or horizontal scroll.
+- No cropped ugly image.
+- No dark green full background.
+
+Do not change:
+- Navbar
+- Routes
+- Booking logic
+- Contact form logic
+- Other pages
+
+Expected result:
+The Omra Factory page should feel like a luxury spiritual travel landing page. The background image becomes the hero atmosphere, the old green block is gone, and the Omra / Omra Plus / Hajj / Ramadan categories appear cleanly inside the hero.

@@ -172,122 +172,144 @@ export default function OmraHajjPage() {
     <SiteLayout>
 
       {/* ══════════════════════════════════════════
-          1. CINEMATIC HERO
+          1. CINEMATIC HERO — light luxury
       ══════════════════════════════════════════ */}
-      <section
-        className="relative min-h-[88vh]"
-        style={{ background: "linear-gradient(145deg, #011a15 0%, #022B24 45%, #063F33 100%)" }}
-      >
-        {/* Mobile-only luxury background image */}
+      <section className="relative flex min-h-[85vh] items-center">
+
+        {/* ── Full-bleed background image ── */}
         <img
-          src="/brand/hero-mobile-bg.png"
+          src="/img/omra-factory-hero.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center block lg:hidden"
-          style={{ zIndex: 1 }}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
           loading="eager"
         />
-        {/* Mobile-only dark overlay — keeps white text readable over light image */}
+
+        {/* ── Global soft tone to reduce harsh contrast ── */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 block lg:hidden"
-          style={{ background: "linear-gradient(160deg, rgba(2,27,19,0.72) 0%, rgba(2,43,36,0.62) 60%, rgba(6,63,51,0.55) 100%)", zIndex: 2 }}
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "rgba(255,249,220,0.12)" }}
+        />
+        {/* ── Champagne/ivory gradient on left — text readable, image visible right ── */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "linear-gradient(98deg, rgba(255,249,220,0.72) 0%, rgba(255,249,220,0.52) 22%, rgba(255,249,220,0.18) 44%, rgba(255,249,220,0.00) 62%)" }}
+        />
+        {/* ── Mobile: full ivory wash so text is always readable ── */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 lg:hidden"
+          style={{ background: "rgba(255,249,220,0.70)" }}
         />
 
-        {/* Ambient layers — desktop only */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 70% 55% at 80% 20%, rgba(201,162,74,0.18), transparent)" }} />
-          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 45% at 10% 85%, rgba(6,63,51,0.5), transparent)" }} />
-          {/* Geometric ring decoration */}
-          <div className="absolute right-0 top-0 h-full w-1/2 opacity-[0.07]"
-            style={{ backgroundImage: "radial-gradient(circle at 80% 40%, rgba(201,162,74,0.8) 0%, transparent 60%), repeating-conic-gradient(from 0deg at 75% 35%, transparent 0deg, rgba(201,162,74,0.2) 1deg, transparent 2deg)" }}
-          />
-        </div>
-        {/* Noise grain */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.025]"
-          style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
-        />
+        {/* ── Content ── */}
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-[96px] md:px-8 lg:pb-20 lg:pt-[88px]">
+          <div className="max-w-[640px]">
 
-        <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-center px-6 py-24 md:px-8 lg:flex-row lg:items-center lg:gap-16">
-
-          {/* Copy */}
-          <div className="flex-1">
-            {/* Universe label */}
-            <div className="mb-6 inline-flex items-center gap-3">
-              <span className="h-px w-8 bg-syanor-gold/50" aria-hidden="true" />
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.25em] text-syanor-gold">
+            {/* Label */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-8 shrink-0" style={{ background: "rgba(201,162,74,0.70)" }} aria-hidden="true" />
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.22em]" style={{ color: "#a07c32" }}>
                 Omra Factory — Département Omra & Hajj de SYANOR VOYAGES
               </span>
             </div>
 
-            <h1 className="font-playfair text-4xl font-bold leading-tight text-syanor-ivory sm:text-5xl lg:text-6xl">
-              Omra & Hajj<br />
-              <span style={{ background: "linear-gradient(90deg, #C9A24A, #e8c87a, #C9A24A)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            {/* Heading */}
+            <h1 className="font-playfair text-4xl font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+              <span style={{ color: "#022B24" }}>Omra & Hajj</span><br />
+              <span style={{ background: "linear-gradient(90deg, #C9A24A 0%, #b8882a 50%, #C9A24A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 organisés avec excellence.
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-syanor-champagne/65 sm:text-lg">
-              Omra, Hajj, Ramadan, Ziyarat, formation avant départ et accompagnement spirituel.{" "}
-              <span className="font-medium text-syanor-gold/70">Omra Factory accompagne vos voyages spirituels au sein de SYANOR VOYAGES.</span>
+            {/* Gold divider */}
+            <div className="mt-5 flex items-center gap-3" aria-hidden="true">
+              <div className="h-px w-16" style={{ background: "linear-gradient(to right, #C9A24A, transparent)" }} />
+              <div className="h-1 w-1 rounded-full" style={{ background: "rgba(201,162,74,0.70)" }} />
+              <div className="h-px w-8" style={{ background: "linear-gradient(to right, rgba(201,162,74,0.40), transparent)" }} />
+            </div>
+
+            {/* Description */}
+            <p className="mt-6 max-w-lg text-base leading-relaxed sm:text-[1.05rem]" style={{ color: "rgba(2,43,36,0.68)" }}>
+              Omra, Hajj, Ramadan, Ziyarat — accompagnement spirituel complet,{" "}
+              <span style={{ color: "#a07c32", fontWeight: 500 }}>hôtels sélectionnés et départs depuis 6 villes de France.</span>
             </p>
 
-            {/* Quick pills */}
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              <QuickPill label="Voir les départs Omra" href="/omra-2026" icon="calendar" highlight />
-              <QuickPill label="Demander un devis" href={omraQuoteHref} icon="sparkle" />
-              <QuickPill label="Hajj 2027" href="/hajj-2027" icon="crescent" />
-              <QuickPill label="La formation" href="/formation" icon="book-open" />
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/omra-2026"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:shadow-[0_8px_24px_rgba(201,162,74,0.40)] active:scale-[0.97]"
+                style={{ background: "linear-gradient(135deg, #C9A24A 0%, #e8c87a 50%, #C9A24A 100%)", color: "#022B24" }}
+              >
+                <Icon name="calendar" className="h-3.5 w-3.5" aria-hidden="true" />
+                Voir les départs Omra
+              </Link>
+              <Link
+                href={omraQuoteHref}
+                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:shadow-card active:scale-[0.97]"
+                style={{ border: "1.5px solid rgba(2,43,36,0.25)", color: "rgba(2,43,36,0.82)", background: "rgba(255,255,255,0.55)", backdropFilter: "blur(8px)" }}
+              >
+                Demander un devis
+              </Link>
+            </div>
+
+            {/* ── Category cards ── */}
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {([
+                { label: "Omra",      sub: "2026 & 2027",    href: "/omra-2026",  icon: "crescent"  },
+                { label: "Omra Plus", sub: "Confort premium", href: "/omra-2027",  icon: "star"      },
+                { label: "Hajj",      sub: "Hajj 2027",       href: "/hajj-2027",  icon: "compass"   },
+                { label: "Ramadan",   sub: "Séjours dédiés",  href: "/omra-2026",  icon: "sparkle"   },
+              ] as const).map((cat) => (
+                <Link
+                  key={cat.label}
+                  href={cat.href}
+                  className="group flex flex-col gap-2.5 rounded-2xl p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-card active:scale-[0.97]"
+                  style={{
+                    background: "rgba(255,255,255,0.60)",
+                    border: "1px solid rgba(201,162,74,0.28)",
+                    backdropFilter: "blur(10px)",
+                  }}
+                >
+                  <span
+                    className="flex h-8 w-8 items-center justify-center rounded-xl transition-colors duration-200 group-hover:bg-[rgba(201,162,74,0.22)]"
+                    style={{ background: "rgba(201,162,74,0.15)", color: "#a07c32" }}
+                    aria-hidden="true"
+                  >
+                    <Icon name={cat.icon} className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold" style={{ color: "#022B24" }}>{cat.label}</p>
+                    <p className="text-[0.65rem] leading-snug" style={{ color: "rgba(2,43,36,0.45)" }}>{cat.sub}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 flex flex-wrap items-center gap-6">
+            <div className="mt-10 flex flex-wrap items-center gap-6 border-t pt-8" style={{ borderColor: "rgba(201,162,74,0.25)" }}>
               {[
                 { val: "2026 & 2027", label: "Saisons Omra" },
-                { val: "6 villes", label: "De départ" },
+                { val: "6 villes",    label: "De départ" },
                 { val: "Standard → VIP", label: "Niveaux de confort" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="font-playfair text-xl font-bold text-syanor-gold">{s.val}</span>
-                  <span className="text-[0.7rem] text-white/40">{s.label}</span>
+                  <span className="font-playfair text-lg font-bold" style={{ color: "#a07c32" }}>{s.val}</span>
+                  <span className="text-[0.68rem]" style={{ color: "rgba(2,43,36,0.45)" }}>{s.label}</span>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Right visual — framed photo */}
-          <div className="mt-12 flex-shrink-0 lg:mt-0 lg:w-[420px]">
-            <div
-              className="relative overflow-hidden rounded-3xl shadow-[0_32px_80px_rgba(0,0,0,0.45)]"
-              style={{ border: "1px solid rgba(201,162,74,0.20)" }}
-            >
-              <img
-                src="/img/kaaba-family.jpg"
-                alt="Omra & Hajj avec SYANOR VOYAGES"
-                className="h-[460px] w-full object-cover lg:h-[520px]"
-                loading="eager"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(2,43,36,0.6) 0%, transparent 50%)" }} />
-              {/* Image caption badge */}
-              <div className="absolute bottom-5 left-5 right-5">
-                <div
-                  className="inline-flex items-center gap-2.5 rounded-2xl px-4 py-2.5"
-                  style={{ background: "rgba(2,43,36,0.85)", border: "1px solid rgba(201,162,74,0.25)", backdropFilter: "blur(12px)" }}
-                >
-                  <Icon name="crescent" className="h-4 w-4 text-syanor-gold" aria-hidden="true" />
-                  <div>
-                    <p className="text-xs font-semibold text-syanor-ivory">Omra & Hajj avec SYANOR VOYAGES</p>
-                    <p className="text-[0.6rem] text-white/45">Accompagnement spirituel complet</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Bottom fade */}
-        <div aria-hidden="true" className="absolute bottom-0 inset-x-0 h-24"
+        {/* ── Bottom fade to ivory ── */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-28"
           style={{ background: "linear-gradient(to bottom, transparent, #FFF9ED)" }}
         />
       </section>
