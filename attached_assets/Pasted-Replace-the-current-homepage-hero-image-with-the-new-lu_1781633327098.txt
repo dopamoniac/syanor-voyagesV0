@@ -1,0 +1,118 @@
+Replace the current homepage hero image with the new luxury hero video.
+
+TASK:
+Use the new generated hero video instead of the current static hero picture in the Accueil / homepage hero section.
+
+IMPORTANT:
+Do not redesign the hero.
+Do not change the text.
+Do not change the buttons.
+Do not change the layout.
+Do not change the navbar.
+Do not change the hero spacing.
+Only replace the hero picture/visual with the new video.
+
+VIDEO ASSET:
+I will upload the new hero video.
+
+Place it in:
+`public/videos/syanor-hero-loop.mp4`
+
+If there is also a WebM version, use:
+`public/videos/syanor-hero-loop.webm`
+
+Keep the previous hero image as a poster fallback:
+`public/images/hero/syanor-hero-poster.png`
+
+IMPLEMENTATION:
+In the homepage hero visual area, replace the static image with a video element.
+
+Use:
+
+* autoplay
+* muted
+* loop
+* playsInline
+* preload="metadata"
+* poster fallback image
+
+Example structure:
+
+```tsx
+<video
+  className="absolute inset-0 h-full w-full object-cover"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  poster="/images/hero/syanor-hero-poster.png"
+>
+  <source src="/videos/syanor-hero-loop.webm" type="video/webm" />
+  <source src="/videos/syanor-hero-loop.mp4" type="video/mp4" />
+</video>
+```
+
+STYLE:
+The video must fit exactly where the current hero image is displayed.
+
+Requirements:
+
+* full cover
+* no distortion
+* no black borders
+* no cropping problem
+* preserve the left-side text readability
+* preserve the luxury visual balance
+* keep the video behind or inside the same hero visual container
+* keep rounded corners/glass frame if the current image has it
+* keep overlays if they improve readability
+* do not darken the video too much
+
+PERFORMANCE:
+Optimize for fast loading:
+
+* use compressed MP4/WebM
+* keep file size reasonable
+* preload metadata only
+* do not block initial page load
+* do not add heavy video libraries
+* keep it Vercel-ready
+
+MOBILE:
+Make sure the video works on mobile:
+
+* autoplay must work with muted + playsInline
+* crop cleanly
+* no horizontal overflow
+* no layout shift
+* no huge height issue
+* if mobile performance is weak, keep the poster image as fallback
+
+ACCESSIBILITY:
+
+* video must be decorative
+* no controls
+* no audio
+* no captions needed
+* add aria-hidden="true" if appropriate
+
+FALLBACK:
+If video fails to load, the poster image must remain visible.
+Do not leave a blank hero.
+
+FINAL CHECK:
+Before finishing:
+
+* homepage hero uses the new video
+* old static hero picture is replaced
+* hero text/buttons stay unchanged
+* video loops smoothly
+* video is muted and autoplaying
+* mobile works
+* no console errors
+* no layout shift
+* build/typecheck passes
+
+Final result:
+The Accueil homepage hero should now feel alive, premium, cinematic, and luxurious with the new seamless hero video, while keeping the exact same hero content and design structure.
