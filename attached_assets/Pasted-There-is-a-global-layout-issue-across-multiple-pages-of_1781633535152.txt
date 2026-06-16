@@ -1,0 +1,165 @@
+There is a global layout issue across multiple pages of the website.
+
+Problem:
+On several pages, the hero title and hero image are slightly cut off or cropped.
+Sometimes the title starts too high and feels clipped by the navbar.
+Sometimes the right hero image/card is cropped awkwardly.
+This happens on several internal pages, not only one page.
+
+Example pages affected:
+
+* Billets bateau
+* Billets avion
+* Omra Factory
+* Omra 2026 / Omra 2027
+* Offres
+* Services
+* Séjours & Voyages
+* Contact / Devis
+* other internal hero pages
+
+TASK:
+Fix the hero layout globally across the website so that no hero title, text, image, card, icon, or CTA is cut off.
+
+This is a full-site hero spacing and responsive layout fix.
+
+IMPORTANT:
+Do not redesign the hero sections.
+Do not change the text.
+Do not change the buttons.
+Do not change the images.
+Do not change the visual identity.
+Only fix the spacing, cropping, positioning, and responsive behavior so everything displays correctly.
+
+MAIN ISSUES TO FIX:
+
+1. Navbar overlap / top spacing
+   Some hero content starts too close to the fixed/sticky navbar.
+
+Fix:
+
+* Add proper top padding to all internal page hero sections
+* Make sure hero content starts below the navbar
+* Use consistent spacing for desktop and mobile
+* If the navbar is fixed/sticky, account for its height
+* No title should appear hidden under the header
+
+2. Hero title clipping
+   Large titles are sometimes cut or too close to the top.
+
+Fix:
+
+* Prevent overflow clipping around text containers
+* Do not use parent containers that clip text with overflow-hidden unless necessary
+* Give headings enough line-height
+* Use responsive clamp font sizes
+* Make sure descenders, accents, and large serif letters are not clipped
+* On mobile, reduce title size slightly if needed instead of cropping
+
+3. Hero image/card cropping
+   Hero images should remain beautiful and not be cut awkwardly.
+
+Fix:
+
+* Use proper object-fit and object-position
+* For image cards, use object-cover but choose a better focal point
+* On mobile, adjust object-position per image if needed
+* Ensure images keep rounded corners and do not overflow their containers
+* Do not stretch or distort images
+
+4. Hero container height
+   Some hero zones are too short for the content.
+
+Fix:
+
+* Use a proper min-height for hero sections
+* Allow the hero to grow if content needs more space
+* Avoid fixed heights that cut content
+* On mobile, do not force tiny hero heights
+* Use padding instead of hard clipping
+
+5. Overflow cleanup
+   Audit the hero components and remove dangerous clipping.
+
+Check for:
+
+* overflow-hidden on parent containers cutting titles or images
+* absolute positioned elements escaping the container
+* negative margins
+* fixed height wrappers
+* translateY values that push content outside
+* image cards positioned too high
+* decorative layers covering content
+
+Only keep overflow-hidden where needed for image rounding, not around text.
+
+6. Desktop layout
+   On desktop:
+
+* title must be fully visible
+* subtitle must be fully visible
+* buttons must be visible
+* right image/card must be fully inside the hero zone
+* spacing must feel premium and balanced
+* no awkward crop at the top or bottom
+
+7. Mobile layout
+   On mobile:
+
+* hero content must not be clipped by navbar
+* title must wrap nicely
+* image/card must not be cut awkwardly
+* buttons must be visible
+* no horizontal overflow
+* no content hidden behind floating WhatsApp button
+* hero should feel clean and premium
+
+8. Shared component fix
+   If all heroes use a shared component, fix it once properly there.
+
+Possible components/files to inspect:
+
+* PageHero
+* HeroSection
+* ServiceHero
+* InternalHero
+* OmraHero
+* OfferHero
+* any shared hero wrapper
+
+If some pages have custom heroes, fix them too.
+
+9. Background image behavior
+   Keep the current background system, but make sure it does not cause clipping.
+
+For background images:
+
+* background-size: cover
+* background-position: center
+* no distortion
+* no clipped content caused by background wrapper
+
+10. Quality requirement
+    This must be fixed across the whole site, not just the one screenshot.
+
+Check all major internal pages after the fix.
+
+FINAL CHECK:
+Before finishing:
+
+* No hero title is cut off
+* No hero subtitle is cut off
+* No hero image/card is awkwardly cropped
+* No hero content is hidden under the navbar
+* Desktop looks clean
+* Mobile looks clean
+* Tablet looks clean
+* No horizontal overflow
+* No broken layouts
+* Homepage hero remains safe
+* Build/typecheck passes
+* No console errors
+
+Expected result:
+All hero sections across the website should feel clean, balanced, premium, and fully visible.
+Nothing should be cropped or cut anymore.

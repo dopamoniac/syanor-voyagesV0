@@ -175,7 +175,7 @@ export default function OmraHajjPage() {
           1. CINEMATIC HERO
       ══════════════════════════════════════════ */}
       <section
-        className="relative min-h-[88vh] overflow-hidden"
+        className="relative min-h-[88vh]"
         style={{ background: "linear-gradient(145deg, #011a15 0%, #022B24 45%, #063F33 100%)" }}
       >
         {/* Mobile-only luxury background image */}

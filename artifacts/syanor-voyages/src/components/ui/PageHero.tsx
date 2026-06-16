@@ -399,33 +399,32 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className="relative flex overflow-hidden"
-      style={{ minHeight: "88vh" }}
+      className="relative flex"
+      style={{ minHeight: "max(88vh, 640px)" }}
     >
-      {/* ── Background image: desktop ── */}
-      <img
-        src="/brand/hero-bg.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center hidden lg:block"
-        loading="eager"
-        decoding="async"
-      />
-      {/* ── Background image: mobile only ── */}
-      <img
-        src="/brand/hero-mobile-bg.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center block lg:hidden"
-        loading="eager"
-        decoding="async"
-      />
+      {/* ── Background images — clipped to section bounds ── */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <img
+          src="/brand/hero-bg.png"
+          alt=""
+          className="absolute inset-0 hidden h-full w-full object-cover object-center lg:block"
+          loading="eager"
+          decoding="async"
+        />
+        <img
+          src="/brand/hero-mobile-bg.png"
+          alt=""
+          className="absolute inset-0 block h-full w-full object-cover object-center lg:hidden"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
 
       {/* ── Gold hairline top ── */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(201,162,74,0.50), transparent)" }} aria-hidden="true" />
 
       {/* ── Main content ── */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-6 py-20 md:px-8 lg:py-0">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-6 pt-[88px] pb-12 md:px-8 lg:pt-[96px] lg:pb-16">
         <div className="grid w-full grid-cols-1 gap-0 lg:grid-cols-[1fr_420px] lg:gap-16 xl:grid-cols-[1fr_480px]">
 
           {/* ── LEFT: Copy ── */}
@@ -502,7 +501,7 @@ export default function PageHero({
           </div>
 
           {/* ── RIGHT: Desktop visual (lg+ only) ── */}
-          <div className="hidden overflow-hidden lg:flex lg:items-center lg:justify-center lg:relative">
+          <div className="hidden lg:flex lg:items-center lg:justify-center lg:relative">
             {image ? (
               <div className="relative w-full">
                 <div
