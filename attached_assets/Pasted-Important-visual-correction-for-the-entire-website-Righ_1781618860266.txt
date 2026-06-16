@@ -1,0 +1,270 @@
+Important visual correction for the entire website:
+
+Right now, too many hero sections across the site reuse the same visual language:
+- same globe / orbit / circular figure
+- same green-heavy treatment
+- same composition logic
+
+I do NOT want that.
+
+This creates repetition and makes the site feel less premium and less thoughtful.
+
+NEW RULE:
+Each major page hero must have its own thematic visual that matches:
+- the page title
+- the page service/activity
+- the emotional tone
+- the content of the page
+
+Do not keep using the same globe/orbit illustration in all hero sections.
+Do not keep making every hero feel all green in the same way.
+
+GOAL:
+Make every hero feel unique, relevant, and premium while still belonging to the same SYANOR VOYAGES design system.
+
+DESIGN EXPECTATION:
+Each hero should feel:
+- clean
+- premium
+- elegant
+- visual
+- editorial
+- service-specific
+- high-end
+- luxurious
+- coherent with the brand
+- but not repetitive
+
+IMPORTANT:
+I want visual variety with brand consistency.
+
+This means:
+- same premium design language
+- same quality level
+- same typography system
+- same ivory / pearl / champagne / emerald / gold brand world
+
+BUT:
+- different hero images
+- different visual atmospheres
+- different layout accents
+- different composition
+- different visual focus
+- different background balance
+
+NO MORE SAME HERO FIGURE EVERYWHERE.
+
+HERO IMAGE / VISUAL DIRECTION BY PAGE:
+
+1. Homepage
+This one can keep a premium global-travel visual language, but refine it:
+- luxury travel universe
+- agency-first
+- plane
+- ferry
+- travel movement
+- premium travel atmosphere
+- subtle Omra/Hajj reference
+- not too green-heavy
+- more ivory/champagne balance
+- image-led and premium
+
+2. Billets avion page
+Use a dedicated hero image / visual related to:
+- airport
+- premium aircraft
+- boarding
+- route map feeling
+- passport / ticket atmosphere
+- elegant travel mobility
+
+3. Billets bateau page
+Use a dedicated visual:
+- ferry
+- sea route
+- port
+- boarding
+- vehicle crossing if relevant
+- marine premium feel
+
+4. Voyages organisés page
+Use a dedicated image:
+- small group travel
+- guided experience
+- cultural trip
+- itinerary / destination mood
+- premium human experience
+
+5. Séjours sur mesure page
+Use a dedicated hero:
+- luxury hotel / riad / terrace
+- bespoke stay
+- refined destination atmosphere
+- luggage / concierge / comfort
+- tailored premium travel
+
+6. Premium / VIP page
+Use a dedicated hero:
+- private transfer
+- luxury hotel arrival
+- concierge
+- chauffeur
+- premium hospitality
+- elegant upscale atmosphere
+
+7. Hôtels / transferts page
+Use a dedicated hero:
+- hotel lobby / suite / arrival
+- chauffeured transfer
+- luxury hospitality mood
+
+8. Assistance / Visas page
+Use a dedicated visual:
+- passport
+- documents
+- travel preparation
+- concierge support
+- trust / clarity / organization
+
+9. Omra & Hajj main page
+Use a dedicated spiritual-travel hero:
+- Makkah / Madinah inspiration
+- sacred journey atmosphere
+- elegant Islamic geometry
+- warm spiritual light
+- pilgrims / preparation / calm premium tone
+
+10. Omra 2026 / Omra 2027 pages
+Give these their own visuals:
+- premium departure atmosphere
+- sacred journey
+- departure / pilgrimage / spiritual preparation
+- not the same exact visual reused again and again
+
+11. Hajj 2027 page
+Give it a more solemn, structured, premium visual:
+- pilgrimage scale
+- organization
+- spiritual seriousness
+- preparation and accompaniment
+
+12. Ramadan page
+Warm, serene, more emotional visual:
+- sacred ambiance
+- night light / lantern mood
+- spiritual serenity
+- elegant and premium
+
+13. Formation page
+Use a dedicated educational/preparation hero:
+- guide booklet
+- learning
+- preparation session
+- Islamic pattern details
+- calm, reassuring atmosphere
+
+14. Contact / Devis page
+Use a dedicated hero:
+- concierge / travel planner atmosphere
+- elegant support
+- premium service relation
+- welcoming and reassuring
+- not the globe/orbit again
+
+15. Blog page
+Use a more editorial hero:
+- article / insights / travel journal mood
+- premium content presentation
+
+COLOR / BACKGROUND RULE:
+Do not make all heroes mostly dark green.
+
+Use more nuanced combinations:
+- ivory
+- champagne
+- pearl
+- warm beige
+- soft emerald accents
+- gold accents
+- occasional deep emerald zones only when it truly suits the page
+
+The page must not feel:
+- all dark green
+- all same background
+- all same composition
+- all same graphic object
+
+Instead:
+balance image + content + light luxurious space.
+
+COMPOSITION RULE:
+Each hero can have its own layout variation:
+- image right / text left
+- image background with overlay
+- split layout
+- editorial block
+- card-over-image composition
+- premium scenic visual with floating booking card
+
+But keep coherence in:
+- spacing
+- typography
+- buttons
+- badges
+- micro-details
+- overall luxury system
+
+VERY IMPORTANT:
+Do not just swap images inside the current identical hero template.
+I want the hero system itself to feel more page-aware.
+
+That means:
+- adapt image
+- adapt composition
+- adapt mood
+- adapt supporting accents
+- adapt badge and supporting text
+- adapt CTA logic
+
+For example:
+- Billets page CTA should feel transport-focused
+- Omra page CTA should feel departure-focused
+- Séjours page CTA should feel tailored-experience-focused
+- Contact page CTA should feel support/devis-focused
+
+IMAGE QUALITY RULE:
+Use only visuals that feel:
+- premium
+- elegant
+- thematic
+- cinematic
+- clean
+- high-end
+- not cheap stock
+- not random
+- properly cropped
+- responsive
+- matching the title and service
+
+If a good image is not available for a page:
+- create a premium visual block or mixed media composition
+- but do not repeat the same orbit/globe visual everywhere
+
+FINAL EXPECTATION:
+When a client navigates from one page to another, they should feel:
+- each page has its own identity
+- the hero matches the page topic
+- the site is rich and carefully designed
+- the experience is premium and not repetitive
+
+Please redesign the hero visuals across all major pages so they are:
+- theme-matched
+- title-matched
+- more premium
+- less repetitive
+- less all-green
+- more elegant
+- more creative
+- more page-specific
+
+This is a full-site hero improvement task, not a single page tweak.
