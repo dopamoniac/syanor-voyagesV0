@@ -244,7 +244,7 @@ export default function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           showBg
-            ? "bg-syanor-ivory/94 shadow-sm backdrop-blur-xl"
+            ? "bg-syanor-ivory shadow-[0_2px_20px_rgba(6,63,51,0.07)]"
             : "bg-transparent"
         )}
       >
