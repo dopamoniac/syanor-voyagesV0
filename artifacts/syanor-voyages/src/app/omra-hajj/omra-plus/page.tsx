@@ -1,5 +1,6 @@
 type Metadata = Record<string, unknown>;
 import DeepServicePage, { type DeepServiceConfig } from "@/components/sections/DeepServicePage";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import { quoteUrl } from "@/lib/utils";
 import { getOffersByCategory } from "@/data/offers";
 
@@ -100,5 +101,5 @@ const config: DeepServiceConfig = {
 };
 
 export default function OmraPlusPage() {
-  return <DeepServicePage config={config} />;
+  return <DeepServicePage config={config} LayoutComponent={OmraFactoryLayout} />;
 }

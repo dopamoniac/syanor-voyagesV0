@@ -1,3 +1,4 @@
+import type { ComponentType, ReactNode } from "react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -50,9 +51,15 @@ export interface DeepServiceConfig {
   activityConfigurator?: ActivityConfiguratorConfig;
 }
 
-export default function DeepServicePage({ config }: { config: DeepServiceConfig }) {
+export default function DeepServicePage({
+  config,
+  LayoutComponent = SiteLayout,
+}: {
+  config: DeepServiceConfig;
+  LayoutComponent?: ComponentType<{ children: ReactNode }>;
+}) {
   return (
-    <SiteLayout>
+    <LayoutComponent>
       <PageHero
         eyebrow={config.eyebrow}
         title={config.title}
@@ -152,6 +159,6 @@ export default function DeepServicePage({ config }: { config: DeepServiceConfig 
       />
 
       <StickyMobileCTA label={config.stickyLabel} href={config.quoteHref} />
-    </SiteLayout>
+    </LayoutComponent>
   );
 }

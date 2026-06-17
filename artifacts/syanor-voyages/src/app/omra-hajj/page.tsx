@@ -1,6 +1,6 @@
 type Metadata = Record<string, unknown>;
 import Link from "@/components/Link";
-import SiteLayout from "@/components/layout/SiteLayout";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
 import FaqSection from "@/components/sections/FaqSection";
@@ -169,7 +169,7 @@ export default function OmraHajjPage() {
   const omraQuoteHref = quoteUrl({ service: "Omra" });
 
   return (
-    <SiteLayout>
+    <OmraFactoryLayout>
 
       {/* ══════════════════════════════════════════
           1. CINEMATIC HERO — light luxury
@@ -681,6 +681,6 @@ export default function OmraHajjPage() {
       />
 
       <StickyMobileCTA label="Demander un devis Omra" href={omraQuoteHref} />
-    </SiteLayout>
+    </OmraFactoryLayout>
   );
 }

@@ -17,8 +17,6 @@ export interface OfferFilterState {
   duration: string;
   availability: string;
   roomType: string;
-  formation: string;
-  ziyarat: string;
 }
 
 export const initialFilterState: OfferFilterState = {
@@ -33,8 +31,6 @@ export const initialFilterState: OfferFilterState = {
   duration: "Tous",
   availability: "Toutes",
   roomType: "Tous",
-  formation: "Tous",
-  ziyarat: "Tous",
 };
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -43,26 +39,18 @@ export const initialFilterState: OfferFilterState = {
 
 const typeOptions = [
   "Tous",
-  "Omra",
-  "Hajj",
-  "Omra Plus",
-  "Ramadan",
   "Billet avion",
   "Billet bateau",
   "Voyage organisé",
   "Séjour sur mesure",
   "Pack personnalisé",
   "Visa",
-  "Formation",
   "Assurance",
   "Hôtel & Transferts",
 ];
 
 const destinationOptions = [
   "Toutes",
-  "Makkah",
-  "Madinah",
-  "Jeddah",
   "Istanbul",
   "Dubaï",
   "Tunis",

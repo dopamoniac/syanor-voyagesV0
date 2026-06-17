@@ -34,10 +34,13 @@ export function ServicesPreview() {
   );
 }
 
+const OMRA_CATEGORIES = ["Omra", "Hajj", "Omra Plus", "Ramadan", "Formation", "Ziyarat"];
+
 /* ───────────────────────── Offers preview ───────────────────────── */
 export function OffersPreview() {
-  const featured = offers.filter((o) => o.featured).slice(0, 3);
-  const list = featured.length > 0 ? featured : offers.slice(0, 3);
+  const travelOffers = offers.filter((o) => !OMRA_CATEGORIES.includes(o.category));
+  const featured = travelOffers.filter((o) => o.featured).slice(0, 3);
+  const list = featured.length > 0 ? featured : travelOffers.slice(0, 3);
   return (
     <section id="offres" className="section-pad bg-syanor-champagne/40">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
