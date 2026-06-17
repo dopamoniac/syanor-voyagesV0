@@ -420,8 +420,6 @@ export default function PageHero({
         />
       </div>
 
-      {/* ── Gold hairline top ── */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(201,162,74,0.50), transparent)" }} aria-hidden="true" />
 
       {/* ── Main content ── */}
       <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-6 pt-[88px] pb-12 md:px-8 lg:pt-[96px] lg:pb-16">

@@ -76,8 +76,8 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
       <div
         aria-hidden="true"
         onClick={onClose}
-        className={`fixed inset-0 z-[59] bg-black/55 backdrop-blur-[3px] transition-opacity duration-500 lg:hidden ${
-          open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        className={`fixed inset-0 z-[48] bg-black/55 transition-opacity duration-500 lg:hidden ${
+          open ? "pointer-events-auto opacity-100 backdrop-blur-[3px]" : "pointer-events-none opacity-0"
         }`}
       />
 
