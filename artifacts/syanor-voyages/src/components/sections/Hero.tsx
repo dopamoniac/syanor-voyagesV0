@@ -16,9 +16,8 @@ export default function Hero() {
       className="relative flex flex-col justify-start overflow-hidden bg-syanor-ivory"
       style={{ minHeight: "max(92vh, 780px)" }}
     >
-      {/* ── HERO BACKGROUND — mobile: static image, desktop: looping video ── */}
-      {/* Mobile image (lg+ hidden — never loads the video on small screens) */}
-      <picture className="absolute inset-0 h-full w-full lg:hidden" aria-hidden="true">
+      {/* ── HERO BACKGROUND — static image ── */}
+      <picture className="absolute inset-0 h-full w-full" aria-hidden="true">
         <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
         <img
           src="/hero-bg.jpg"
@@ -29,20 +28,6 @@ export default function Hero() {
           decoding="async"
         />
       </picture>
-      {/* Desktop video — autoplay, muted, loop; falls back to poster if unsupported */}
-      <video
-        className="absolute inset-0 hidden h-full w-full object-cover lg:block"
-        style={{ objectPosition: "65% center" }}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/hero-bg.jpg"
-        aria-hidden="true"
-      >
-        <source src="/videos/syanor-hero-loop.mp4" type="video/mp4" />
-      </video>
       {/* ── SMOKE A (mobile only) ── */}
       <div
         className="pointer-events-none absolute z-10 lg:hidden"
