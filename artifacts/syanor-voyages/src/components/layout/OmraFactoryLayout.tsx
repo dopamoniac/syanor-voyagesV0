@@ -1,6 +1,5 @@
 import { type ReactNode, useState, useEffect, useRef } from "react";
 import Link from "@/components/Link";
-import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 const PROGRAMMES = [
@@ -171,8 +170,8 @@ function OmraHeader() {
 
           {/* Standalone links */}
           {[
-            { label: "Blog",    href: "/omra-hajj/blog" },
-            { label: "Contact", href: "/contact"        },
+            { label: "Blog",    href: "/omra-hajj/blog"    },
+            { label: "Contact", href: "/omra-hajj/contact" },
           ].map((l) => (
             <Link
               key={l.href}
@@ -186,7 +185,7 @@ function OmraHeader() {
 
           {/* Devis CTA */}
           <Link
-            href="/contact?service=Omra"
+            href="/omra-hajj/contact?service=Omra"
             className="ml-2 rounded-full px-4 py-1.5 text-[0.78rem] font-semibold transition-all hover:opacity-90 active:scale-[0.97]"
             style={{ background: "linear-gradient(135deg, #C9A24A, #e8c87a, #C9A24A)", color: "#022B24" }}
           >
@@ -265,8 +264,8 @@ function OmraHeader() {
           {/* Other links */}
           <nav className="space-y-0.5 px-4 py-4">
             {[
-              { label: "Blog Omra", href: "/omra-hajj/blog" },
-              { label: "Contact",   href: "/contact"        },
+              { label: "Blog Omra", href: "/omra-hajj/blog"    },
+              { label: "Contact",   href: "/omra-hajj/contact" },
             ].map((l) => (
               <Link
                 key={l.href}
@@ -283,7 +282,7 @@ function OmraHeader() {
           {/* Mobile CTA */}
           <div className="border-t px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
             <Link
-              href="/contact?service=Omra"
+              href="/omra-hajj/contact?service=Omra"
               onClick={() => setMenuOpen(false)}
               className="block w-full rounded-full py-3 text-center text-sm font-semibold transition-all hover:opacity-90"
               style={{ background: "linear-gradient(135deg, #C9A24A, #e8c87a, #C9A24A)", color: "#022B24" }}
@@ -297,12 +296,64 @@ function OmraHeader() {
   );
 }
 
+function OmraFooter() {
+  return (
+    <footer style={{ background: "#011A15", borderTop: "1px solid rgba(201,162,74,0.14)" }}>
+      <div className="mx-auto max-w-7xl px-6 py-10 md:px-8">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl" style={{ background: "#F5EFE0", padding: "2px" }}>
+              <img src="/omra-factory-logo.png" alt="Omra Factory" className="h-full w-full object-contain" />
+            </div>
+            <div className="leading-none">
+              <p className="font-playfair text-sm font-bold" style={{ color: "#FFF9ED" }}>Omra Factory</p>
+              <p className="mt-0.5 text-[0.48rem] font-semibold uppercase tracking-[0.16em]" style={{ color: "rgba(201,162,74,0.50)" }}>by SYANOR VOYAGES</p>
+            </div>
+          </div>
+
+          {/* Links */}
+          <nav className="flex flex-wrap gap-x-5 gap-y-2">
+            {[
+              { label: "Programmes",    href: "/omra-hajj" },
+              { label: "Départs 2026",  href: "/omra-2026" },
+              { label: "Départs 2027",  href: "/omra-2027" },
+              { label: "Hajj 2027",     href: "/omra-hajj/hajj" },
+              { label: "Blog Omra",     href: "/omra-hajj/blog" },
+              { label: "Contact",       href: "/omra-hajj/contact" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="text-xs transition-colors hover:text-syanor-gold" style={{ color: "rgba(255,249,237,0.45)" }}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Back to SYANOR */}
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 self-start rounded-full px-4 py-2 text-xs font-semibold transition-all hover:bg-white/5 md:self-auto"
+            style={{ border: "1px solid rgba(201,162,74,0.22)", color: "rgba(201,162,74,0.60)" }}
+          >
+            <ArrowLeft className="h-2.5 w-2.5" />
+            SYANOR VOYAGES
+          </Link>
+        </div>
+
+        <div className="mt-8 border-t pt-5 text-center text-[0.62rem]" style={{ borderColor: "rgba(201,162,74,0.08)", color: "rgba(255,249,237,0.22)" }}>
+          © {new Date().getFullYear()} SYANOR VOYAGES — Omra Factory. Tous droits réservés.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function OmraFactoryLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <OmraHeader />
       <main className="page-enter">{children}</main>
-      <Footer />
+      <OmraFooter />
       <WhatsAppButton />
     </>
   );

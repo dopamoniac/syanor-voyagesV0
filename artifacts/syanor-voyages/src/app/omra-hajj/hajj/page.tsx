@@ -1,7 +1,7 @@
 type Metadata = Record<string, unknown>;
 import DeepServicePage, { type DeepServiceConfig } from "@/components/sections/DeepServicePage";
 import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 import { getOffersByCategory } from "@/data/offers";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/omra-hajj/hajj" },
 };
 
-const quoteHref = quoteUrl({ service: "Hajj" });
+const quoteHref = omraQuoteUrl({ service: "Hajj" });
 
 const config: DeepServiceConfig = {
   eyebrow: "Hajj",

@@ -1,6 +1,6 @@
 type Metadata = Record<string, unknown>;
 import { useEffect } from "react";
-import SiteLayout from "@/components/layout/SiteLayout";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
@@ -8,7 +8,7 @@ import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
 import { getMonthBySlug } from "@/data/months";
 import { getOffersByMonth } from "@/data/offers";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
 interface Props {
   month: string;
@@ -40,17 +40,17 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
 
   if (!month) {
     return (
-      <SiteLayout>
+      <OmraFactoryLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-syanor-ivory px-6 text-center">
           <h1 className="font-playfair text-3xl text-syanor-ink">Mois introuvable</h1>
           <Link href="/omra-2027" className="btn-primary">Retour Omra 2027</Link>
         </div>
-      </SiteLayout>
+      </OmraFactoryLayout>
     );
   }
 
   return (
-    <SiteLayout>
+    <OmraFactoryLayout>
       <PageHero
         image="/services/religieux/omra-plus.png"
         eyebrow={`Omra ${month.year}`}
@@ -63,7 +63,7 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
         ]}
         primaryCta={{
           label: `Demander ce départ`,
-          href: quoteUrl({ service: "Omra", month: month.slug, city: "Nice / Marseille" }),
+          href: omraQuoteUrl({ service: "Omra", month: month.slug, city: "Nice / Marseille" }),
         }}
         secondaryCta={{ label: "Tous les mois 2027", href: "/omra-2027" }}
       />
@@ -139,7 +139,7 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
                   </div>
 
                   <Link
-                    href={quoteUrl({
+                    href={omraQuoteUrl({
                       service: "Omra",
                       offer: offer.title,
                       city: "Nice / Marseille",
@@ -158,7 +158,7 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
             <div className="mt-12 rounded-2xl border border-syanor-gold/20 bg-syanor-pearl p-10 text-center">
               <p className="font-playfair text-xl text-syanor-ink">Départs en cours de confirmation</p>
               <p className="mt-3 text-syanor-ink/70">Inscrivez-vous pour être informé en priorité.</p>
-              <Link href={quoteUrl({ service: "Omra", month: month.slug })} className="btn-primary mt-6 inline-flex">
+              <Link href={omraQuoteUrl({ service: "Omra", month: month.slug })} className="btn-primary mt-6 inline-flex">
                 Être informé en priorité
               </Link>
             </div>
@@ -192,11 +192,11 @@ export default function OmraMonthPage2027({ month: monthParam }: Props) {
         title={`Réservez votre Omra ${month.labelFull} dès aujourd'hui.`}
         body="Places limitées — contactez-nous pour une proposition personnalisée selon votre confort et votre budget."
         ctaLabel={`Demander l'Omra ${month.label} 2027`}
-        ctaHref={quoteUrl({ service: "Omra", month: month.slug, city: "Nice / Marseille" })}
+        ctaHref={omraQuoteUrl({ service: "Omra", month: month.slug, city: "Nice / Marseille" })}
         secondary={{ label: "Voir tous les mois 2027", href: "/omra-2027" }}
       />
 
-      <StickyMobileCTA label={`Omra ${month.label} 2027`} href={quoteUrl({ service: "Omra", month: month.slug })} />
-    </SiteLayout>
+      <StickyMobileCTA label={`Omra ${month.label} 2027`} href={omraQuoteUrl({ service: "Omra", month: month.slug })} />
+    </OmraFactoryLayout>
   );
 }

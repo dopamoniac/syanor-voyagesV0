@@ -9,7 +9,7 @@ import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import PremiumDepartureCard from "@/components/ui/PremiumDepartureCard";
 import { offers } from "@/data/offers";
 import { omraMonths } from "@/data/months";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 import { omraBlogArticles } from "@/data/omraFactoryBlog";
 
 export const metadata: Metadata = {
@@ -57,7 +57,7 @@ const PROGRAMS = [
     href:     "/omra-hajj/omra-plus",
     image:    "/services/religieux/omra-plus.png",
     cta:      "Découvrir Omra Plus",
-    ctaUrl:   quoteUrl({ service: "Omra Plus" }),
+    ctaUrl:   omraQuoteUrl({ service: "Omra Plus" }),
     status:   "Sur demande",
     icon:     "sparkle",
   },
@@ -69,7 +69,7 @@ const PROGRAMS = [
     href:     "/omra-hajj/ramadan",
     image:    "/services/religieux/omra-ramadan.png",
     cta:      "Voir Ramadan",
-    ctaUrl:   quoteUrl({ service: "Ramadan" }),
+    ctaUrl:   omraQuoteUrl({ service: "Ramadan" }),
     status:   "Sur demande",
     icon:     "star",
   },
@@ -78,10 +78,10 @@ const PROGRAMS = [
     tag:      "Préinscription ouverte",
     tagColor: "text-amber-700 bg-amber-50 border-amber-200",
     desc:     "Le grand pèlerinage annuel. Places limitées, quotas officiels. Organisation complète, assistance administrative et accompagnement spirituel.",
-    href:     "/hajj-2027",
+    href:     "/omra-hajj/hajj",
     image:    "/services/religieux/hajj.png",
     cta:      "Préinscription Hajj",
-    ctaUrl:   quoteUrl({ service: "Hajj" }),
+    ctaUrl:   omraQuoteUrl({ service: "Hajj" }),
     status:   "Préinscription",
     icon:     "crescent",
   },
@@ -167,7 +167,7 @@ function MonthChip({ m }: { m: (typeof omraMonths)[0] }) {
 
 /* ─── Page ──────────────────────────────────────────── */
 export default function OmraHajjPage() {
-  const omraQuoteHref = quoteUrl({ service: "Omra" });
+  const omraQuoteHref = omraQuoteUrl({ service: "Omra" });
 
   return (
     <OmraFactoryLayout>
@@ -260,10 +260,10 @@ export default function OmraHajjPage() {
             {/* ── Category cards ── */}
             <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {([
-                { label: "Omra",      sub: "2026 & 2027",    href: "/omra-2026",  icon: "crescent"  },
-                { label: "Omra Plus", sub: "Confort premium", href: "/omra-2027",  icon: "star"      },
-                { label: "Hajj",      sub: "Hajj 2027",       href: "/hajj-2027",  icon: "compass"   },
-                { label: "Ramadan",   sub: "Séjours dédiés",  href: "/omra-2026",  icon: "sparkle"   },
+                { label: "Omra",      sub: "2026 & 2027",    href: "/omra-2026",        icon: "crescent"  },
+                { label: "Omra Plus", sub: "Confort premium", href: "/omra-hajj/omra-plus", icon: "star"  },
+                { label: "Hajj",      sub: "Hajj 2027",       href: "/hajj-2027",        icon: "compass"   },
+                { label: "Ramadan",   sub: "Séjours dédiés",  href: "/omra-hajj/ramadan", icon: "sparkle"  },
               ] as const).map((cat) => (
                 <Link
                   key={cat.label}
@@ -359,7 +359,7 @@ export default function OmraHajjPage() {
                     <Icon name="arrow-right" className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                   <Link
-                    href={quoteUrl({ service: "Omra" })}
+                    href={omraQuoteUrl({ service: "Omra" })}
                     className="text-sm font-medium text-syanor-gold/60 transition-colors hover:text-syanor-gold"
                   >
                     Demander un devis →
@@ -415,7 +415,7 @@ export default function OmraHajjPage() {
                     <Icon name="arrow-right" className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
                   <Link
-                    href={quoteUrl({ service: "Omra" })}
+                    href={omraQuoteUrl({ service: "Omra" })}
                     className="text-sm font-medium text-syanor-gold hover:underline"
                   >
                     Demander un devis →

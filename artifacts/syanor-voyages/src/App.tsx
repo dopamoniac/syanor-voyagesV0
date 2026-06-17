@@ -33,6 +33,7 @@ import BlogPage from "@/app/blog/page";
 import BlogArticlePage from "@/app/blog/[slug]/page";
 import OmraBlogPage from "@/app/omra-hajj/blog/page";
 import OmraBlogArticlePage from "@/app/omra-hajj/blog/[slug]/page";
+import OmraContactPage from "@/app/omra-hajj/contact/page";
 import Hajj2027Page from "@/app/hajj-2027/page";
 import ZiyaratPage from "@/app/ziyarat/page";
 
@@ -79,6 +80,9 @@ function Router() {
       <Route path="/omra-hajj/omra" component={OmraPage} />
       <Route path="/omra-hajj/omra-plus" component={OmraPlusPage} />
       <Route path="/omra-hajj/ramadan" component={RamadanPage} />
+
+      {/* ── Omra Factory Contact ── */}
+      <Route path="/omra-hajj/contact" component={OmraContactPage} />
 
       {/* ── Omra Factory Blog ── */}
       <Route path="/omra-hajj/blog" component={OmraBlogPage} />

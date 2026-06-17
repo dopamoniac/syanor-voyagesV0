@@ -1,11 +1,11 @@
 type Metadata = Record<string, unknown>;
-import SiteLayout from "@/components/layout/SiteLayout";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Hajj 2027 — Pré-inscription & Programme | SYANOR VOYAGES",
@@ -37,14 +37,14 @@ const included = [
 
 export default function Hajj2027Page() {
   return (
-    <SiteLayout>
+    <OmraFactoryLayout>
       <PageHero
         image="/services/religieux/hajj.png"
         eyebrow="Hajj 2027"
         title="Hajj 2027 — Accomplissez le cinquième pilier"
         subtitle="SYANOR VOYAGES prépare un programme Hajj 2027 complet : organisation, préparation des rites, hébergement et accompagnement à chaque étape. Les pré-inscriptions sont ouvertes."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Hajj 2027" }]}
-        primaryCta={{ label: "Pré-inscription Hajj 2027", href: quoteUrl({ service: "Hajj" }) }}
+        primaryCta={{ label: "Pré-inscription Hajj 2027", href: omraQuoteUrl({ service: "Hajj" }) }}
         secondaryCta={{ label: "FAQ Hajj", href: "/faq#hajj" }}
       />
 
@@ -172,11 +172,11 @@ export default function Hajj2027Page() {
         title="Pré-inscrivez-vous pour le Hajj 2027."
         body="Les places sont limitées et attribuées bien en avance. Soumettez votre demande dès maintenant pour être prioritaire."
         ctaLabel="Pré-inscription Hajj 2027"
-        ctaHref={quoteUrl({ service: "Hajj" })}
+        ctaHref={omraQuoteUrl({ service: "Hajj" })}
         secondary={{ label: "Voir la Omra 2026-2027", href: "/omra-2026" }}
       />
 
-      <StickyMobileCTA label="Pré-inscription Hajj 2027" href={quoteUrl({ service: "Hajj" })} />
-    </SiteLayout>
+      <StickyMobileCTA label="Pré-inscription Hajj 2027" href={omraQuoteUrl({ service: "Hajj" })} />
+    </OmraFactoryLayout>
   );
 }

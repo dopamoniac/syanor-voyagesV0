@@ -2,7 +2,7 @@ type Metadata = Record<string, unknown>;
 import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import Link from "@/components/Link";
 import { omraBlogArticles } from "@/data/omraFactoryBlog";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Blog Omra & Hajj — Guides et Conseils | Omra Factory",
@@ -164,7 +164,7 @@ export default function OmraBlogPage() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link
-              href={quoteUrl({ service: "Omra" })}
+              href={omraQuoteUrl({ service: "Omra" })}
               className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:shadow-[0_8px_24px_rgba(201,162,74,0.35)] active:scale-[0.97]"
               style={{ background: "linear-gradient(135deg, #C9A24A 0%, #e8c87a 50%, #C9A24A 100%)", color: "#022B24" }}
             >

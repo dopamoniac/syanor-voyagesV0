@@ -1,5 +1,5 @@
 type Metadata = Record<string, unknown>;
-import SiteLayout from "@/components/layout/SiteLayout";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
@@ -8,7 +8,7 @@ import Link from "@/components/Link";
 import Icon from "@/components/ui/Icon";
 import { getMonthsByYear } from "@/data/months";
 import { getUpcomingOffers } from "@/data/offers";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Omra 2027 — Départs depuis Nice et Marseille | SYANOR VOYAGES",
@@ -22,14 +22,14 @@ const departures2027 = getUpcomingOffers().filter((o) => o.year === "2027");
 
 export default function Omra2027Page() {
   return (
-    <SiteLayout>
+    <OmraFactoryLayout>
       <PageHero
         image="/services/religieux/omra-plus.png"
         eyebrow="Programme Omra 2027"
         title="Omra 2027 — Départs depuis Nice & Marseille"
         subtitle="Quatre mois de départs au programme : janvier, février, mars et avril 2027, dont un séjour exceptionnel de 34 jours. Accompagnement spirituel complet, hôtels et Ziyarat."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Omra 2027" }]}
-        primaryCta={{ label: "Demander un devis Omra 2027", href: quoteUrl({ service: "Omra", month: "2027" }) }}
+        primaryCta={{ label: "Demander un devis Omra 2027", href: omraQuoteUrl({ service: "Omra", month: "2027" }) }}
         secondaryCta={{ label: "Voir Omra 2026", href: "/omra-2026" }}
       />
 
@@ -163,7 +163,7 @@ export default function Omra2027Page() {
                       </td>
                       <td className="py-3">
                         <Link
-                          href={quoteUrl({
+                          href={omraQuoteUrl({
                             service: "Omra",
                             offer: o.title,
                             month: o.monthSlug,
@@ -189,11 +189,11 @@ export default function Omra2027Page() {
         title="Votre Omra 2027 vous attend."
         body="Indiquez votre mois de départ souhaité et votre ville. Nous vous revenons rapidement avec une proposition adaptée."
         ctaLabel="Demander mon Omra 2027"
-        ctaHref={quoteUrl({ service: "Omra", month: "2027" })}
+        ctaHref={omraQuoteUrl({ service: "Omra", month: "2027" })}
         secondary={{ label: "Séjour 34 jours", href: "/omra-2027/mars" }}
       />
 
-      <StickyMobileCTA label="Demander mon Omra 2027" href={quoteUrl({ service: "Omra", month: "2027" })} />
-    </SiteLayout>
+      <StickyMobileCTA label="Demander mon Omra 2027" href={omraQuoteUrl({ service: "Omra", month: "2027" })} />
+    </OmraFactoryLayout>
   );
 }

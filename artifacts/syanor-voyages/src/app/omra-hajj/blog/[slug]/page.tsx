@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import Link from "@/components/Link";
 import { getOmraArticleBySlug, omraBlogArticles, type OmraBlogSection } from "@/data/omraFactoryBlog";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
 interface Props {
   slug: string;
@@ -157,7 +157,7 @@ export default function OmraBlogArticlePage({ slug }: Props) {
                   Départs depuis Nice, Marseille, Lyon et Paris. Formules classique, premium et VIP.
                 </p>
                 <Link
-                  href={quoteUrl({ service: "Omra" })}
+                  href={omraQuoteUrl({ service: "Omra" })}
                   className="mt-5 block rounded-full py-2.5 text-center text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.97]"
                   style={{ background: "linear-gradient(135deg, #C9A24A, #e8c87a, #C9A24A)", color: "#022B24" }}
                 >
