@@ -1,6 +1,6 @@
 type Metadata = Record<string, unknown>;
 import { useEffect } from "react";
-import SiteLayout from "@/components/layout/SiteLayout";
+import OmraFactoryLayout from "@/components/layout/OmraFactoryLayout";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTASection from "@/components/ui/CTASection";
@@ -8,7 +8,7 @@ import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
 import Link from "@/components/Link";
 import { getCityBySlug } from "@/data/cities";
 import { getOffersByCity } from "@/data/offers";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 import Icon from "@/components/ui/Icon";
 
 interface Props {
@@ -41,12 +41,12 @@ export default function DepartCityPage({ city: cityParam }: Props) {
 
   if (!city) {
     return (
-      <SiteLayout>
+      <OmraFactoryLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-syanor-ivory px-6 text-center">
           <h1 className="font-playfair text-3xl text-syanor-ink">Ville introuvable</h1>
           <Link href="/offres" className="btn-primary">Voir les offres</Link>
         </div>
-      </SiteLayout>
+      </OmraFactoryLayout>
     );
   }
 
@@ -54,7 +54,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
   const year2027 = departures.filter((o) => o.year === "2027");
 
   return (
-    <SiteLayout>
+    <OmraFactoryLayout>
       <PageHero
         visual="routes"
         eyebrow={`Départ ${city.name}`}
@@ -67,7 +67,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
         ]}
         primaryCta={{
           label: `Demander depuis ${city.name}`,
-          href: quoteUrl({ service: "Omra", city: city.name }),
+          href: omraQuoteUrl({ service: "Omra", city: city.name }),
         }}
         secondaryCta={{ label: "Voir toutes les offres", href: "/offres" }}
       />
@@ -180,7 +180,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
                       </td>
                       <td className="py-3">
                         <Link
-                          href={quoteUrl({
+                          href={omraQuoteUrl({
                             service: "Omra",
                             offer: o.title,
                             city: city.name,
@@ -235,7 +235,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
                       </td>
                       <td className="py-3">
                         <Link
-                          href={quoteUrl({
+                          href={omraQuoteUrl({
                             service: "Omra",
                             offer: o.title,
                             city: city.name,
@@ -298,11 +298,11 @@ export default function DepartCityPage({ city: cityParam }: Props) {
         title={`Votre Omra depuis ${city.name} — demandez votre proposition.`}
         body={`Indiquez vos dates souhaitées et votre confort. Nous construisons votre programme depuis ${city.name}.`}
         ctaLabel={`Demander depuis ${city.name}`}
-        ctaHref={quoteUrl({ service: "Omra", city: city.name })}
+        ctaHref={omraQuoteUrl({ service: "Omra", city: city.name })}
         secondary={{ label: "Voir tous les départs", href: "/offres" }}
       />
 
-      <StickyMobileCTA label={`Omra depuis ${city.name}`} href={quoteUrl({ service: "Omra", city: city.name })} />
-    </SiteLayout>
+      <StickyMobileCTA label={`Omra depuis ${city.name}`} href={omraQuoteUrl({ service: "Omra", city: city.name })} />
+    </OmraFactoryLayout>
   );
 }
