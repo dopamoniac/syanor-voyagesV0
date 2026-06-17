@@ -1,0 +1,94 @@
+VERY IMPORTANT CONTENT SEPARATION RULE:
+
+There must be absolutely no Omra / Hajj / Ramadan / Ziyarat / Formation spirituelle content inside the main SYANOR VOYAGES website.
+
+The main SYANOR VOYAGES website must stay focused only on general travel agency services:
+- billets avion
+- billets bateau / ferry
+- séjours
+- voyages organisés
+- voyages sur mesure
+- packs premium / VIP
+- hôtels
+- transferts
+- visas
+- assistance voyage
+- destinations like Londres, Istanbul, Bali, Dubaï, Marrakech, Rome, etc.
+
+All Omra/Hajj-related work must live ONLY inside the Omra Factory mini-site.
+
+Omra Factory must contain:
+- Omra
+- Hajj
+- Ramadan
+- Omra Plus
+- Ziyarat
+- Formation avant départ
+- Préparation des rites
+- Accompagnement spirituel
+- Départs Omra
+- Départs par ville
+- Départs par mois
+- Formules Omra
+- Hajj pre-registration
+- Omra Factory quote/pre-registration system
+
+REMOVE from the main SYANOR website:
+- Omra cards
+- Hajj cards
+- Ramadan cards
+- Ziyarat cards
+- Formation avant départ cards
+- Omra departure cards
+- Hajj departure/pre-registration cards
+- spiritual travel sections
+- Omra/Hajj FAQ
+- Omra/Hajj offer filters
+- Omra/Hajj departure filters
+- Omra/Hajj service cards
+- Omra/Hajj content blocks
+- Omra/Hajj badges inside general offer grids
+
+The ONLY allowed Omra Factory references on the main SYANOR website are:
+1. A special navbar gateway link:
+   “Omra Factory”
+
+2. A special homepage hero secondary CTA:
+   “Univers Omra & Hajj”
+   or
+   “Entrer dans Omra Factory”
+
+3. Optional one small premium gateway card:
+   “Découvrez Omra Factory”
+   linking to /omra-factory
+
+Nothing else.
+
+No detailed Omra content should appear on:
+- SYANOR homepage sections
+- /offres
+- /departs
+- /services
+- /blog previews if they are on the main homepage
+- general service pages
+- general offer cards
+- general reservation cards
+
+If the user wants Omra/Hajj, they must enter Omra Factory.
+
+Omra Factory routes should be the only place for spiritual travel:
+- /omra-factory
+- /omra-factory/omra-2026
+- /omra-factory/omra-2027
+- /omra-factory/hajj-2027
+- /omra-factory/ramadan
+- /omra-factory/ziyarat
+- /omra-factory/formation
+- /omra-factory/departs
+- /omra-factory/offres
+- /omra-factory/contact
+
+Final rule:
+Main SYANOR VOYAGES = general travel agency only.
+Omra Factory = all Omra, Hajj, Ramadan, Ziyarat, formation and spiritual accompaniment only.
+Do not mix the two universes.

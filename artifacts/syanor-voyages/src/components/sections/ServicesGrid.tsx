@@ -61,50 +61,6 @@ const GROUPS: ServiceGroup[] = [
     ],
   },
   {
-    category: "Voyages Religieux",
-    groupIcon: "crescent",
-    layout: "portrait-grid",
-    theme: "warm",
-    services: [
-      {
-        icon: "crescent",
-        title: "Omra",
-        badge: "Petit pèlerinage",
-        desc: "Toute l'année, rites et accompagnement complet.",
-        href: "/omra-hajj",
-        image: "/services/religieux/omra.png",
-        alt: "Voyage Omra avec accompagnement SYANOR",
-      },
-      {
-        icon: "crescent",
-        title: "Omra Plus",
-        badge: "21–34 nuits",
-        desc: "Séjour prolongé, programme spirituel approfondi.",
-        href: "/omra-hajj",
-        image: "/services/religieux/omra-plus.png",
-        alt: "Omra Plus premium avec séjour prolongé",
-      },
-      {
-        icon: "crescent",
-        title: "Hajj",
-        badge: "Grand pèlerinage",
-        desc: "Grand pèlerinage annuel, accompagnement structuré.",
-        href: "/omra-hajj",
-        image: "/services/religieux/hajj.png",
-        alt: "Voyage Hajj avec accompagnement structuré",
-      },
-      {
-        icon: "sparkle",
-        title: "Omra Ramadan",
-        badge: "Mois sacré",
-        desc: "Expérience spirituelle unique du mois sacré.",
-        href: "/omra-hajj",
-        image: "/services/religieux/omra-ramadan.png",
-        alt: "Omra Ramadan en atmosphère spirituelle",
-      },
-    ],
-  },
-  {
     category: "Séjours & Voyages",
     groupIcon: "compass",
     layout: "portrait-grid",
@@ -200,13 +156,13 @@ const GROUPS: ServiceGroup[] = [
         alt: "Passeport et dossier visa SYANOR",
       },
       {
-        icon: "book-open",
-        title: "Formation Omra",
-        badge: "Formation",
-        desc: "Préparation spirituelle pré-départ, rites et pratiques",
-        href: "/omra-hajj#formation",
-        image: "/services/formation-omra.png",
-        alt: "Préparation spirituelle pour le pèlerinage Omra",
+        icon: "building",
+        title: "Hôtels & Transferts",
+        badge: "Sur mesure",
+        desc: "Hôtels 4–5★ sélectionnés, transferts privés, toutes destinations",
+        href: "/sejours-sur-mesure#hotels",
+        image: "/services/assistance-visa.png",
+        alt: "Hôtels et transferts premium SYANOR",
       },
       {
         icon: "shield",
@@ -457,7 +413,7 @@ export default function ServicesGrid() {
         <SectionHeader
           eyebrow="Nos services"
           title="Tout ce dont vous avez besoin pour voyager."
-          subtitle="Billets, séjours, voyages organisés, pèlerinages, packs VIP et assistance — un seul interlocuteur pour l'ensemble de votre projet voyage."
+          subtitle="Billets, séjours sur mesure, voyages organisés, packs VIP, hôtels, transferts et assistance — un seul interlocuteur pour l'ensemble de votre projet voyage."
         />
 
         <div className="mt-14 space-y-16">

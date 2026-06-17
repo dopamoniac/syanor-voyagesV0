@@ -5,7 +5,7 @@ const trustPills = [
   "Billets avion & bateau",
   "Séjours sur mesure",
   "Voyages organisés",
-  "Omra & Hajj",
+  "Packs Premium / VIP",
   "Assistance visa",
 ];
 
@@ -131,8 +131,8 @@ export default function Hero() {
             {/* Sub */}
             <p className="mt-6 max-w-[520px] font-inter text-base leading-relaxed text-syanor-ink/68">
               SYANOR VOYAGES vous accompagne pour vos billets d&apos;avion et de bateau,
-              vos séjours sur mesure, vos voyages organisés, vos visas — et votre
-              pèlerinage Omra &amp; Hajj.
+              vos séjours sur mesure, vos voyages organisés, vos packs VIP et toutes
+              vos démarches visa &amp; assistance.
             </p>
 
             {/* ── SPLIT CTAs ── */}

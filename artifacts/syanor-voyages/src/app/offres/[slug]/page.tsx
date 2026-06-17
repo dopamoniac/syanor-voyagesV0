@@ -206,7 +206,11 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
               href={isComplete ? "/offres" : ctaHref}
               className={cn("btn-primary", isComplete && "pointer-events-none opacity-60")}
             >
-              {isComplete ? "Complet" : "Réserver ce départ"}
+              {isComplete
+                ? "Complet"
+                : (offer.category === "Omra" || offer.category === "Omra Plus" || offer.category === "Hajj" || offer.category === "Ramadan" || offer.category === "Formation")
+                  ? "Faire une préinscription"
+                  : "Demander cette offre"}
             </Link>
             <Link href="/offres" className="btn-secondary">
               Toutes les offres
@@ -352,7 +356,11 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
 
       {!isComplete && (
         <StickyMobileCTA
-          label="Réserver ce départ"
+          label={
+            (offer.category === "Omra" || offer.category === "Omra Plus" || offer.category === "Hajj" || offer.category === "Ramadan" || offer.category === "Formation")
+              ? "Faire une préinscription"
+              : "Demander cette offre"
+          }
           href={ctaHref}
           priceLabel={offer.priceFrom}
         />

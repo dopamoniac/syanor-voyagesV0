@@ -3,3 +3,4 @@
 - [Emoji → SVG Icon rule](emoji-icon-migration.md) — data fields use icon name strings; rendering uses `<Icon name={x} />`. breadcrumb.tsx (lowercase shadcn) conflicts with Breadcrumb.tsx — keep only uppercase.
 - [backdrop-filter stacking context](backdrop-filter-stacking.md) — backdrop-blur on a container traps child z-index; dropdowns appear behind sibling cards.
 - [Icon availability](icon-availability.md) — "car" and "heart" do NOT exist in Icon.tsx; use "bus" and "star" respectively. Always grep Icon.tsx before using new icon names in data files or ServicesGrid.
+- [Omra-SYANOR separation](omra-syanor-separation.md) — Content separation complete: main site is general travel only; all Omra/Hajj/Ramadan/Formation lives inside Omra Factory at /omra-hajj.

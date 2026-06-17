@@ -3,7 +3,6 @@ import { useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import Icon from "@/components/ui/Icon";
 import { departureCities } from "@/data/cities";
-import { omraMonths } from "@/data/months";
 import { offers } from "@/data/offers";
 
 type ServiceKey =
@@ -11,31 +10,32 @@ type ServiceKey =
   | "Billet bateau"
   | "Voyage organisé"
   | "Séjour sur mesure"
-  | "Omra";
+  | "Pack personnalisé";
 
 const SERVICE_TABS: { key: ServiceKey; icon: string; label: string; shortLabel: string }[] = [
   { key: "Billet avion",      icon: "airplane", label: "Billet Avion",      shortLabel: "Avion"   },
   { key: "Billet bateau",     icon: "anchor",   label: "Billet Bateau",     shortLabel: "Bateau"  },
   { key: "Voyage organisé",   icon: "route",    label: "Voyage Organisé",   shortLabel: "Voyages" },
   { key: "Séjour sur mesure", icon: "sparkle",  label: "Sur Mesure",        shortLabel: "Mesure"  },
-  { key: "Omra",              icon: "crescent", label: "Omra & Hajj",       shortLabel: "Omra"    },
+  { key: "Pack personnalisé", icon: "diamond",  label: "Pack VIP",          shortLabel: "VIP"     },
 ];
 
 const COMFORT_OPTIONS = ["Standard", "Premium", "VIP"] as const;
 const BUDGET_OPTIONS  = ["< 1 000 €", "1 000–1 500 €", "1 500–2 500 €", "2 500–4 000 €", "> 4 000 €"] as const;
 
-function hasMatchingOffers(service: string, city: string, month: string): boolean {
+function hasMatchingOffers(service: string, city: string, destination: string): boolean {
   return offers.some((o) => {
     const matchService =
       !service ||
-      o.category === service ||
-      (service === "Omra" && (o.category === "Omra Plus" || o.category === "Ramadan" || o.category === "Hajj"));
+      o.category === service;
     const matchCity =
       !city ||
       (Array.isArray(o.cityTags) && o.cityTags.includes(city)) ||
       (o.departureCity ?? "").toLowerCase().includes(city.toLowerCase());
-    const matchMonth = !month || o.monthSlug === month;
-    return matchService && matchCity && matchMonth;
+    const matchDest =
+      !destination ||
+      (o.arrivalCity ?? "").toLowerCase().includes(destination.toLowerCase());
+    return matchService && matchCity && matchDest;
   });
 }
 
@@ -58,7 +58,6 @@ export default function SmartSearchPanel() {
   const [, setLocation] = useLocation();
   const [service, setService]           = useState<ServiceKey>("Billet avion");
   const [city, setCity]                 = useState("");
-  const [month, setMonth]               = useState("");
   const [destination, setDestination]   = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [travelers, setTravelers]       = useState(1);
@@ -70,21 +69,19 @@ export default function SmartSearchPanel() {
     const sp = new URLSearchParams();
     if (service)      sp.set("service", service);
     if (city)         sp.set("city", city);
-    if (month)        sp.set("month", month);
     if (destination)  sp.set("destination", destination);
     if (departureDate) sp.set("departureDate", departureDate);
     if (travelers > 1) sp.set("travelers", String(travelers));
     if (comfort)      sp.set("comfort", comfort);
     if (budget)       sp.set("budget", budget);
 
-    if (hasMatchingOffers(service, city, month)) {
+    if (hasMatchingOffers(service, city, destination)) {
       setLocation(`/offres?${sp.toString()}`);
     } else {
       setLocation(`/contact?${sp.toString()}#quote`);
     }
   }
 
-  const isOmra   = service === "Omra";
   const isBillet = service === "Billet avion" || service === "Billet bateau";
 
   return (
@@ -164,38 +161,15 @@ export default function SmartSearchPanel() {
             </div>
           </PremiumField>
 
-          {/* Month (Omra) / destination (others) */}
-          <PremiumField label={isOmra ? "Mois de départ" : isBillet ? "Destination" : "Destination / période"}>
-            {isOmra ? (
-              <div className="relative">
-                <select
-                  value={month}
-                  onChange={(e) => setMonth(e.target.value)}
-                  className={cn(fieldClass, "cursor-pointer appearance-none pr-8")}
-                >
-                  <option value="">Tous les mois</option>
-                  {omraMonths.map((m) => (
-                    <option key={`${m.year}-${m.slug}`} value={m.slug}>
-                      {m.labelFull}
-                      {m.departureCount > 0 ? ` — ${m.departureCount} départ${m.departureCount > 1 ? "s" : ""}` : ""}
-                    </option>
-                  ))}
-                </select>
-                <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-syanor-ink/35" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </div>
-            ) : (
-              <input
-                type="text"
-                placeholder={isBillet ? "Ex. Tunis, Casablanca, Istanbul…" : "Ex. Turquie, Andalousie, Maroc…"}
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-                className={fieldClass}
-              />
-            )}
+          {/* Destination */}
+          <PremiumField label={isBillet ? "Destination" : "Destination / période"}>
+            <input
+              type="text"
+              placeholder={isBillet ? "Ex. Tunis, Casablanca, Istanbul…" : "Ex. Turquie, Andalousie, Dubaï…"}
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              className={fieldClass}
+            />
           </PremiumField>
 
           {/* Search CTA */}

@@ -1,0 +1,566 @@
+Final strategic and responsive upgrade for SYANOR VOYAGES.
+
+This is a full architecture, content, design and responsive-quality pass.
+
+MAIN GOAL:
+Make SYANOR VOYAGES feel like a complete premium travel agency with many professional global travel offers, while Omra Factory becomes a separate dedicated Omra & Hajj mini-site inside the same website.
+
+The result must be clean, premium, professional, high-level, optimized for desktop, laptop, tablet and mobile.
+
+BRAND STRUCTURE:
+
+1. SYANOR VOYAGES
+    Main premium travel agency.
+
+It must focus only on general travel services:
+
+* Billets avion
+* Billets bateau / ferry
+* Voyages organisés
+* Séjours sur mesure
+* City breaks
+* Week-ends premium
+* Séjours balnéaires
+* Circuits culturels
+* Packs Premium / VIP
+* Voyages de noces
+* Voyages famille
+* Voyages en groupe
+* Séjours business
+* Hôtels
+* Transferts
+* Visas
+* Assistance voyage
+* Travel concierge
+
+2. OMRA FACTORY
+    Dedicated Omra & Hajj mini-site inside SYANOR VOYAGES.
+
+It must contain only:
+
+* Omra
+* Hajj
+* Ramadan
+* Omra Plus
+* Ziyarat
+* Formation avant départ
+* Préparation des rites
+* Accompagnement spirituel
+* Départs Omra
+* Hajj pre-registration
+* Spiritual travel support
+
+Do not use SIYAJJ anywhere.
+
+IMPORTANT CONTENT RULE:
+On the main SYANOR VOYAGES site, there must be no detailed Omra/Hajj content.
+
+Main SYANOR pages should NOT show:
+
+* Omra departure cards
+* Hajj cards
+* Ramadan cards
+* Ziyarat cards
+* Formation before departure content
+* spiritual travel offer cards
+* Omra-specific sections
+* Hajj-specific sections
+
+All of that must appear only inside the Omra Factory space.
+
+The only Omra/Hajj presence allowed on the main SYANOR site:
+
+1. A special CTA button in the homepage hero:
+    “Univers Omra & Hajj”
+    or
+    “Entrer dans Omra Factory”
+2. A nav item:
+    “Omra Factory”
+3. Optional one small premium gateway card/section:
+    “Découvrez Omra Factory”
+    but without detailed Omra offers.
+
+That is all.
+
+MAIN SYANOR WEBSITE CONTENT UPGRADE:
+
+Add many professional general travel offers to make SYANOR VOYAGES feel complete and serious.
+
+Create realistic sample offers for destinations such as:
+
+* Londres
+* Istanbul / Turquie
+* Bali
+* Dubaï
+* Marrakech
+* Doha
+* Rome
+* Barcelone
+* Paris
+* Maldives
+* Égypte
+* Grèce
+* Thaïlande
+* Tunisie
+* Maroc
+* Espagne
+* Italie
+
+These offers must not look fake or empty.
+They should look like professional travel agency offers.
+
+GENERAL TRAVEL OFFER CARD REQUIREMENTS:
+
+Each offer card should include:
+
+* premium destination image
+* destination name
+* offer type
+* departure city if relevant
+* travel dates or date range
+* duration
+* included services
+* hotel level if relevant
+* transport type
+* status
+* price label, use “Sur demande” if no real price
+* CTA “Demander cette offre”
+* secondary CTA “Voir détails”
+
+Example offer data:
+
+Londres City Break:
+
+* Type: City break
+* Duration: 4 jours / 3 nuits
+* Dates: Dates flexibles
+* Includes: Vol, hôtel, transfert optionnel, assistance
+* Status: Sur demande
+
+Istanbul Premium:
+
+* Type: Séjour culturel
+* Duration: 5 jours / 4 nuits
+* Dates: Départs flexibles
+* Includes: Vol, hôtel 4–5*, transferts, excursions optionnelles
+* Status: Sur demande
+
+Bali Évasion:
+
+* Type: Séjour sur mesure
+* Duration: 10 jours / 8 nuits
+* Dates: Sur mesure
+* Includes: Vol, hôtel, transferts, programme personnalisé
+* Status: Sur demande
+
+Dubaï Premium:
+
+* Type: Pack Premium / VIP
+* Duration: 6 jours / 5 nuits
+* Dates: Départs flexibles
+* Includes: Vol, hôtel 5*, transferts privés, assistance
+* Status: Sur demande
+
+Marrakech Experience:
+
+* Type: Séjour culturel
+* Duration: 4 jours / 3 nuits
+* Dates: Week-ends disponibles
+* Includes: Vol, riad/hôtel, transfert, activités optionnelles
+* Status: Sur demande
+
+Rome Découverte:
+
+* Type: Voyage organisé
+* Duration: 4 jours / 3 nuits
+* Dates: Dates flexibles
+* Includes: Vol, hôtel, visites optionnelles, assistance
+* Status: Sur demande
+
+Create enough offers so the /offres page feels rich and professional, not empty.
+
+Suggested categories for main SYANOR offers:
+
+* Tous
+* City breaks
+* Séjours premium
+* Voyages organisés
+* Sur mesure
+* Packs VIP
+* Famille
+* Groupe
+* Business
+* Billets
+* Assistance & visas
+
+Do NOT include Omra/Hajj category in the main SYANOR offers page.
+Instead, add one special gateway card:
+“Offres Omra & Hajj”
+CTA:
+“Entrer dans Omra Factory”
+Link:
+/omra-factory
+
+PROFESSIONAL RESERVATION CARDS FOR GENERAL OFFERS:
+
+All general SYANOR offer cards must be premium, image-led, and connected to the reservation/devis system.
+
+Design:
+
+* large image
+* luxury smoke gradient
+* destination badge
+* duration chip
+* date chip
+* services included chips
+* status “Sur demande”
+* clean CTA
+* Apple-level card polish
+* Booking-level clarity
+* no flat basic cards
+
+CTA prefill examples:
+
+* /contact?universe=syanor&service=city-break&destination=londres#quote
+* /contact?universe=syanor&service=sejour-sur-mesure&destination=bali#quote
+* /contact?universe=syanor&service=pack-premium-vip&destination=dubai#quote
+* /contact?universe=syanor&service=voyage-organise&destination=rome#quote
+
+The smart quote form must show the selected destination and service in the summary.
+
+MAIN SYANOR HOMEPAGE:
+
+Make the homepage focused on general travel.
+
+Hero:
+
+* primary CTA: “Nos voyages & services”
+* special secondary CTA: “Univers Omra & Hajj” or “Entrer dans Omra Factory”
+* secondary CTA must link to /omra-factory
+* make this CTA visually special but not dominant over SYANOR
+
+Homepage sections should focus on:
+
+* Billets avion
+* Billets bateau
+* Séjours sur mesure
+* Voyages organisés
+* Packs Premium / VIP
+* Visas
+* Assistance
+* Destinations populaires
+* Offres du moment
+* Travel concierge
+* Devis personnalisé
+
+Remove detailed Omra/Hajj sections from homepage.
+Do not show Omra departure cards on the SYANOR homepage.
+
+SPECIAL OMRA FACTORY GATEWAY BUTTONS:
+
+Buttons that guide to Omra Factory must feel special and premium.
+
+Use a different treatment from normal CTAs:
+
+* ivory/gold glass pill
+* small crescent or spiritual icon if tasteful
+* label: “Univers Omra & Hajj”
+* sublabel if space allows: “Omra Factory”
+* elegant border
+* subtle glow
+* refined hover
+* not too dark
+* not too loud
+
+These buttons should appear only in:
+
+* homepage hero secondary CTA
+* main navbar item
+* optional small gateway section/card
+* maybe footer gateway
+
+Do not scatter Omra Factory buttons everywhere.
+
+OMRA FACTORY SPACE:
+
+Inside /omra-factory, show all Omra/Hajj-related content.
+
+Omra Factory should contain:
+
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Ramadan
+* Omra Plus
+* Ziyarat
+* Formation avant départ
+* Accompagnement spirituel
+* Départs par ville
+* Départs par mois
+* Omra departure cards
+* Omra quote system
+* spiritual FAQ
+
+Omra Factory has its own mini-site navbar, logo/wordmark, and return button:
+“Retour vers SYANOR VOYAGES”
+
+Do not mix general London/Bali/Dubai offers inside Omra Factory.
+
+NAVIGATION:
+
+Main SYANOR navbar:
+
+* Accueil
+* Billets
+* Séjours & Voyages
+* Offres
+* Départs
+* Blog
+* Contact
+* Omra Factory as a special nav item/gateway
+* CTA: Demander un devis
+
+Omra Factory navbar:
+
+* Accueil Omra Factory
+* Omra 2026
+* Omra 2027
+* Hajj 2027
+* Ramadan
+* Ziyarat
+* Formation
+* Départs
+* Devis
+* Retour SYANOR
+
+OFFRES PAGE MAIN SITE:
+
+/offres should be for general SYANOR offers only.
+
+Show many general travel offers:
+
+* Londres
+* Istanbul
+* Bali
+* Dubaï
+* Marrakech
+* Rome
+* Barcelone
+* Maldives
+* Doha
+* Égypte
+* Grèce
+* Thaïlande
+* Tunisie
+* Maroc
+* Espagne
+* Italie
+
+No Omra departure cards here.
+
+Add only one premium gateway card:
+“Vous cherchez une Omra ou un Hajj ?”
+“Découvrez Omra Factory, notre département Omra & Hajj.”
+CTA:
+“Entrer dans Omra Factory”
+Link:
+/omra-factory/offres or /omra-factory
+
+DEPARTS PAGE MAIN SITE:
+
+/departs should be for general departures and travel opportunities:
+
+* city breaks
+* group trips
+* organized tours
+* seasonal travel
+* ferry/plane related departures
+
+No Omra-specific departure list here.
+Omra departures must live in:
+/omra-factory/departs
+
+QUOTE FORM:
+
+Step 1 should clearly separate:
+
+* SYANOR VOYAGES
+* Omra Factory
+
+For SYANOR VOYAGES, show:
+
+* Billet avion
+* Billet bateau
+* City break
+* Séjour sur mesure
+* Voyage organisé
+* Pack Premium / VIP
+* Visa
+* Hôtel + transfert
+* Assistance voyage
+* Voyage famille
+* Voyage groupe
+* Business travel
+
+For Omra Factory, show:
+
+* Omra
+* Hajj
+* Ramadan
+* Omra Plus
+* Ziyarat
+* Formation
+* Accompagnement spirituel
+
+Use URL params:
+
+* universe=syanor
+* universe=omra-factory
+
+RESPONSIVE OPTIMIZATION, VERY IMPORTANT:
+
+The full website must be optimized for:
+
+* desktop / large PC screens
+* laptop screens
+* tablets
+* mobile phones
+
+Do not design only for desktop.
+Do not leave tablet or mobile as a broken stacked version.
+Every layout must be intentionally responsive.
+
+DESKTOP / PC REQUIREMENTS:
+On desktop:
+
+* layout must feel spacious and premium
+* grids must align perfectly
+* offer cards should use strong visual hierarchy
+* hero sections should not be cropped
+* cards must have equal rhythm and clean spacing
+* large screens should not look empty or stretched
+* navbar must not wrap awkwardly
+* Omra Factory mini-site must feel complete and elegant
+
+LAPTOP REQUIREMENTS:
+On laptop:
+
+* content must not feel cramped
+* nav items must remain readable
+* CTA buttons must not overflow
+* hero image/video must crop properly
+* cards should maintain good proportions
+
+TABLET REQUIREMENTS:
+On tablet:
+
+* use 2-column layouts where appropriate
+* avoid tiny text
+* avoid oversized hero images
+* keep CTAs easy to tap
+* cards should be balanced
+* no horizontal overflow
+* menus must be touch-friendly
+* Omra Factory navbar should adapt cleanly
+
+MOBILE REQUIREMENTS:
+On mobile:
+
+* the site must feel like a premium travel app
+* mobile menu must be clean and organized
+* hero sections must not be cropped
+* titles must be readable
+* cards must be image-led and easy to scan
+* CTAs must be large and tappable
+* filters must be easy to use
+* quote form must feel smooth
+* no horizontal overflow
+* no clipped text
+* no broken image crop
+* no tiny chips
+* no crowded layouts
+* floating WhatsApp button must not hide key CTAs
+
+MOBILE CONTENT RULES:
+
+* Main SYANOR mobile menu should show Omra Factory only as a gateway, not all Omra/Hajj details.
+* Omra Factory mobile menu should show Omra/Hajj links only.
+* Main SYANOR mobile pages should not show Omra departure cards.
+* Omra Factory mobile pages should contain the spiritual travel content.
+
+PERFORMANCE REQUIREMENTS:
+Optimize for speed:
+
+* compress images
+* use responsive image sizes
+* lazy-load below-the-fold images
+* do not load desktop video on mobile
+* use poster images where needed
+* avoid heavy animation on mobile
+* keep Vercel deployment fast
+
+ACCESSIBILITY:
+
+* buttons must have clear labels
+* contrast must be readable
+* focus states must be visible
+* form errors must be clear
+* no important info only in image
+* reduced-motion preference should be respected
+
+DESIGN QUALITY:
+
+All general SYANOR offers must feel premium:
+
+* beautiful destination images
+* clean professional cards
+* no fake clutter
+* no flat boxes
+* no basic white cards
+* elegant filters
+* premium reservation cards
+* proper CTA system
+
+Omra Factory must feel like its own premium spiritual mini-site:
+
+* dedicated navbar
+* dedicated logo/wordmark
+* dedicated routes
+* dedicated content
+* dedicated reservation cards
+* return button to SYANOR
+* clean mobile experience
+
+FINAL CHECK:
+Before finishing:
+
+* Main SYANOR site has many professional general travel offers.
+* Londres, Turquie/Istanbul, Bali, Dubaï and other destinations are added.
+* General offer cards have images, dates/durations, status, details and reservation CTAs.
+* Main SYANOR homepage does not show detailed Omra/Hajj content.
+* Main /offres does not show Omra departure cards.
+* Main /departs does not show Omra-specific departures.
+* Omra/Hajj/Ramadan/Ziyarat/Formation content appears only inside Omra Factory.
+* Omra Factory has its own dedicated space and navbar.
+* Omra Factory gateway buttons are special and premium.
+* Quote form separates SYANOR vs Omra Factory.
+* No SIYAJJ anywhere.
+* CTAs prefill quote form correctly.
+* Desktop is polished.
+* Laptop is polished.
+* Tablet is polished.
+* Mobile is polished.
+* No horizontal overflow.
+* No clipped titles/images.
+* No broken routes.
+* No console errors.
+* Build/typecheck passes.
+* Vercel-ready.
+
+Final expectation:
+SYANOR VOYAGES should feel like a complete premium travel agency with many global offers.
+Omra Factory should feel like a separate dedicated Omra & Hajj mini-site.
+Clients must never feel confused between general travel and spiritual travel.
+The whole experience must be clean, premium, fast, responsive and launch-ready across desktop, tablet and mobile.
+
+Hammer final:

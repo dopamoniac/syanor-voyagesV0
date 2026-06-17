@@ -4,7 +4,6 @@ import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import { CONTACT } from "@/data/navigation";
-import { omraMonths, type OmraMonth } from "@/data/months";
 import { departureCities } from "@/data/cities";
 
 interface MobileMenuProps {
@@ -21,12 +20,6 @@ const SYANOR_SERVICES = [
   { label: "Visas & Assistance", href: "/visas",                    icon: "clipboard" },
 ];
 
-const OMRA_LINKS = [
-  { label: "Hajj 2027",         href: "/hajj-2027",           icon: "crescent", sub: "Pré-inscription ouverte" },
-  { label: "Omra Plus",         href: "/omra-hajj/omra-plus", icon: "sparkle",  sub: "Expérience premium / VIP" },
-  { label: "Formation",         href: "/formation",           icon: "book-open",sub: "Préparation avant départ" },
-  { label: "Ziyarat",           href: "/ziyarat",             icon: "crescent", sub: "Visites des lieux saints" },
-];
 
 const QUICK_NAV = [
   { label: "Accueil",  href: "/",        icon: "compass" },
@@ -65,46 +58,7 @@ function SectionLabel({ children, emerald = false }: { children: React.ReactNode
   );
 }
 
-function MonthChips({ months, year, href }: {
-  months: OmraMonth[];
-  year: string;
-  href: string;
-}) {
-  return (
-    <div className="mb-5">
-      <p className="mb-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-white/30">
-        Omra {year}
-      </p>
-      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
-        {months.map((m) => (
-          <Link
-            key={m.slug}
-            href={m.href}
-            className="flex shrink-0 flex-col items-center gap-0.5 rounded-xl border border-syanor-gold/20 bg-white/[0.04] px-3.5 py-2.5 transition-all duration-200 hover:border-syanor-gold/45 hover:bg-white/[0.08] active:scale-[0.96]"
-          >
-            <span className="text-sm font-semibold leading-none text-syanor-ivory">{m.label}</span>
-            {m.departureCount > 0 && (
-              <span className="mt-1 text-[0.6rem] font-medium leading-none text-syanor-gold">
-                {m.departureCount} départ{m.departureCount > 1 ? "s" : ""}
-              </span>
-            )}
-          </Link>
-        ))}
-      </div>
-      <Link
-        href={href}
-        className="mt-1.5 inline-flex items-center gap-1.5 text-[0.68rem] font-medium text-syanor-gold/55 transition-colors hover:text-syanor-gold"
-      >
-        Voir tout Omra {year} <ArrowRight />
-      </Link>
-    </div>
-  );
-}
-
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
-  const months2026 = omraMonths.filter((m) => m.year === "2026");
-  const months2027 = omraMonths.filter((m) => m.year === "2027");
-
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -238,57 +192,28 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </Link>
           </div>
 
-          {/* ── Omra Factory universe ── */}
+          {/* ── Omra Factory gateway ── */}
           <div className="mb-7">
-            {/* Section label with universe branding — label IS a link */}
-            <div className="mb-4 flex items-center gap-3">
-              <Link
-                href="/omra-hajj"
-                onClick={onClose}
-                className="shrink-0 text-[0.58rem] font-bold uppercase tracking-[0.22em] text-syanor-gold hover:underline"
-              >
-                Omra Factory ↗
-              </Link>
-              <div className="h-px flex-1 bg-gradient-to-r from-syanor-gold/25 to-transparent" aria-hidden="true" />
-            </div>
-
-            <MonthChips months={months2026} year="2026" href="/omra-2026" />
-            <MonthChips months={months2027} year="2027" href="/omra-2027" />
-
-            <div className="space-y-1.5">
-              {OMRA_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={onClose}
-                  className="group flex items-center gap-3 rounded-xl border border-syanor-gold/20 bg-white/[0.04] px-4 py-3 transition-all duration-200 hover:border-syanor-gold/40 hover:bg-white/[0.07] active:scale-[0.98]"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-syanor-gold/12 text-syanor-gold" aria-hidden="true">
-                    <Icon name={link.icon} className="h-4 w-4" />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold text-syanor-ivory">{link.label}</p>
-                    <p className="text-[0.62rem] text-white/38">{link.sub}</p>
-                  </div>
-                  <ChevronRight />
-                </Link>
-              ))}
-            </div>
-
-            {/* Omra Factory dept note */}
-            <div className="mt-3 flex items-center gap-2 rounded-xl border border-syanor-gold/12 bg-syanor-gold/5 px-4 py-2.5">
-              <div className="h-px w-3 bg-syanor-gold/30" aria-hidden="true" />
-              <p className="text-[0.62rem] font-medium text-syanor-gold/60">
-                Omra Factory — département Omra & Hajj de SYANOR VOYAGES
-              </p>
-            </div>
-
+            <SectionLabel>Omra Factory</SectionLabel>
             <Link
-              href="/contact?universe=omra-factory#quote"
+              href="/omra-hajj"
               onClick={onClose}
-              className="mt-3 inline-flex items-center gap-1.5 text-[0.68rem] font-medium text-syanor-gold/55 transition-colors hover:text-syanor-gold"
+              className="group flex items-center gap-4 rounded-2xl border border-syanor-gold/25 bg-gradient-to-br from-syanor-gold/8 to-transparent px-4 py-4 transition-all duration-200 hover:border-syanor-gold/50 hover:bg-syanor-gold/10 active:scale-[0.98]"
             >
-              Demander un devis Omra Factory <ArrowRight />
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-syanor-gold/30 bg-syanor-gold/12 text-syanor-gold" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                  <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-syanor-ivory">Entrer dans Omra Factory</p>
+                <p className="mt-0.5 text-[0.65rem] leading-snug text-white/42">
+                  Département Omra &amp; Hajj — séjours, départs &amp; formation
+                </p>
+              </div>
+              <svg className="h-4 w-4 shrink-0 text-syanor-gold/50 transition-colors group-hover:text-syanor-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </div>
 

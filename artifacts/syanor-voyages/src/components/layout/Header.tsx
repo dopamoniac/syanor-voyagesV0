@@ -6,7 +6,6 @@ import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
-import { omraMonths, getMonthsByYear } from "@/data/months";
 import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
 
@@ -14,185 +13,20 @@ import { cn } from "@/lib/utils";
 // Homepage (/) has its own cinematic hero that starts transparent
 
 const SERVICE_ICON: Record<string, string> = {
-  "/services/billets-avion":       "airplane",
-  "/services/billets-bateau":      "anchor",
-  "/services/billets-avion#groupe":"users",
-  "/services/billets-avion#intl":  "globe",
+  "/services/billets-avion":           "airplane",
+  "/services/billets-bateau":          "anchor",
+  "/services/billets-avion#groupe":    "users",
+  "/services/billets-avion#intl":      "globe",
   "/services/billets-bateau#vehicule": "route",
-  "/voyages-organises":            "route",
-  "/sejours-sur-mesure":           "compass",
-  "/services#packs":               "diamond",
-  "/sejours-sur-mesure#noces":     "sparkle",
-  "/sejours-sur-mesure#hotels":    "building",
-  "/visas#assistance":             "shield",
-  "/visas":                        "clipboard",
-  "/formation":                    "book-open",
-  "/ziyarat":                      "crescent",
-  "/omra-hajj":                    "crescent",
+  "/voyages-organises":                "route",
+  "/sejours-sur-mesure":               "compass",
+  "/services#packs":                   "diamond",
+  "/sejours-sur-mesure#noces":         "sparkle",
+  "/sejours-sur-mesure#hotels":        "building",
+  "/visas#assistance":                 "shield",
+  "/visas":                            "clipboard",
 };
 
-function OmraMegaPanel({ onClose }: { onClose: () => void }) {
-  const months2026 = getMonthsByYear("2026");
-  const months2027 = getMonthsByYear("2027");
-  const featured = omraMonths.find((m) => m.featured && m.year === "2027" && m.departureCount >= 3) ?? months2027[0];
-
-  return (
-    <div className="rounded-2xl border border-syanor-gold/20 bg-syanor-ivory shadow-card-hover">
-      <div className="grid grid-cols-3 divide-x divide-syanor-gold/10">
-        {/* Col 1 — Omra 2026 */}
-        <div className="p-5">
-          <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-            Omra 2026
-          </p>
-          <div className="space-y-1">
-            {months2026.map((m) => (
-              <Link
-                key={m.slug}
-                href={m.href}
-                onClick={onClose}
-                className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
-              >
-                <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
-                  {m.label}
-                </span>
-                {m.departureCount > 0 && (
-                  <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
-                    {m.departureCount}
-                  </span>
-                )}
-              </Link>
-            ))}
-          </div>
-          <Link
-            href="/omra-2026"
-            onClick={onClose}
-            className="mt-3 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
-          >
-            Voir tout Omra 2026 →
-          </Link>
-        </div>
-
-        {/* Col 2 — Omra 2027 + Hajj */}
-        <div className="p-5">
-          <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-            Omra 2027
-          </p>
-          <div className="space-y-1">
-            {months2027.map((m) => (
-              <Link
-                key={m.slug}
-                href={m.href}
-                onClick={onClose}
-                className="group/m flex items-center justify-between rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
-              >
-                <span className="text-sm font-medium text-syanor-ink group-hover/m:text-syanor-emerald">
-                  {m.label}
-                </span>
-                {m.departureCount > 0 && (
-                  <span className="ml-2 rounded-full bg-syanor-emerald/10 px-2 py-0.5 text-[0.65rem] font-semibold text-syanor-emerald">
-                    {m.departureCount}
-                  </span>
-                )}
-              </Link>
-            ))}
-          </div>
-          <Link
-            href="/omra-2027"
-            onClick={onClose}
-            className="mt-2 block rounded-lg px-3 py-2 text-xs font-medium text-syanor-gold hover:underline"
-          >
-            Voir tout Omra 2027 →
-          </Link>
-          <div className="mt-3 border-t border-syanor-gold/15 pt-3">
-            <Link
-              href="/hajj-2027"
-              onClick={onClose}
-              className="flex items-center gap-2 rounded-lg px-3 py-2 transition hover:bg-syanor-champagne/40"
-            >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-gold/15 text-syanor-gold" aria-hidden="true">
-                <Icon name="crescent" className="h-4 w-4" />
-              </span>
-              <div>
-                <span className="block text-sm font-semibold text-syanor-ink">Hajj 2027</span>
-                <span className="block text-xs text-syanor-ink/55">Pré-inscription ouverte</span>
-              </div>
-            </Link>
-          </div>
-        </div>
-
-        {/* Col 3 — En vedette + Villes */}
-        <div className="p-5">
-          {featured && (
-            <div className="mb-4 rounded-xl border border-syanor-gold/25 bg-syanor-pearl p-4">
-              <p className="text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-                En vedette
-              </p>
-              <p className="mt-1.5 font-playfair text-sm font-bold text-syanor-ink">
-                Omra {featured.labelFull}
-              </p>
-              <p className="mt-1 text-xs text-syanor-ink/60">{featured.dateRange}</p>
-              <Link
-                href={featured.href}
-                onClick={onClose}
-                className="mt-2.5 block rounded-full bg-syanor-emerald px-3 py-1.5 text-center text-xs font-semibold text-syanor-champagne transition hover:bg-syanor-gold hover:text-syanor-royal"
-              >
-                Voir ce départ
-              </Link>
-            </div>
-          )}
-          <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-widest text-syanor-gold">
-            Villes de départ
-          </p>
-          <div className="space-y-1">
-            {departureCities.slice(0, 4).map((c) => (
-              <Link
-                key={c.slug}
-                href={`/depart/${c.slug}`}
-                onClick={onClose}
-                className="group/c flex items-center gap-2 rounded-lg px-3 py-1.5 transition hover:bg-syanor-champagne/40"
-              >
-                <span className="text-xs font-medium text-syanor-ink group-hover/c:text-syanor-emerald">
-                  {c.name}
-                </span>
-                {c.confirmed && (
-                  <span className="h-1.5 w-1.5 rounded-full bg-syanor-emerald" aria-hidden="true" />
-                )}
-              </Link>
-            ))}
-            <Link
-              href="/offres"
-              onClick={onClose}
-              className="block rounded-lg px-3 py-1.5 text-xs text-syanor-gold hover:underline"
-            >
-              + autres villes →
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer bar */}
-      <div className="flex items-center justify-between rounded-b-2xl border-t border-syanor-gold/10 bg-syanor-pearl/60 px-5 py-3">
-        <div className="flex items-center gap-4">
-          <Link href="/visas" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-            Visa Omra
-          </Link>
-          <Link href="/formation" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-            Formation
-          </Link>
-          <Link href="/faq" onClick={onClose} className="text-xs text-syanor-ink/60 hover:text-syanor-emerald">
-            FAQ
-          </Link>
-          <span className="text-[0.6rem] font-medium text-syanor-ink/40">
-            Omra Factory — département Omra & Hajj
-          </span>
-        </div>
-        <Link href="/contact?universe=omra-factory#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
-          Demander un devis Omra Factory →
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 function BilletsMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
   return (
@@ -294,15 +128,13 @@ function DefaultMegaPanel({ item, onClose }: { item: NavItem; onClose: () => voi
 
 interface MegaMenuWrapperProps {
   item: NavItem;
-  href?: string;
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
+function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
   const panelWidth =
-    item.label === "Omra Factory"      ? "w-[680px]" :
     item.label === "Séjours & Voyages" ? "w-[520px]" :
     item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
 
@@ -310,69 +142,31 @@ function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrappe
     "whitespace-nowrap text-[0.8rem] font-medium transition-colors duration-150",
     isOpen ? "text-syanor-emerald" : "text-syanor-ink/75 hover:text-syanor-emerald"
   );
-  const chevronCls = cn(
-    "flex h-5 w-5 items-center justify-center rounded-full transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
-    isOpen ? "text-syanor-emerald bg-syanor-emerald/8" : "text-syanor-ink/40 hover:text-syanor-emerald hover:bg-syanor-emerald/6"
-  );
-
   return (
     <div className="relative flex items-center">
-      {href ? (
-        /* Split: label = link, chevron = dropdown trigger */
-        <>
-          <Link
-            href={href}
-            onClick={onClose}
-            className={cn("rounded-full px-2.5 py-1.5", labelCls)}
-          >
-            {item.label}
-          </Link>
-          <button
-            type="button"
-            aria-haspopup="true"
-            aria-expanded={isOpen}
-            aria-label={`Menu ${item.label}`}
-            onClick={() => (isOpen ? onClose() : onOpen())}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") onClose();
-              if ((e.key === "Enter" || e.key === " ") && !isOpen) { e.preventDefault(); onOpen(); }
-            }}
-            className={cn("mr-1", chevronCls)}
-          >
-            <svg
-              className={cn("h-3 w-3 transition-transform duration-200", isOpen && "rotate-180")}
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
-            >
-              <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </>
-      ) : (
-        /* Single button: label + chevron together */
-        <button
-          type="button"
-          aria-haspopup="true"
-          aria-expanded={isOpen}
-          onClick={() => (isOpen ? onClose() : onOpen())}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); isOpen ? onClose() : onOpen(); }
-            else if (e.key === "Escape") onClose();
-            else if (e.key === "ArrowDown" && !isOpen) { e.preventDefault(); onOpen(); }
-          }}
-          className={cn(
-            "group flex items-center gap-0.5 rounded-full px-2.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
-            labelCls
-          )}
+      <button
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        onClick={() => (isOpen ? onClose() : onOpen())}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); isOpen ? onClose() : onOpen(); }
+          else if (e.key === "Escape") onClose();
+          else if (e.key === "ArrowDown" && !isOpen) { e.preventDefault(); onOpen(); }
+        }}
+        className={cn(
+          "group flex items-center gap-0.5 rounded-full px-2.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
+          labelCls
+        )}
+      >
+        {item.label}
+        <svg
+          className={cn("h-3 w-3 opacity-50 transition-transform duration-200", isOpen && "rotate-180")}
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
         >
-          {item.label}
-          <svg
-            className={cn("h-3 w-3 opacity-50 transition-transform duration-200", isOpen && "rotate-180")}
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"
-          >
-            <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      )}
+          <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
 
       {isOpen && (
         <div
@@ -383,9 +177,7 @@ function MegaMenuWrapper({ item, href, isOpen, onOpen, onClose }: MegaMenuWrappe
           role="region"
           aria-label={`Menu ${item.label}`}
         >
-          {item.label === "Omra Factory" ? (
-            <OmraMegaPanel onClose={onClose} />
-          ) : item.label === "Billets" ? (
+          {item.label === "Billets" ? (
             <BilletsMegaPanel item={item} onClose={onClose} />
           ) : item.label === "Séjours & Voyages" ? (
             <SejoursMegaPanel item={item} onClose={onClose} />
@@ -469,11 +261,21 @@ export default function Header() {
                 <MegaMenuWrapper
                   key={item.label}
                   item={item}
-                  href={item.label === "Omra Factory" ? "/omra-hajj" : undefined}
                   isOpen={openMegaMenu === item.label}
                   onOpen={() => handleMegaOpen(item.label)}
                   onClose={handleMegaClose}
                 />
+              ) : item.label === "Omra Factory" ? (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="ml-1 inline-flex items-center gap-1.5 rounded-full border border-syanor-gold/35 bg-syanor-gold/8 px-3 py-1.5 text-[0.78rem] font-semibold text-syanor-ink/80 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/15 hover:text-syanor-ink"
+                >
+                  <svg className="h-3 w-3 text-syanor-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                  {item.label}
+                </Link>
               ) : (
                 <Link
                   key={item.label}
