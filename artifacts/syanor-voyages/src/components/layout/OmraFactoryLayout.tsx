@@ -58,7 +58,7 @@ function OmraHeader() {
       style={{
         background: scrolled ? "rgba(1,26,21,0.97)" : "#022B24",
         backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: "1px solid rgba(201,162,74,0.18)",
+        borderBottom: scrolled ? "1px solid rgba(201,162,74,0.22)" : "none",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "none",
       }}
     >
