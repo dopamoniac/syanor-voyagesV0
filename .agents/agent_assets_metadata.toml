@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "U0ENP62e8oAnsVGmaco-h"
+uri = "file://artifacts/syanor-voyages/public/omra-factory-logo.png"
+type = "image"
+title = "Omra Factory Logo — transparent background"
