@@ -97,9 +97,9 @@ function RoutesVisual() {
 
 function EditorialVisual() {
   const articles = [
-    { cat: "Guide", catColor: "#C9A24A", title: "Préparer son Omra étape par étape", meta: "8 min • Spirituel" },
-    { cat: "Pratique", catColor: "rgba(2,43,36,0.60)", title: "Visa Arabie Saoudite : tout comprendre", meta: "5 min • Administratif" },
-    { cat: "Conseil", catColor: "rgba(2,43,36,0.40)", title: "Quel hébergement choisir à La Mecque ?", meta: "6 min • Hébergement" },
+    { cat: "Destination", catColor: "#C9A24A", title: "Istanbul : guide pratique et incontournables", meta: "7 min • Destinations" },
+    { cat: "Conseils", catColor: "rgba(2,43,36,0.60)", title: "Séjour sur mesure ou voyage organisé ?", meta: "5 min • Organisation" },
+    { cat: "Visa", catColor: "rgba(2,43,36,0.40)", title: "Visa Schengen depuis le Maroc & l'Algérie", meta: "6 min • Administratif" },
   ];
   return (
     <div className="relative flex h-[460px] w-[400px] flex-col items-start justify-center gap-3.5 pl-2" aria-hidden="true">
@@ -286,8 +286,8 @@ function MobileRoutesVisual() {
 
 function MobileEditorialVisual() {
   const articles = [
-    { cat: "Guide", title: "Préparer son Omra étape par étape", meta: "8 min · Spirituel" },
-    { cat: "Pratique", title: "Visa Arabie Saoudite : tout comprendre", meta: "5 min · Administratif" },
+    { cat: "Destination", title: "Istanbul : guide pratique et incontournables", meta: "7 min · Destinations" },
+    { cat: "Visa", title: "Visa Schengen depuis le Maroc & l'Algérie", meta: "6 min · Administratif" },
   ];
   return (
     <div className="flex flex-col gap-2" aria-hidden="true">

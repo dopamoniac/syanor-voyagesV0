@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "Omra Plus",  href: "/omra-hajj/omra-plus"  },
   { label: "Hajj 2027",  href: "/omra-hajj/hajj"       },
   { label: "Ramadan",    href: "/omra-hajj/ramadan"     },
+  { label: "Blog",       href: "/omra-hajj/blog"        },
   { label: "Contact",    href: "/contact"               },
 ];
 
@@ -68,26 +69,20 @@ function OmraHeader() {
           aria-hidden="true"
         />
 
-        {/* ── Logo ── */}
+        {/* ── Logo — real PNG (background removed) ── */}
         <Link href="/omra-hajj" className="flex items-center gap-2.5 transition-opacity hover:opacity-85">
-          <span
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl"
-            style={{ background: "rgba(201,162,74,0.12)", border: "1px solid rgba(201,162,74,0.28)" }}
-            aria-hidden="true"
+          <img
+            src="/omra-factory-logo.png"
+            alt="Omra Factory"
+            className="h-9 w-auto object-contain"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+          <p
+            className="hidden text-[0.52rem] font-semibold uppercase tracking-[0.16em] sm:block"
+            style={{ color: "rgba(201,162,74,0.55)" }}
           >
-            {/* Crescent moon SVG */}
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" style={{ color: "#C9A24A" }}>
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </span>
-          <div className="leading-none">
-            <p className="font-playfair text-base font-bold tracking-tight" style={{ color: "#FFF9ED" }}>
-              Omra Factory
-            </p>
-            <p className="text-[0.52rem] font-semibold uppercase tracking-[0.16em]" style={{ color: "rgba(201,162,74,0.55)" }}>
-              by SYANOR VOYAGES
-            </p>
-          </div>
+            by SYANOR VOYAGES
+          </p>
         </Link>
 
         {/* Spacer */}

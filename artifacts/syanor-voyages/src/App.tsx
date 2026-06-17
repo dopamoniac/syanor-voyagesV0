@@ -31,6 +31,8 @@ import VisasPage from "@/app/visas/page";
 import FaqPage from "@/app/faq/page";
 import BlogPage from "@/app/blog/page";
 import BlogArticlePage from "@/app/blog/[slug]/page";
+import OmraBlogPage from "@/app/omra-hajj/blog/page";
+import OmraBlogArticlePage from "@/app/omra-hajj/blog/[slug]/page";
 import Hajj2027Page from "@/app/hajj-2027/page";
 import ZiyaratPage from "@/app/ziyarat/page";
 
@@ -77,6 +79,12 @@ function Router() {
       <Route path="/omra-hajj/omra" component={OmraPage} />
       <Route path="/omra-hajj/omra-plus" component={OmraPlusPage} />
       <Route path="/omra-hajj/ramadan" component={RamadanPage} />
+
+      {/* ── Omra Factory Blog ── */}
+      <Route path="/omra-hajj/blog" component={OmraBlogPage} />
+      <Route path="/omra-hajj/blog/:slug">
+        {(params) => <OmraBlogArticlePage slug={params.slug ?? ""} />}
+      </Route>
 
       {/* ── Omra 2026 hub + month sub-pages ── */}
       <Route path="/omra-2026" component={Omra2026Page} />

@@ -10,6 +10,7 @@ import PremiumDepartureCard from "@/components/ui/PremiumDepartureCard";
 import { offers } from "@/data/offers";
 import { omraMonths } from "@/data/months";
 import { quoteUrl } from "@/lib/utils";
+import { omraBlogArticles } from "@/data/omraFactoryBlog";
 
 export const metadata: Metadata = {
   title: "Omra Factory — Omra & Hajj | SYANOR VOYAGES",
@@ -662,7 +663,53 @@ export default function OmraHajjPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          9. FAQ
+          9. BLOG PREVIEW
+      ══════════════════════════════════════════ */}
+      <section className="section-pad bg-syanor-ivory">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow mb-2">Blog Omra Factory</p>
+              <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Guides & conseils pèlerinage</h2>
+            </div>
+            <Link href="/omra-hajj/blog" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
+              Voir tous les articles →
+            </Link>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {omraBlogArticles.slice(0, 3).map((article) => (
+              <Link key={article.slug} href={`/omra-hajj/blog/${article.slug}`} className="group">
+                <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover">
+                  <div
+                    className="flex h-2 w-full"
+                    style={{ background: "linear-gradient(to right, #022B24, #C9A24A, #022B24)" }}
+                    aria-hidden="true"
+                  />
+                  <div className="flex flex-1 flex-col p-6">
+                    <span className="mb-2 text-[0.6rem] font-bold uppercase tracking-wider text-syanor-gold/75">
+                      {article.category}
+                    </span>
+                    <h3 className="font-playfair text-lg font-bold leading-snug text-syanor-ink transition-colors duration-200 group-hover:text-syanor-emerald">
+                      {article.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-syanor-ink/60">{article.excerpt}</p>
+                    <div className="mt-5 flex items-center justify-between border-t border-syanor-gold/10 pt-4 text-xs text-syanor-ink/45">
+                      <span>{article.readTime} de lecture</span>
+                      <span className="font-semibold text-syanor-gold transition-colors duration-200 group-hover:text-syanor-emerald">
+                        Lire →
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          10. FAQ
       ══════════════════════════════════════════ */}
       <FaqSection
         title="Questions fréquentes — Omra & Hajj"

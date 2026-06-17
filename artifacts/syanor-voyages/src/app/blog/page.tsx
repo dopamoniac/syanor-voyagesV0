@@ -8,9 +8,9 @@ import { blogArticles } from "@/data/blog";
 import { quoteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Blog Voyage — Conseils Omra, Hajj & Visa | SYANOR VOYAGES",
+  title: "Blog Voyage — Destinations, Conseils & Visa | SYANOR VOYAGES",
   description:
-    "Guides pratiques, conseils de préparation et informations spirituelles pour votre Omra, Hajj et visa Arabie Saoudite. Articles rédigés par l'équipe SYANOR VOYAGES.",
+    "Guides pratiques, idées de destinations et conseils visa pour voyager mieux. Istanbul, Dubaï, Marrakech, Bali — articles rédigés par l'équipe SYANOR VOYAGES.",
   alternates: { canonical: "/blog" },
 };
 
@@ -35,7 +35,7 @@ export default function BlogPage() {
         visual="editorial"
         eyebrow="Le magazine SYANOR"
         title="Blog — Conseils & guides voyage"
-        subtitle="Guides pratiques, conseils de préparation spirituelle, informations visa et astuces de voyage rédigés par l'équipe SYANOR VOYAGES."
+        subtitle="Idées de destinations, conseils pratiques, astuces visa et guides voyage — rédigés par l'équipe SYANOR VOYAGES."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Blog" }]}
       />
 
@@ -105,13 +105,13 @@ export default function BlogPage() {
 
       <CTASection
         title="Prêt à partir ?"
-        body="Nos articles vous ont aidé à vous préparer ? Faites le premier pas : demandez votre devis Omra personnalisé."
-        ctaLabel="Demander mon devis Omra"
-        ctaHref={quoteUrl({ service: "Omra" })}
-        secondary={{ label: "Voir les départs 2026", href: "/omra-2026" }}
+        body="Nos articles vous ont donné envie de voyager ? Faites le premier pas : demandez votre devis personnalisé ou consultez nos offres disponibles."
+        ctaLabel="Demander un devis"
+        ctaHref={quoteUrl({})}
+        secondary={{ label: "Voir toutes nos offres", href: "/offres" }}
       />
 
-      <StickyMobileCTA label="Demander un devis" href={quoteUrl({ service: "Omra" })} />
+      <StickyMobileCTA label="Demander un devis" href={quoteUrl({})} />
     </SiteLayout>
   );
 }
