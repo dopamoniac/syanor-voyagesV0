@@ -37,18 +37,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Offres", href: "/offres" },
-  {
-    label: "Départs",
-    href: "/offres",
-    children: [
-      { label: "Départ Nice",      href: "/depart/nice",      desc: "Vols & départs depuis NCE" },
-      { label: "Départ Marseille", href: "/depart/marseille", desc: "Vols & départs depuis MRS" },
-      { label: "Départ Lyon",      href: "/depart/lyon",      desc: "Départs sur demande" },
-      { label: "Départ Paris",     href: "/depart/paris",     desc: "CDG / Orly" },
-      { label: "Départ Toulouse",  href: "/depart/toulouse",  desc: "Départs sur demande" },
-      { label: "Départ Bruxelles", href: "/depart/bruxelles", desc: "Départs internationaux depuis BRU" },
-    ],
-  },
   { label: "Blog",    href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Omra Factory", href: "/omra-hajj" },

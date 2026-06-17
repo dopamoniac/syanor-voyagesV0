@@ -10,6 +10,15 @@ const PROGRAMMES = [
   { label: "Omra 2027",       href: "/omra-2027",           desc: "Préréservation en cours",  badge: "Nouveau"      },
 ];
 
+const DEPARTURES = [
+  { label: "Nice",      href: "/depart/nice",      desc: "Vols & départs depuis NCE", confirmed: true  },
+  { label: "Marseille", href: "/depart/marseille", desc: "Vols & départs depuis MRS", confirmed: true  },
+  { label: "Lyon",      href: "/depart/lyon",      desc: "Départs sur demande",       confirmed: false },
+  { label: "Paris",     href: "/depart/paris",     desc: "CDG / Orly",                confirmed: true  },
+  { label: "Toulouse",  href: "/depart/toulouse",  desc: "Départs sur demande",       confirmed: false },
+  { label: "Bruxelles", href: "/depart/bruxelles", desc: "Départs internationaux",    confirmed: false },
+];
+
 /* ── Arrow-left SVG ── */
 function ArrowLeft({ className }: { className?: string }) {
   return (
@@ -32,7 +41,9 @@ function OmraHeader() {
   const [scrolled, setScrolled]       = useState(false);
   const [menuOpen, setMenuOpen]       = useState(false);
   const [dropOpen, setDropOpen]       = useState(false);
+  const [deptOpen, setDeptOpen]       = useState(false);
   const dropRef                        = useRef<HTMLDivElement>(null);
+  const deptRef                        = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
@@ -40,11 +51,14 @@ function OmraHeader() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  /* close dropdown on outside click */
+  /* close dropdowns on outside click */
   useEffect(() => {
     const fn = (e: MouseEvent) => {
       if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
         setDropOpen(false);
+      }
+      if (deptRef.current && !deptRef.current.contains(e.target as Node)) {
+        setDeptOpen(false);
       }
     };
     document.addEventListener("mousedown", fn);
@@ -106,7 +120,7 @@ function OmraHeader() {
           <div ref={dropRef} className="relative">
             <button
               type="button"
-              onClick={() => setDropOpen((o) => !o)}
+              onClick={() => { setDropOpen((o) => !o); setDeptOpen(false); }}
               className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
               style={{ color: dropOpen ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
               aria-expanded={dropOpen}
@@ -163,6 +177,53 @@ function OmraHeader() {
                   >
                     Voir l'espace Omra Factory complet →
                   </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Départs dropdown */}
+          <div ref={deptRef} className="relative">
+            <button
+              type="button"
+              onClick={() => { setDeptOpen((o) => !o); setDropOpen(false); }}
+              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
+              style={{ color: deptOpen ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              aria-expanded={deptOpen}
+            >
+              Départs
+              <Chevron className={`h-3.5 w-3.5 transition-transform duration-200 ${deptOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {deptOpen && (
+              <div
+                className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-2xl shadow-xl"
+                style={{ background: "#011A15", border: "1px solid rgba(201,162,74,0.22)" }}
+              >
+                <div className="border-b px-5 py-3" style={{ borderColor: "rgba(201,162,74,0.12)" }}>
+                  <p className="text-[0.58rem] font-bold uppercase tracking-[0.20em]" style={{ color: "rgba(201,162,74,0.60)" }}>
+                    Omra Factory — Villes de départ
+                  </p>
+                </div>
+                <div className="py-2">
+                  {DEPARTURES.map((d) => (
+                    <Link
+                      key={d.href}
+                      href={d.href}
+                      onClick={() => setDeptOpen(false)}
+                      className="group flex items-center justify-between px-5 py-3 transition-colors hover:bg-white/5"
+                    >
+                      <div>
+                        <p className="text-sm font-medium transition-colors group-hover:text-syanor-gold" style={{ color: "rgba(255,249,237,0.85)" }}>
+                          {d.label}
+                        </p>
+                        <p className="text-[0.65rem]" style={{ color: "rgba(255,249,237,0.38)" }}>{d.desc}</p>
+                      </div>
+                      {d.confirmed && (
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#C9A24A" }} aria-label="départs confirmés" />
+                      )}
+                    </Link>
+                  ))}
                 </div>
               </div>
             )}
@@ -256,6 +317,34 @@ function OmraHeader() {
                     )}
                   </div>
                   <p className="mt-0.5 text-[0.62rem]" style={{ color: "rgba(255,249,237,0.35)" }}>{p.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Départs section */}
+          <div className="border-b px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
+            <p className="mb-3 text-[0.60rem] font-bold uppercase tracking-[0.18em]" style={{ color: "rgba(201,162,74,0.55)" }}>
+              Villes de départ
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {DEPARTURES.map((d) => (
+                <Link
+                  key={d.href}
+                  href={d.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-center justify-between rounded-xl px-3.5 py-3 transition-colors hover:bg-white/5"
+                  style={{ border: "1px solid rgba(201,162,74,0.12)" }}
+                >
+                  <div>
+                    <p className="text-sm font-medium transition-colors group-hover:text-syanor-gold" style={{ color: "rgba(255,249,237,0.82)" }}>
+                      {d.label}
+                    </p>
+                    <p className="mt-0.5 text-[0.62rem]" style={{ color: "rgba(255,249,237,0.35)" }}>{d.desc}</p>
+                  </div>
+                  {d.confirmed && (
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "#C9A24A" }} aria-label="confirmé" />
+                  )}
                 </Link>
               ))}
             </div>

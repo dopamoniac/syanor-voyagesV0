@@ -4,7 +4,6 @@ import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import { CONTACT } from "@/data/navigation";
-import { departureCities } from "@/data/cities";
 
 interface MobileMenuProps {
   open: boolean;
@@ -217,25 +216,6 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </Link>
           </div>
 
-          {/* Villes de départ */}
-          <div className="mb-7">
-            <SectionLabel>Villes de départ</SectionLabel>
-            <div className="grid grid-cols-2 gap-2">
-              {departureCities.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/depart/${c.slug}`}
-                  onClick={onClose}
-                  className="flex items-center justify-between gap-2 rounded-xl border border-white/[0.06] bg-white/[0.03] px-3.5 py-2.5 transition-all duration-200 hover:border-syanor-gold/25 hover:bg-white/[0.06] active:scale-[0.97]"
-                >
-                  <span className="text-sm font-medium text-syanor-ivory/75">{c.name}</span>
-                  {c.confirmed && (
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-syanor-gold" aria-label="confirmé" />
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
         </nav>
 
         {/* ── BOTTOM CTA AREA ───────────────────────────────── */}
