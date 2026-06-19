@@ -22,7 +22,7 @@ export default function Home() {
       {/* 2. Original cinematic hero — below */}
       <Hero />
 
-      {/* 2. Smart booking panel — floats below hero */}
+      {/* 3. Luxury concierge booking panel */}
       <SmartSearchPanel />
 
       {/* 3. Full service catalogue in photo-card groups */}

@@ -1,0 +1,89 @@
+Refine the reservation/search band. It currently feels too standard and not premium.
+
+Goal:
+Create a luxury concierge booking module, not a basic form.
+
+Keep the same functions:
+- Billet Avion
+- Billet Bateau
+- Voyage Organisé
+- Sur Mesure
+- Pack VIP
+- departure city
+- destination
+- options/search
+- dates, voyageurs, confort, budget
+
+New design direction:
+Make it look like a premium travel concierge card.
+
+Style:
+- Floating glassmorphism panel
+- Ivory / pearl background
+- champagne gold borders
+- emerald active states
+- soft luxury shadow
+- rounded corners 28px
+- blur effect behind the panel
+- subtle gold line details
+- no flat grey tabs
+
+Tabs:
+Transform tabs into luxury pill buttons with icons.
+Active tab:
+- deep emerald background
+- gold border
+- white text
+Inactive:
+- transparent ivory
+- emerald text
+- subtle hover gold glow
+
+Inputs:
+Make inputs feel high-end:
+- large elegant fields
+- gold mini label uppercase
+- icon inside each field
+- soft inner shadow
+- ivory background
+- emerald focus ring
+- refined placeholder text
+
+CTA button:
+Replace “Voir les options” with a stronger premium CTA:
+“Explorer les offres”
+Style:
+- deep emerald gradient
+- gold border
+- champagne glow
+- icon arrow
+- hover: slight lift + gold shine animation
+
+Layout:
+Desktop:
+- Card width max 1100px
+- Centered
+- Slightly overlapping hero image
+- Two rows:
+  row 1: tabs
+  row 2: departure, destination, CTA
+  row 3: compact expandable luxury filters
+
+Mobile:
+- Card full width with 16px padding
+- Tabs horizontal scroll
+- Inputs stacked
+- CTA full width
+- premium but clean
+
+Important:
+Do not make it look like Booking.com or a cheap agency form.
+It should feel like:
+Aman Resorts concierge + Emirates First Class + luxury private travel desk.
+
+Add small title above the module:
+“Votre voyage commence ici”
+Subtitle:
+“Billets, séjours, expériences premium et accompagnement sur mesure.”
+
+Keep the old logic working, only redesign the UI.
