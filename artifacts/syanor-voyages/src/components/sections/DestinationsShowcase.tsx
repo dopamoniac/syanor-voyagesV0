@@ -7,7 +7,8 @@ const DESTINATIONS = [
     country: "Turquie",
     tagline: "Entre Orient et Occident",
     href: "/contact?dest=Istanbul#quote",
-    gradient: "linear-gradient(160deg, #1B0A2E 0%, #4A1535 55%, #0D0718 100%)",
+    image: "/destinations/istanbul.jpg",
+    imagePosition: "center center",
     textAccent: "#D8B56A",
   },
   {
@@ -16,7 +17,8 @@ const DESTINATIONS = [
     country: "Maroc",
     tagline: "Splendeur de la médina",
     href: "/contact?dest=Marrakech#quote",
-    gradient: "linear-gradient(160deg, #2D1200 0%, #7C3D1A 55%, #1A0A00 100%)",
+    image: "/destinations/marrakech.jpg",
+    imagePosition: "center 30%",
     textAccent: "#D8B56A",
   },
   {
@@ -25,7 +27,8 @@ const DESTINATIONS = [
     country: "Émirats Arabes Unis",
     tagline: "L'excellence au désert",
     href: "/contact?dest=Dubai#quote",
-    gradient: "linear-gradient(160deg, #041818 0%, #0B3530 55%, #041818 100%)",
+    image: "/destinations/dubai.jpg",
+    imagePosition: "center center",
     textAccent: "#D8B56A",
   },
   {
@@ -34,8 +37,9 @@ const DESTINATIONS = [
     country: "Indonésie",
     tagline: "L'île des dieux",
     href: "/contact?dest=Bali#quote",
-    gradient: "linear-gradient(160deg, #061A0C 0%, #0E3D1F 55%, #061A0C 100%)",
-    textAccent: "#A5C47A",
+    image: "/destinations/bali.jpg",
+    imagePosition: "center center",
+    textAccent: "#D8B56A",
   },
   {
     id: "egypte",
@@ -43,7 +47,8 @@ const DESTINATIONS = [
     country: "Le Caire · Louxor",
     tagline: "Berceau des civilisations",
     href: "/contact?dest=Egypte#quote",
-    gradient: "linear-gradient(160deg, #1A1000 0%, #3D2800 55%, #1A1000 100%)",
+    image: "/destinations/egypte.jpg",
+    imagePosition: "center 40%",
     textAccent: "#D8B56A",
   },
   {
@@ -52,7 +57,8 @@ const DESTINATIONS = [
     country: "Royaume-Uni",
     tagline: "Capitale du prestige",
     href: "/contact?dest=Londres#quote",
-    gradient: "linear-gradient(160deg, #1A1A1A 0%, #2D2A28 55%, #1A1A1A 100%)",
+    image: "/destinations/londres.jpg",
+    imagePosition: "center 55%",
     textAccent: "#D8B56A",
   },
 ];
@@ -64,12 +70,24 @@ function DestCard({ dest, className = "" }: { dest: typeof DESTINATIONS[0]; clas
       className={`group relative block overflow-hidden rounded-[20px] ${className}`}
       aria-label={`Voyager à ${dest.city}`}
     >
-      <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.03]" style={{ background: dest.gradient }} />
+      {/* Photo */}
+      <img
+        src={dest.image}
+        alt={dest.city}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+        style={{ objectPosition: dest.imagePosition }}
+        loading="lazy"
+        decoding="async"
+      />
+
+      {/* Dark vignette overlay */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-4/5 pointer-events-none"
-        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.20) 55%, transparent 100%)" }}
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.20) 50%, rgba(0,0,0,0.08) 100%)" }}
       />
+
+      {/* Text content */}
       <div className="absolute inset-x-0 bottom-0 flex flex-col justify-end p-5 md:p-6">
         <p
           className="text-[0.50rem] font-bold uppercase tracking-[0.32em]"
