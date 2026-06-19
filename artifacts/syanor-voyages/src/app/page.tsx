@@ -1,4 +1,5 @@
 import SiteLayout from "@/components/layout/SiteLayout";
+import RenaissanceHero from "@/components/sections/RenaissanceHero";
 import Hero from "@/components/sections/Hero";
 import SmartSearchPanel from "@/components/sections/SmartSearchPanel";
 import ServicesGrid from "@/components/sections/ServicesGrid";
@@ -15,7 +16,10 @@ export default function Home() {
   return (
     <SiteLayout>
 
-      {/* 1. Cinematic hero — 90% premium agency, 10% Omra */}
+      {/* 1. New renaissance hero — full screen split universe */}
+      <RenaissanceHero />
+
+      {/* 2. Original cinematic hero — below */}
       <Hero />
 
       {/* 2. Smart booking panel — floats below hero */}

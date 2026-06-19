@@ -1,0 +1,104 @@
+Build a new first hero section for SYANOR Voyages using the new background image I will provide.
+
+IMPORTANT:
+Do NOT delete or replace the current/old hero.
+Keep the old hero exactly as it is, but move it below as a second section/page block after the new hero.
+The new hero must become the first visible section when the website loads.
+
+NEW HERO CONCEPT:
+Create a luxury split-universe hero for SYANOR Voyages called:
+
+SYANOR VOYAGES
+LA RENAISSANCE
+L’Art de Voyager Sans Limites
+
+Use the new background image as the full hero background.
+The image already contains the visual universe:
+- Left side: global luxury travel, flights, tickets, stays, resorts, yachts, premium travel
+- Right side: Omra Factory, Kaaba Sharifa, Hajj, Omra, spiritual travel
+- Center: clean premium space for text and buttons
+
+DESIGN STYLE:
+Premium luxury, clean, cinematic, light theme.
+Use ivory, pearl white, champagne gold, emerald green.
+Avoid dark heavy design.
+Make it feel like a luxury travel house, not a basic agency template.
+
+LAYOUT:
+Full screen hero, height 100vh on desktop.
+Background image must cover the full section with object-fit: cover.
+Add a very subtle overlay only for text readability:
+- light pearl/champagne gradient in center
+- slight dark emerald vignette on edges
+Do not hide the beauty of the image.
+
+CENTER CONTENT:
+Place the SYANOR logo at the top center.
+Then main title:
+
+LA RENAISSANCE
+
+Subtitle:
+L’Art de Voyager Sans Limites
+
+Small line:
+Deux univers. Une même exigence.
+
+BUTTONS:
+Add two luxury CTA buttons under the title:
+
+1. Univers Voyages
+Links to the main travel agency section/page.
+Icon: globe or plane.
+Style: emerald background, gold border, white text.
+
+2. Omra Factory
+Links to Omra Factory section/page.
+Icon: Kaaba or mosque.
+Style: ivory/white glass background, emerald text, gold border.
+
+LEFT SIDE MICRO TEXT:
+Add a small premium floating label on the left:
+Monde & Voyages
+Billets avion • Billets bateau • Séjours • Hôtels • VIP
+
+RIGHT SIDE MICRO TEXT:
+Add a small premium floating label on the right:
+Omra Factory
+Omra • Hajj • Ramadan • Ziyarat • Accompagnement
+
+The floating labels must be glassmorphism cards:
+background: rgba(255,255,255,0.72)
+border: 1px solid rgba(212,176,106,0.55)
+blur: 16px
+rounded corners
+very elegant and subtle.
+
+MOBILE:
+Mobile must be premium and fully optimized.
+Hero height: 100svh.
+Keep the title centered.
+Background position:
+- desktop: center center
+- mobile: center center, but make sure both left travel universe and right Omra universe still feel visible.
+Buttons stacked vertically.
+Text must be readable without covering too much of the image.
+
+OLD HERO:
+Keep the current hero as a second section directly below the new hero.
+Add smooth scroll behavior from new hero to old hero if needed.
+Do not remove its design, content, buttons, or layout.
+
+ANIMATION:
+Use subtle premium animations:
+- logo fade in
+- title slight upward reveal
+- buttons fade in
+- background slow cinematic zoom, very subtle
+No childish animations.
+
+FINAL QUALITY:
+The first view should feel like a luxury brand launch:
+SYANOR Voyages = global premium travel agency.
+Omra Factory = dedicated spiritual travel universe.
+Both must feel connected but clearly separated.
