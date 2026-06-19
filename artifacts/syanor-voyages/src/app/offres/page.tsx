@@ -16,7 +16,7 @@ export default function OffresPage() {
   return (
     <SiteLayout>
       <PageHero
-        image="/services/billets-groupes.jpg"
+        image="/img/nos-offres.png"
         eyebrow="Départs & offres"
         title="Nos offres & prochains départs"
         subtitle="Consultez nos départs disponibles et demandez votre place, ou sollicitez une proposition entièrement sur mesure selon vos dates et votre confort."
