@@ -46,7 +46,7 @@ const GROUPS: ServiceGroup[] = [
         badge: "Ferry & traversée",
         desc: "Ferry & traversées, avec ou sans véhicule, tous ports",
         href: "/services/billets-bateau",
-        image: "/services/billets-bateau.jpg",
+        image: "/services/billets-bateau.png",
         alt: "Ferry et traversée maritime avec SYANOR VOYAGES",
       },
       {
@@ -262,6 +262,7 @@ interface PhotoCardProps {
 
 function PhotoCard({ svc, theme, delay, imgHeight = "h-[190px] sm:h-[240px]", featured = false }: PhotoCardProps) {
   const t = THEME_PANEL[theme];
+  const isFloating = svc.image?.includes("billets-bateau.png") ?? false;
 
   return (
     <Reveal delay={delay}>
@@ -271,13 +272,17 @@ function PhotoCard({ svc, theme, delay, imgHeight = "h-[190px] sm:h-[240px]", fe
         aria-label={svc.title}
       >
         {/* ── Image area ── */}
-        <div className={`relative overflow-hidden ${featured ? "h-[220px] sm:h-[320px]" : imgHeight}`}>
+        <div
+          className={`relative overflow-hidden ${featured ? "h-[220px] sm:h-[320px]" : imgHeight}`}
+          style={isFloating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : undefined}
+        >
           {svc.image ? (
             <img
               src={svc.image}
               alt={svc.alt ?? svc.title}
               loading="lazy"
-              className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+              className={`h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.05] ${isFloating ? "object-contain object-center" : "object-cover object-center"}`}
+              style={isFloating ? { filter: "drop-shadow(0 18px 36px rgba(6,63,51,0.38)) drop-shadow(0 6px 12px rgba(0,0,0,0.22))" } : undefined}
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-syanor-emerald/10">
@@ -285,12 +290,14 @@ function PhotoCard({ svc, theme, delay, imgHeight = "h-[190px] sm:h-[240px]", fe
             </div>
           )}
 
-          {/* Very soft bottom fade — image transitions into content panel */}
-          <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-10"
-            style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.08))" }}
-            aria-hidden
-          />
+          {/* Very soft bottom fade — skipped for floating transparent PNGs */}
+          {!isFloating && (
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-10"
+              style={{ background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.08))" }}
+              aria-hidden
+            />
+          )}
 
           {/* Badge */}
           {svc.badge && (

@@ -9,7 +9,7 @@ const CATEGORY_IMAGE: Record<string, string> = {
   "Hajj":              "/services/religieux/hajj.png",
   "Ramadan":           "/services/religieux/omra-ramadan.png",
   "Billet avion":      "/services/billets-avion.png",
-  "Billet bateau":     "/services/billets-bateau.jpg",
+  "Billet bateau":     "/services/billets-bateau.png",
   "Voyage organisé":   "/services/sur-mesure/voyages-organises.png",
   "Séjour sur mesure": "/services/sur-mesure/sejour-sur-mesure.png",
   "Pack personnalisé": "/services/sur-mesure/pack-premium-vip.png",
@@ -56,17 +56,23 @@ function PhotoHeader({
 }) {
   const img = CATEGORY_IMAGE[category] ?? "/services/religieux/omra.png";
   const statusConf = status ? STATUS_CONFIG[status] : undefined;
+  const isFloating = category === "Billet bateau";
 
   return (
-    <div className="relative h-[160px] shrink-0 overflow-hidden rounded-t-2xl">
+    <div
+      className="relative h-[160px] shrink-0 overflow-hidden rounded-t-2xl"
+      style={isFloating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : undefined}
+    >
       <img
         src={img}
         alt={category}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
+        className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06] ${isFloating ? "object-contain object-center" : "object-cover"}`}
+        style={isFloating ? { filter: "drop-shadow(0 16px 32px rgba(6,63,51,0.38)) drop-shadow(0 5px 10px rgba(0,0,0,0.22))" } : undefined}
         loading="lazy"
       />
 
-      {/* Cinematic multi-stop gradient */}
+      {/* Cinematic multi-stop gradient — hidden for floating transparent PNGs */}
+      {!isFloating && (
       <div
         className="absolute inset-0"
         style={{
@@ -75,6 +81,7 @@ function PhotoHeader({
         }}
         aria-hidden="true"
       />
+      )}
 
       {/* Featured: gold top shine */}
       {featured && (

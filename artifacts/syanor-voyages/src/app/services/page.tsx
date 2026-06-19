@@ -25,6 +25,7 @@ interface ServiceBlock {
   image: string;
   badge: string;
   overlayTint: string;
+  floating?: boolean;
 }
 
 const blocks: ServiceBlock[] = [
@@ -44,9 +45,10 @@ const blocks: ServiceBlock[] = [
     desc: "Traversées ferry organisées avec conseils sur les ports et horaires, et option véhicule lorsque cela s'applique.",
     points: ["Traversées ferry", "Aller simple / aller-retour", "Conseils ports & horaires", "Option véhicule"],
     href: "/services/billets-bateau",
-    image: "/services/billets-bateau.jpg",
+    image: "/services/billets-bateau.png",
     badge: "Ferry & traversée",
-    overlayTint: "rgba(8,28,52,0.70)",
+    overlayTint: "rgba(0,0,0,0)",
+    floating: true,
   },
   {
     title: "Omra & Hajj",
@@ -145,14 +147,19 @@ export default function ServicesPage() {
                 }}
               >
                 {/* ── Image strip ── */}
-                <div className="relative h-44 shrink-0 overflow-hidden">
+                <div
+                  className="relative h-44 shrink-0 overflow-hidden"
+                  style={b.floating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : undefined}
+                >
                   <img
                     src={b.image}
                     alt={b.title}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
+                    className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06] ${b.floating ? "object-contain object-center" : "object-cover"}`}
+                    style={b.floating ? { filter: "drop-shadow(0 18px 36px rgba(6,63,51,0.38)) drop-shadow(0 6px 12px rgba(0,0,0,0.22))" } : undefined}
                   />
-                  {/* Cinematic overlay */}
+                  {/* Cinematic overlay — hidden for floating transparent PNGs */}
+                  {!b.floating && (
                   <div
                     className="absolute inset-0"
                     style={{
@@ -160,6 +167,7 @@ export default function ServicesPage() {
                     }}
                     aria-hidden="true"
                   />
+                  )}
                   {/* Icon — top right */}
                   <div
                     className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl text-syanor-gold backdrop-blur-sm"
