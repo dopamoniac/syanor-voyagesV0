@@ -16,25 +16,10 @@ export default function Home() {
     <SiteLayout>
 
       {/* 1. Renaissance hero — full screen split universe — DO NOT TOUCH */}
-      <div className="relative">
-        <RenaissanceHero />
-        {/* Soft ivory fade-out over Hero 1 bottom — no content touched */}
-        <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-32"
-          style={{ background: "linear-gradient(to bottom, transparent 0%, rgba(248,244,238,0.95) 100%)" }}
-          aria-hidden="true"
-        />
-      </div>
+      <RenaissanceHero />
 
-      {/* Thin champagne gold divider */}
-      <div className="relative z-10 flex justify-center" style={{ marginTop: "-1px" }}>
-        <div style={{ width: 120, height: 1, background: "rgba(216,181,106,0.45)" }} />
-      </div>
-
-      {/* 2. Original cinematic hero — pulled up to overlap the ivory fade — DO NOT TOUCH */}
-      <div className="-mt-[60px] max-sm:-mt-[30px]">
-        <Hero />
-      </div>
+      {/* 2. Original cinematic hero — DO NOT TOUCH */}
+      <Hero />
 
       {/* 3. Luxury concierge booking panel */}
       <SmartSearchPanel />
