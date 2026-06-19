@@ -218,15 +218,14 @@ export default function OmraHajjPage() {
         </div>
 
         {/* ── CONTENT ── */}
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-between px-6 pb-0 pt-[88px] md:px-10 lg:px-16 xl:px-20 2xl:px-24">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-center px-6 pb-20 pt-[88px] md:px-10 lg:px-16 xl:px-20 2xl:px-24">
 
           {/* Left text block */}
           <div className="flex flex-1 items-center">
-            <div className="w-full max-w-[600px] xl:max-w-[640px] 2xl:max-w-[700px] py-10 lg:py-16">
+            <div className="w-full max-w-[620px] xl:max-w-[680px] 2xl:max-w-[740px] py-10 lg:py-16">
 
               {/* Eyebrow */}
-              <div className="mb-5 flex items-center gap-3">
-                {/* Gold arabesque mark */}
+              <div className="mb-6 flex items-center gap-3">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
                   <circle cx="14" cy="14" r="9" stroke="#B88A44" strokeWidth="1" opacity="0.7" />
                   <circle cx="14" cy="14" r="5" stroke="#B88A44" strokeWidth="0.8" opacity="0.5" />
@@ -237,39 +236,39 @@ export default function OmraHajjPage() {
                 </span>
               </div>
 
-              {/* Headline */}
+              {/* Headline — bigger, more editorial */}
               <h1
-                className="font-playfair font-bold leading-[1.04] tracking-tight"
-                style={{ fontSize: "clamp(44px, 6.5vw, 88px)", color: "#102C27" }}
+                className="font-playfair font-bold tracking-tight"
+                style={{ fontSize: "clamp(48px, 7vw, 96px)", lineHeight: "0.98", letterSpacing: "-0.03em", color: "#102C27" }}
               >
                 Omra &amp; Hajj<br />
                 <span style={{ color: "#B88A44" }}>organisés avec</span><br />
                 <span style={{ color: "#102C27" }}>excellence.</span>
               </h1>
 
-              {/* Description */}
+              {/* Description — more readable */}
               <p
-                className="mt-6 leading-relaxed"
-                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.08rem)", color: "#66645F", maxWidth: 480 }}
+                className="mt-7 leading-[1.70]"
+                style={{ fontSize: "clamp(1rem, 1.35vw, 1.18rem)", color: "#4A4845", maxWidth: 520 }}
               >
                 Omra, Hajj, Ziyarat — accompagnement spirituel complet,{" "}
                 hôtels sélectionnés et départs depuis 6 villes de France.
               </p>
 
               {/* CTAs */}
-              <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
+              <div className="mt-9 flex flex-wrap gap-3 sm:gap-4">
                 <Link
                   href="/omra-2026"
-                  className="inline-flex items-center gap-2.5 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(6,59,50,0.28)] active:scale-[0.97]"
-                  style={{ background: "#063B32", color: "#FFFDF8", padding: "clamp(12px,1.6vw,16px) clamp(24px,2.8vw,34px)", fontSize: "clamp(0.82rem,1.1vw,0.92rem)" }}
+                  className="inline-flex items-center gap-2.5 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(6,59,50,0.30)] active:scale-[0.97]"
+                  style={{ background: "#063B32", color: "#FFFDF8", padding: "14px clamp(24px,2.8vw,36px)", fontSize: "clamp(0.84rem,1.05vw,0.95rem)", letterSpacing: "-0.01em" }}
                 >
                   <Icon name="calendar" className="h-4 w-4 shrink-0" aria-hidden="true" />
                   Voir les départs Omra
                 </Link>
                 <Link
                   href={omraQuoteHref}
-                  className="inline-flex items-center gap-2.5 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,138,68,0.20)] active:scale-[0.97]"
-                  style={{ border: "1.5px solid rgba(184,138,68,0.55)", color: "#102C27", background: "rgba(255,255,255,0.70)", backdropFilter: "blur(8px)", padding: "clamp(12px,1.6vw,16px) clamp(24px,2.8vw,34px)", fontSize: "clamp(0.82rem,1.1vw,0.92rem)" }}
+                  className="inline-flex items-center gap-2.5 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,138,68,0.22)] active:scale-[0.97]"
+                  style={{ border: "1.5px solid rgba(184,138,68,0.55)", color: "#102C27", background: "rgba(255,255,255,0.72)", backdropFilter: "blur(8px)", padding: "14px clamp(24px,2.8vw,36px)", fontSize: "clamp(0.84rem,1.05vw,0.95rem)", letterSpacing: "-0.01em" }}
                 >
                   <Icon name="phone" className="h-4 w-4 shrink-0" aria-hidden="true" />
                   Demander un devis
@@ -278,81 +277,142 @@ export default function OmraHajjPage() {
             </div>
           </div>
 
-          {/* ── STATS STRIP — bottom of hero ── */}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          STATS PANEL — floating below hero
+      ══════════════════════════════════════════ */}
+      <section style={{ background: "#F8F2E8" }} aria-label="Nos chiffres clés">
+        <div className="mx-auto px-5 md:px-8" style={{ maxWidth: 1160 }}>
+
+          {/* ── Desktop: single horizontal pill ── */}
           <div
-            className="relative z-10 w-full"
-            style={{ borderTop: "1px solid rgba(184,138,68,0.20)" }}
+            className="hidden lg:grid"
+            style={{
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              marginTop: "clamp(32px, 4vw, 56px)",
+              marginBottom: "clamp(32px, 4vw, 56px)",
+              border: "1px solid rgba(184,138,68,0.22)",
+              borderRadius: 28,
+              background: "linear-gradient(135deg, rgba(255,253,248,0.96), rgba(248,242,232,0.90))",
+              boxShadow: "0 20px 60px rgba(39,28,10,0.09), 0 4px 16px rgba(184,138,68,0.08)",
+              backdropFilter: "blur(14px)",
+              overflow: "hidden",
+            }}
           >
-            <div
-              className="grid grid-cols-2 gap-px lg:grid-cols-4"
-              style={{ background: "rgba(184,138,68,0.15)" }}
-            >
-              {[
-                {
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
-                      <rect x="3" y="4" width="18" height="17" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" />
-                    </svg>
-                  ),
-                  sup: "Depuis",
-                  val: "2026",
-                  sub: "Saisons Omra",
-                },
-                {
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
-                      <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  ),
-                  sup: "",
-                  val: "6 villes",
-                  sub: "De départ",
-                },
-                {
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
-                      <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" strokeLinecap="round" />
-                      <path d="M17 9l1.5 1.5M19 6h2M17 3l1.5-1.5" strokeLinecap="round" />
-                    </svg>
-                  ),
-                  sup: "Standard",
-                  val: "à VIP",
-                  sub: "Niveaux de confort",
-                },
-                {
-                  icon: (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
-                      <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" strokeLinecap="round" />
-                      <path d="M12 12v4M10 14h4" strokeLinecap="round" />
-                    </svg>
-                  ),
-                  sup: "Hôtels",
-                  val: "sélectionnés",
-                  sub: "Proche des lieux saints",
-                },
-              ].map((stat) => (
+            {[
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" /></svg>,
+                kicker: "Depuis",
+                value: "2026",
+                label: "Saisons Omra",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+                kicker: "Départs depuis",
+                value: "6 villes",
+                label: "de France",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" strokeLinecap="round" /><path d="M17 9l1.5 1.5M19 6h2M17 3l1.5-1.5" strokeLinecap="round" /></svg>,
+                kicker: "Standard",
+                value: "à VIP",
+                label: "Niveaux de confort",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" strokeLinecap="round" /><path d="M12 12v4M10 14h4" strokeLinecap="round" /></svg>,
+                kicker: "Hôtels",
+                value: "sélectionnés",
+                label: "Proche des lieux saints",
+              },
+            ].map((s, i, arr) => (
+              <div
+                key={s.value}
+                className="flex items-center gap-4 px-7 py-6"
+                style={{ borderRight: i < arr.length - 1 ? "1px solid rgba(184,138,68,0.18)" : "none" }}
+              >
+                {/* Icon circle */}
                 <div
-                  key={stat.val}
-                  className="flex items-center gap-4 px-6 py-5 md:px-8 md:py-6"
-                  style={{ background: "rgba(248,242,232,0.92)" }}
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "rgba(184,138,68,0.10)", border: "1px solid rgba(184,138,68,0.24)", color: "#B88A44" }}
                 >
-                  <span style={{ color: "#B88A44", flexShrink: 0 }}>{stat.icon}</span>
-                  <div>
-                    {stat.sup && (
-                      <span className="block text-[0.60rem] font-semibold uppercase tracking-[0.18em]" style={{ color: "#66645F" }}>
-                        {stat.sup}
-                      </span>
-                    )}
-                    <span className="block font-playfair font-bold leading-tight" style={{ fontSize: "clamp(1rem,1.6vw,1.25rem)", color: "#102C27" }}>
-                      {stat.val}
-                    </span>
-                    <span className="block text-[0.65rem] leading-snug" style={{ color: "#66645F" }}>
-                      {stat.sub}
-                    </span>
-                  </div>
+                  {s.icon}
                 </div>
-              ))}
-            </div>
+                <div className="min-w-0">
+                  <p className="mb-0.5 text-[0.60rem] font-bold uppercase tracking-[0.20em]" style={{ color: "#8F6B34" }}>
+                    {s.kicker}
+                  </p>
+                  <p className="font-playfair font-bold leading-none" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.5rem)", color: "#063B32", letterSpacing: "-0.025em" }}>
+                    {s.value}
+                  </p>
+                  <p className="mt-1 text-[0.78rem] leading-tight" style={{ color: "#66645F" }}>
+                    {s.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ── Tablet + Mobile: 2×2 card grid ── */}
+          <div
+            className="grid grid-cols-2 gap-3 py-8 lg:hidden sm:gap-4"
+          >
+            {[
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" /></svg>,
+                kicker: "Depuis",
+                value: "2026",
+                label: "Saisons Omra",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" strokeLinecap="round" strokeLinejoin="round" /></svg>,
+                kicker: "Départs depuis",
+                value: "6 villes",
+                label: "de France",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" strokeLinecap="round" /><path d="M17 9l1.5 1.5M19 6h2M17 3l1.5-1.5" strokeLinecap="round" /></svg>,
+                kicker: "Standard",
+                value: "à VIP",
+                label: "Niveaux de confort",
+              },
+              {
+                icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" strokeLinecap="round" /><path d="M12 12v4M10 14h4" strokeLinecap="round" /></svg>,
+                kicker: "Hôtels",
+                value: "sélectionnés",
+                label: "Proche des lieux saints",
+              },
+            ].map((s) => (
+              <div
+                key={s.value}
+                className="flex flex-col gap-3 rounded-3xl p-4 sm:p-5"
+                style={{
+                  background: "rgba(255,253,248,0.92)",
+                  border: "1px solid rgba(184,138,68,0.20)",
+                  boxShadow: "0 12px 32px rgba(39,28,10,0.07)",
+                }}
+              >
+                {/* Icon */}
+                <div
+                  className="flex h-10 w-10 items-center justify-center rounded-full"
+                  style={{ background: "rgba(184,138,68,0.10)", border: "1px solid rgba(184,138,68,0.22)", color: "#B88A44" }}
+                >
+                  {s.icon}
+                </div>
+                <div>
+                  <p className="mb-0.5 text-[0.58rem] font-bold uppercase tracking-[0.18em]" style={{ color: "#8F6B34" }}>
+                    {s.kicker}
+                  </p>
+                  <p className="font-playfair font-bold leading-none" style={{ fontSize: "clamp(1.1rem, 5vw, 1.4rem)", color: "#063B32", letterSpacing: "-0.02em" }}>
+                    {s.value}
+                  </p>
+                  <p className="mt-1 text-[0.72rem] leading-tight" style={{ color: "#66645F" }}>
+                    {s.label}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>

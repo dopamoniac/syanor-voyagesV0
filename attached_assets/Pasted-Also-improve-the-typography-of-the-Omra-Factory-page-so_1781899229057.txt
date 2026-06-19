@@ -1,0 +1,222 @@
+Also improve the typography of the Omra Factory page so it looks more premium, clearer, and easier to read on both mobile and desktop.
+
+Current issue:
+Some text feels too small, too compressed, or not refined enough. The typography should feel like a luxury travel brand, not a basic template.
+
+Typography goals:
+
+* Make all text clearer and more readable.
+* Improve hierarchy between titles, subtitles, descriptions, buttons, and stats.
+* Make the design feel more elegant, premium, and professional.
+* Keep the white / ivory luxury theme.
+* Keep the visual identity: emerald, gold, champagne, pearl.
+
+Fonts:
+Use an elegant serif font for big titles:
+
+* Playfair Display
+* Cormorant Garamond
+* Libre Baskerville
+
+Use a clean modern sans-serif for body, buttons, navigation, and small text:
+
+* Inter
+* Manrope
+* Plus Jakarta Sans
+* Satoshi if available
+
+Hero headline:
+
+* Make it larger, more elegant, and balanced.
+* Use a beautiful serif font.
+* Desktop size: around 78px to 96px.
+* Tablet size: around 60px to 72px.
+* Mobile size: around 44px to 54px.
+* Use line-height around 0.95 to 1.05.
+* Make sure the headline does not crop or overlap.
+* Keep the green/gold color contrast like the mockup.
+
+Hero description:
+
+* Make it more readable.
+* Use bigger font size, around 18px to 21px on desktop.
+* Use around 16px on mobile.
+* Use line-height around 1.7.
+* Use muted dark gray/emerald text, not too pale.
+* Limit width so it does not stretch too much.
+
+Navigation:
+
+* Make navbar text clearer.
+* Increase font weight slightly.
+* Use clean spacing between links.
+* Make active/hover states elegant with gold or emerald accents.
+* Ensure mobile menu text is readable and not too small.
+
+Buttons:
+
+* Button text should be bold, clear, and centered.
+* Use font-size around 15px to 16px.
+* Keep icons aligned with text.
+* Improve letter spacing very slightly.
+* Make buttons feel premium with clean padding and balanced radius.
+
+Stats cards:
+
+* Improve text hierarchy inside the cards.
+* Small kicker labels like “DEPUIS” should be uppercase, letter-spaced, and gold.
+* Main values like “2026”, “6 villes”, “Standard à VIP” should be stronger and clearer.
+* Use serif font for stat values.
+* Use sans-serif for labels.
+* Make labels readable on mobile.
+* Avoid tiny text.
+
+Section titles:
+For “Choisissez votre saison” and other section titles:
+
+* Use the same elegant serif font.
+* Make the size responsive.
+* Desktop: around 52px to 68px.
+* Mobile: around 36px to 44px.
+* Add enough spacing above and below.
+* Keep dark emerald color.
+
+Spacing:
+
+* Increase vertical rhythm between text blocks.
+* Avoid cramped text.
+* Keep consistent margins.
+* Make mobile layout breathe more.
+
+Suggested CSS typography system:
+
+:root {
+--font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+--font-sans: "Inter", "Manrope", system-ui, sans-serif;
+
+--text-emerald: #063B32;
+--text-muted: #66645F;
+--gold: #B88A44;
+}
+
+body {
+font-family: var(--font-sans);
+color: var(--text-emerald);
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+}
+
+.hero-title {
+font-family: var(--font-serif);
+font-size: clamp(44px, 7vw, 96px);
+line-height: 0.98;
+letter-spacing: -0.045em;
+font-weight: 700;
+color: var(--text-emerald);
+}
+
+.hero-title .gold {
+color: var(--gold);
+}
+
+.hero-description {
+max-width: 680px;
+font-size: clamp(16px, 1.35vw, 21px);
+line-height: 1.7;
+color: var(--text-muted);
+font-weight: 400;
+}
+
+.eyebrow {
+font-size: clamp(11px, 0.85vw, 13px);
+line-height: 1.2;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--gold);
+font-weight: 700;
+}
+
+.nav-link {
+font-size: 15px;
+font-weight: 600;
+letter-spacing: -0.01em;
+color: var(--text-emerald);
+}
+
+.cta-button {
+font-size: 15px;
+font-weight: 700;
+letter-spacing: -0.01em;
+line-height: 1;
+}
+
+.stat-kicker {
+font-size: 11px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+font-weight: 800;
+color: var(--gold);
+}
+
+.stat-value {
+font-family: var(--font-serif);
+font-size: clamp(22px, 2vw, 32px);
+line-height: 1.05;
+font-weight: 700;
+color: var(--text-emerald);
+letter-spacing: -0.025em;
+}
+
+.stat-label {
+font-size: 14px;
+line-height: 1.35;
+color: var(--text-muted);
+}
+
+.section-title {
+font-family: var(--font-serif);
+font-size: clamp(38px, 5vw, 68px);
+line-height: 1.02;
+letter-spacing: -0.04em;
+font-weight: 700;
+color: var(--text-emerald);
+}
+
+@media (max-width: 640px) {
+.hero-title {
+font-size: clamp(44px, 13vw, 56px);
+line-height: 1;
+letter-spacing: -0.04em;
+}
+
+.hero-description {
+font-size: 16px;
+line-height: 1.65;
+}
+
+.nav-link {
+font-size: 16px;
+}
+
+.cta-button {
+font-size: 15px;
+}
+
+.stat-value {
+font-size: 23px;
+}
+
+.stat-label {
+font-size: 13.5px;
+}
+}
+
+Important:
+Do not use overly thin fonts.
+Do not make body text pale or hard to read.
+Do not make the mobile title too huge.
+Do not let text overlap the image or stats cards.
+Do not use a generic boring font combination.
+
+Final target:
+The typography should feel refined, premium, readable, luxury, and close to the reference mockup: big elegant serif titles, clean sans-serif details, strong hierarchy, and perfect mobile readability.
