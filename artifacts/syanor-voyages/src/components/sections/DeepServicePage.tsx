@@ -34,6 +34,7 @@ export interface DeepServiceConfig {
   subtitle: string;
   crumbs: Crumb[];
   heroImage?: string;
+  heroFloating?: boolean;
   quoteHref: string;
   intro: { heading: string; paragraphs: string[] };
   included: string[];
@@ -66,6 +67,7 @@ export default function DeepServicePage({
         subtitle={config.subtitle}
         crumbs={config.crumbs}
         image={config.heroImage}
+        floating={config.heroFloating}
         primaryCta={{ label: "Demander un devis", href: config.quoteHref }}
         secondaryCta={{ label: "Voir les offres", href: "/offres" }}
       />

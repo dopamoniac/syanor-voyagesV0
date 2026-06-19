@@ -10,6 +10,7 @@ interface PageHeroProps {
   subtitle?: ReactNode;
   crumbs?: Crumb[];
   image?: string;
+  floating?: boolean;
   visual?: PageHeroVisual;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
@@ -213,15 +214,21 @@ function DefaultOrnament() {
    Adapted for light ivory background
 ───────────────────────────────────────────────────────────── */
 
-function MobileImageStrip({ image }: { image: string }) {
+function MobileImageStrip({ image, floating = false }: { image: string; floating?: boolean }) {
   return (
     <div
       className="relative w-full overflow-hidden rounded-2xl"
-      style={{ height: "200px", border: "1px solid rgba(201,162,74,0.30)", boxShadow: "0 8px 32px rgba(6,63,51,0.12)" }}
+      style={{ height: "200px", border: "1px solid rgba(201,162,74,0.30)", boxShadow: "0 8px 32px rgba(6,63,51,0.12)", ...(floating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : {}) }}
       aria-hidden="true"
     >
-      <img src={image} alt="" className="h-full w-full object-cover" loading="eager" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(6,63,51,0.30) 100%)" }} />
+      <img
+        src={image}
+        alt=""
+        className={`h-full w-full ${floating ? "object-contain object-center" : "object-cover"}`}
+        style={floating ? { filter: "drop-shadow(0 12px 24px rgba(6,63,51,0.35)) drop-shadow(0 4px 8px rgba(0,0,0,0.20))" } : undefined}
+        loading="eager"
+      />
+      {!floating && <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(6,63,51,0.30) 100%)" }} />}
       <div className="absolute bottom-2.5 right-2.5 opacity-60">
         <svg viewBox="0 0 40 40" width="36" height="36" fill="none">
           <path d="M40 0 Q40 40 0 40" stroke="rgba(201,162,74,0.8)" strokeWidth="1" />
@@ -369,8 +376,8 @@ function MobileDefaultOrnament() {
   );
 }
 
-function MobileVisual({ image, visual }: { image?: string; visual: PageHeroVisual }) {
-  if (image) return <MobileImageStrip image={image} />;
+function MobileVisual({ image, visual, floating }: { image?: string; visual: PageHeroVisual; floating?: boolean }) {
+  if (image) return <MobileImageStrip image={image} floating={floating} />;
   switch (visual) {
     case "services":  return <MobileServicesVisual />;
     case "routes":    return <MobileRoutesVisual />;
@@ -391,6 +398,7 @@ export default function PageHero({
   subtitle,
   crumbs,
   image,
+  floating = false,
   visual = "default",
   primaryCta,
   secondaryCta,
@@ -492,7 +500,7 @@ export default function PageHero({
 
             {/* Mobile visual — below CTAs, hidden on lg+ */}
             <div className="mt-8 block lg:hidden">
-              <MobileVisual image={image} visual={visual} />
+              <MobileVisual image={image} visual={visual} floating={floating} />
             </div>
 
             {children}
@@ -509,10 +517,19 @@ export default function PageHero({
                 />
                 <div
                   className="relative overflow-hidden rounded-2xl"
-                  style={{ border: "1px solid rgba(201,162,74,0.35)", boxShadow: "0 32px 64px rgba(6,63,51,0.18), 0 0 0 1px rgba(201,162,74,0.15)" }}
+                  style={floating
+                    ? { border: "1px solid rgba(201,162,74,0.35)", boxShadow: "0 32px 64px rgba(6,63,51,0.18), 0 0 0 1px rgba(201,162,74,0.15)", background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" }
+                    : { border: "1px solid rgba(201,162,74,0.35)", boxShadow: "0 32px 64px rgba(6,63,51,0.18), 0 0 0 1px rgba(201,162,74,0.15)" }}
                 >
-                  <img src={image} alt="" aria-hidden="true" className="h-[480px] w-full object-cover" loading="eager" />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(2,43,36,0.45) 0%, transparent 50%)" }} aria-hidden="true" />
+                  <img
+                    src={image}
+                    alt=""
+                    aria-hidden="true"
+                    className={`h-[480px] w-full ${floating ? "object-contain object-center" : "object-cover"}`}
+                    style={floating ? { filter: "drop-shadow(0 18px 36px rgba(6,63,51,0.38)) drop-shadow(0 6px 12px rgba(0,0,0,0.22))" } : undefined}
+                    loading="eager"
+                  />
+                  {!floating && <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(2,43,36,0.45) 0%, transparent 50%)" }} aria-hidden="true" />}
                 </div>
                 <div className="absolute -bottom-3 -right-3 h-16 w-16 opacity-55" aria-hidden="true">
                   <svg viewBox="0 0 64 64" fill="none">

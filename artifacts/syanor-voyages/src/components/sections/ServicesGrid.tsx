@@ -263,6 +263,7 @@ interface PhotoCardProps {
 function PhotoCard({ svc, theme, delay, imgHeight = "h-[190px] sm:h-[240px]", featured = false }: PhotoCardProps) {
   const t = THEME_PANEL[theme];
   const isFloating = (
+    svc.image?.includes("billets-avion.png") ||
     svc.image?.includes("billets-bateau.png") ||
     svc.image?.includes("voyages-organises.png") ||
     svc.image?.includes("voyage-de-noces.png") ||

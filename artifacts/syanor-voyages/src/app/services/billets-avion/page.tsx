@@ -15,6 +15,7 @@ const quoteHref = quoteUrl({ service: "Billet avion", transport: "Avion" });
 
 const config: DeepServiceConfig = {
   heroImage: "/services/billets-avion.png",
+  heroFloating: true,
   eyebrow: "Billets avion",
   title: "Billets d'avion : itinéraires optimisés et accompagnement complet.",
   subtitle:

@@ -37,7 +37,8 @@ const blocks: ServiceBlock[] = [
     href: "/services/billets-avion",
     image: "/services/billets-avion.png",
     badge: "Vols internationaux",
-    overlayTint: "rgba(10,20,48,0.68)",
+    overlayTint: "rgba(0,0,0,0)",
+    floating: true,
   },
   {
     title: "Billets Bateau / Ferry",
