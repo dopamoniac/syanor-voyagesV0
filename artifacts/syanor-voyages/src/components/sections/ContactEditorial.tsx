@@ -19,11 +19,11 @@ export default function ContactEditorial() {
             </p>
             <h2
               className="font-playfair font-light leading-[1.04] mb-6"
-              style={{ color: "#0B1E3D", fontSize: "clamp(2.0rem, 4vw, 3.2rem)" }}
+              style={{ color: "#1A1712", fontSize: "clamp(2.0rem, 4vw, 3.2rem)" }}
             >
               Parlons de<br />votre prochain voyage.
             </h2>
-            <p className="text-sm leading-relaxed mb-10 max-w-md" style={{ color: "rgba(11,30,61,0.52)" }}>
+            <p className="text-sm leading-relaxed mb-10 max-w-md" style={{ color: "rgba(26,23,18,0.55)" }}>
               Un conseiller SYANOR VOYAGES vous répond rapidement par téléphone, WhatsApp
               ou email. Demandez une proposition gratuite, sans engagement.
             </p>
@@ -42,12 +42,12 @@ export default function ContactEditorial() {
                 </span>
                 <span
                   className="font-playfair text-lg leading-none transition-colors duration-200 group-hover:text-[#D8B56A]"
-                  style={{ color: "#0B1E3D" }}
+                  style={{ color: "#1A1712" }}
                 >
                   {CONTACT.phone}
                 </span>
               </a>
-              <div className="h-px ml-12" style={{ background: "rgba(11,30,61,0.08)" }} aria-hidden="true" />
+              <div className="h-px ml-12" style={{ background: "rgba(26,23,18,0.08)" }} aria-hidden="true" />
 
               <a
                 href={CONTACT.whatsappHref}
@@ -63,12 +63,12 @@ export default function ContactEditorial() {
                 </span>
                 <span
                   className="font-playfair text-lg leading-none transition-colors duration-200 group-hover:text-[#D8B56A]"
-                  style={{ color: "#0B1E3D" }}
+                  style={{ color: "#1A1712" }}
                 >
                   WhatsApp
                 </span>
               </a>
-              <div className="h-px ml-12" style={{ background: "rgba(11,30,61,0.08)" }} aria-hidden="true" />
+              <div className="h-px ml-12" style={{ background: "rgba(26,23,18,0.08)" }} aria-hidden="true" />
 
               <a
                 href={CONTACT.emailHref}
@@ -82,7 +82,7 @@ export default function ContactEditorial() {
                 </span>
                 <span
                   className="font-playfair text-lg leading-none transition-colors duration-200 group-hover:text-[#D8B56A] break-all"
-                  style={{ color: "#0B1E3D" }}
+                  style={{ color: "#1A1712" }}
                 >
                   {CONTACT.email}
                 </span>
@@ -94,8 +94,8 @@ export default function ContactEditorial() {
           <div
             className="rounded-[28px] p-8 md:p-10"
             style={{
-              background: "#0B1E3D",
-              border: "1px solid rgba(216,181,106,0.14)",
+              background: "#063F33",
+              border: "1px solid rgba(216,181,106,0.22)",
             }}
           >
             <p
@@ -115,7 +115,7 @@ export default function ContactEditorial() {
               className="block w-full rounded-full py-3.5 text-center text-sm font-semibold transition-all duration-200 hover:shadow-[0_8px_28px_rgba(216,181,106,0.30)] hover:-translate-y-px mb-3"
               style={{
                 background: "linear-gradient(135deg, #D8B56A 0%, #c9a55e 100%)",
-                color: "#0B1E3D",
+                color: "#063F33",
               }}
             >
               Demander un devis gratuit

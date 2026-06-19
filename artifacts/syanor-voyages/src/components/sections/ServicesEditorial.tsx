@@ -1,7 +1,7 @@
 import Link from "@/components/Link";
 
 /* ── shared tokens ───────────────────────────────────────── */
-const NAVY   = "#0B1E3D";
+const NAVY   = "#1A1712";
 const GOLD   = "#D8B56A";
 const IVORY  = "#F8F4EE";
 const CARBON = "#3D3D3D";  // soft charcoal for body text

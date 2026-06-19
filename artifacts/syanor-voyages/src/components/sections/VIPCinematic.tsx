@@ -32,7 +32,7 @@ export default function VIPCinematic() {
       {/* Inner dark panel — full-bleed with generous padding */}
       <div
         className="relative mx-5 my-6 md:mx-8 md:my-8 rounded-[28px] md:rounded-[36px] overflow-hidden"
-        style={{ background: "#0B1E3D" }}
+        style={{ background: "#063F33" }}
       >
         {/* Decorative corner rings */}
         <div
@@ -63,7 +63,7 @@ export default function VIPCinematic() {
         <div
           className="absolute inset-0"
           aria-hidden="true"
-          style={{ background: "linear-gradient(135deg, rgba(11,30,61,0.85) 0%, rgba(11,30,61,0.50) 100%)" }}
+          style={{ background: "linear-gradient(135deg, rgba(6,63,51,0.85) 0%, rgba(6,63,51,0.50) 100%)" }}
         />
 
         {/* Content */}
@@ -117,7 +117,7 @@ export default function VIPCinematic() {
             className="inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:shadow-[0_8px_28px_rgba(216,181,106,0.30)] hover:-translate-y-px"
             style={{
               background: "linear-gradient(135deg, #D8B56A 0%, #c9a55e 100%)",
-              color: "#0B1E3D",
+              color: "#063F33",
             }}
           >
             Demander un pack VIP

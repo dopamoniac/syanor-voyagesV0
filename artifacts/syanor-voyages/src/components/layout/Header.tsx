@@ -157,7 +157,7 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent, isActive 
         ? "text-[#D8B56A]"
         : transparent
           ? "text-[rgba(248,244,238,0.88)] hover:text-[rgba(216,181,106,0.85)]"
-          : "text-[#0B1E3D]/75 hover:text-[#0B1E3D]"
+          : "text-[#1A1712]/70 hover:text-[#1A1712]"
   );
 
   return (
@@ -311,7 +311,7 @@ export default function Header() {
                       : {
                           background: "rgba(216,181,106,0.08)",
                           border: "1px solid rgba(216,181,106,0.35)",
-                          color: "#0B1E3D",
+                          color: "#063F33",
                         }
                   }
                 >
@@ -334,7 +334,7 @@ export default function Header() {
                           ? { color: "#D8B56A" }
                           : transparent
                             ? { color: "rgba(248,244,238,0.88)" }
-                            : { color: "#0B1E3D" }
+                            : { color: "#1A1712" }
                       }
                     >
                       {item.label}
@@ -368,7 +368,7 @@ export default function Header() {
                     }
                   : {
                       border: "1px solid rgba(216,181,106,0.30)",
-                      color: "#0B1E3D",
+                      color: "#063F33",
                     }
               }
             >
@@ -382,16 +382,16 @@ export default function Header() {
               style={
                 transparent
                   ? {
-                      background: "#0B1E3D",
+                      background: "#063F33",
                       border: "1px solid #D8B56A",
                       color: "#FFFFFF",
-                      boxShadow: "0 4px 16px rgba(11,30,61,0.30)",
+                      boxShadow: "0 4px 16px rgba(6,63,51,0.30)",
                     }
                   : {
-                      background: "#0B1E3D",
+                      background: "#063F33",
                       border: "1px solid #D8B56A",
                       color: "#FFFFFF",
-                      boxShadow: "0 2px 8px rgba(11,30,61,0.18)",
+                      boxShadow: "0 2px 8px rgba(6,63,51,0.18)",
                     }
               }
             >

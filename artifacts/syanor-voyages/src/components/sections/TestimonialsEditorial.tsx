@@ -39,7 +39,7 @@ export default function TestimonialsEditorial() {
   return (
     <section
       className="section-pad"
-      style={{ background: "#0B1E3D" }}
+      style={{ background: "#063F33" }}
       id="temoignages"
     >
       <div className="mx-auto max-w-7xl px-5 md:px-8">

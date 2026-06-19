@@ -68,11 +68,11 @@ export default function JourneySteps() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <h2
               className="font-playfair font-light leading-[1.04]"
-              style={{ color: "#0B1E3D", fontSize: "clamp(1.9rem, 4vw, 3.0rem)" }}
+              style={{ color: "#1A1712", fontSize: "clamp(1.9rem, 4vw, 3.0rem)" }}
             >
               Votre voyage, étape par étape.
             </h2>
-            <p className="text-sm leading-relaxed max-w-sm md:text-right" style={{ color: "rgba(11,30,61,0.50)" }}>
+            <p className="text-sm leading-relaxed max-w-sm md:text-right" style={{ color: "rgba(26,23,18,0.52)" }}>
               De votre première demande à votre retour, un conseiller dédié
               vous accompagne à chaque étape.
             </p>
@@ -95,7 +95,7 @@ export default function JourneySteps() {
                   <div
                     className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full mb-6 transition-all duration-300 group-hover:shadow-[0_8px_24px_rgba(216,181,106,0.25)]"
                     style={{
-                      background: "#0B1E3D",
+                      background: "#063F33",
                       border: "1px solid rgba(216,181,106,0.30)",
                       color: "#D8B56A",
                     }}
@@ -108,10 +108,10 @@ export default function JourneySteps() {
                   >
                     {step.num}
                   </p>
-                  <p className="text-[0.82rem] font-semibold mb-2" style={{ color: "#0B1E3D" }}>
+                  <p className="text-[0.82rem] font-semibold mb-2" style={{ color: "#1A1712" }}>
                     {step.label}
                   </p>
-                  <p className="text-[0.67rem] leading-relaxed" style={{ color: "rgba(11,30,61,0.48)" }}>
+                  <p className="text-[0.67rem] leading-relaxed" style={{ color: "rgba(26,23,18,0.50)" }}>
                     {step.desc}
                   </p>
                 </div>
@@ -129,7 +129,7 @@ export default function JourneySteps() {
                 <div
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
                   style={{
-                    background: "#0B1E3D",
+                    background: "#063F33",
                     border: "1px solid rgba(216,181,106,0.30)",
                     color: "#D8B56A",
                   }}
@@ -152,10 +152,10 @@ export default function JourneySteps() {
                 >
                   {step.num}
                 </p>
-                <p className="text-[0.85rem] font-semibold mb-1.5" style={{ color: "#0B1E3D" }}>
+                <p className="text-[0.85rem] font-semibold mb-1.5" style={{ color: "#1A1712" }}>
                   {step.label}
                 </p>
-                <p className="text-[0.72rem] leading-relaxed" style={{ color: "rgba(11,30,61,0.50)" }}>
+                <p className="text-[0.72rem] leading-relaxed" style={{ color: "rgba(26,23,18,0.52)" }}>
                   {step.desc}
                 </p>
               </div>

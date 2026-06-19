@@ -25,7 +25,7 @@ const DESTINATIONS = [
     country: "Émirats Arabes Unis",
     tagline: "L'excellence au désert",
     href: "/contact?dest=Dubai#quote",
-    gradient: "linear-gradient(160deg, #040E1C 0%, #0B2545 55%, #040E1C 100%)",
+    gradient: "linear-gradient(160deg, #041818 0%, #0B3530 55%, #041818 100%)",
     textAccent: "#D8B56A",
   },
   {
@@ -52,7 +52,7 @@ const DESTINATIONS = [
     country: "Royaume-Uni",
     tagline: "Capitale du prestige",
     href: "/contact?dest=Londres#quote",
-    gradient: "linear-gradient(160deg, #0F1623 0%, #1E3050 55%, #0F1623 100%)",
+    gradient: "linear-gradient(160deg, #1A1A1A 0%, #2D2A28 55%, #1A1A1A 100%)",
     textAccent: "#D8B56A",
   },
 ];
@@ -123,7 +123,7 @@ export default function DestinationsShowcase() {
             </p>
             <h2
               className="font-playfair font-light leading-[1.04]"
-              style={{ color: "#0B1E3D", fontSize: "clamp(1.9rem, 4vw, 3.0rem)" }}
+              style={{ color: "#1A1712", fontSize: "clamp(1.9rem, 4vw, 3.0rem)" }}
             >
               Le monde à votre portée.
             </h2>
@@ -131,7 +131,7 @@ export default function DestinationsShowcase() {
           <Link
             href="/contact#quote"
             className="shrink-0 rounded-full px-6 py-2.5 text-[0.75rem] font-semibold transition-all duration-200 hover:shadow-md"
-            style={{ border: "1px solid #D8B56A", color: "#0B1E3D" }}
+            style={{ border: "1px solid #D8B56A", color: "#1A1712" }}
           >
             Toutes nos destinations →
           </Link>
