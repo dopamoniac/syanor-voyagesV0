@@ -6,11 +6,7 @@ import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
-import { departureCities } from "@/data/cities";
 import { cn } from "@/lib/utils";
-
-// All pages except the homepage have a dark hero — always show the glass navbar
-// Homepage (/) has its own cinematic hero that starts transparent
 
 const SERVICE_ICON: Record<string, string> = {
   "/services/billets-avion":           "airplane",
@@ -26,7 +22,6 @@ const SERVICE_ICON: Record<string, string> = {
   "/visas#assistance":                 "shield",
   "/visas":                            "clipboard",
 };
-
 
 function BilletsMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
   return (
@@ -131,17 +126,23 @@ interface MegaMenuWrapperProps {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  transparent: boolean;
 }
 
-function MegaMenuWrapper({ item, isOpen, onOpen, onClose }: MegaMenuWrapperProps) {
+function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent }: MegaMenuWrapperProps) {
   const panelWidth =
     item.label === "Séjours & Voyages" ? "w-[520px]" :
     item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
 
   const labelCls = cn(
-    "whitespace-nowrap text-[0.8rem] font-medium transition-colors duration-150",
-    isOpen ? "text-syanor-emerald" : "text-syanor-ink/75 hover:text-syanor-emerald"
+    "whitespace-nowrap text-[0.8rem] font-medium transition-colors duration-200",
+    isOpen
+      ? transparent ? "text-[rgba(212,175,55,0.95)]" : "text-syanor-emerald"
+      : transparent
+        ? "text-[rgba(255,249,237,0.85)] hover:text-[rgba(212,175,55,0.90)]"
+        : "text-syanor-ink/75 hover:text-syanor-emerald"
   );
+
   return (
     <div className="relative flex items-center">
       <button
@@ -199,6 +200,7 @@ export default function Header() {
 
   const forceBg = location !== "/";
   const showBg = scrolled || forceBg;
+  const transparent = !showBg;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -207,7 +209,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Click-outside close
   useEffect(() => {
     if (!openMegaMenu) return;
     function handleOutsideClick(e: MouseEvent) {
@@ -219,7 +220,6 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [openMegaMenu]);
 
-  // Escape key global close
   useEffect(() => {
     if (!openMegaMenu) return;
     function handleEscape(e: KeyboardEvent) {
@@ -229,32 +229,34 @@ export default function Header() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [openMegaMenu]);
 
-  const handleMegaOpen = useCallback((label: string) => {
-    setOpenMegaMenu(label);
-  }, []);
-
-  const handleMegaClose = useCallback(() => {
-    setOpenMegaMenu(null);
-  }, []);
+  const handleMegaOpen  = useCallback((label: string) => setOpenMegaMenu(label), []);
+  const handleMegaClose = useCallback(() => setOpenMegaMenu(null), []);
 
   return (
     <>
       <header
         ref={headerRef}
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+        style={
           showBg
-            ? "bg-syanor-ivory shadow-[0_2px_20px_rgba(6,63,51,0.07)]"
-            : "bg-transparent"
-        )}
+            ? {
+                background: "rgba(255,252,244,0.95)",
+                backdropFilter: "blur(18px)",
+                WebkitBackdropFilter: "blur(18px)",
+                borderBottom: "1px solid rgba(212,176,106,0.25)",
+                boxShadow: "0 2px 20px rgba(6,63,51,0.07)",
+              }
+            : { background: "transparent" }
+        }
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-5 md:px-8">
+
           {/* Logo */}
           <Link href="/" aria-label="SYANOR VOYAGES — Accueil" className="shrink-0">
             <Logo />
           </Link>
 
-          {/* Desktop nav — visible at lg+ */}
+          {/* Desktop nav */}
           <nav className="hidden flex-1 items-center justify-center gap-0 lg:flex" aria-label="Navigation principale">
             {mainNav.map((item) =>
               item.children ? (
@@ -264,14 +266,31 @@ export default function Header() {
                   isOpen={openMegaMenu === item.label}
                   onOpen={() => handleMegaOpen(item.label)}
                   onClose={handleMegaClose}
+                  transparent={transparent}
                 />
               ) : item.label === "Omra Factory" ? (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="ml-1 inline-flex items-center gap-1.5 rounded-full border border-syanor-gold/35 bg-syanor-gold/8 px-3 py-1.5 text-[0.78rem] font-semibold text-syanor-ink/80 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/15 hover:text-syanor-ink"
+                  className="ml-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[0.78rem] font-semibold transition-all duration-200"
+                  style={
+                    transparent
+                      ? {
+                          background: "rgba(255,255,255,0.10)",
+                          border: "1px solid rgba(212,175,55,0.55)",
+                          color: "rgba(255,249,237,0.88)",
+                          backdropFilter: "blur(8px)",
+                          WebkitBackdropFilter: "blur(8px)",
+                        }
+                      : {
+                          background: "rgba(201,162,74,0.08)",
+                          border: "1px solid rgba(201,162,74,0.35)",
+                          color: "rgba(24,18,10,0.80)",
+                        }
+                  }
                 >
-                  <svg className="h-3 w-3 text-syanor-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                    style={{ color: transparent ? "rgba(212,175,55,0.90)" : "rgba(201,162,74,0.85)" }}>
                     <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                   </svg>
                   {item.label}
@@ -280,7 +299,12 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium text-syanor-ink/75 transition-colors duration-150 hover:text-syanor-emerald"
+                  className="whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium transition-colors duration-200"
+                  style={
+                    transparent
+                      ? { color: "rgba(255,249,237,0.85)" }
+                      : { color: "rgba(24,18,10,0.75)" }
+                  }
                 >
                   {item.label}
                 </Link>
@@ -288,14 +312,25 @@ export default function Header() {
             )}
           </nav>
 
-          {/* Desktop actions — visible at lg+ */}
+          {/* Desktop actions */}
           <div className="hidden shrink-0 items-center gap-2.5 lg:flex">
             <a
               href={CONTACT.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp SYANOR VOYAGES"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-syanor-gold/30 text-syanor-emerald transition-all duration-150 hover:border-syanor-emerald hover:bg-syanor-emerald/8 hover:text-syanor-emerald"
+              className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
+              style={
+                transparent
+                  ? {
+                      border: "1px solid rgba(255,249,237,0.30)",
+                      color: "rgba(255,249,237,0.80)",
+                    }
+                  : {
+                      border: "1px solid rgba(201,162,74,0.30)",
+                      color: "#063F33",
+                    }
+              }
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -303,13 +338,28 @@ export default function Header() {
             </a>
             <Link
               href="/contact#quote"
-              className="whitespace-nowrap rounded-full bg-syanor-emerald px-5 py-2 text-[0.8rem] font-semibold leading-none text-syanor-ivory shadow-sm transition-all duration-200 hover:bg-syanor-royal hover:shadow-card"
+              className="whitespace-nowrap rounded-full px-5 py-2 text-[0.8rem] font-semibold leading-none transition-all duration-200 hover:shadow-lg active:scale-[0.97]"
+              style={
+                transparent
+                  ? {
+                      background: "#063F35",
+                      border: "1px solid rgba(212,175,55,0.60)",
+                      color: "#FFF9ED",
+                      boxShadow: "0 4px 16px rgba(6,63,53,0.30)",
+                    }
+                  : {
+                      background: "#063F33",
+                      border: "1px solid transparent",
+                      color: "#FFF9ED",
+                      boxShadow: "0 2px 8px rgba(6,63,51,0.18)",
+                    }
+              }
             >
               Demander un devis
             </Link>
           </div>
 
-          {/* Mobile menu toggle — hidden at lg+ */}
+          {/* Mobile menu toggle */}
           <button
             type="button"
             onClick={() => setMenuOpen(true)}

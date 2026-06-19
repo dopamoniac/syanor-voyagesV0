@@ -1,0 +1,183 @@
+Replace the current first hero background image with the new uploaded image.
+
+GOAL:
+Create a premium luxury homepage hero for SYANOR Voyages.
+The background image is already strong, so the UI must be clean, elegant and not cover it.
+
+IMPORTANT:
+- Replace the current hero image with the new image.
+- Do not use the old hero image anymore in the first hero.
+- Keep the layout luxury, minimal and readable.
+- Do not add large cards, big domes, yellow rectangles, heavy blur blocks, or too many overlays.
+- The image must remain the star.
+
+HERO SIZE:
+Desktop: 100vh.
+Mobile: 100svh.
+Background:
+object-fit: cover;
+background-position: center center;
+background-size: cover;
+
+OVERLAY:
+Add only a subtle overlay:
+- top gradient: rgba(3, 24, 22, 0.45) to transparent
+- bottom gradient: rgba(3, 24, 22, 0.35) to transparent
+- center glow: soft transparent champagne/ivory, very light
+No big shapes.
+
+NAVBAR:
+Initial state over hero:
+- transparent
+- logo left
+- menu center
+- CTA right
+- text color: ivory/white
+- active link: champagne gold
+- Omra Factory button: transparent glass, gold border, ivory text
+- Demander un devis button: deep emerald background, champagne border, white text
+
+On scroll:
+- navbar becomes ivory/white glass bar
+- backdrop blur 18px
+- text becomes deep emerald/navy
+- logo remains visible
+- subtle shadow
+- border-bottom: 1px solid rgba(212,176,106,0.25)
+
+CENTER TEXT POSITION:
+Place hero text centered horizontally.
+Move it slightly above center:
+top: 43%;
+transform translateY(-50%).
+
+Text must sit in the bright center sky/sea area, not on Kaaba or plane.
+
+CONTENT:
+Eyebrow:
+SYANOR VOYAGES
+
+Main title:
+LA RENAISSANCE
+
+Subtitle:
+L’Art de Voyager Sans Limites
+
+Small line:
+Deux univers. Une même exigence.
+
+TYPOGRAPHY:
+Main title:
+- luxury serif font
+- size desktop: clamp(64px, 8vw, 128px)
+- mobile: clamp(42px, 13vw, 68px)
+- color: ivory or very dark emerald depending readability
+- add subtle gold text-shadow only
+- no background box
+- no blur on text
+
+Subtitle:
+- elegant italic serif
+- champagne gold
+- size desktop: 28-36px
+- mobile: 20-24px
+
+Small line:
+- uppercase
+- letter spacing 0.24em
+- ivory/soft champagne
+- small and refined
+
+BUTTONS:
+Place two buttons under the text, centered.
+
+Button 1:
+Univers Voyages
+Icon: globe or plane
+Style:
+- deep emerald background #063F35
+- white text
+- champagne gold border #D4AF37
+- rounded pill
+- padding 16px 34px
+- subtle shadow
+
+Button 2:
+Omra Factory
+Icon: crescent or Kaaba
+Style:
+- ivory glass background rgba(255,255,255,0.82)
+- deep emerald text
+- champagne gold border
+- rounded pill
+- padding 16px 34px
+- backdrop blur 12px
+
+Button hover:
+- transform translateY(-2px)
+- subtle gold glow
+- no aggressive animation
+
+SIDE LABELS:
+Add two small luxury labels only, not big cards.
+
+Left label position:
+left: 5%;
+top: 56%;
+
+Text:
+MONDE & VOYAGES
+Billets • Séjours • Croisières • Hôtels • VIP
+
+Right label position:
+right: 5%;
+top: 56%;
+
+Text:
+OMRA FACTORY
+Omra • Hajj • Ramadan • Ziyarat • Accompagnement
+
+Label style:
+- max-width: 240px
+- padding: 18px 22px
+- border-radius: 22px
+- background: rgba(255,255,255,0.18)
+- backdrop-filter: blur(14px)
+- border: 1px solid rgba(212,175,55,0.45)
+- text color: ivory
+- title color: champagne gold
+- very subtle shadow
+- do not make them look like menus
+- no bullet list, just one short line
+
+SCROLL INDICATOR:
+Bottom center:
+Découvrir
+Thin vertical gold line with small dot.
+Very small and elegant.
+
+MOBILE:
+- Hide side labels or convert them into two tiny chips under buttons.
+- Buttons stacked vertically.
+- Text centered and readable.
+- Do not crop Kaaba too much.
+- Keep the plane partially visible if possible.
+- Navbar: logo left, menu icon right, quote button can become small icon or hidden in menu.
+- No horizontal overflow.
+- No giant cards.
+
+ANIMATION:
+- hero background slow zoom from scale(1) to scale(1.04) over 14s
+- text fade-up 0.8s
+- buttons fade-up 1s
+- labels fade-in 1.2s
+Keep animations subtle and premium.
+
+FINAL CHECK:
+The hero must look expensive, calm and cinematic.
+The UI should cover only 15-20% of the image.
+No clutter.
+No big overlays.
+No rectangle behind LA RENAISSANCE.
+No dome.
+No duplicated central logo unless very small and clean.

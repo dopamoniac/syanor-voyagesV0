@@ -1,18 +1,20 @@
 import Link from "@/components/Link";
-import Logo from "@/components/ui/Logo";
 
 export default function RenaissanceHero() {
   return (
     <section
       id="renaissance"
-      className="relative flex flex-col items-center justify-center overflow-hidden"
+      className="relative overflow-hidden"
       style={{ height: "100svh", minHeight: 620 }}
     >
-      {/* ── BACKGROUND IMAGE — cinematic slow zoom ── */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true"
-        style={{ animation: "rh-zoom 24s ease-in-out infinite alternate" }}>
+      {/* ── BACKGROUND — cinematic slow zoom ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{ animation: "rh-zoom 14s ease-in-out infinite alternate" }}
+      >
         <img
-          src="/hero-renaissance.jpg"
+          src="/hero-renaissance.png"
           alt=""
           className="h-full w-full"
           style={{ objectFit: "cover", objectPosition: "center center" }}
@@ -21,187 +23,323 @@ export default function RenaissanceHero() {
         />
       </div>
 
-      {/* ── OVERLAYS ── */}
-      {/* Edge vignette */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true"
-        style={{ background: "radial-gradient(ellipse 88% 88% at 50% 50%, transparent 18%, rgba(1,12,7,0.55) 100%)" }} />
-      {/* Top dark band */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32" aria-hidden="true"
-        style={{ background: "linear-gradient(to bottom, rgba(1,12,7,0.50) 0%, transparent 100%)" }} />
-      {/* Bottom fade */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24" aria-hidden="true"
-        style={{ background: "linear-gradient(to top, rgba(1,12,7,0.32) 0%, transparent 100%)" }} />
-      {/* Center dark ellipse — behind text block for legibility */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-        <div style={{
-          width: "min(580px, 90vw)",
-          height: 340,
-          borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(1,12,7,0.62) 0%, rgba(1,12,7,0.30) 60%, transparent 82%)",
-        }} />
-      </div>
+      {/* ── OVERLAYS — light touch only ── */}
+      {/* Top gradient */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0"
+        aria-hidden="true"
+        style={{ height: "38%", background: "linear-gradient(to bottom, rgba(3,24,22,0.45) 0%, transparent 100%)" }}
+      />
+      {/* Bottom gradient */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0"
+        aria-hidden="true"
+        style={{ height: "30%", background: "linear-gradient(to top, rgba(3,24,22,0.35) 0%, transparent 100%)" }}
+      />
+      {/* Very subtle center glow — warm ivory, almost invisible */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden="true"
+        style={{ background: "radial-gradient(ellipse 52% 44% at 50% 46%, rgba(255,249,237,0.07) 0%, transparent 72%)" }}
+      />
 
-      {/* ── LEFT GLASS CARD — desktop only ── */}
-      <div className="pointer-events-none absolute hidden xl:block"
-        style={{ left: "clamp(20px,3vw,52px)", top: "50%", transform: "translateY(-50%)", animation: "rh-in 0.7s 0.5s both" }}
-        aria-hidden="true">
-        <div className="flex flex-col gap-2 rounded-2xl px-5 py-4" style={{
-          background: "rgba(255,249,237,0.80)", border: "1px solid rgba(212,176,106,0.58)",
-          backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)",
-          boxShadow: "0 8px 30px rgba(0,0,0,0.15)", maxWidth: 200,
-        }}>
-          <p className="text-[0.56rem] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(170,120,30,0.90)" }}>
-            Monde &amp; Voyages
-          </p>
-          <div className="h-px" style={{ background: "rgba(201,162,74,0.35)" }} />
-          {["Billets avion","Billets bateau","Séjours sur mesure","Hôtels Premium","Expériences VIP"].map(s => (
-            <p key={s} className="flex items-center gap-2 text-[0.67rem] font-medium" style={{ color: "#18120a" }}>
-              <span style={{ color: "#C9A24A", fontSize: "0.46rem" }}>✦</span>{s}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      {/* ── RIGHT GLASS CARD — desktop only ── */}
-      <div className="pointer-events-none absolute hidden xl:block"
-        style={{ right: "clamp(20px,3vw,52px)", top: "50%", transform: "translateY(-50%)", animation: "rh-in 0.7s 0.6s both" }}
-        aria-hidden="true">
-        <div className="flex flex-col gap-2 rounded-2xl px-5 py-4" style={{
-          background: "rgba(255,249,237,0.80)", border: "1px solid rgba(212,176,106,0.58)",
-          backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)",
-          boxShadow: "0 8px 30px rgba(0,0,0,0.15)", maxWidth: 200,
-        }}>
-          <p className="text-[0.56rem] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(170,120,30,0.90)" }}>
-            Omra Factory
-          </p>
-          <div className="h-px" style={{ background: "rgba(201,162,74,0.35)" }} />
-          {["Omra 2026 & 2027","Hajj 2027","Ramadan","Ziyarat","Accompagnement spirituel"].map(s => (
-            <p key={s} className="flex items-center gap-2 text-[0.67rem] font-medium" style={{ color: "#18120a" }}>
-              <span style={{ color: "#C9A24A", fontSize: "0.46rem" }}>✦</span>{s}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      {/* ── CENTER CONTENT ── */}
-      <div className="relative z-10 flex flex-col items-center px-5 text-center" style={{ maxWidth: 620 }}>
-
-        {/* Logo */}
-        <div style={{ animation: "rh-in 0.7s 0.05s both" }}>
-          <Logo className="h-auto w-[126px] sm:w-[148px]" />
-        </div>
-
-        {/* Gold rule */}
-        <div style={{
-          width: 40, height: 1, marginTop: 14, marginBottom: 14,
-          background: "linear-gradient(to right, transparent, rgba(201,162,74,0.92), transparent)",
-          animation: "rh-in 0.7s 0.15s both",
-        }} aria-hidden="true" />
-
+      {/* ── CENTER TEXT — positioned at 43% from top ── */}
+      <div
+        className="absolute left-1/2 z-10 flex flex-col items-center px-5 text-center"
+        style={{
+          top: "43%",
+          transform: "translate(-50%, -50%)",
+          width: "min(680px, 92vw)",
+        }}
+      >
         {/* Eyebrow */}
-        <p style={{
-          fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.26em",
-          textTransform: "uppercase", color: "rgba(255,249,237,0.52)",
-          textShadow: "0 1px 8px rgba(0,0,0,0.55)",
-          animation: "rh-in 0.7s 0.20s both",
-        }}>
-          SYANOR VOYAGES — depuis Nice &amp; Marseille
+        <p
+          style={{
+            fontSize: "0.60rem",
+            fontWeight: 700,
+            letterSpacing: "0.30em",
+            textTransform: "uppercase",
+            color: "rgba(212,175,55,0.80)",
+            animation: "rh-up 0.8s 0.1s both",
+          }}
+        >
+          SYANOR VOYAGES
         </p>
 
-        {/* Main title — single line at all breakpoints */}
-        <h1 style={{
-          marginTop: 10,
-          fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
-          fontWeight: 700,
-          lineHeight: 1.04,
-          fontSize: "clamp(2.0rem, 4.8vw, 3.8rem)",
-          whiteSpace: "nowrap",
-          textShadow: "0 2px 20px rgba(0,0,0,0.60), 0 0 2px rgba(0,0,0,0.25)",
-          animation: "rh-in 0.7s 0.28s both",
-        }}>
-          <span style={{
-            background: "linear-gradient(135deg,#fff9ed 0%,#f5e9c8 28%,#e8c87a 62%,#C9A24A 100%)",
-            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
-          }}>
-            LA RENAISSANCE
-          </span>
+        {/* Main title */}
+        <h1
+          className="rh-title font-playfair font-bold leading-[1.02]"
+          style={{
+            marginTop: 10,
+            color: "#FFF9ED",
+            textShadow: "0 2px 16px rgba(0,0,0,0.18), 0 0 1px rgba(0,0,0,0.10)",
+            animation: "rh-up 0.8s 0.22s both",
+          }}
+        >
+          LA RENAISSANCE
         </h1>
 
         {/* Subtitle */}
-        <p style={{
-          marginTop: 10,
-          fontFamily: "var(--font-playfair,'Playfair Display',serif)",
-          fontSize: "clamp(1rem,2vw,1.2rem)",
-          fontStyle: "italic",
-          letterSpacing: "0.02em",
-          color: "rgba(255,249,237,0.92)",
-          textShadow: "0 1px 12px rgba(0,0,0,0.55)",
-          animation: "rh-in 0.7s 0.35s both",
-        }}>
+        <p
+          className="font-playfair"
+          style={{
+            marginTop: 14,
+            fontSize: "clamp(1.05rem, 2.2vw, 1.7rem)",
+            fontStyle: "italic",
+            color: "rgba(212,175,55,0.92)",
+            letterSpacing: "0.015em",
+            textShadow: "0 1px 10px rgba(0,0,0,0.22)",
+            animation: "rh-up 0.8s 0.34s both",
+          }}
+        >
           L&apos;Art de Voyager Sans Limites
         </p>
 
-        {/* Tagline */}
-        <p style={{
-          marginTop: 6,
-          fontSize: "0.62rem", fontWeight: 500, letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: "rgba(255,249,237,0.36)",
-          textShadow: "0 1px 6px rgba(0,0,0,0.45)",
-          animation: "rh-in 0.7s 0.40s both",
-        }}>
+        {/* Tag line */}
+        <p
+          style={{
+            marginTop: 8,
+            fontSize: "0.62rem",
+            fontWeight: 600,
+            letterSpacing: "0.24em",
+            textTransform: "uppercase",
+            color: "rgba(255,249,237,0.42)",
+            animation: "rh-up 0.8s 0.42s both",
+          }}
+        >
           Deux univers. Une même exigence.
         </p>
 
-        {/* CTAs */}
-        <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
-          style={{ animation: "rh-in 0.7s 0.48s both" }}>
-
-          <Link href="/services"
-            className="inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:shadow-[0_8px_28px_rgba(6,63,51,0.50)] active:scale-[0.97]"
-            style={{ background:"#063F33", border:"1px solid rgba(201,162,74,0.50)", color:"#FFF9ED", boxShadow:"0 4px 20px rgba(0,0,0,0.30)" }}>
-            <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" strokeLinecap="round" strokeLinejoin="round"/>
+        {/* ── BUTTONS ── */}
+        <div
+          className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+          style={{ animation: "rh-up 1.0s 0.52s both" }}
+        >
+          {/* Univers Voyages */}
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(212,175,55,0.28)] active:scale-[0.97]"
+            style={{
+              background: "#063F35",
+              border: "1.5px solid rgba(212,175,55,0.65)",
+              color: "#FFF9ED",
+              boxShadow: "0 4px 20px rgba(6,63,51,0.32)",
+            }}
+          >
+            <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Univers Voyages
           </Link>
 
-          <Link href="/omra-hajj"
-            className="inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:shadow-[0_8px_28px_rgba(201,162,74,0.30)] active:scale-[0.97]"
-            style={{ background:"rgba(255,249,237,0.88)", border:"1px solid rgba(201,162,74,0.70)", color:"#063F33", backdropFilter:"blur(12px)", WebkitBackdropFilter:"blur(12px)", boxShadow:"0 4px 20px rgba(0,0,0,0.18)" }}>
-            <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ color:"#C9A24A" }}>
-              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          {/* Omra Factory */}
+          <Link
+            href="/omra-hajj"
+            className="inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-sm font-bold transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(212,175,55,0.22)] active:scale-[0.97]"
+            style={{
+              background: "rgba(255,255,255,0.82)",
+              border: "1.5px solid rgba(212,175,55,0.65)",
+              color: "#063F35",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.14)",
+            }}
+          >
+            <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ color: "rgba(212,175,55,0.85)" }}>
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
             Omra Factory
           </Link>
         </div>
-      </div>
 
-      {/* ── SCROLL INDICATOR ── */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
-        style={{ animation: "rh-in 0.7s 0.65s both" }} aria-hidden="true">
-        <p style={{ fontSize:"0.50rem", fontWeight:700, letterSpacing:"0.26em", textTransform:"uppercase", color:"rgba(255,249,237,0.26)" }}>
-          Découvrir
-        </p>
-        <div className="flex h-7 w-4 items-start justify-center rounded-full border"
-          style={{ borderColor:"rgba(255,249,237,0.18)" }}>
-          <div style={{ marginTop:6, width:1, height:8, borderRadius:9999, background:"rgba(201,162,74,0.72)", animation:"rh-dot 1.8s ease-in-out infinite" }} />
+        {/* ── MOBILE CHIPS (shown only on mobile, below buttons) ── */}
+        <div
+          className="mt-5 flex items-center gap-3 sm:hidden"
+          style={{ animation: "rh-up 1.0s 0.65s both" }}
+        >
+          <div
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5"
+            style={{
+              background: "rgba(255,255,255,0.14)",
+              border: "1px solid rgba(212,175,55,0.38)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+            }}
+          >
+            <svg className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true" style={{ color: "rgba(212,175,55,0.80)" }}>
+              <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span style={{ fontSize: "0.60rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,249,237,0.72)" }}>
+              Monde &amp; Voyages
+            </span>
+          </div>
+          <div
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5"
+            style={{
+              background: "rgba(255,255,255,0.14)",
+              border: "1px solid rgba(212,175,55,0.38)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+            }}
+          >
+            <svg className="h-3 w-3 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style={{ color: "rgba(212,175,55,0.80)" }}>
+              <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+            <span style={{ fontSize: "0.60rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,249,237,0.72)" }}>
+              Omra Factory
+            </span>
+          </div>
         </div>
       </div>
 
+      {/* ── LEFT SIDE LABEL — desktop only ── */}
+      <div
+        className="pointer-events-none absolute hidden sm:block"
+        style={{
+          left: "5%",
+          top: "56%",
+          transform: "translateY(-50%)",
+          animation: "rh-fadein 0.9s 1.2s both",
+        }}
+        aria-hidden="true"
+      >
+        <div
+          style={{
+            maxWidth: 240,
+            padding: "18px 22px",
+            borderRadius: 22,
+            background: "rgba(255,255,255,0.18)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            border: "1px solid rgba(212,175,55,0.45)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "0.60rem",
+              fontWeight: 700,
+              letterSpacing: "0.20em",
+              textTransform: "uppercase",
+              color: "rgba(212,175,55,0.90)",
+              marginBottom: 6,
+            }}
+          >
+            Monde &amp; Voyages
+          </p>
+          <p style={{ fontSize: "0.72rem", color: "rgba(255,249,237,0.80)", lineHeight: 1.55 }}>
+            Billets · Séjours · Croisières · Hôtels · VIP
+          </p>
+        </div>
+      </div>
+
+      {/* ── RIGHT SIDE LABEL — desktop only ── */}
+      <div
+        className="pointer-events-none absolute hidden sm:block"
+        style={{
+          right: "5%",
+          top: "56%",
+          transform: "translateY(-50%)",
+          animation: "rh-fadein 0.9s 1.3s both",
+        }}
+        aria-hidden="true"
+      >
+        <div
+          style={{
+            maxWidth: 240,
+            padding: "18px 22px",
+            borderRadius: 22,
+            background: "rgba(255,255,255,0.18)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            border: "1px solid rgba(212,175,55,0.45)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "0.60rem",
+              fontWeight: 700,
+              letterSpacing: "0.20em",
+              textTransform: "uppercase",
+              color: "rgba(212,175,55,0.90)",
+              marginBottom: 6,
+            }}
+          >
+            Omra Factory
+          </p>
+          <p style={{ fontSize: "0.72rem", color: "rgba(255,249,237,0.80)", lineHeight: 1.55 }}>
+            Omra · Hajj · Ramadan · Ziyarat · Accompagnement
+          </p>
+        </div>
+      </div>
+
+      {/* ── SCROLL INDICATOR ── */}
+      <div
+        className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ animation: "rh-fadein 0.9s 1.4s both" }}
+        aria-hidden="true"
+      >
+        <p
+          style={{
+            fontSize: "0.52rem",
+            fontWeight: 700,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "rgba(255,249,237,0.28)",
+          }}
+        >
+          Découvrir
+        </p>
+        {/* Thin gold vertical line with animated dot */}
+        <div className="relative flex flex-col items-center" style={{ height: 36 }}>
+          <div style={{ width: 1, height: "100%", background: "rgba(212,175,55,0.35)" }} />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              width: 5,
+              height: 5,
+              borderRadius: "50%",
+              background: "rgba(212,175,55,0.80)",
+              boxShadow: "0 0 6px rgba(212,175,55,0.50)",
+              animation: "rh-dot 1.8s ease-in-out infinite",
+            }}
+          />
+        </div>
+      </div>
+
+      {/* ── KEYFRAMES ── */}
       <style>{`
+        /* Responsive title sizing */
+        .rh-title {
+          font-size: clamp(42px, 12vw, 68px);
+          white-space: normal;
+          word-break: keep-all;
+        }
+        @media (min-width: 640px) {
+          .rh-title {
+            font-size: clamp(64px, 8vw, 118px);
+            white-space: nowrap;
+          }
+        }
+
         @keyframes rh-zoom {
           from { transform: scale(1.00); }
-          to   { transform: scale(1.055); }
+          to   { transform: scale(1.04); }
         }
-        @keyframes rh-in {
-          from { opacity: 0; transform: translateY(18px); }
+        @keyframes rh-up {
+          from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
         }
+        @keyframes rh-fadein {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
         @keyframes rh-dot {
-          0%,100% { opacity:.35; transform:translateY(0); }
-          50%      { opacity:1;   transform:translateY(7px); }
+          0%,100% { opacity: 0.4; transform: translateY(0); }
+          50%      { opacity: 1;   transform: translateY(28px); }
         }
       `}</style>
     </section>
