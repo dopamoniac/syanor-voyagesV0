@@ -359,115 +359,256 @@ export default function OmraHajjPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          2. YEAR CARDS — Omra 2026 + Omra 2027
+          2. YEAR PANELS — Omra 2026 + Omra 2027
       ══════════════════════════════════════════ */}
-      <section className="section-pad bg-syanor-ivory">
-        <div className="mx-auto max-w-7xl px-6 md:px-8">
-          <div className="mb-10 text-center">
-            <p className="eyebrow mb-2">Omra Factory — Départs Omra</p>
-            <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Choisissez votre saison</h2>
-            <div className="mx-auto mt-3 h-px w-12 bg-gradient-to-r from-transparent via-syanor-gold/50 to-transparent" aria-hidden="true" />
+      <section style={{ background: "#F8F2E8" }} className="overflow-hidden">
+
+        {/* ── Section header ── */}
+        <div className="mx-auto max-w-7xl px-6 pb-0 pt-16 md:px-10 lg:px-16 xl:px-20">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="mb-2 text-[0.60rem] font-bold uppercase tracking-[0.28em]" style={{ color: "#B88A44" }}>
+                Omra Factory — Départs Omra
+              </p>
+              <h2 className="font-playfair font-bold leading-tight" style={{ fontSize: "clamp(2rem,4vw,2.8rem)", color: "#102C27" }}>
+                Choisissez votre saison
+              </h2>
+            </div>
+            {/* Gold ornament */}
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true" className="hidden shrink-0 sm:block" style={{ opacity: 0.55 }}>
+              <circle cx="24" cy="24" r="20" stroke="#B88A44" strokeWidth="0.8" />
+              <circle cx="24" cy="24" r="13" stroke="#B88A44" strokeWidth="0.5" />
+              <path d="M24 4v8M24 36v8M4 24h8M36 24h8M10 10l5.6 5.6M32.4 32.4l5.6 5.6M38 10l-5.6 5.6M15.6 32.4L10 38" stroke="#B88A44" strokeWidth="0.8" strokeLinecap="round" />
+            </svg>
           </div>
+          {/* Gold rule */}
+          <div className="mt-5 h-px" style={{ background: "linear-gradient(to right, #B88A44, rgba(184,138,68,0.20) 60%, transparent)" }} aria-hidden="true" />
+        </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Omra 2026 */}
-            <Reveal>
+        {/* ── Two season panels ── */}
+        <div className="mx-auto max-w-7xl px-6 py-10 md:px-10 lg:grid lg:grid-cols-2 lg:gap-0 lg:px-16 xl:px-20">
+
+          {/* ─── OMRA 2026 ─── */}
+          <Reveal>
+            <div
+              className="group relative overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_32px_64px_rgba(2,43,36,0.28)] lg:rounded-r-none lg:rounded-l-3xl"
+              style={{ background: "linear-gradient(155deg, #011A15 0%, #022B24 45%, #063F33 100%)", border: "1px solid rgba(201,162,74,0.18)" }}
+            >
+              {/* Faded year watermark */}
               <div
-                className="group rounded-3xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_rgba(6,63,51,0.12)]"
-                style={{ background: "linear-gradient(145deg, #022B24 0%, #063F33 100%)", border: "1px solid rgba(201,162,74,0.20)" }}
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-4 -top-6 select-none font-playfair font-bold leading-none"
+                style={{ fontSize: "clamp(100px,18vw,160px)", color: "rgba(201,162,74,0.07)", letterSpacing: "-0.04em" }}
               >
-                <div className="mb-5 flex items-start justify-between">
-                  <div>
-                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.22)" }}>
-                      Omra Factory
-                    </span>
-                    <h3 className="font-playfair text-3xl font-bold text-syanor-ivory">Omra 2026</h3>
-                    <p className="mt-1 text-sm text-white/45">Nice · Marseille → Médine, retour Djeddah</p>
-                  </div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl text-syanor-gold" style={{ background: "rgba(201,162,74,0.12)", border: "1px solid rgba(201,162,74,0.25)" }}>
-                    <Icon name="airplane" className="h-6 w-6" aria-hidden="true" />
+                2026
+              </div>
+
+              {/* Top row */}
+              <div className="relative z-10 flex items-start justify-between gap-4">
+                <div>
+                  <span
+                    className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.58rem] font-bold uppercase tracking-[0.18em]"
+                    style={{ background: "rgba(201,162,74,0.14)", border: "1px solid rgba(201,162,74,0.30)", color: "#C9A24A" }}
+                  >
+                    ✦ Saison actuelle
                   </span>
-                </div>
-
-                <div className="mb-5 grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5">
-                  {months2026.map((m) => <MonthChip key={m.slug} m={m} />)}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/omra-2026"
-                    className="inline-flex items-center gap-2 rounded-full bg-syanor-gold px-5 py-2.5 text-sm font-semibold text-syanor-royal transition-all hover:bg-syanor-gold/90 hover:shadow-[0_4px_16px_rgba(201,162,74,0.35)] active:scale-[0.97]"
+                  <h3
+                    className="font-playfair font-bold leading-none"
+                    style={{ fontSize: "clamp(2.2rem,4.5vw,3rem)", color: "#FFF9ED" }}
                   >
-                    Voir tous les départs 2026
-                    <Icon name="arrow-right" className="h-3.5 w-3.5" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href={omraQuoteUrl({ service: "Omra" })}
-                    className="text-sm font-medium text-syanor-gold/60 transition-colors hover:text-syanor-gold"
-                  >
-                    Demander un devis →
-                  </Link>
+                    Omra 2026
+                  </h3>
+                  <p className="mt-2 text-sm" style={{ color: "rgba(255,249,237,0.42)" }}>
+                    Nice · Marseille · Lyon · Paris → Médine
+                  </p>
+                </div>
+                {/* Crescent icon */}
+                <div
+                  className="shrink-0 flex h-14 w-14 items-center justify-center rounded-2xl"
+                  style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.22)" }}
+                >
+                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="rgba(201,162,74,0.90)" aria-hidden="true">
+                    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
                 </div>
               </div>
-            </Reveal>
 
-            {/* Omra 2027 */}
-            <Reveal delay={60}>
-              <div
-                className="group rounded-3xl p-7 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_rgba(6,63,51,0.08)]"
-                style={{ background: "linear-gradient(145deg, #FFF9ED 0%, #f5edd8 100%)", border: "1px solid rgba(201,162,74,0.22)" }}
-              >
-                <div className="mb-5 flex items-start justify-between">
-                  <div>
-                    <span className="mb-2 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.22)" }}>
-                      Omra Factory
-                    </span>
-                    <h3 className="font-playfair text-3xl font-bold text-syanor-ink">Omra 2027</h3>
-                    <p className="mt-1 text-sm text-syanor-ink/45">Nice · Marseille → Médine, retour Djeddah</p>
-                  </div>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-syanor-emerald/8 text-syanor-emerald">
-                    <Icon name="airplane" className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                </div>
+              {/* Gold separator */}
+              <div className="relative z-10 my-6 h-px" style={{ background: "linear-gradient(to right, rgba(201,162,74,0.45), rgba(201,162,74,0.08) 70%, transparent)" }} aria-hidden="true" />
 
-                <div className="mb-5 grid grid-cols-4 gap-2 sm:grid-cols-5 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5">
-                  {months2027.map((m) => (
+              {/* Month timeline */}
+              <div className="relative z-10 mb-7">
+                <p className="mb-3 text-[0.58rem] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(201,162,74,0.55)" }}>
+                  Départs disponibles
+                </p>
+                <div className="flex flex-wrap gap-2.5">
+                  {months2026.map((m) => (
                     <Link
                       key={m.slug}
                       href={m.href}
-                      className="group/chip relative flex flex-col items-center gap-1 rounded-xl border border-syanor-gold/15 bg-syanor-emerald/5 px-3 py-2.5 text-center transition-all duration-200 hover:border-syanor-gold/40 hover:bg-syanor-emerald/8 active:scale-[0.96]"
+                      className="group/m relative flex flex-col items-center gap-1.5 rounded-2xl px-4 py-3 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(0,0,0,0.25)] active:scale-[0.96]"
+                      style={{
+                        background: m.departureCount > 0 ? "rgba(201,162,74,0.12)" : "rgba(255,255,255,0.04)",
+                        border: m.departureCount > 0 ? "1px solid rgba(201,162,74,0.32)" : "1px solid rgba(255,255,255,0.08)",
+                      }}
                     >
-                      <span className="text-sm font-semibold leading-tight text-syanor-ink">{m.label}</span>
+                      {m.hasConfirmedDates && (
+                        <span
+                          className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full ring-2"
+                          style={{ background: "#C9A24A", ringColor: "#011A15" }}
+                          aria-label="dates confirmées"
+                        />
+                      )}
+                      <span
+                        className="text-sm font-semibold leading-tight"
+                        style={{ color: m.departureCount > 0 ? "#FFF9ED" : "rgba(255,249,237,0.30)" }}
+                      >
+                        {m.label}
+                      </span>
                       {m.departureCount > 0 ? (
-                        <span className="text-[0.6rem] font-medium leading-none text-syanor-gold">
+                        <span className="text-[0.58rem] font-bold leading-none" style={{ color: "#C9A24A" }}>
                           {m.departureCount} départ{m.departureCount > 1 ? "s" : ""}
                         </span>
                       ) : (
-                        <span className="text-[0.6rem] leading-none text-syanor-ink/30">À confirmer</span>
+                        <span className="text-[0.56rem] leading-none" style={{ color: "rgba(255,249,237,0.22)" }}>À confirmer</span>
                       )}
                     </Link>
                   ))}
                 </div>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link
-                    href="/omra-2027"
-                    className="inline-flex items-center gap-2 rounded-full bg-syanor-emerald px-5 py-2.5 text-sm font-semibold text-syanor-ivory transition-all hover:bg-syanor-royal hover:shadow-card active:scale-[0.97]"
+              {/* CTAs */}
+              <div className="relative z-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/omra-2026"
+                  className="inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 hover:shadow-[0_6px_20px_rgba(201,162,74,0.40)] active:scale-[0.97]"
+                  style={{ background: "linear-gradient(135deg, #C9A24A, #e0c070, #C9A24A)", color: "#011A15", padding: "12px 24px", fontSize: "0.85rem" }}
+                >
+                  Voir tous les départs 2026
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href={omraQuoteUrl({ service: "Omra" })}
+                  className="text-sm font-medium transition-colors hover:opacity-80"
+                  style={{ color: "rgba(201,162,74,0.55)" }}
+                >
+                  Devis sur mesure →
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* ─── OMRA 2027 ─── */}
+          <Reveal delay={80}>
+            <div
+              className="group relative mt-4 overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:shadow-[0_32px_64px_rgba(2,43,36,0.14)] lg:mt-0 lg:rounded-l-none lg:rounded-r-3xl"
+              style={{ background: "linear-gradient(155deg, #FFFDF8 0%, #F8F2E8 50%, #f0e8d5 100%)", border: "1px solid rgba(184,138,68,0.25)", borderLeft: "none" }}
+            >
+              {/* Faded year watermark */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-4 -top-6 select-none font-playfair font-bold leading-none"
+                style={{ fontSize: "clamp(100px,18vw,160px)", color: "rgba(2,43,36,0.05)", letterSpacing: "-0.04em" }}
+              >
+                2027
+              </div>
+
+              {/* Top row */}
+              <div className="relative z-10 flex items-start justify-between gap-4">
+                <div>
+                  <span
+                    className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[0.58rem] font-bold uppercase tracking-[0.18em]"
+                    style={{ background: "rgba(6,63,51,0.08)", border: "1px solid rgba(6,63,51,0.15)", color: "#063F33" }}
                   >
-                    Voir tous les départs 2027
-                    <Icon name="arrow-right" className="h-3.5 w-3.5" aria-hidden="true" />
-                  </Link>
-                  <Link
-                    href={omraQuoteUrl({ service: "Omra" })}
-                    className="text-sm font-medium text-syanor-gold hover:underline"
+                    ◈ Préréservation ouverte
+                  </span>
+                  <h3
+                    className="font-playfair font-bold leading-none"
+                    style={{ fontSize: "clamp(2.2rem,4.5vw,3rem)", color: "#102C27" }}
                   >
-                    Demander un devis →
-                  </Link>
+                    Omra 2027
+                  </h3>
+                  <p className="mt-2 text-sm" style={{ color: "rgba(16,44,39,0.42)" }}>
+                    Nice · Marseille · Lyon · Paris → Médine
+                  </p>
+                </div>
+                {/* Compass icon */}
+                <div
+                  className="shrink-0 flex h-14 w-14 items-center justify-center rounded-2xl"
+                  style={{ background: "rgba(6,63,51,0.07)", border: "1px solid rgba(6,63,51,0.14)" }}
+                >
+                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="#063F33" strokeWidth="1.5" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z" />
+                  </svg>
                 </div>
               </div>
-            </Reveal>
-          </div>
+
+              {/* Gold separator */}
+              <div className="relative z-10 my-6 h-px" style={{ background: "linear-gradient(to right, rgba(184,138,68,0.40), rgba(184,138,68,0.10) 70%, transparent)" }} aria-hidden="true" />
+
+              {/* Month timeline */}
+              <div className="relative z-10 mb-7">
+                <p className="mb-3 text-[0.58rem] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(184,138,68,0.65)" }}>
+                  Départs disponibles
+                </p>
+                <div className="flex flex-wrap gap-2.5">
+                  {months2027.map((m) => (
+                    <Link
+                      key={m.slug}
+                      href={m.href}
+                      className="group/m relative flex flex-col items-center gap-1.5 rounded-2xl px-4 py-3 text-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(2,43,36,0.10)] active:scale-[0.96]"
+                      style={{
+                        background: m.departureCount > 0 ? "rgba(6,63,51,0.07)" : "rgba(0,0,0,0.02)",
+                        border: m.departureCount > 0 ? "1px solid rgba(6,63,51,0.18)" : "1px solid rgba(0,0,0,0.06)",
+                      }}
+                    >
+                      <span
+                        className="text-sm font-semibold leading-tight"
+                        style={{ color: m.departureCount > 0 ? "#102C27" : "rgba(16,44,39,0.25)" }}
+                      >
+                        {m.label}
+                      </span>
+                      {m.departureCount > 0 ? (
+                        <span className="text-[0.58rem] font-bold leading-none" style={{ color: "#B88A44" }}>
+                          {m.departureCount} départ{m.departureCount > 1 ? "s" : ""}
+                        </span>
+                      ) : (
+                        <span className="text-[0.56rem] leading-none" style={{ color: "rgba(16,44,39,0.22)" }}>À confirmer</span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="relative z-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/omra-2027"
+                  className="inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 hover:shadow-[0_6px_20px_rgba(2,43,36,0.20)] active:scale-[0.97]"
+                  style={{ background: "#063F33", color: "#FFF9ED", padding: "12px 24px", fontSize: "0.85rem" }}
+                >
+                  Voir tous les départs 2027
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href={omraQuoteUrl({ service: "Omra" })}
+                  className="text-sm font-medium transition-colors hover:opacity-70"
+                  style={{ color: "rgba(6,63,51,0.50)" }}
+                >
+                  Devis sur mesure →
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
+
+        {/* ── Bottom section fade ── */}
+        <div className="h-10" style={{ background: "linear-gradient(to bottom, #F8F2E8, #FFF9ED)" }} />
       </section>
 
       {/* ══════════════════════════════════════════
