@@ -1,0 +1,193 @@
+REDESIGN THE ENTIRE SYANOR VOYAGES HOMEPAGE TO FEEL LIKE A WORLD-CLASS LUXURY TRAVEL BRAND.
+
+IMPORTANT:
+Do not create a website made of repetitive cards.
+Reduce traditional card usage by at least 70%.
+
+The website must feel like:
+
+* Aman Resorts
+* Four Seasons
+* Emirates First Class
+* Ritz-Carlton Reserve
+* Louis Vuitton Travel
+
+STYLE:
+
+* Premium
+* Editorial
+* Cinematic
+* Luxury
+* Minimal
+* Mobile First
+
+COLORS:
+
+* Deep Navy #0B1E3D
+* Champagne Gold #D8B56A
+* Ivory #F8F4EE
+
+================================================
+
+MOBILE FIRST
+
+Design every section separately for:
+
+* Mobile
+* Tablet
+* Desktop
+
+Do not simply stack desktop elements on mobile.
+
+Mobile experience must feel like a luxury app.
+
+================================================
+
+LAYOUT RULES
+
+Every section must have a different layout.
+
+Avoid:
+
+* Repetitive grids
+* Repetitive cards
+* Template feeling
+* Dashboard feeling
+
+Use:
+
+* Editorial sections
+* Bento layouts
+* Cinematic banners
+* Horizontal experiences
+* Storytelling blocks
+* Interactive destination showcases
+
+================================================
+
+DESTINATIONS
+
+DESKTOP:
+Large cinematic destination panels.
+
+MOBILE:
+Horizontal swipeable luxury cards.
+
+Destinations:
+
+* Istanbul
+* Marrakech
+* Dubai
+* Bali
+* London
+* Egypt
+
+Large image.
+Elegant typography.
+Smooth hover/scroll effects.
+
+================================================
+
+SERVICES
+
+Replace repetitive cards.
+
+Create immersive service showcases.
+
+DESKTOP:
+Alternating image/text storytelling sections.
+
+MOBILE:
+Luxury swipe carousel.
+
+Services:
+
+* Billets Avion
+* Billets Bateau
+* Voyages Organisés
+* Séjours Sur Mesure
+* Premium VIP
+* Assistance
+
+================================================
+
+VIP EXPERIENCE
+
+Create a dedicated luxury section.
+
+Full-width cinematic block.
+
+Show:
+
+* Private transfers
+* Premium hotels
+* Concierge
+* VIP experiences
+
+Large imagery.
+Luxury typography.
+High-end spacing.
+
+================================================
+
+ASSISTANCE
+
+Replace cards with a premium journey.
+
+Step 1:
+Pré-inscription
+
+Step 2:
+Validation
+
+Step 3:
+Billets
+
+Step 4:
+Hébergement
+
+Step 5:
+Accompagnement
+
+DESKTOP:
+Horizontal timeline.
+
+MOBILE:
+Vertical timeline.
+
+================================================
+
+ANIMATIONS
+
+Very subtle.
+
+* Fade-up
+* Smooth reveal
+* Image zoom
+* Luxury hover
+
+No aggressive effects.
+
+================================================
+
+SPACING
+
+Large luxury spacing.
+
+Lots of breathing room.
+
+Every section must feel premium and expensive.
+
+================================================
+
+FINAL GOAL
+
+The website must no longer look like a travel agency template.
+
+It must feel like a luxury international travel brand worth €100M.
+
+Desktop must feel premium.
+
+Mobile must feel premium.
+
+Every section must have its own identity and visual experience.

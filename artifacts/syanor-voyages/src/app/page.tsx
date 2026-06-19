@@ -2,58 +2,48 @@ import SiteLayout from "@/components/layout/SiteLayout";
 import RenaissanceHero from "@/components/sections/RenaissanceHero";
 import Hero from "@/components/sections/Hero";
 import SmartSearchPanel from "@/components/sections/SmartSearchPanel";
-import ServicesGrid from "@/components/sections/ServicesGrid";
-import UniversesSection from "@/components/sections/UniversesSection";
-import { OffersPreview } from "@/components/sections/HomePreviews";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Testimonials from "@/components/sections/Testimonials";
+import DestinationsShowcase from "@/components/sections/DestinationsShowcase";
+import ServicesEditorial from "@/components/sections/ServicesEditorial";
+import VIPCinematic from "@/components/sections/VIPCinematic";
+import JourneySteps from "@/components/sections/JourneySteps";
+import TestimonialsEditorial from "@/components/sections/TestimonialsEditorial";
 import FaqSection from "@/components/sections/FaqSection";
-import CTASection from "@/components/ui/CTASection";
-import ContactCards from "@/components/sections/ContactCards";
+import ContactEditorial from "@/components/sections/ContactEditorial";
 import { faq } from "@/data/faq";
 
 export default function Home() {
   return (
     <SiteLayout>
 
-      {/* 1. New renaissance hero — full screen split universe */}
+      {/* 1. Renaissance hero — full screen split universe — DO NOT TOUCH */}
       <RenaissanceHero />
 
-      {/* 2. Original cinematic hero — below */}
+      {/* 2. Original cinematic hero — DO NOT TOUCH */}
       <Hero />
 
       {/* 3. Luxury concierge booking panel */}
       <SmartSearchPanel />
 
-      {/* 3. Full service catalogue in photo-card groups */}
-      <ServicesGrid />
+      {/* 4. Cinematic destinations bento + mobile horizontal scroll */}
+      <DestinationsShowcase />
 
-      {/* 4. Two universes — brand positioning */}
-      <UniversesSection />
+      {/* 5. Three alternating editorial service storytelling blocks */}
+      <ServicesEditorial />
 
-      {/* 5. Featured offers & upcoming departures */}
-      <OffersPreview />
+      {/* 6. Full-width dark VIP luxury showcase */}
+      <VIPCinematic />
 
-      {/* 6. Trust / why choose us */}
-      <WhyChooseUs />
+      {/* 7. Five-step journey process — horizontal timeline desktop / vertical mobile */}
+      <JourneySteps />
 
-      {/* 8. Bottom CTA */}
-      <CTASection
-        title="Votre prochain voyage commence ici."
-        body="Billets, séjours sur mesure, voyages organisés, packs VIP ou destinations sur mesure : confiez-nous votre projet et recevez une proposition adaptée."
-        ctaLabel="Demander un devis gratuit"
-        ctaHref="/contact#quote"
-        secondary={{ label: "Voir toutes les offres", href: "/offres" }}
-      />
+      {/* 8. Editorial pull-quote testimonials — dark navy */}
+      <TestimonialsEditorial />
 
-      {/* 9. Testimonials */}
-      <Testimonials />
-
-      {/* 10. FAQ */}
+      {/* 9. FAQ accordion */}
       <FaqSection items={faq.slice(0, 5)} moreHref="/faq" />
 
-      {/* 11. Contact cards */}
-      <ContactCards />
+      {/* 10. Premium editorial contact */}
+      <ContactEditorial />
 
     </SiteLayout>
   );
