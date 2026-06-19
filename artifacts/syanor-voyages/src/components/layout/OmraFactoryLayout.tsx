@@ -84,7 +84,7 @@ function OmraHeader() {
     <header
       className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(1,26,21,0.97)" : "#022B24",
+        background: scrolled ? "rgba(1,26,21,0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(16px)" : "none",
         borderBottom: scrolled ? "1px solid rgba(201,162,74,0.22)" : "none",
         boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "none",
