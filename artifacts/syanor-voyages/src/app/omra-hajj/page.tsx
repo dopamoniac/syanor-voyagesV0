@@ -50,12 +50,24 @@ const TIMELINE = [
 
 const PROGRAMS = [
   {
+    title:    "Omra",
+    tag:      "Départs toute l'année",
+    tagColor: "text-syanor-gold bg-syanor-gold/10 border-syanor-gold/20",
+    desc:     "Omra classique de 10 à 14 jours. Vols depuis Nice, Marseille, Lyon et Paris. Hôtels sélectionnés, accompagnement complet et assistance visa.",
+    href:     "/omra-2026",
+    image:    "/omra-factory/omra.png",
+    cta:      "Voir les départs",
+    ctaUrl:   omraQuoteUrl({ service: "Omra" }),
+    status:   "Disponible",
+    icon:     "crescent",
+  },
+  {
     title:    "Omra Plus",
     tag:      "Expérience premium",
     tagColor: "text-syanor-gold bg-syanor-gold/10 border-syanor-gold/20",
     desc:     "Séjour prolongé de 21 à 34 jours avec hôtels premium, accompagnement renforcé, Ziyarat étendue et programme sur mesure.",
     href:     "/omra-hajj/omra-plus",
-    image:    "/services/religieux/omra-plus.png",
+    image:    "/omra-factory/omra-plus.png",
     cta:      "Découvrir Omra Plus",
     ctaUrl:   omraQuoteUrl({ service: "Omra Plus" }),
     status:   "Sur demande",
@@ -67,7 +79,7 @@ const PROGRAMS = [
     tagColor: "text-syanor-emerald bg-syanor-emerald/10 border-syanor-emerald/20",
     desc:     "Vivre le Ramadan aux Lieux Saints. Prières de Tarawih au Haram, ambiance spirituelle unique, programme adapté à la période sacrée.",
     href:     "/omra-hajj/ramadan",
-    image:    "/services/religieux/omra-ramadan.png",
+    image:    "/omra-factory/ramadan.png",
     cta:      "Voir Ramadan",
     ctaUrl:   omraQuoteUrl({ service: "Ramadan" }),
     status:   "Sur demande",
@@ -703,11 +715,11 @@ export default function OmraHajjPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <div className="mb-10 text-center">
             <p className="eyebrow mb-2">Programmes spécialisés</p>
-            <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Omra Plus · Ramadan · Hajj 2027</h2>
+            <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Omra · Omra Plus · Ramadan · Hajj 2027</h2>
             <div className="mx-auto mt-3 h-px w-12 bg-gradient-to-r from-transparent via-syanor-gold/50 to-transparent" aria-hidden="true" />
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {PROGRAMS.map((prog, i) => (
               <Reveal key={prog.title} delay={i * 60}>
                 <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-syanor-gold/18 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
