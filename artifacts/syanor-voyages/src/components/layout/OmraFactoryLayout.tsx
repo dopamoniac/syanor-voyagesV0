@@ -84,10 +84,11 @@ function OmraHeader() {
     <header
       className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(1,26,21,0.97)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(201,162,74,0.22)" : "none",
-        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "none",
+        background: scrolled ? "rgba(1,26,21,0.97)" : "rgba(248,242,232,0.96)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        borderBottom: scrolled ? "1px solid rgba(201,162,74,0.22)" : "1px solid rgba(184,138,68,0.18)",
+        boxShadow: scrolled ? "0 4px 30px rgba(0,0,0,0.35)" : "0 2px 16px rgba(0,0,0,0.06)",
       }}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-6 md:px-8">
@@ -117,10 +118,10 @@ function OmraHeader() {
             />
           </div>
           <div className="hidden leading-none sm:block">
-            <p className="font-playfair text-sm font-bold tracking-tight" style={{ color: "#FFF9ED" }}>
+            <p className="font-playfair text-sm font-bold tracking-tight" style={{ color: scrolled ? "#FFF9ED" : "#022B24" }}>
               Omra Factory
             </p>
-            <p className="text-[0.50rem] font-semibold uppercase tracking-[0.16em]" style={{ color: "rgba(201,162,74,0.55)" }}>
+            <p className="text-[0.50rem] font-semibold uppercase tracking-[0.16em]" style={{ color: "rgba(184,138,68,0.70)" }}>
               by SYANOR VOYAGES
             </p>
           </div>
@@ -137,7 +138,7 @@ function OmraHeader() {
               type="button"
               onClick={() => { setDropOpen((o) => !o); setDeptOpen(false); }}
               className="relative flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-              style={{ color: (dropOpen || programmesActive) ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              style={{ color: (dropOpen || programmesActive) ? "#C9A24A" : scrolled ? "rgba(255,249,237,0.68)" : "rgba(2,43,36,0.75)" }}
               aria-expanded={dropOpen}
             >
               Programmes
@@ -206,7 +207,7 @@ function OmraHeader() {
               type="button"
               onClick={() => { setDeptOpen((o) => !o); setDropOpen(false); }}
               className="relative flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-              style={{ color: (deptOpen || departuresActive) ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              style={{ color: (deptOpen || departuresActive) ? "#C9A24A" : scrolled ? "rgba(255,249,237,0.68)" : "rgba(2,43,36,0.75)" }}
               aria-expanded={deptOpen}
             >
               Départs
@@ -261,7 +262,7 @@ function OmraHeader() {
                 key={l.href}
                 href={l.href}
                 className="relative rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-                style={{ color: active ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+                style={{ color: active ? "#C9A24A" : scrolled ? "rgba(255,249,237,0.68)" : "rgba(2,43,36,0.75)" }}
               >
                 {l.label}
                 {active && (
@@ -286,7 +287,7 @@ function OmraHeader() {
           type="button"
           onClick={() => setMenuOpen((o) => !o)}
           className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:bg-white/8 lg:hidden"
-          style={{ color: "rgba(255,249,237,0.70)" }}
+          style={{ color: scrolled ? "rgba(255,249,237,0.70)" : "rgba(2,43,36,0.75)" }}
           aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={menuOpen}
         >
