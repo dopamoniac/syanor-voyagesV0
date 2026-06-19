@@ -179,30 +179,24 @@ export default function OmraHajjPage() {
 
         {/* ── Full-bleed background image ── */}
         <img
-          src="/img/omra-factory-hero.png"
+          src="/omra/hero-mecca.png"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[62%_center] lg:object-right"
           loading="eager"
         />
 
-        {/* ── Smoke/mist — soft haze only where text sits, image fully visible right ── */}
+        {/* ── Desktop: dark emerald left → transparent right (keeps Kaaba visible) ── */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{ background: "radial-gradient(ellipse 58% 80% at 18% 52%, rgba(255,250,228,0.52) 0%, rgba(255,250,228,0.22) 42%, transparent 66%)" }}
+          className="pointer-events-none absolute inset-0 hidden lg:block"
+          style={{ background: "linear-gradient(90deg, rgba(3,24,20,0.92) 0%, rgba(3,24,20,0.78) 28%, rgba(3,24,20,0.35) 52%, rgba(3,24,20,0.05) 78%)" }}
         />
-        {/* ── Very subtle bottom darkening — helps category cards sit cleanly ── */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
-          style={{ background: "linear-gradient(to top, rgba(15,8,2,0.18) 0%, transparent 100%)" }}
-        />
-        {/* ── Mobile: slightly stronger smoke for small screens ── */}
+        {/* ── Mobile: dark top → transparent bottom ── */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 lg:hidden"
-          style={{ background: "rgba(255,250,228,0.38)" }}
+          style={{ background: "linear-gradient(180deg, rgba(3,24,20,0.88) 0%, rgba(3,24,20,0.70) 42%, rgba(3,24,20,0.25) 100%)" }}
         />
 
         {/* ── Content ── */}
@@ -212,14 +206,14 @@ export default function OmraHajjPage() {
             {/* Label */}
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-8 shrink-0" style={{ background: "rgba(201,162,74,0.70)" }} aria-hidden="true" />
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.22em]" style={{ color: "#a07c32" }}>
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.22em]" style={{ color: "rgba(212,175,55,0.85)" }}>
                 Omra Factory — Département Omra & Hajj de SYANOR VOYAGES
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-playfair text-4xl font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-[3.4rem]">
-              <span style={{ color: "#022B24" }}>Omra & Hajj</span><br />
+              <span style={{ color: "#F8F4EE" }}>Omra & Hajj</span><br />
               <span style={{ background: "linear-gradient(90deg, #C9A24A 0%, #b8882a 50%, #C9A24A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 organisés avec excellence.
               </span>
@@ -233,9 +227,9 @@ export default function OmraHajjPage() {
             </div>
 
             {/* Description */}
-            <p className="mt-6 max-w-lg text-base leading-relaxed sm:text-[1.05rem]" style={{ color: "rgba(2,43,36,0.68)" }}>
+            <p className="mt-6 max-w-lg text-base leading-relaxed sm:text-[1.05rem]" style={{ color: "rgba(248,244,238,0.80)" }}>
               Omra, Hajj, Ramadan, Ziyarat — accompagnement spirituel complet,{" "}
-              <span style={{ color: "#a07c32", fontWeight: 500 }}>hôtels sélectionnés et départs depuis 6 villes de France.</span>
+              <span style={{ color: "#D8B56A", fontWeight: 500 }}>hôtels sélectionnés et départs depuis 6 villes de France.</span>
             </p>
 
             {/* CTAs */}
@@ -251,7 +245,7 @@ export default function OmraHajjPage() {
               <Link
                 href={omraQuoteHref}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-200 hover:shadow-card active:scale-[0.97]"
-                style={{ border: "1.5px solid rgba(2,43,36,0.25)", color: "rgba(2,43,36,0.82)", background: "rgba(255,255,255,0.55)", backdropFilter: "blur(8px)" }}
+                style={{ border: "1.5px solid rgba(248,244,238,0.32)", color: "rgba(248,244,238,0.92)", background: "rgba(255,255,255,0.10)", backdropFilter: "blur(8px)" }}
               >
                 Demander un devis
               </Link>
@@ -291,15 +285,15 @@ export default function OmraHajjPage() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 flex flex-wrap items-center gap-6 border-t pt-8" style={{ borderColor: "rgba(201,162,74,0.25)" }}>
+            <div className="mt-10 flex flex-wrap items-center gap-6 border-t pt-8" style={{ borderColor: "rgba(248,244,238,0.18)" }}>
               {[
                 { val: "2026 & 2027", label: "Saisons Omra" },
                 { val: "6 villes",    label: "De départ" },
                 { val: "Standard → VIP", label: "Niveaux de confort" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="font-playfair text-lg font-bold" style={{ color: "#a07c32" }}>{s.val}</span>
-                  <span className="text-[0.68rem]" style={{ color: "rgba(2,43,36,0.45)" }}>{s.label}</span>
+                  <span className="font-playfair text-lg font-bold" style={{ color: "#D8B56A" }}>{s.val}</span>
+                  <span className="text-[0.68rem]" style={{ color: "rgba(248,244,238,0.55)" }}>{s.label}</span>
                 </div>
               ))}
             </div>

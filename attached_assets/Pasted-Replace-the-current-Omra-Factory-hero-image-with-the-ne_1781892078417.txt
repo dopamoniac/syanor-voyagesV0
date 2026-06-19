@@ -1,0 +1,99 @@
+Replace the current Omra Factory hero image with the new generated hero image.
+
+Use the image:
+courtyard_de_la_grande_mosquée_au_coucher_du_solei.png
+
+Goal:
+The hero must use this image as the main background for the Omra Factory homepage. The left side of the image is intentionally darker so the headline and text stay readable.
+
+Requirements:
+1. Replace the existing Omra Factory hero background image with this new image.
+2. Keep the hero layout, buttons, navbar, and text structure unchanged.
+3. Position the image so:
+   - Kaaba and clock tower remain visible on the right side.
+   - Dark gradient area stays on the left behind the text.
+   - The composition feels premium, cinematic, spiritual, and luxury.
+4. Use object-fit: cover.
+5. Use object-position: center right on desktop.
+6. On mobile, adjust object-position so the Kaaba remains visible and the text remains readable.
+7. Add or keep an additional left-side overlay gradient for text readability:
+   - left side: dark emerald / black with opacity
+   - middle: soft transparent fade
+   - right side: mostly clear to show the image
+8. Do not make the whole image too dark. Only the text area should be darker.
+9. Optimize the image for responsive loading:
+   - mobile version
+   - tablet version
+   - desktop 1920px version
+   - 4K version if possible
+10. Use AVIF/WebP if the project has image optimization, otherwise use the PNG directly.
+11. Keep the visual identity:
+   - ivory / champagne
+   - emerald
+   - gold
+   - premium Omra & Hajj atmosphere
+12. Make sure the hero looks sharp on desktop and still fast on mobile.
+
+Suggested CSS:
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 24, 20, 0.92) 0%,
+      rgba(3, 24, 20, 0.78) 28%,
+      rgba(3, 24, 20, 0.35) 52%,
+      rgba(3, 24, 20, 0.05) 78%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    object-position: 62% center;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 24, 20, 0.88) 0%,
+        rgba(3, 24, 20, 0.70) 42%,
+        rgba(3, 24, 20, 0.25) 100%
+      );
+  }
+}
+
+After replacing it, test:
+- Desktop 1440px
+- Desktop 1920px
+- 4K screen
+- iPhone/mobile
+- Tablet
+
+The final hero should feel cinematic, premium, readable, and aligned with Omra Factory by SYANOR Voyages.
