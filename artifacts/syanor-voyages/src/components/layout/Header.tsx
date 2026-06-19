@@ -203,7 +203,7 @@ export default function Header() {
   const transparent = !showBg;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -240,11 +240,11 @@ export default function Header() {
         style={
           showBg
             ? {
-                background: "rgba(255,252,244,0.95)",
+                background: "rgba(255,255,255,.90)",
                 backdropFilter: "blur(18px)",
                 WebkitBackdropFilter: "blur(18px)",
-                borderBottom: "1px solid rgba(212,176,106,0.25)",
-                boxShadow: "0 2px 20px rgba(6,63,51,0.07)",
+                borderBottom: "1px solid rgba(216,181,106,.15)",
+                boxShadow: "0 10px 30px rgba(0,0,0,.06)",
               }
             : { background: "transparent" }
         }
@@ -283,9 +283,9 @@ export default function Header() {
                           WebkitBackdropFilter: "blur(8px)",
                         }
                       : {
-                          background: "rgba(201,162,74,0.08)",
-                          border: "1px solid rgba(201,162,74,0.35)",
-                          color: "rgba(24,18,10,0.80)",
+                          background: "rgba(216,181,106,0.08)",
+                          border: "1px solid rgba(216,181,106,0.35)",
+                          color: "#0B1E3D",
                         }
                   }
                 >
@@ -302,8 +302,8 @@ export default function Header() {
                   className="whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium transition-colors duration-200"
                   style={
                     transparent
-                      ? { color: "rgba(255,249,237,0.85)" }
-                      : { color: "rgba(24,18,10,0.75)" }
+                      ? { color: "rgba(248,244,238,0.88)" }
+                      : { color: "#0B1E3D" }
                   }
                 >
                   {item.label}
@@ -327,8 +327,8 @@ export default function Header() {
                       color: "rgba(255,249,237,0.80)",
                     }
                   : {
-                      border: "1px solid rgba(201,162,74,0.30)",
-                      color: "#063F33",
+                      border: "1px solid rgba(216,181,106,0.30)",
+                      color: "#0B1E3D",
                     }
               }
             >
@@ -342,16 +342,16 @@ export default function Header() {
               style={
                 transparent
                   ? {
-                      background: "#063F35",
-                      border: "1px solid rgba(212,175,55,0.60)",
-                      color: "#FFF9ED",
-                      boxShadow: "0 4px 16px rgba(6,63,53,0.30)",
+                      background: "#0B1E3D",
+                      border: "1px solid #D8B56A",
+                      color: "#FFFFFF",
+                      boxShadow: "0 4px 16px rgba(11,30,61,0.30)",
                     }
                   : {
-                      background: "#063F33",
-                      border: "1px solid transparent",
-                      color: "#FFF9ED",
-                      boxShadow: "0 2px 8px rgba(6,63,51,0.18)",
+                      background: "#0B1E3D",
+                      border: "1px solid #D8B56A",
+                      color: "#FFFFFF",
+                      boxShadow: "0 2px 8px rgba(11,30,61,0.18)",
                     }
               }
             >

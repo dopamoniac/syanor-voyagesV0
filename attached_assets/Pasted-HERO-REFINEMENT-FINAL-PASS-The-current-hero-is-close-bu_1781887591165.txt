@@ -1,0 +1,390 @@
+HERO REFINEMENT FINAL PASS
+The current hero is close, but it still does not feel like a luxury travel brand. It feels like a beautiful image with text on top. I want a premium, cinematic, high-end result.
+
+DO NOT CHANGE THE BACKGROUND IMAGE.
+The image is good.
+The problem is the UI, readability, hierarchy, spacing and luxury feeling.
+
+==================================================
+MAIN OBJECTIVE
+==================================================
+
+Transform the hero into something that feels like:
+
+- Aman Resorts
+- Four Seasons Private Jet
+- Emirates First Class
+- Ritz-Carlton Reserve
+- Luxury editorial website
+
+The hero must feel expensive, clean, calm and powerful.
+
+The image remains the star.
+
+The UI should occupy only 15-20% of the visual space.
+
+==================================================
+TEXT READABILITY FIX
+==================================================
+
+The title is currently too large and gets lost in the bright sky.
+
+Create a DARK NAVY RADIAL VIGNETTE behind the center content only.
+
+Do NOT darken the entire hero.
+
+Only behind the text area.
+
+Example:
+
+background:
+radial-gradient(
+circle,
+rgba(8,20,45,0.38) 0%,
+rgba(8,20,45,0.22) 35%,
+transparent 70%
+);
+
+This layer should sit behind:
+- eyebrow
+- title
+- subtitle
+- buttons
+
+This is the most important change.
+
+==================================================
+TITLE
+==================================================
+
+Current title is too large.
+
+Reduce title size by 25-30%.
+
+Desktop:
+
+clamp(72px, 7vw, 120px)
+
+Font:
+Playfair Display or Cormorant Garamond
+
+Weight:
+500
+
+Color:
+#F8F4EE
+
+Text shadow:
+
+0 2px 12px rgba(0,0,0,.20),
+0 0 40px rgba(255,215,140,.08)
+
+No blur.
+No rectangle.
+No background box.
+No giant overlays.
+
+Keep it elegant.
+
+==================================================
+EYEBROW
+==================================================
+
+SYANOR VOYAGES
+
+Uppercase
+
+Letter spacing:
+0.35em
+
+Color:
+#D8B56A
+
+Small and refined.
+
+==================================================
+SUBTITLE
+==================================================
+
+Current subtitle is not readable.
+
+Use:
+
+L’Art de Voyager Sans Limites
+
+Color:
+#D8B56A
+
+Font:
+Luxury italic serif
+
+Size:
+32px desktop
+22px mobile
+
+Add:
+
+text-shadow:
+0 2px 10px rgba(0,0,0,.25)
+
+==================================================
+SECONDARY LINE
+==================================================
+
+Deux univers. Une même exigence.
+
+Color:
+rgba(248,244,238,.92)
+
+Letter spacing:
+0.15em
+
+Font size:
+14px
+
+==================================================
+COLOR PALETTE
+==================================================
+
+Use ONLY:
+
+Deep Navy:
+#0B1E3D
+
+Champagne:
+#D8B56A
+
+Ivory:
+#F8F4EE
+
+Remove random yellow tones.
+Remove inconsistent colors.
+
+==================================================
+BUTTONS
+==================================================
+
+Buttons must feel luxury.
+
+Button 1:
+Univers Voyages
+
+Background:
+#0B1E3D
+
+Border:
+1px solid #D8B56A
+
+Text:
+#FFFFFF
+
+Button 2:
+Omra Factory
+
+Background:
+rgba(255,255,255,.92)
+
+Text:
+#0B1E3D
+
+Border:
+1px solid #D8B56A
+
+Buttons:
+height: 58px
+padding: 0 34px
+border-radius: 999px
+
+Hover:
+
+transform: translateY(-2px)
+
+box-shadow:
+0 12px 30px rgba(216,181,106,.18)
+
+==================================================
+SIDE LABELS
+==================================================
+
+Current labels are still too visible.
+
+Make them smaller and cleaner.
+
+Width:
+220px max
+
+Background:
+
+rgba(255,255,255,.08)
+
+Backdrop blur:
+20px
+
+Border:
+1px solid rgba(216,181,106,.30)
+
+Title:
+Champagne
+
+Text:
+Ivory
+
+No lists.
+No menu style.
+
+Use only:
+
+MONDE & VOYAGES
+Billets • Séjours • Croisières • Hôtels • VIP
+
+OMRA FACTORY
+Omra • Hajj • Ramadan • Ziyarat • Accompagnement
+
+One line only.
+
+==================================================
+ATMOSPHERIC EFFECT
+==================================================
+
+Add subtle cinematic atmosphere.
+
+NOT smoke everywhere.
+
+Create a soft horizon haze only behind the center title area.
+
+Opacity:
+10-15%
+
+Very soft.
+
+Luxury atmosphere.
+
+Not clouds.
+
+Not fog machine effect.
+
+==================================================
+NAVBAR
+==================================================
+
+Initial hero state:
+
+Transparent navbar.
+
+Text:
+White / Ivory
+
+Active item:
+Champagne
+
+Omra Factory button:
+Glass + Champagne border
+
+Demander un devis:
+Deep Navy + Champagne border
+
+==================================================
+SCROLL NAVBAR
+==================================================
+
+At 60px scroll:
+
+Navbar becomes:
+
+Background:
+rgba(255,255,255,.90)
+
+Backdrop blur:
+18px
+
+Border bottom:
+1px solid rgba(216,181,106,.15)
+
+Text:
+#0B1E3D
+
+Small shadow:
+0 10px 30px rgba(0,0,0,.06)
+
+==================================================
+SPACING
+==================================================
+
+Move hero content slightly upward.
+
+Current content sits too low.
+
+Center content should sit around:
+
+top: 44%
+
+This creates more breathing room.
+
+==================================================
+ANIMATION
+==================================================
+
+Subtle only.
+
+Background:
+scale 1 → 1.04 over 15 seconds
+
+Title:
+fade-up 0.8s
+
+Subtitle:
+fade-up 1.0s
+
+Buttons:
+fade-up 1.2s
+
+Labels:
+fade-in 1.4s
+
+No flashy animations.
+
+==================================================
+MOBILE VERSION
+==================================================
+
+This is mandatory.
+
+Design mobile separately.
+
+Do not simply shrink desktop.
+
+- Title max 2 lines
+- Buttons stacked
+- Side labels become small chips under buttons
+- Keep Kaaba visible
+- Keep plane visible
+- No overflow
+- Perfect spacing
+- Premium feeling
+
+==================================================
+FINAL QUALITY CHECK
+==================================================
+
+The hero must feel like a €100M luxury travel brand.
+
+The image must dominate.
+
+The text must be readable instantly.
+
+No clutter.
+
+No giant overlays.
+
+No giant title.
+
+No yellow blocks.
+
+No dome.
+
+No unnecessary UI.
+
+Luxury.
+Minimal.
+Editorial.
+Premium.
