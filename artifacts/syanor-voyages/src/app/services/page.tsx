@@ -79,7 +79,8 @@ const blocks: ServiceBlock[] = [
     href: "/voyages-organises",
     image: "/services/sur-mesure/voyages-organises.png",
     badge: "Circuit guidé",
-    overlayTint: "rgba(2,43,36,0.70)",
+    overlayTint: "rgba(0,0,0,0)",
+    floating: true,
   },
   {
     title: "Séjours Sur Mesure",
