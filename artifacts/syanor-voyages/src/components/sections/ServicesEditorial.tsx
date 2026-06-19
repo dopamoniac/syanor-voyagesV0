@@ -74,7 +74,7 @@ export default function ServicesEditorial() {
             style={{ height: "clamp(260px, 36vw, 480px)" }}
           >
             <img
-              src="/services/billets-avion.jpg"
+              src="/services/billets-avion.png"
               alt="Billet avion international SYANOR VOYAGES"
               loading="lazy"
               className="h-full w-full object-cover object-center"

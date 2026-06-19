@@ -8,7 +8,7 @@ const CATEGORY_IMAGE: Record<string, string> = {
   "Omra Plus":         "/services/religieux/omra-plus.png",
   "Hajj":              "/services/religieux/hajj.png",
   "Ramadan":           "/services/religieux/omra-ramadan.png",
-  "Billet avion":      "/services/billets-avion.jpg",
+  "Billet avion":      "/services/billets-avion.png",
   "Billet bateau":     "/services/billets-bateau.jpg",
   "Voyage organisé":   "/services/sur-mesure/voyages-organises.png",
   "Séjour sur mesure": "/services/sur-mesure/sejour-sur-mesure.png",

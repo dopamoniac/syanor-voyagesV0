@@ -34,7 +34,7 @@ const blocks: ServiceBlock[] = [
     desc: "Vols internationaux, itinéraires optimisés et assistance complète, de la réservation au départ.",
     points: ["Vols internationaux", "Aller simple / aller-retour", "Multi-destinations", "Suivi avant départ"],
     href: "/services/billets-avion",
-    image: "/services/billets-avion.jpg",
+    image: "/services/billets-avion.png",
     badge: "Vols internationaux",
     overlayTint: "rgba(10,20,48,0.68)",
   },

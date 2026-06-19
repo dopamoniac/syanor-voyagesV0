@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const quoteHref = quoteUrl({ service: "Billet avion", transport: "Avion" });
 
 const config: DeepServiceConfig = {
-  heroImage: "/services/billets-avion.jpg",
+  heroImage: "/services/billets-avion.png",
   eyebrow: "Billets avion",
   title: "Billets d'avion : itinéraires optimisés et accompagnement complet.",
   subtitle:

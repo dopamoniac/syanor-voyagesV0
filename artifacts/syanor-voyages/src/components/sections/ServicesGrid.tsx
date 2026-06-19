@@ -37,7 +37,7 @@ const GROUPS: ServiceGroup[] = [
         badge: "Vols internationaux",
         desc: "Vols internationaux, réservation optimisée, assistance complète de A à Z",
         href: "/services/billets-avion",
-        image: "/services/billets-avion.jpg",
+        image: "/services/billets-avion.png",
         alt: "Billet d'avion international avec SYANOR VOYAGES",
       },
       {
