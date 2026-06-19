@@ -58,29 +58,29 @@ export default function VIPCinematic() {
           {/* LEFT — text content */}
           <div className="flex flex-col">
             {/* Eyebrow */}
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-7 flex items-center gap-3">
               <div className="h-px w-8" style={{ background: "#B88A44", opacity: 0.6 }} aria-hidden="true" />
-              <p className="text-[0.58rem] font-bold uppercase tracking-[0.28em]" style={{ color: "#B88A44" }}>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.25em]" style={{ color: "#B88A44" }}>
                 Expérience Premium &amp; VIP
               </p>
             </div>
 
             {/* Headline */}
             <h2
-              className="font-playfair font-bold leading-[0.98] tracking-tight"
-              style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", color: "#102C27", letterSpacing: "-0.03em" }}
+              className="font-playfair font-semibold leading-[0.97]"
+              style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.8rem)", color: "#1B1B1B", letterSpacing: "-0.035em" }}
             >
               Votre voyage,<br />
               <span style={{ color: "#B88A44" }}>réinventé.</span>
             </h2>
 
             {/* Gold rule */}
-            <div className="my-7 h-px w-14" style={{ background: "linear-gradient(to right, #B88A44, rgba(184,138,68,0.15))" }} aria-hidden="true" />
+            <div className="my-8 h-px w-14" style={{ background: "linear-gradient(to right, #B88A44, rgba(184,138,68,0.15))" }} aria-hidden="true" />
 
             {/* Description */}
             <p
-              className="leading-[1.72]"
-              style={{ fontSize: "clamp(0.98rem, 1.25vw, 1.10rem)", color: "#4A4845", maxWidth: 480 }}
+              className="leading-[1.80]"
+              style={{ fontSize: "clamp(1.05rem, 1.35vw, 1.20rem)", color: "#5E5A54", maxWidth: 520 }}
             >
               Billets Business Class, hôtels 5 étoiles, transferts privés, conciergerie personnalisée —
               un service VIP complet pensé pour les voyageurs d'exception.
@@ -94,9 +94,10 @@ export default function VIPCinematic() {
                 style={{
                   background: "linear-gradient(135deg, #C9A24A 0%, #e0c070 50%, #C9A24A 100%)",
                   color: "#1A0F00",
-                  padding: "15px 32px",
-                  fontSize: "0.90rem",
+                  padding: "16px 36px",
+                  fontSize: "1.05rem",
                   letterSpacing: "-0.01em",
+                  fontWeight: 600,
                 }}
               >
                 Demander un pack VIP
@@ -201,14 +202,14 @@ export default function VIPCinematic() {
 
               <div>
                 <h3
-                  className="font-playfair font-bold leading-tight"
-                  style={{ fontSize: "clamp(0.90rem, 1.4vw, 1.05rem)", color: "#063B32" }}
+                  className="font-playfair font-semibold leading-tight"
+                  style={{ fontSize: "clamp(1.05rem, 1.5vw, 1.25rem)", color: "#1B1B1B" }}
                 >
                   {p.title}
                 </h3>
                 <p
                   className="mt-2 leading-relaxed"
-                  style={{ fontSize: "clamp(0.70rem, 1.1vw, 0.78rem)", color: "#66645F" }}
+                  style={{ fontSize: "clamp(0.88rem, 1.15vw, 0.95rem)", color: "#6B665F" }}
                 >
                   {p.desc}
                 </p>

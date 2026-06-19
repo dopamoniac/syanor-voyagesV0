@@ -47,7 +47,7 @@ export default function TestimonialsEditorial() {
         {/* Eyebrow */}
         <div className="flex items-center gap-4 mb-12 md:mb-16">
           <div className="h-px w-10" style={{ background: "#D8B56A", opacity: 0.45 }} aria-hidden="true" />
-          <p className="text-[0.52rem] font-bold uppercase tracking-[0.30em]" style={{ color: "#D8B56A" }}>
+          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.25em]" style={{ color: "#D8B56A" }}>
             Témoignages
           </p>
         </div>
@@ -71,11 +71,11 @@ export default function TestimonialsEditorial() {
           </svg>
 
           <blockquote
-            className="font-playfair font-light leading-[1.20] mb-8"
+            className="font-playfair font-light leading-[1.22] mb-8"
             style={{
               color: "#F8F4EE",
-              fontSize: "clamp(1.45rem, 3.2vw, 2.4rem)",
-              maxWidth: "820px",
+              fontSize: "clamp(1.65rem, 3.5vw, 2.8rem)",
+              maxWidth: "860px",
             }}
           >
             "{FEATURED.quote}"
@@ -84,10 +84,10 @@ export default function TestimonialsEditorial() {
           <figcaption className="flex items-center gap-5">
             <div>
               <Stars count={FEATURED.stars} />
-              <p className="mt-2 text-[0.75rem] font-semibold" style={{ color: "#F8F4EE" }}>
+              <p className="mt-2 text-[0.95rem] font-semibold" style={{ color: "#F8F4EE" }}>
                 {FEATURED.author}
               </p>
-              <p className="mt-0.5 text-[0.63rem]" style={{ color: "rgba(248,244,238,0.38)" }}>
+              <p className="mt-0.5 text-[0.80rem]" style={{ color: "rgba(248,244,238,0.45)" }}>
                 {FEATURED.trip}
               </p>
             </div>
@@ -102,8 +102,8 @@ export default function TestimonialsEditorial() {
           {SECONDARY.map((t) => (
             <figure key={t.author}>
               <blockquote
-                className="text-sm leading-relaxed mb-6 font-light"
-                style={{ color: "rgba(248,244,238,0.60)" }}
+                className="leading-[1.78] mb-6 font-light"
+                style={{ fontSize: "clamp(0.95rem, 1.3vw, 1.05rem)", color: "rgba(248,244,238,0.65)" }}
               >
                 "{t.quote}"
               </blockquote>
@@ -115,8 +115,8 @@ export default function TestimonialsEditorial() {
                 />
                 <div className="text-right">
                   <Stars count={t.stars} />
-                  <p className="mt-1.5 text-[0.68rem] font-semibold" style={{ color: "#F8F4EE" }}>{t.author}</p>
-                  <p className="mt-0.5 text-[0.60rem]" style={{ color: "rgba(248,244,238,0.34)" }}>{t.trip}</p>
+                  <p className="mt-1.5 text-[0.88rem] font-semibold" style={{ color: "#F8F4EE" }}>{t.author}</p>
+                  <p className="mt-0.5 text-[0.78rem]" style={{ color: "rgba(248,244,238,0.40)" }}>{t.trip}</p>
                 </div>
               </figcaption>
             </figure>

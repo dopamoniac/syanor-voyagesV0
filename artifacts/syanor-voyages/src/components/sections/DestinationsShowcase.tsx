@@ -134,14 +134,14 @@ export default function DestinationsShowcase() {
         <div className="mb-10 md:mb-14 flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p
-              className="text-[0.55rem] font-bold uppercase tracking-[0.32em] mb-3"
+              className="text-[0.72rem] font-semibold uppercase tracking-[0.25em] mb-4"
               style={{ color: "#D8B56A" }}
             >
               Nos destinations
             </p>
             <h2
-              className="font-playfair font-light leading-[1.04]"
-              style={{ color: "#1A1712", fontSize: "clamp(1.9rem, 4vw, 3.0rem)" }}
+              className="font-playfair font-semibold leading-[0.97]"
+              style={{ color: "#1B1B1B", fontSize: "clamp(2.4rem, 4.5vw, 4.0rem)", letterSpacing: "-0.03em" }}
             >
               Le monde à votre portée.
             </h2>
