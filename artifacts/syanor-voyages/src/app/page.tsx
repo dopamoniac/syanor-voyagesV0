@@ -1,5 +1,6 @@
 import SiteLayout from "@/components/layout/SiteLayout";
 import RenaissanceHero from "@/components/sections/RenaissanceHero";
+import HeroTransition from "@/components/sections/HeroTransition";
 import Hero from "@/components/sections/Hero";
 import SmartSearchPanel from "@/components/sections/SmartSearchPanel";
 import DestinationsShowcase from "@/components/sections/DestinationsShowcase";
@@ -17,6 +18,9 @@ export default function Home() {
 
       {/* 1. Renaissance hero — full screen split universe — DO NOT TOUCH */}
       <RenaissanceHero />
+
+      {/* 1→2. Luxury cinematic transition */}
+      <HeroTransition />
 
       {/* 2. Original cinematic hero — DO NOT TOUCH */}
       <Hero />
