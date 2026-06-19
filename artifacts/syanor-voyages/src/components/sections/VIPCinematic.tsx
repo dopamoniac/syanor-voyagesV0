@@ -1,23 +1,43 @@
 import Link from "@/components/Link";
 
-const FEATURES = [
+const PILLARS = [
   {
-    num: "I",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
+        <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3" strokeLinecap="round" />
+        <rect x="9" y="11" width="14" height="10" rx="2" />
+        <path d="M13 16h4M15 14v4" strokeLinecap="round" />
+      </svg>
+    ),
     title: "Transferts Privés",
     desc: "Chauffeur ou minibus VIP, de l'aéroport à chaque étape de votre voyage.",
   },
   {
-    num: "II",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M9 22V12h6v10" strokeLinecap="round" />
+      </svg>
+    ),
     title: "Hôtels 5★ Sélectionnés",
     desc: "Palaces et adresses de prestige soigneusement choisis pour chaque destination.",
   },
   {
-    num: "III",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 8v4l3 3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
     title: "Conciergerie Dédiée",
     desc: "Un conseiller attitré qui orchestre chaque détail, de A à Z.",
   },
   {
-    num: "IV",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.49 2 2 0 0 1 3.6 1.28h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.28 16z" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
     title: "Assistance Continue",
     desc: "Disponible avant, pendant et après votre voyage — 24h/24, 7j/7.",
   },
@@ -26,106 +46,177 @@ const FEATURES = [
 export default function VIPCinematic() {
   return (
     <section
-      className="relative overflow-hidden"
-      style={{ background: "#F8F4EE" }}
+      id="vip"
+      className="overflow-hidden"
+      style={{ background: "linear-gradient(to bottom, #FFFDF8, #F8F2E8)" }}
     >
-      {/* Inner dark panel — full-bleed with generous padding */}
-      <div
-        className="relative mx-5 my-6 md:mx-8 md:my-8 rounded-[28px] md:rounded-[36px] overflow-hidden"
-        style={{ background: "#063F33" }}
-      >
-        {/* Decorative corner rings */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full opacity-10"
-          style={{ border: "1px solid #D8B56A" }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-07"
-          style={{ border: "1px solid #D8B56A" }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full opacity-10"
-          style={{ border: "1px solid rgba(216,181,106,0.4)" }}
-        />
+      <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20 lg:py-24 xl:px-12">
 
-        {/* Background hero image with overlay */}
-        <div className="absolute inset-0 opacity-15">
-          <img
-            src="/img/hotel-view.jpg"
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
-        <div
-          className="absolute inset-0"
-          aria-hidden="true"
-          style={{ background: "linear-gradient(135deg, rgba(6,63,51,0.85) 0%, rgba(6,63,51,0.50) 100%)" }}
-        />
+        {/* ── Editorial split: text left / image right ── */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
 
-        {/* Content */}
-        <div className="relative z-10 px-6 py-16 md:px-14 md:py-20 lg:px-20 lg:py-24">
+          {/* LEFT — text content */}
+          <div className="flex flex-col">
+            {/* Eyebrow */}
+            <div className="mb-6 flex items-center gap-3">
+              <div className="h-px w-8" style={{ background: "#B88A44", opacity: 0.6 }} aria-hidden="true" />
+              <p className="text-[0.58rem] font-bold uppercase tracking-[0.28em]" style={{ color: "#B88A44" }}>
+                Expérience Premium &amp; VIP
+              </p>
+            </div>
 
-          {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ background: "#D8B56A", opacity: 0.55 }} aria-hidden="true" />
-            <p className="text-[0.52rem] font-bold uppercase tracking-[0.32em]" style={{ color: "#D8B56A" }}>
-              Expérience Premium & VIP
+            {/* Headline */}
+            <h2
+              className="font-playfair font-bold leading-[0.98] tracking-tight"
+              style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.4rem)", color: "#102C27", letterSpacing: "-0.03em" }}
+            >
+              Votre voyage,<br />
+              <span style={{ color: "#B88A44" }}>réinventé.</span>
+            </h2>
+
+            {/* Gold rule */}
+            <div className="my-7 h-px w-14" style={{ background: "linear-gradient(to right, #B88A44, rgba(184,138,68,0.15))" }} aria-hidden="true" />
+
+            {/* Description */}
+            <p
+              className="leading-[1.72]"
+              style={{ fontSize: "clamp(0.98rem, 1.25vw, 1.10rem)", color: "#4A4845", maxWidth: 480 }}
+            >
+              Billets Business Class, hôtels 5 étoiles, transferts privés, conciergerie personnalisée —
+              un service VIP complet pensé pour les voyageurs d'exception.
             </p>
+
+            {/* CTA */}
+            <div className="mt-10">
+              <Link
+                href="/contact?service=Pack+personnalis%C3%A9#quote"
+                className="inline-flex items-center gap-3 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(184,138,68,0.32)] active:scale-[0.97]"
+                style={{
+                  background: "linear-gradient(135deg, #C9A24A 0%, #e0c070 50%, #C9A24A 100%)",
+                  color: "#1A0F00",
+                  padding: "15px 32px",
+                  fontSize: "0.90rem",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Demander un pack VIP
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+
+              {/* Trust signal */}
+              <p className="mt-4 text-[0.68rem] font-medium" style={{ color: "rgba(6,63,51,0.40)", letterSpacing: "0.02em" }}>
+                ✦ Disponible pour tous nos séjours &amp; voyages organisés
+              </p>
+            </div>
           </div>
 
-          {/* Headline */}
-          <h2
-            className="font-playfair font-light leading-[1.04] mb-6"
-            style={{ color: "#F8F4EE", fontSize: "clamp(2.4rem, 5vw, 4.2rem)" }}
-          >
-            Votre voyage,<br />réinventé.
-          </h2>
+          {/* RIGHT — cinematic image card */}
+          <div className="relative">
+            {/* Glow halo */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-4 rounded-[44px] opacity-30"
+              style={{ background: "radial-gradient(ellipse at center, rgba(184,138,68,0.30) 0%, transparent 70%)" }}
+            />
 
-          {/* Sub */}
-          <p
-            className="text-sm leading-relaxed mb-14 max-w-lg"
-            style={{ color: "rgba(248,244,238,0.55)" }}
-          >
-            Billets Business Class, hôtels 5 étoiles, transferts privés, conciergerie personnalisée —
-            un service VIP complet pensé pour les voyageurs d'exception.
-          </p>
-
-          {/* Features grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-14">
-            {FEATURES.map((f) => (
-              <div key={f.num} className="flex flex-col gap-3">
-                <span
-                  className="font-playfair text-xs font-light"
-                  style={{ color: "rgba(216,181,106,0.45)" }}
+            {/* Main image card */}
+            <div
+              className="relative overflow-hidden"
+              style={{
+                borderRadius: 32,
+                border: "1px solid rgba(184,138,68,0.35)",
+                boxShadow: "0 32px 80px rgba(16,44,39,0.18), 0 8px 24px rgba(184,138,68,0.12)",
+                aspectRatio: "4 / 3",
+              }}
+            >
+              <img
+                src="/img/hotel-view.jpg"
+                alt="Expérience VIP — hôtel de luxe"
+                className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Subtle dark-to-transparent gradient at bottom for label */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 bottom-0 h-2/5"
+                style={{ background: "linear-gradient(to top, rgba(10,26,20,0.65) 0%, transparent 100%)" }}
+              />
+              {/* Floating label */}
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <p className="text-[0.52rem] font-bold uppercase tracking-[0.24em]" style={{ color: "rgba(216,181,106,0.80)" }}>
+                    Syanor Voyages
+                  </p>
+                  <p className="mt-0.5 font-playfair text-lg font-semibold leading-tight text-white">
+                    Prestige &amp; Confort
+                  </p>
+                </div>
+                {/* Gold star badge */}
+                <div
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "rgba(201,162,74,0.20)", border: "1px solid rgba(201,162,74,0.50)", backdropFilter: "blur(8px)" }}
                 >
-                  {f.num}
-                </span>
-                <div className="h-px w-8" style={{ background: "rgba(216,181,106,0.28)" }} aria-hidden="true" />
-                <p className="text-[0.78rem] font-semibold" style={{ color: "#F8F4EE" }}>{f.title}</p>
-                <p className="text-[0.67rem] leading-relaxed" style={{ color: "rgba(248,244,238,0.42)" }}>{f.desc}</p>
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="#C9A24A" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
 
-          {/* CTA */}
-          <Link
-            href="/contact?service=Pack+personnalis%C3%A9#quote"
-            className="inline-flex items-center gap-3 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:shadow-[0_8px_28px_rgba(216,181,106,0.30)] hover:-translate-y-px"
-            style={{
-              background: "linear-gradient(135deg, #D8B56A 0%, #c9a55e 100%)",
-              color: "#063F33",
-            }}
-          >
-            Demander un pack VIP
-            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+            {/* Gold accent corner ornament */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-3 -right-3 h-16 w-16 rounded-br-[32px]"
+              style={{ border: "1px solid rgba(184,138,68,0.22)", borderTop: "none", borderLeft: "none" }}
+            />
+          </div>
         </div>
+
+        {/* ── Four ivory-glass pillars ── */}
+        <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-16 lg:grid-cols-4 lg:gap-5">
+          {PILLARS.map((p) => (
+            <div
+              key={p.title}
+              className="group flex flex-col gap-4 rounded-[22px] p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(16,44,39,0.10)] sm:p-6"
+              style={{
+                background: "linear-gradient(145deg, rgba(255,253,248,0.95), rgba(248,242,232,0.88))",
+                border: "1px solid rgba(184,138,68,0.20)",
+                boxShadow: "0 8px 24px rgba(16,44,39,0.06)",
+              }}
+            >
+              {/* Icon circle */}
+              <div
+                className="flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 group-hover:shadow-[0_4px_12px_rgba(184,138,68,0.25)]"
+                style={{
+                  background: "rgba(184,138,68,0.10)",
+                  border: "1px solid rgba(184,138,68,0.25)",
+                  color: "#B88A44",
+                }}
+              >
+                {p.icon}
+              </div>
+
+              <div>
+                <h3
+                  className="font-playfair font-bold leading-tight"
+                  style={{ fontSize: "clamp(0.90rem, 1.4vw, 1.05rem)", color: "#063B32" }}
+                >
+                  {p.title}
+                </h3>
+                <p
+                  className="mt-2 leading-relaxed"
+                  style={{ fontSize: "clamp(0.70rem, 1.1vw, 0.78rem)", color: "#66645F" }}
+                >
+                  {p.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
