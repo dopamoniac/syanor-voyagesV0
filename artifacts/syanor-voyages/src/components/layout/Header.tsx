@@ -8,6 +8,20 @@ import MobileMenu from "@/components/layout/MobileMenu";
 import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 
+/* ── Active-state helpers ─────────────────────────────────────────────────
+   isNavActive : exact for "/", prefix match otherwise (strips hash/query)
+   isMegaActive: true if parent href or any child href is active
+──────────────────────────────────────────────────────────────────────── */
+function isNavActive(href: string, loc: string): boolean {
+  if (href === "/") return loc === "/";
+  const base = href.split("?")[0].split("#")[0];
+  return loc === base || loc.startsWith(base + "/");
+}
+
+function isMegaActive(item: NavItem, loc: string): boolean {
+  return isNavActive(item.href, loc) || (item.children?.some((c) => isNavActive(c.href, loc)) ?? false);
+}
+
 const SERVICE_ICON: Record<string, string> = {
   "/services/billets-avion":           "airplane",
   "/services/billets-bateau":          "anchor",
@@ -127,9 +141,10 @@ interface MegaMenuWrapperProps {
   onOpen: () => void;
   onClose: () => void;
   transparent: boolean;
+  isActive: boolean;
 }
 
-function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent }: MegaMenuWrapperProps) {
+function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent, isActive }: MegaMenuWrapperProps) {
   const panelWidth =
     item.label === "Séjours & Voyages" ? "w-[520px]" :
     item.label === "Billets"           ? "w-[480px]" : "w-[480px]";
@@ -137,10 +152,12 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent }: MegaMen
   const labelCls = cn(
     "whitespace-nowrap text-[0.8rem] font-medium transition-colors duration-200",
     isOpen
-      ? transparent ? "text-[rgba(212,175,55,0.95)]" : "text-syanor-emerald"
-      : transparent
-        ? "text-[rgba(255,249,237,0.85)] hover:text-[rgba(212,175,55,0.90)]"
-        : "text-syanor-ink/75 hover:text-syanor-emerald"
+      ? "text-[#D8B56A]"
+      : isActive
+        ? "text-[#D8B56A]"
+        : transparent
+          ? "text-[rgba(248,244,238,0.88)] hover:text-[rgba(216,181,106,0.85)]"
+          : "text-[#0B1E3D]/75 hover:text-[#0B1E3D]"
   );
 
   return (
@@ -156,7 +173,7 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent }: MegaMen
           else if (e.key === "ArrowDown" && !isOpen) { e.preventDefault(); onOpen(); }
         }}
         className={cn(
-          "group flex items-center gap-0.5 rounded-full px-2.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
+          "group relative flex items-center gap-0.5 rounded-full px-2.5 py-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-syanor-gold/50",
           labelCls
         )}
       >
@@ -167,6 +184,14 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent }: MegaMen
         >
           <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
+        {/* Active underline indicator */}
+        {(isActive && !isOpen) && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full"
+            style={{ width: 18, height: 1.5, background: "#D8B56A", opacity: 0.75 }}
+          />
+        )}
       </button>
 
       {isOpen && (
@@ -267,6 +292,7 @@ export default function Header() {
                   onOpen={() => handleMegaOpen(item.label)}
                   onClose={handleMegaClose}
                   transparent={transparent}
+                  isActive={isMegaActive(item, location)}
                 />
               ) : item.label === "Omra Factory" ? (
                 <Link
@@ -296,18 +322,32 @@ export default function Header() {
                   {item.label}
                 </Link>
               ) : (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium transition-colors duration-200"
-                  style={
-                    transparent
-                      ? { color: "rgba(248,244,238,0.88)" }
-                      : { color: "#0B1E3D" }
-                  }
-                >
-                  {item.label}
-                </Link>
+                (() => {
+                  const active = isNavActive(item.href, location);
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8rem] font-medium transition-colors duration-200"
+                      style={
+                        active
+                          ? { color: "#D8B56A" }
+                          : transparent
+                            ? { color: "rgba(248,244,238,0.88)" }
+                            : { color: "#0B1E3D" }
+                      }
+                    >
+                      {item.label}
+                      {active && (
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full"
+                          style={{ width: 18, height: 1.5, background: "#D8B56A", opacity: 0.75 }}
+                        />
+                      )}
+                    </Link>
+                  );
+                })()
               )
             )}
           </nav>

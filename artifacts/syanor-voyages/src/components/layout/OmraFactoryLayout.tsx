@@ -1,6 +1,17 @@
 import { type ReactNode, useState, useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import Link from "@/components/Link";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+
+function isNavActive(href: string, loc: string): boolean {
+  if (href === "/") return loc === "/";
+  const base = href.split("?")[0].split("#")[0];
+  return loc === base || loc.startsWith(base + "/");
+}
+
+function isGroupActive(hrefs: string[], loc: string): boolean {
+  return hrefs.some((h) => isNavActive(h, loc));
+}
 
 const PROGRAMMES = [
   { label: "Omra 2026",       href: "/omra-hajj/omra",      desc: "Saisons 2026 & 2027",     badge: null           },
@@ -38,12 +49,16 @@ function Chevron({ className }: { className?: string }) {
 }
 
 function OmraHeader() {
+  const [location]                    = useLocation();
   const [scrolled, setScrolled]       = useState(false);
   const [menuOpen, setMenuOpen]       = useState(false);
   const [dropOpen, setDropOpen]       = useState(false);
   const [deptOpen, setDeptOpen]       = useState(false);
   const dropRef                        = useRef<HTMLDivElement>(null);
   const deptRef                        = useRef<HTMLDivElement>(null);
+
+  const programmesActive = isGroupActive(PROGRAMMES.map((p) => p.href), location);
+  const departuresActive = isGroupActive(DEPARTURES.map((d) => d.href), location);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
@@ -121,12 +136,15 @@ function OmraHeader() {
             <button
               type="button"
               onClick={() => { setDropOpen((o) => !o); setDeptOpen(false); }}
-              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-              style={{ color: dropOpen ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              className="relative flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
+              style={{ color: (dropOpen || programmesActive) ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
               aria-expanded={dropOpen}
             >
               Programmes
               <Chevron className={`h-3.5 w-3.5 transition-transform duration-200 ${dropOpen ? "rotate-180" : ""}`} />
+              {programmesActive && !dropOpen && (
+                <span aria-hidden="true" className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full" style={{ width: 16, height: 1.5, background: "#C9A24A", opacity: 0.70 }} />
+              )}
             </button>
 
             {dropOpen && (
@@ -187,12 +205,15 @@ function OmraHeader() {
             <button
               type="button"
               onClick={() => { setDeptOpen((o) => !o); setDropOpen(false); }}
-              className="flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-              style={{ color: deptOpen ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              className="relative flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
+              style={{ color: (deptOpen || departuresActive) ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
               aria-expanded={deptOpen}
             >
               Départs
               <Chevron className={`h-3.5 w-3.5 transition-transform duration-200 ${deptOpen ? "rotate-180" : ""}`} />
+              {departuresActive && !deptOpen && (
+                <span aria-hidden="true" className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full" style={{ width: 16, height: 1.5, background: "#C9A24A", opacity: 0.70 }} />
+              )}
             </button>
 
             {deptOpen && (
@@ -233,16 +254,22 @@ function OmraHeader() {
           {[
             { label: "Blog",    href: "/omra-hajj/blog"    },
             { label: "Contact", href: "/omra-hajj/contact" },
-          ].map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
-              style={{ color: "rgba(255,249,237,0.68)" }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          ].map((l) => {
+            const active = isNavActive(l.href, location);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="relative rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-150 hover:bg-white/5"
+                style={{ color: active ? "#C9A24A" : "rgba(255,249,237,0.68)" }}
+              >
+                {l.label}
+                {active && (
+                  <span aria-hidden="true" className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 rounded-full" style={{ width: 16, height: 1.5, background: "#C9A24A", opacity: 0.70 }} />
+                )}
+              </Link>
+            );
+          })}
 
           {/* Devis CTA */}
           <Link
@@ -355,17 +382,24 @@ function OmraHeader() {
             {[
               { label: "Blog Omra", href: "/omra-hajj/blog"    },
               { label: "Contact",   href: "/omra-hajj/contact" },
-            ].map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-white/5"
-                style={{ color: "rgba(255,249,237,0.75)" }}
-              >
-                {l.label}
-              </Link>
-            ))}
+            ].map((l) => {
+              const active = isNavActive(l.href, location);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-colors hover:bg-white/5"
+                  style={{
+                    color: active ? "#C9A24A" : "rgba(255,249,237,0.75)",
+                    background: active ? "rgba(201,162,74,0.07)" : undefined,
+                    borderLeft: active ? "2px solid rgba(201,162,74,0.60)" : "2px solid transparent",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile CTA */}

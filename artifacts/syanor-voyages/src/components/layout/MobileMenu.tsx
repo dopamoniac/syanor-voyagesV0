@@ -1,9 +1,16 @@
 
 import { useEffect } from "react";
+import { useLocation } from "wouter";
 import Link from "@/components/Link";
 import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import { CONTACT } from "@/data/navigation";
+
+function isNavActive(href: string, loc: string): boolean {
+  if (href === "/") return loc === "/";
+  const base = href.split("?")[0].split("#")[0];
+  return loc === base || loc.startsWith(base + "/");
+}
 
 interface MobileMenuProps {
   open: boolean;
@@ -58,6 +65,8 @@ function SectionLabel({ children, emerald = false }: { children: React.ReactNode
 }
 
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+  const [location] = useLocation();
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
@@ -145,19 +154,40 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="mb-7">
             <SectionLabel>Navigation</SectionLabel>
             <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
-              {QUICK_NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={onClose}
-                  className="flex flex-col items-center gap-1.5 rounded-2xl border border-white/[0.07] bg-white/[0.04] px-2 py-3 text-center transition-all duration-200 hover:border-syanor-gold/30 hover:bg-white/[0.07] active:scale-[0.95]"
-                >
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-syanor-gold/10 text-syanor-gold" aria-hidden="true">
-                    <Icon name={item.icon} className="h-3.5 w-3.5" />
-                  </span>
-                  <span className="text-[0.68rem] font-medium leading-tight text-syanor-ivory/70">{item.label}</span>
-                </Link>
-              ))}
+              {QUICK_NAV.map((item) => {
+                const active = isNavActive(item.href, location);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={onClose}
+                    className="flex flex-col items-center gap-1.5 rounded-2xl px-2 py-3 text-center transition-all duration-200 active:scale-[0.95]"
+                    style={
+                      active
+                        ? { border: "1px solid rgba(216,181,106,0.55)", background: "rgba(216,181,106,0.12)" }
+                        : { border: "1px solid rgba(255,255,255,0.07)", background: "rgba(255,255,255,0.04)" }
+                    }
+                  >
+                    <span
+                      className="flex h-7 w-7 items-center justify-center rounded-full"
+                      aria-hidden="true"
+                      style={
+                        active
+                          ? { background: "rgba(216,181,106,0.22)", color: "#D8B56A" }
+                          : { background: "rgba(201,162,74,0.10)", color: "rgba(201,162,74,0.80)" }
+                      }
+                    >
+                      <Icon name={item.icon} className="h-3.5 w-3.5" />
+                    </span>
+                    <span
+                      className="text-[0.68rem] font-medium leading-tight"
+                      style={{ color: active ? "#D8B56A" : "rgba(255,249,237,0.70)" }}
+                    >
+                      {item.label}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -165,22 +195,37 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           <div className="mb-7">
             <SectionLabel>SYANOR VOYAGES</SectionLabel>
             <div className="space-y-0.5">
-              {SYANOR_SERVICES.map((s) => (
-                <Link
-                  key={s.href}
-                  href={s.href}
-                  onClick={onClose}
-                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-white/[0.06] active:scale-[0.98]"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-syanor-gold/65 transition-colors group-hover:bg-syanor-gold/14 group-hover:text-syanor-gold" aria-hidden="true">
-                    <Icon name={s.icon} className="h-3.5 w-3.5" />
-                  </span>
-                  <span className="text-sm font-medium text-syanor-ivory/70 transition-colors group-hover:text-syanor-ivory">
-                    {s.label}
-                  </span>
-                  <ChevronRight />
-                </Link>
-              ))}
+              {SYANOR_SERVICES.map((s) => {
+                const active = isNavActive(s.href, location);
+                return (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    onClick={onClose}
+                    className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 active:scale-[0.98]"
+                    style={active ? { background: "rgba(216,181,106,0.08)" } : undefined}
+                  >
+                    <span
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors"
+                      aria-hidden="true"
+                      style={
+                        active
+                          ? { background: "rgba(216,181,106,0.18)", color: "#D8B56A" }
+                          : { background: "rgba(255,255,255,0.06)", color: "rgba(201,162,74,0.65)" }
+                      }
+                    >
+                      <Icon name={s.icon} className="h-3.5 w-3.5" />
+                    </span>
+                    <span
+                      className="text-sm font-medium transition-colors"
+                      style={{ color: active ? "#D8B56A" : "rgba(255,249,237,0.70)" }}
+                    >
+                      {s.label}
+                    </span>
+                    <ChevronRight />
+                  </Link>
+                );
+              })}
             </div>
             <Link
               href="/contact?universe=syanor#quote"
