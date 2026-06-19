@@ -91,7 +91,7 @@ const PROGRAMS = [
     tagColor: "text-amber-700 bg-amber-50 border-amber-200",
     desc:     "Le grand pèlerinage annuel. Places limitées, quotas officiels. Organisation complète, assistance administrative et accompagnement spirituel.",
     href:     "/omra-hajj/hajj",
-    image:    "/services/religieux/hajj.png",
+    image:    "/omra-factory/hajj.png",
     cta:      "Préinscription Hajj",
     ctaUrl:   omraQuoteUrl({ service: "Hajj" }),
     status:   "Préinscription",
