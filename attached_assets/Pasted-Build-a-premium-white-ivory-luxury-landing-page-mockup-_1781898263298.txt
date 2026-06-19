@@ -1,0 +1,194 @@
+Build a premium white / ivory luxury landing page mockup for **Omra Factory by SYANOR Voyages**, matching the attached reference mockup as closely as possible.
+
+Use the uploaded image/mockup as the main visual reference:
+`wide_panoramic_golden_cream_website_hero_banner_sc.png`
+
+Project goal:
+Create a high-end travel agency hero section for Omra & Hajj services with a clean white / cream luxury theme, gold accents, emerald buttons, elegant typography, and a cinematic Kaaba / Masjid al-Haram hero image on the right.
+
+Important:
+Do NOT make the design black or dark.
+The overall theme must be bright, white, ivory, pearl, champagne, and premium.
+Use dark emerald only for buttons, small accents, and text contrast.
+
+Page structure:
+
+1. Full-width hero section
+2. Top navigation bar
+3. Large left-side headline
+4. Premium CTA buttons
+5. Right-side Kaaba / Makkah image composition
+6. Bottom statistics/service strip with icons
+
+Brand:
+
+* Main brand: SYANOR VOYAGES
+* Department: Omra Factory
+* Subtitle: BY SYANOR VOYAGES
+* Position Omra Factory as a dedicated Omra & Hajj department of SYANOR Voyages.
+
+Hero content:
+Eyebrow text:
+OMRA FACTORY — DÉPARTEMENT OMRA & HAJJ DE SYANOR VOYAGES
+
+Headline:
+Omra & Hajj
+organisés avec
+excellence.
+
+Description:
+Omra, Hajj, Ziyarat — accompagnement spirituel complet,
+hôtels sélectionnés et départs depuis 6 villes de France.
+
+Primary button:
+Voir les départs Omra
+
+Secondary button:
+Demander un devis
+
+Navigation:
+Left pill button:
+← SYANOR VOYAGES
+
+Center logo area:
+Omra Factory
+BY SYANOR VOYAGES
+
+Right nav links:
+Programmes
+Départs
+Blog
+Contact
+
+Top-right CTA:
+Devis gratuit
+
+Bottom stats:
+
+1. Depuis 2026
+   Saisons Omra
+
+2. 6 villes
+   De départ
+
+3. Standard à VIP
+   Niveaux de confort
+
+4. Hôtels sélectionnés
+   Proche des lieux saints
+
+Design direction:
+
+* Match the reference mockup’s composition.
+* Left side should be clean and readable with a bright ivory background.
+* Right side should show the Kaaba, Masjid al-Haram, and clock tower in warm golden sunlight.
+* Add a soft white-to-transparent gradient from the left side into the image.
+* Add subtle gold curved line accents in the background.
+* Add soft marble texture near the bottom.
+* Use premium spacing, large typography, and elegant proportions.
+* The page should feel like a luxury spiritual travel brand, not a generic agency.
+
+Color palette:
+
+* Ivory: #F8F2E8
+* Pearl white: #FFFDF8
+* Champagne: #E8D7B7
+* Soft gold: #B88A44
+* Deep emerald: #063B32
+* Dark text: #102C27
+* Muted text: #66645F
+
+Typography:
+Use elegant serif font for the main headline, similar to:
+
+* Playfair Display
+* Cormorant Garamond
+* Libre Baskerville
+
+Use clean sans-serif for navigation and body:
+
+* Inter
+* Manrope
+* Satoshi
+* Plus Jakarta Sans
+
+Hero image:
+
+* Use the provided/generated Kaaba image as the hero visual.
+* Place it on the right side.
+* Use object-fit: cover.
+* Use object-position: center right.
+* The Kaaba and clock tower must remain visible.
+* Do not crop the Kaaba too much.
+* Blend the image softly into the white left side using gradients.
+* The image should feel bright, golden, cinematic, and premium.
+
+Layout desktop:
+
+* Hero min-height: 100vh
+* Navbar height around 90px
+* Hero content max width around 640px
+* Headline large, around 76px to 96px depending on viewport
+* Use generous padding: 48px to 72px
+* Bottom stats strip should sit near the bottom over a subtle marble/champagne panel
+* Rounded buttons and soft shadows
+
+Layout mobile:
+
+* Fully responsive.
+* Keep the white luxury look.
+* Navigation should collapse into a clean mobile menu or simplified header.
+* Hero text should appear first and remain readable.
+* Image should stay visible below or behind with a soft gradient.
+* Headline around 46px to 58px on mobile.
+* CTA buttons should stack nicely.
+* Stats should become a 2-column grid or vertical cards.
+
+Components to build:
+
+* Header / Navbar
+* Hero section
+* CTA buttons
+* Stats strip
+* Decorative background curves
+* Responsive image layer
+
+Implementation requirements:
+
+* Use clean, modern React / Next.js / Vite code depending on the current project.
+* Use Tailwind CSS if available.
+* If Tailwind is not available, use clean CSS modules or standard CSS.
+* Keep components organized.
+* Make the design pixel-close to the reference mockup.
+* Prioritize visual quality.
+* Use responsive images where possible.
+* Optimize the hero image for performance.
+* Add alt text for the image.
+* Keep accessibility in mind with readable contrast and semantic HTML.
+
+Suggested hero background layering:
+
+1. Base ivory background
+2. Right-side image
+3. Left white/ivory gradient overlay
+4. Subtle golden curved lines
+5. Hero text and buttons above everything
+6. Bottom marble/stat panel
+
+Suggested CSS behavior:
+
+* Hero image absolute positioned on the right.
+* Content relative with higher z-index.
+* Add `pointer-events: none` to decorative layers.
+* Use `overflow: hidden` on hero.
+* Use border-radius and soft shadows on buttons/cards.
+
+Visual target:
+The final page should look almost identical to the provided mockup:
+bright white luxury theme, golden Makkah image on the right, large elegant headline on the left, premium Omra Factory branding, emerald/gold buttons, and bottom service statistics.
+
+Do not redesign it into a dark theme.
+Do not use generic stock layout.
+Do not remove the premium gold/emerald identity.
+Do not make the image full dark overlay.
+The final result should be polished, cinematic, high-end, and ready for SYANOR Voyages / Omra Factory.
