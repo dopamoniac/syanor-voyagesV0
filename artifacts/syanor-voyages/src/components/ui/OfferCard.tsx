@@ -56,7 +56,7 @@ function PhotoHeader({
 }) {
   const img = CATEGORY_IMAGE[category] ?? "/services/religieux/omra.png";
   const statusConf = status ? STATUS_CONFIG[status] : undefined;
-  const isFloating = category === "Billet bateau" || category === "Voyage organisé";
+  const isFloating = category === "Billet bateau" || category === "Voyage organisé" || category === "Séjour sur mesure";
 
   return (
     <div

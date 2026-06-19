@@ -90,7 +90,8 @@ const blocks: ServiceBlock[] = [
     href: "/sejours-sur-mesure",
     image: "/services/sur-mesure/sejour-sur-mesure.png",
     badge: "Sur mesure",
-    overlayTint: "rgba(2,43,36,0.62)",
+    overlayTint: "rgba(0,0,0,0)",
+    floating: true,
   },
 ];
 
