@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from "react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import PageHero from "@/components/ui/PageHero";
+import TouchHeroImage from "@/components/ui/TouchHeroImage";
 import Section from "@/components/ui/Section";
 import IncludedList from "@/components/ui/IncludedList";
 import ProcessSteps, { type Step } from "@/components/ui/ProcessSteps";
@@ -35,6 +36,8 @@ export interface DeepServiceConfig {
   crumbs: Crumb[];
   heroImage?: string;
   heroFloating?: boolean;
+  /** Category key used by TouchHeroImage for the cinematic entrance strip */
+  heroCategory?: string;
   quoteHref: string;
   intro: { heading: string; paragraphs: string[] };
   included: string[];
@@ -71,6 +74,18 @@ export default function DeepServicePage({
         primaryCta={{ label: "Demander un devis", href: config.quoteHref }}
         secondaryCta={{ label: "Voir les offres", href: "/offres" }}
       />
+
+      {/* Cinematic hero image strip */}
+      {config.heroCategory && (
+        <TouchHeroImage
+          category={config.heroCategory}
+          className="h-[220px] w-full sm:h-[300px] md:h-[380px]"
+          entranceMode="mount"
+          entranceTranslate="18px"
+          entranceDuration="0.55s"
+          overlayGradient="linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.08) 32%, rgba(2,8,6,0.45) 65%, rgba(2,8,6,0.72) 88%, rgba(2,8,6,0.82) 100%)"
+        />
+      )}
 
       {/* Explanation */}
       <Section variant="ivory">

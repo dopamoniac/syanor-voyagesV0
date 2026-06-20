@@ -16,6 +16,7 @@ const quoteHref = omraQuoteUrl({ service: "Omra" });
 
 const config: DeepServiceConfig = {
   eyebrow: "Omra",
+  heroCategory: "Omra",
   title: "Omra : accomplissez votre voyage spirituel avec sérénité.",
   subtitle:
     "Formules classique, premium ou entièrement sur mesure, avec préparation des rites, hôtels sélectionnés, transferts, Ziyarat et accompagnement.",

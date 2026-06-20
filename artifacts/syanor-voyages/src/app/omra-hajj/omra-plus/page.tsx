@@ -15,6 +15,7 @@ const quoteHref = omraQuoteUrl({ service: "Omra Plus", comfort: "VIP" });
 
 const config: DeepServiceConfig = {
   eyebrow: "Omra Plus",
+  heroCategory: "Omra Plus",
   title: "Omra Plus : l'expérience spirituelle premium et VIP.",
   subtitle:
     "Hôtels haut de gamme, expérience guidée, formation avant départ et Ziyarat complète : notre programme spirituel le plus abouti.",

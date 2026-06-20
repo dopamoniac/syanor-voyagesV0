@@ -15,6 +15,7 @@ const quoteHref = omraQuoteUrl({ service: "Hajj" });
 
 const config: DeepServiceConfig = {
   eyebrow: "Hajj",
+  heroCategory: "Hajj",
   title: "Hajj : un accompagnement complet pour un pèlerinage serein.",
   subtitle:
     "Organisation, assistance administrative, préparation des rites, hébergement, transferts et accompagnement : nous vous épaulons à chaque étape du Hajj.",

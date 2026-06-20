@@ -15,6 +15,7 @@ const quoteHref = omraQuoteUrl({ service: "Ramadan" });
 
 const config: DeepServiceConfig = {
   eyebrow: "Ramadan",
+  heroCategory: "Ramadan",
   title: "Omra Ramadan : vivez le mois sacré aux lieux saints.",
   subtitle:
     "Une atmosphère spirituelle unique, des formules adaptées (10 premiers jours, Express ou sur mesure) et un accompagnement attentif tout au long du séjour.",
