@@ -22,8 +22,15 @@ import OfferDetailPage       from "@/app/offres/[slug]/page";
 import PolitiqueConfidentialitePage from "@/app/politique-confidentialite/page";
 import SejoursSurMesurePage  from "@/app/sejours-sur-mesure/page";
 import AgenceServicesPage    from "@/app/agence/services/page";
-import BilletsAvionPage      from "@/app/services/billets-avion/page";
-import BilletsBateauPage     from "@/app/services/billets-bateau/page";
+import BilletsAvionPage        from "@/app/services/billets-avion/page";
+import BilletsBateauPage       from "@/app/services/billets-bateau/page";
+import BilletsGroupePage       from "@/app/services/billets-groupe/page";
+import VolsInternationauxPage  from "@/app/services/vols-internationaux/page";
+import TraverseesVehiculePage  from "@/app/services/traversees-vehicule/page";
+import PackPremiumVipPage      from "@/app/services/pack-premium-vip/page";
+import VoyagesDeNocesPage      from "@/app/services/voyages-de-noces/page";
+import HotelTransfertsPage     from "@/app/services/hotel-transferts/page";
+import AssistanceVoyagesPage   from "@/app/services/assistance-voyages/page";
 import VoyagesOrganisesPage  from "@/app/voyages-organises/page";
 import AgenceVisasPage       from "@/app/agence/visas/page";
 import AgenceFaqPage         from "@/app/agence/faq/page";
@@ -86,9 +93,16 @@ function Router() {
       <Route path="/agence/sejours-sur-mesure"      component={SejoursSurMesurePage} />
       <Route path="/agence/voyages-organises"       component={VoyagesOrganisesPage} />
       <Route path="/agence/services"                component={AgenceServicesPage} />
-      <Route path="/agence/services/billets-avion"  component={BilletsAvionPage} />
-      <Route path="/agence/services/billets-bateau" component={BilletsBateauPage} />
-      <Route path="/agence/visas"                   component={AgenceVisasPage} />
+      <Route path="/agence/services/billets-avion"       component={BilletsAvionPage} />
+      <Route path="/agence/services/billets-bateau"      component={BilletsBateauPage} />
+      <Route path="/agence/services/billets-groupe"      component={BilletsGroupePage} />
+      <Route path="/agence/services/vols-internationaux" component={VolsInternationauxPage} />
+      <Route path="/agence/services/traversees-vehicule" component={TraverseesVehiculePage} />
+      <Route path="/agence/services/pack-premium-vip"    component={PackPremiumVipPage} />
+      <Route path="/agence/services/voyages-de-noces"    component={VoyagesDeNocesPage} />
+      <Route path="/agence/services/hotel-transferts"    component={HotelTransfertsPage} />
+      <Route path="/agence/services/assistance-voyages"  component={AssistanceVoyagesPage} />
+      <Route path="/agence/visas"                        component={AgenceVisasPage} />
       <Route path="/agence/faq"                     component={AgenceFaqPage} />
       <Route path="/agence/offres"                  component={OffresPage} />
       <Route path="/agence/offres/:slug">
