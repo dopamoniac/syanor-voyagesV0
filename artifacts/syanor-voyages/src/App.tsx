@@ -15,6 +15,7 @@ import ConditionsGeneralesPage from "@/app/conditions-generales/page";
 import ContactPage           from "@/app/contact/page";
 import AgenceFormationPage   from "@/app/agence/formation/page";
 import OmraFormationsPage    from "@/app/omra-factory/formations/page";
+import OmraOffresPage        from "@/app/omra-factory/offres/page";
 import MentionsLegalesPage   from "@/app/mentions-legales/page";
 import OffresPage            from "@/app/offres/page";
 import OfferDetailPage       from "@/app/offres/[slug]/page";
@@ -120,6 +121,7 @@ function Router() {
       <Route path="/omra-factory/hajj-2027"         component={Hajj2027Page} />
       <Route path="/omra-factory/ziyarat"             component={ZiyaratPage} />
       <Route path="/omra-factory/formations"          component={OmraFormationsPage} />
+      <Route path="/omra-factory/offres"             component={OmraOffresPage} />
 
       {/* ══ SHARED ══ */}
       <Route path="/depart/:city">

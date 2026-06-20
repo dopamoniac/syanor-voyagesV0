@@ -238,6 +238,7 @@ function OmraHeader() {
 
           {/* Standalone links */}
           {[
+            { label: "Offres",  href: "/omra-factory/offres"  },
             { label: "Blog",    href: "/omra-factory/blog"    },
             { label: "Contact", href: "/omra-factory/contact" },
           ].map((l) => {
@@ -366,6 +367,7 @@ function OmraHeader() {
           {/* Other links */}
           <nav className="space-y-0.5 px-4 py-4">
             {[
+              { label: "Offres",    href: "/omra-factory/offres"  },
               { label: "Blog Omra", href: "/omra-factory/blog"    },
               { label: "Contact",   href: "/omra-factory/contact" },
             ].map((l) => {
@@ -426,6 +428,7 @@ function OmraFooter() {
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
             {[
               { label: "Programmes",    href: "/omra-factory"              },
+              { label: "Offres",        href: "/omra-factory/offres"      },
               { label: "Départs 2026",  href: "/omra-factory/omra-2026"   },
               { label: "Départs 2027",  href: "/omra-factory/omra-2027"   },
               { label: "Hajj 2027",     href: "/omra-factory/hajj"        },

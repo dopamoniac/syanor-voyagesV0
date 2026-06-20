@@ -731,7 +731,7 @@ export default function OmraHajjPage() {
                 <p className="eyebrow mb-2">Prochains départs</p>
                 <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Départs disponibles</h2>
               </div>
-              <Link href="/agence/offres?category=Omra" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
+              <Link href="/omra-factory/offres" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
                 Voir toutes les offres →
               </Link>
             </div>
@@ -1096,7 +1096,7 @@ export default function OmraHajjPage() {
             {CITIES.map((city, i) => (
               <Reveal key={city.slug} delay={i * 40}>
                 <Link
-                  href={`/depart/${city.slug}`}
+                  href={`/omra-factory/offres?city=${city.slug}`}
                   className="group flex flex-col items-center gap-3 rounded-2xl border border-syanor-gold/15 bg-syanor-pearl p-5 text-center transition-all duration-200 hover:-translate-y-1 hover:border-syanor-gold/40 hover:shadow-card active:scale-[0.97]"
                 >
                   <span className="text-3xl" aria-hidden="true">{city.flag}</span>
