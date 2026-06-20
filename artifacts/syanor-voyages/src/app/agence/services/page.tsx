@@ -70,7 +70,7 @@ const blocks: ServiceBlock[] = [
 const logistique = [
   { title: "Hôtels sélectionnés",       desc: "Établissements choisis selon votre confort et votre destination.", icon: "diamond"    },
   { title: "Transferts organisés",       desc: "Transferts aéroport, port et internes assurés et coordonnés.",     icon: "route"      },
-  { title: "Assistance visas",           desc: "Conseils et accompagnement sur les démarches administratives.",    icon: "book"       },
+  { title: "Assistance visas Schengen",  desc: "Conseils et accompagnement pour visa Europe, USA, Canada et plus.", icon: "book"       },
   { title: "Accompagnement & assistance",desc: "Un interlocuteur dédié avant, pendant et après le voyage.",        icon: "hand-heart" },
 ];
 

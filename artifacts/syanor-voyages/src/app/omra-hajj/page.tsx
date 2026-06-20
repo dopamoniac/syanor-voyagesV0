@@ -826,6 +826,120 @@ export default function OmraHajjPage() {
       </section>
 
       {/* ══════════════════════════════════════════
+          5b. SPECIALIZED SERVICES (Omra / Hajj)
+      ══════════════════════════════════════════ */}
+      <section className="section-pad bg-syanor-ivory">
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+          <div className="mb-10 text-center">
+            <p className="eyebrow mb-2">Services inclus dans chaque pack</p>
+            <h2 className="font-playfair text-3xl font-bold text-syanor-ink">
+              Visa, hébergement & protection — tout est géré
+            </h2>
+            <div className="mx-auto mt-3 h-px w-12 bg-gradient-to-r from-transparent via-syanor-gold/40 to-transparent" aria-hidden="true" />
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-syanor-ink/55">
+              De la demande de visa Omra jusqu'à l'assurance pèlerinage, nos équipes coordonnent chaque démarche pour que vous vous consacriez pleinement à votre voyage spirituel.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Visa Omra & Hajj */}
+            <Reveal delay={0}>
+              <div className="group flex flex-col gap-4 rounded-2xl border border-syanor-gold/20 bg-white p-7 shadow-sm transition-all duration-300 hover:border-syanor-gold/40 hover:shadow-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.20)" }}>
+                  <Icon name="clipboard" className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <span className="mb-2 inline-block rounded-full border border-syanor-emerald/20 bg-syanor-emerald/8 px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-emerald">
+                    Visa Arabie Saoudite
+                  </span>
+                  <h3 className="mt-2 font-playfair text-lg font-semibold text-syanor-ink">
+                    Visa Omra & Hajj
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-syanor-ink/55">
+                    Obtention du visa Omra ou Hajj prise en charge intégralement — constitution du dossier, démarches consulaires, suivi jusqu'à la délivrance.
+                  </p>
+                </div>
+                <ul className="mt-auto space-y-1.5 text-xs text-syanor-ink/60">
+                  {["Visa Omra individuel & groupe", "Visa Hajj (quota officiel)", "Préparation du dossier", "Suivi jusqu'à la délivrance"].map((pt) => (
+                    <li key={pt} className="flex items-center gap-2">
+                      <span className="h-1 w-1 flex-shrink-0 rounded-full bg-syanor-gold" aria-hidden="true" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Hôtels Mecque & Médine + Transferts saints */}
+            <Reveal delay={60}>
+              <div className="group flex flex-col gap-4 rounded-2xl border border-syanor-gold/20 bg-white p-7 shadow-sm transition-all duration-300 hover:border-syanor-gold/40 hover:shadow-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.20)" }}>
+                  <Icon name="building" className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <span className="mb-2 inline-block rounded-full border border-syanor-emerald/20 bg-syanor-emerald/8 px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-emerald">
+                    Hébergement & Transferts
+                  </span>
+                  <h3 className="mt-2 font-playfair text-lg font-semibold text-syanor-ink">
+                    Hôtels La Mecque & Médine
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-syanor-ink/55">
+                    Hôtels sélectionnés à proximité du Haram, avec transferts organisés vers les Lieux Saints — Masjid al-Haram, Masjid an-Nabawi et sites de Ziyarat.
+                  </p>
+                </div>
+                <ul className="mt-auto space-y-1.5 text-xs text-syanor-ink/60">
+                  {["Hôtels 4–5★ proches du Haram", "Transferts vers les Lieux Saints", "Navettes internes Mecque ↔ Médine", "Bagages & logistique sur place"].map((pt) => (
+                    <li key={pt} className="flex items-center gap-2">
+                      <span className="h-1 w-1 flex-shrink-0 rounded-full bg-syanor-gold" aria-hidden="true" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Assurance Pèlerinage */}
+            <Reveal delay={120}>
+              <div className="group flex flex-col gap-4 rounded-2xl border border-syanor-gold/20 bg-white p-7 shadow-sm transition-all duration-300 hover:border-syanor-gold/40 hover:shadow-md">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl text-syanor-gold" style={{ background: "rgba(201,162,74,0.10)", border: "1px solid rgba(201,162,74,0.20)" }}>
+                  <Icon name="shield" className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <span className="mb-2 inline-block rounded-full border border-syanor-emerald/20 bg-syanor-emerald/8 px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest text-syanor-emerald">
+                    Assurance spécialisée
+                  </span>
+                  <h3 className="mt-2 font-playfair text-lg font-semibold text-syanor-ink">
+                    Assurance Pèlerinage
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-syanor-ink/55">
+                    Couverture conçue spécifiquement pour le pèlerinage — assistance médicale sur place en Arabie Saoudite, rapatriement, annulation et perte de bagages.
+                  </p>
+                </div>
+                <ul className="mt-auto space-y-1.5 text-xs text-syanor-ink/60">
+                  {["Assistance médicale en Arabie Saoudite", "Rapatriement sanitaire", "Annulation & interruption de voyage", "Perte ou vol de bagages"].map((pt) => (
+                    <li key={pt} className="flex items-center gap-2">
+                      <span className="h-1 w-1 flex-shrink-0 rounded-full bg-syanor-gold" aria-hidden="true" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={omraQuoteUrl({ service: "Omra" })}
+              className="inline-flex items-center gap-2 rounded-full bg-syanor-gold px-7 py-3 text-sm font-semibold text-syanor-ink shadow-md transition-all hover:bg-syanor-champagne-dark hover:shadow-lg active:scale-[0.97]"
+            >
+              Demander un devis complet
+              <Icon name="arrow-right" className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
           6. DEPARTURE CITIES
       ══════════════════════════════════════════ */}
       <section className="section-pad bg-syanor-champagne/20">

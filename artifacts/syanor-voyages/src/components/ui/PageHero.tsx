@@ -27,7 +27,7 @@ function ServicesVisual() {
   const cards = [
     { symbol: "✈", label: "Billets Avion", sub: "International" },
     { symbol: "⚓", label: "Billets Bateau", sub: "Traversées" },
-    { symbol: "☽", label: "Omra & Hajj", sub: "Spirituel" },
+    { symbol: "♥", label: "Voyage de Noces", sub: "Romantique" },
     { symbol: "⊕", label: "Voyages Org.", sub: "En groupe" },
     { symbol: "✦", label: "Sur Mesure", sub: "Premium" },
     { symbol: "⊞", label: "Assistance", sub: "Visa & Admin" },
