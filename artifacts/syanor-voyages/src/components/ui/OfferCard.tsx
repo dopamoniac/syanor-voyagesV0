@@ -1,25 +1,8 @@
 import Link from "@/components/Link";
 import { cn, quoteUrl } from "@/lib/utils";
 import type { AvailabilityStatus, TravelOffer } from "@/types";
-import { useEffect, useRef, useState } from "react";
 import { useCompare } from "@/context/CompareContext";
-
-/* ── Category → photo mapping ───────────────────────────────────── */
-const CATEGORY_IMAGE: Record<string, string> = {
-  "Omra":              "/services/religieux/omra.png",
-  "Omra Plus":         "/services/religieux/omra-plus.png",
-  "Hajj":              "/services/religieux/hajj.png",
-  "Ramadan":           "/services/religieux/omra-ramadan.png",
-  "Billet avion":      "/services/billets-avion.png",
-  "Billet bateau":     "/services/billets-bateau.png",
-  "Voyage organisé":   "/services/sur-mesure/voyages-organises.png",
-  "Séjour sur mesure": "/services/sur-mesure/sejour-sur-mesure.png",
-  "Pack personnalisé": "/services/sur-mesure/pack-premium-vip.png",
-  "Hôtel & Transferts":"/img/hotel-view.jpg",
-  "Visa":              "/img/kaaba-family.jpg",
-  "Formation":         "/services/religieux/omra-plus.png",
-  "Assurance":         "/img/hotel-view.jpg",
-};
+import TouchHeroImage from "@/components/ui/TouchHeroImage";
 
 /* ── Status config ──────────────────────────────────────────────── */
 const STATUS_CONFIG: Record<AvailabilityStatus, { bg: string; text: string; dot: string }> = {
@@ -56,95 +39,17 @@ function PhotoHeader({
   featured?: boolean;
   dateLabel?: string;
 }) {
-  const img = CATEGORY_IMAGE[category] ?? "/services/religieux/omra.png";
   const statusConf = status ? STATUS_CONFIG[status] : undefined;
-  const isFloating = category === "Billet avion" || category === "Billet bateau" || category === "Voyage organisé" || category === "Séjour sur mesure";
-
-  /* ── Detect reduced-motion preference ── */
-  const reducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ── Entrance animation on scroll-into-view ── */
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(reducedMotion);
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    const node = wrapRef.current;
-    if (!node) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px -24px 0px" }
-    );
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [reducedMotion]);
-
-  /* ── Tap-to-zoom on mobile ── */
-  const [tapped, setTapped] = useState(false);
-  const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  function handleTouchStart() {
-    if (reducedMotion) return;
-    if (tapTimer.current) clearTimeout(tapTimer.current);
-    setTapped(true);
-    tapTimer.current = setTimeout(() => setTapped(false), 420);
-  }
-
-  useEffect(() => {
-    return () => {
-      if (tapTimer.current) clearTimeout(tapTimer.current);
-    };
-  }, []);
 
   return (
-    <div
-      ref={wrapRef}
-      className="relative h-[160px] shrink-0 overflow-hidden rounded-t-2xl"
-      style={{
-        ...(isFloating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : {}),
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(10px)",
-        transition: reducedMotion ? undefined : "opacity 0.45s ease, transform 0.45s ease",
-      }}
-      onTouchStart={handleTouchStart}
+    <TouchHeroImage
+      category={category}
+      className="h-[160px] shrink-0 rounded-t-2xl"
+      imgClassName="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]"
+      entranceMode="intersect"
+      entranceTranslate="10px"
+      entranceDuration="0.45s"
     >
-      <img
-        src={img}
-        alt={category}
-        className={`absolute inset-0 h-full w-full group-hover:scale-[1.06] ${reducedMotion ? "" : "transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"} ${isFloating ? "object-contain object-center" : "object-cover"}`}
-        style={{
-          ...(isFloating ? { filter: "drop-shadow(0 16px 32px rgba(6,63,51,0.38)) drop-shadow(0 5px 10px rgba(0,0,0,0.22))" } : {}),
-          ...(reducedMotion ? {} : {
-            transform: tapped ? "scale(1.07)" : undefined,
-            transition: tapped
-              ? "transform 0.22s cubic-bezier(0.34,1.56,0.64,1)"
-              : "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)",
-          }),
-        }}
-        loading="lazy"
-      />
-
-      {/* Cinematic multi-stop gradient — hidden for floating transparent PNGs */}
-      {!isFloating && (
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.08) 32%, rgba(2,8,6,0.55) 65%, rgba(2,8,6,0.88) 88%, rgba(2,8,6,0.94) 100%)",
-        }}
-        aria-hidden="true"
-      />
-      )}
-
       {/* Featured: gold top shine */}
       {featured && (
         <div
@@ -194,7 +99,7 @@ function PhotoHeader({
           </p>
         </div>
       )}
-    </div>
+    </TouchHeroImage>
   );
 }
 

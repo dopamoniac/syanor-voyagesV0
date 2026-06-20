@@ -12,7 +12,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import { cn, quoteUrl } from "@/lib/utils";
 import { offers, getOfferBySlug, getRelatedOffers } from "@/data/offers";
 import type { AvailabilityStatus } from "@/types";
-import { useEffect, useRef, useState } from "react";
+import TouchHeroImage from "@/components/ui/TouchHeroImage";
 
 export function generateStaticParams() {
   return offers.map((o) => ({ slug: o.slug }));
@@ -44,101 +44,6 @@ const statusClass: Record<AvailabilityStatus, string> = {
   "À confirmer": "bg-slate-100 text-slate-500",
 };
 
-/* ── Category → photo mapping (mirrors OfferCard) ────────────────── */
-const CATEGORY_IMAGE: Record<string, string> = {
-  "Omra":               "/services/religieux/omra.png",
-  "Omra Plus":          "/services/religieux/omra-plus.png",
-  "Hajj":               "/services/religieux/hajj.png",
-  "Ramadan":            "/services/religieux/omra-ramadan.png",
-  "Billet avion":       "/services/billets-avion.png",
-  "Billet bateau":      "/services/billets-bateau.png",
-  "Voyage organisé":    "/services/sur-mesure/voyages-organises.png",
-  "Séjour sur mesure":  "/services/sur-mesure/sejour-sur-mesure.png",
-  "Pack personnalisé":  "/services/sur-mesure/pack-premium-vip.png",
-  "Hôtel & Transferts": "/img/hotel-view.jpg",
-  "Visa":               "/img/kaaba-family.jpg",
-  "Formation":          "/services/religieux/omra-plus.png",
-  "Assurance":          "/img/hotel-view.jpg",
-};
-
-const FLOATING_CATEGORIES = new Set([
-  "Billet avion",
-  "Billet bateau",
-  "Voyage organisé",
-  "Séjour sur mesure",
-]);
-
-/* ── Hero image with entrance animation + tap-to-zoom ─────────────── */
-function HeroImage({ category }: { category: string }) {
-  const img = CATEGORY_IMAGE[category] ?? "/services/religieux/omra.png";
-  const isFloating = FLOATING_CATEGORIES.has(category);
-
-  /* Entrance: fade + slide-up on mount */
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const raf1 = requestAnimationFrame(() => {
-      const raf2 = requestAnimationFrame(() => setVisible(true));
-      return () => cancelAnimationFrame(raf2);
-    });
-    return () => cancelAnimationFrame(raf1);
-  }, []);
-
-  /* Tap-to-zoom on mobile */
-  const [tapped, setTapped] = useState(false);
-  const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  function handleTouchStart() {
-    if (tapTimer.current) clearTimeout(tapTimer.current);
-    setTapped(true);
-    tapTimer.current = setTimeout(() => setTapped(false), 420);
-  }
-
-  useEffect(() => {
-    return () => {
-      if (tapTimer.current) clearTimeout(tapTimer.current);
-    };
-  }, []);
-
-  return (
-    <div
-      className="relative h-[220px] w-full overflow-hidden sm:h-[300px] md:h-[380px]"
-      style={{
-        ...(isFloating
-          ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" }
-          : {}),
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(18px)",
-        transition: "opacity 0.55s ease, transform 0.55s ease",
-      }}
-      onTouchStart={handleTouchStart}
-    >
-      <img
-        src={img}
-        alt={category}
-        className={`h-full w-full ${isFloating ? "object-contain object-center" : "object-cover"}`}
-        style={{
-          ...(isFloating
-            ? { filter: "drop-shadow(0 16px 32px rgba(6,63,51,0.38)) drop-shadow(0 5px 10px rgba(0,0,0,0.22))" }
-            : {}),
-          transform: tapped ? "scale(1.07)" : "scale(1)",
-          transition: tapped
-            ? "transform 0.22s cubic-bezier(0.34,1.56,0.64,1)"
-            : "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)",
-        }}
-      />
-      {!isFloating && (
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.08) 32%, rgba(2,8,6,0.45) 65%, rgba(2,8,6,0.72) 88%, rgba(2,8,6,0.82) 100%)",
-          }}
-          aria-hidden="true"
-        />
-      )}
-    </div>
-  );
-}
 
 function InfoRow({ label, value }: { label: string; value?: string }) {
   if (!value) return null;
@@ -322,7 +227,14 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
       </section>
 
       {/* Hero image — entrance animation + tap-to-zoom on mobile */}
-      <HeroImage category={offer.category} />
+      <TouchHeroImage
+        category={offer.category}
+        className="h-[220px] w-full sm:h-[300px] md:h-[380px]"
+        entranceMode="mount"
+        entranceTranslate="18px"
+        entranceDuration="0.55s"
+        overlayGradient="linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.08) 32%, rgba(2,8,6,0.45) 65%, rgba(2,8,6,0.72) 88%, rgba(2,8,6,0.82) 100%)"
+      />
 
       {/* Key facts + included */}
       <Section variant="pearl">
