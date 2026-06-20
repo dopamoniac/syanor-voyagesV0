@@ -3,6 +3,7 @@ import Icon from "@/components/ui/Icon";
 import Reveal from "@/components/ui/Reveal";
 import { quoteUrl } from "@/lib/utils";
 import type { TravelOffer } from "@/types";
+import { useEffect, useRef } from "react";
 
 const CATEGORY_IMAGES: Record<string, string[]> = {
   "Hajj":     ["/services/religieux/hajj.png"],
@@ -39,6 +40,36 @@ interface Props {
   delay?: number;
 }
 
+/* ── Parallax-lite hook (mobile only) ───────────────────────────── */
+function useParallax(strength = 18) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const imgRef  = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    /* Only activate on touch-capable (mobile) viewports */
+    if (typeof window === "undefined" || !window.matchMedia("(hover: none)").matches) return;
+
+    const wrap = wrapRef.current;
+    const img  = imgRef.current;
+    if (!wrap || !img) return;
+
+    function onScroll() {
+      const rect   = wrap!.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const vy     = window.innerHeight / 2;
+      const ratio  = (center - vy) / vy;            /* -1 … +1 */
+      const clamp  = Math.max(-1, Math.min(1, ratio));
+      img!.style.transform = `scale(1.12) translateY(${clamp * strength}px)`;
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [strength]);
+
+  return { wrapRef, imgRef };
+}
+
 export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Props) {
   const pool = CATEGORY_IMAGES[offer.category] ?? CATEGORY_IMAGES["Omra"];
   const image = pool[index % pool.length];
@@ -63,16 +94,24 @@ export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Pr
       : {}),
   });
 
+  const { wrapRef, imgRef } = useParallax(18);
+
   return (
     <Reveal delay={delay}>
       <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-syanor-gold/45 hover:shadow-card-hover">
 
         {/* ── IMAGE ── */}
-        <div className="relative h-48 shrink-0 overflow-hidden">
+        <div ref={wrapRef} className="relative h-48 shrink-0 overflow-hidden">
           <img
+            ref={imgRef}
             src={image}
             alt={`${offer.category} — ${offer.departureDate ?? offer.month}`}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{
+              transform: "scale(1.12) translateY(0px)",
+              transition: "transform 0.1s linear",
+              willChange: "transform",
+            }}
             loading="lazy"
           />
           <div
