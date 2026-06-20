@@ -206,9 +206,9 @@ export default function OmraHajjPage() {
         </svg>
 
         {/* ── RIGHT: Mecca image ── */}
-        {/* Mobile: full-width with heavy left gradient; Desktop: right 58% panel */}
+        {/* Right image panel — right 55% on all sizes */}
         <div
-          className="absolute inset-y-0 right-0 w-full lg:w-[58%]"
+          className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%]"
           aria-hidden="true"
         >
           <picture>
@@ -216,14 +216,15 @@ export default function OmraHajjPage() {
             <img
               src="/omra/hero-mecca.png"
               alt=""
-              className="h-full w-full object-cover object-right"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: "right 62%" }}
               loading="eager"
             />
           </picture>
           {/* Left bleed gradient — fades image into ivory background */}
           <div
             className="absolute inset-y-0 left-0 w-[70%] lg:w-[55%]"
-            style={{ background: "linear-gradient(to right, #F8F2E8 0%, #F8F2E8 25%, rgba(248,242,232,0.90) 50%, rgba(248,242,232,0.30) 80%, transparent 100%)" }}
+            style={{ background: "linear-gradient(to right, #F8F2E8 0%, #F8F2E8 18%, rgba(248,242,232,0.80) 45%, rgba(248,242,232,0.20) 75%, transparent 100%)" }}
           />
           {/* Mobile: top gradient to keep header legible */}
           <div
