@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "@/components/Link";
 
 const PANELS = [
@@ -57,16 +57,32 @@ const PANELS = [
 
 export default function PortalSplit() {
   const [hovered, setHovered] = useState<string | null>(null);
+  const [tapped, setTapped] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  function handleTouchStart(id: string) {
+    setTapped(id);
+    setTimeout(() => setTapped(null), 420);
+  }
 
   return (
     <div
       id="portal-split-root"
       style={{
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
         height: "100svh",
-        minHeight: 600,
+        minHeight: isMobile ? "unset" : 600,
         overflow: "hidden",
         position: "relative",
+        overflowX: "hidden",
       }}
     >
       {/* ── SHARED BACKGROUND IMAGE (one photo across both panels) ── */}
@@ -94,19 +110,23 @@ export default function PortalSplit() {
 
       {/* ── PANELS ── */}
       {PANELS.map((panel) => {
-        const isHovered = hovered === panel.id;
-        const otherHovered = hovered !== null && !isHovered;
+        const isActive = isMobile ? tapped === panel.id : hovered === panel.id;
+        const otherActive = isMobile
+          ? false
+          : hovered !== null && !isActive;
         const isLeft = panel.side === "left";
 
         return (
           <div
             key={panel.id}
-            onMouseEnter={() => setHovered(panel.id)}
-            onMouseLeave={() => setHovered(null)}
+            onMouseEnter={isMobile ? undefined : () => setHovered(panel.id)}
+            onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+            onTouchStart={isMobile ? () => handleTouchStart(panel.id) : undefined}
             style={{
               position: "relative",
               zIndex: 1,
-              flex: otherHovered ? "0.65" : isHovered ? "1.35" : "1",
+              flex: isMobile ? "none" : (otherActive ? "0.65" : isActive ? "1.35" : "1"),
+              height: isMobile ? "50svh" : "auto",
               transition: "flex 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
               overflow: "hidden",
               cursor: "pointer",
@@ -122,10 +142,26 @@ export default function PortalSplit() {
                 position: "absolute",
                 inset: 0,
                 background: panel.tint,
-                opacity: isHovered ? 0.72 : 0.85,
+                opacity: isActive ? 0.72 : 0.85,
                 transition: "opacity 0.55s ease",
               }}
             />
+
+            {/* Tap flash highlight (mobile only) */}
+            {isMobile && (
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: `radial-gradient(ellipse at center, ${panel.accent}22 0%, transparent 70%)`,
+                  opacity: tapped === panel.id ? 1 : 0,
+                  transition: "opacity 0.42s ease",
+                  zIndex: 2,
+                  pointerEvents: "none",
+                }}
+              />
+            )}
 
             {/* Bottom gradient */}
             <div
@@ -138,20 +174,33 @@ export default function PortalSplit() {
               }}
             />
 
-            {/* Gold divider line on right panel's left edge */}
+            {/* Gold divider line — right edge on desktop, bottom edge on mobile (omra panel) */}
             {panel.id === "omra" && (
               <div
                 aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: 1,
-                  height: "100%",
-                  background:
-                    "linear-gradient(to bottom, transparent 0%, rgba(216,181,106,0.55) 25%, rgba(216,181,106,0.55) 75%, transparent 100%)",
-                  zIndex: 5,
-                }}
+                style={
+                  isMobile
+                    ? {
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: 1,
+                        background:
+                          "linear-gradient(to right, transparent 0%, rgba(216,181,106,0.55) 25%, rgba(216,181,106,0.55) 75%, transparent 100%)",
+                        zIndex: 5,
+                      }
+                    : {
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: 1,
+                        height: "100%",
+                        background:
+                          "linear-gradient(to bottom, transparent 0%, rgba(216,181,106,0.55) 25%, rgba(216,181,106,0.55) 75%, transparent 100%)",
+                        zIndex: 5,
+                      }
+                }
               />
             )}
 
@@ -164,8 +213,11 @@ export default function PortalSplit() {
                 zIndex: 10,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-end",
-                padding: "clamp(28px, 5vw, 56px)",
+                justifyContent: isMobile ? "center" : "flex-end",
+                alignItems: isMobile ? "center" : "flex-start",
+                padding: isMobile
+                  ? "clamp(20px, 5vw, 32px) clamp(24px, 6vw, 40px)"
+                  : "clamp(28px, 5vw, 56px)",
                 textDecoration: "none",
               }}
             >
@@ -178,10 +230,11 @@ export default function PortalSplit() {
                   textTransform: "uppercase",
                   color: panel.accent,
                   marginBottom: 10,
-                  opacity: isHovered ? 1 : 0.80,
-                  transform: isHovered ? "translateY(0)" : "translateY(4px)",
+                  opacity: isActive ? 1 : 0.80,
+                  transform: isActive ? "translateY(0)" : "translateY(4px)",
                   transition: "opacity 0.4s ease, transform 0.4s ease",
                   animation: "ps-up 0.7s 0.75s both",
+                  textAlign: isMobile ? "center" : "left",
                 }}
               >
                 {panel.eyebrow}
@@ -191,12 +244,13 @@ export default function PortalSplit() {
               <div
                 aria-hidden="true"
                 style={{
-                  width: isHovered ? 48 : 28,
+                  width: isActive ? 48 : 28,
                   height: 1,
                   background: `linear-gradient(to right, ${panel.accent}, transparent)`,
                   marginBottom: 14,
                   transition: "width 0.4s ease",
                   animation: "ps-fadein 0.7s 0.85s both",
+                  alignSelf: isMobile ? "center" : "auto",
                 }}
               />
 
@@ -204,7 +258,9 @@ export default function PortalSplit() {
               <h2
                 className="font-playfair"
                 style={{
-                  fontSize: "clamp(36px, 5.5vw, 72px)",
+                  fontSize: isMobile
+                    ? "clamp(34px, 10vw, 52px)"
+                    : "clamp(36px, 5.5vw, 72px)",
                   fontWeight: 500,
                   lineHeight: 1.0,
                   color: "#F8F4EE",
@@ -213,6 +269,7 @@ export default function PortalSplit() {
                   marginBottom: 14,
                   letterSpacing: "-0.01em",
                   animation: "ps-up 0.8s 0.90s both",
+                  textAlign: isMobile ? "center" : "left",
                 }}
               >
                 {panel.title}
@@ -227,9 +284,12 @@ export default function PortalSplit() {
                   textTransform: "uppercase",
                   color: "rgba(248,244,238,0.62)",
                   marginBottom: 28,
-                  opacity: isHovered ? 1 : 0.7,
+                  opacity: isActive ? 1 : 0.7,
                   transition: "opacity 0.4s ease",
                   animation: "ps-up 0.8s 1.05s both",
+                  textAlign: isMobile ? "center" : "left",
+                  maxWidth: isMobile ? "90%" : "none",
+                  lineHeight: isMobile ? 1.7 : "normal",
                 }}
               >
                 {panel.description}
@@ -240,34 +300,38 @@ export default function PortalSplit() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: 10,
                   height: 50,
                   paddingLeft: 26,
                   paddingRight: 26,
                   borderRadius: 999,
                   border: `1px solid ${panel.accent}`,
-                  background: isHovered
+                  background: isActive
                     ? panel.accent
                     : "rgba(255,255,255,0.10)",
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
-                  color: isHovered ? "#0B1E3D" : "#F8F4EE",
+                  color: isActive ? "#0B1E3D" : "#F8F4EE",
                   fontSize: "0.82rem",
                   fontWeight: 600,
                   letterSpacing: "0.03em",
                   transition:
                     "background 0.35s ease, color 0.35s ease, transform 0.25s ease, box-shadow 0.35s ease",
-                  transform: isHovered ? "translateY(-2px)" : "translateY(0)",
-                  boxShadow: isHovered
+                  transform: isActive ? "translateY(-2px)" : "translateY(0)",
+                  boxShadow: isActive
                     ? "0 10px 28px rgba(216,181,106,0.30)"
                     : "none",
-                  alignSelf: "flex-start",
+                  alignSelf: isMobile ? "stretch" : "flex-start",
                   whiteSpace: "nowrap",
                   pointerEvents: "none",
                   animation: "ps-up 0.9s 1.20s both",
+                  maxWidth: isMobile ? 320 : "none",
+                  width: isMobile ? "100%" : "auto",
+                  boxSizing: "border-box",
                 }}
               >
-                <span style={{ color: isHovered ? "#0B1E3D" : panel.accent }}>
+                <span style={{ color: isActive ? "#0B1E3D" : panel.accent }}>
                   {panel.icon}
                 </span>
                 {panel.cta}
@@ -282,7 +346,7 @@ export default function PortalSplit() {
                 top: "clamp(20px, 4vw, 40px)",
                 left: "clamp(20px, 4vw, 40px)",
                 zIndex: 10,
-                opacity: isHovered ? 1 : 0.45,
+                opacity: isActive ? 1 : 0.45,
                 transition: "opacity 0.35s ease",
                 pointerEvents: "none",
                 animation: "ps-fadein 0.8s 1.0s both",
@@ -304,38 +368,40 @@ export default function PortalSplit() {
         );
       })}
 
-      {/* Center divider badge */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 20,
-          width: 56,
-          height: 56,
-          borderRadius: "50%",
-          background: "rgba(248,244,238,0.10)",
-          border: "1px solid rgba(216,181,106,0.55)",
-          backdropFilter: "blur(16px)",
-          WebkitBackdropFilter: "blur(16px)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 24px rgba(0,0,0,0.25)",
-          pointerEvents: "none",
-          animation: "ps-badge 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s both",
-        }}
-      >
+      {/* Center divider badge — hidden on mobile (replaced by the gold line) */}
+      {!isMobile && (
         <div
+          aria-hidden="true"
           style={{
-            width: 1,
-            height: 20,
-            background: "rgba(216,181,106,0.70)",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 20,
+            width: 56,
+            height: 56,
+            borderRadius: "50%",
+            background: "rgba(248,244,238,0.10)",
+            border: "1px solid rgba(216,181,106,0.55)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.25)",
+            pointerEvents: "none",
+            animation: "ps-badge 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s both",
           }}
-        />
-      </div>
+        >
+          <div
+            style={{
+              width: 1,
+              height: 20,
+              background: "rgba(216,181,106,0.70)",
+            }}
+          />
+        </div>
+      )}
 
       <style>{`
         @keyframes ps-slide-left {
