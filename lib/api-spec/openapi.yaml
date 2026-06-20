@@ -10,6 +10,12 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: offers
+    description: Travel offer operations
+  - name: omra
+    description: Omra package operations
+  - name: quotes
+    description: Quote request operations
 paths:
   /healthz:
     get:
@@ -24,6 +30,114 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /offers:
+    get:
+      operationId: listOffers
+      tags: [offers]
+      summary: List all travel offers
+      description: Returns all available travel offers
+      responses:
+        "200":
+          description: List of travel offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TravelOffer"
+
+  /offers/{id}:
+    get:
+      operationId: getOffer
+      tags: [offers]
+      summary: Get a single travel offer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Travel offer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TravelOffer"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /omra-packages:
+    get:
+      operationId: listOmraPackages
+      tags: [omra]
+      summary: List all Omra packages
+      description: Returns all available Omra and Hajj packages
+      responses:
+        "200":
+          description: List of Omra packages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OmraPackage"
+
+  /omra-packages/{id}:
+    get:
+      operationId: getOmraPackage
+      tags: [omra]
+      summary: Get a single Omra package
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Omra package
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OmraPackage"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /quote:
+    post:
+      operationId: submitQuote
+      tags: [quotes]
+      summary: Submit a quote request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuoteRequest"
+      responses:
+        "200":
+          description: Quote submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QuoteResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +148,163 @@ components:
       required:
         - status
 
+    TravelOffer:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        destination:
+          type: string
+        country:
+          type: string
+        duration:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        departures:
+          type: array
+          items:
+            type: string
+        category:
+          type: string
+          enum: [circuit, sejour, croisiere, city-break]
+        highlights:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        rating:
+          type: number
+        reviews:
+          type: number
+      required:
+        - id
+        - title
+        - destination
+        - country
+        - duration
+        - price
+        - currency
+        - departures
+        - category
+        - highlights
+        - description
+        - rating
+        - reviews
+
+    OmraPackage:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        duration:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        departures:
+          type: array
+          items:
+            type: string
+        departure_city:
+          type: string
+        hotel_mecca:
+          type: string
+        hotel_medina:
+          type: string
+        stars_mecca:
+          type: number
+        stars_medina:
+          type: number
+        nights_mecca:
+          type: number
+        nights_medina:
+          type: number
+        includes:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [economique, standard, premium, vip]
+      required:
+        - id
+        - title
+        - duration
+        - price
+        - currency
+        - departures
+        - departure_city
+        - hotel_mecca
+        - hotel_medina
+        - stars_mecca
+        - stars_medina
+        - nights_mecca
+        - nights_medina
+        - includes
+        - description
+        - type
+
+    QuoteRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        tripType:
+          type: string
+          enum: [voyage, omra, hajj, sur-mesure]
+        destination:
+          type: string
+        departureCity:
+          type: string
+        travelers:
+          type: string
+        budget:
+          type: string
+        departureDate:
+          type: string
+        message:
+          type: string
+      required:
+        - firstName
+        - lastName
+        - email
+        - phone
+        - tripType
+
+    QuoteResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        error:
+          type: string
+      required:
+        - success
+        - error

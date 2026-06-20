@@ -1,5 +1,22 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "XLzf7oUy4IS4TkNN52v2w"
+uri = "file://artifacts/syanor-mobile/assets/images/icon.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Uuzgwf5CbYaeaR08bqhGC"
+uri = "file://artifacts/syanor-mobile/assets/images/hero-travel.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "WylE5sksDHC-sLFbcPCrm"
+uri = "file://artifacts/syanor-mobile/assets/images/hero-omra.png"
+type = "image"
+title = "generated_image"
 
 [[outputs]]
 id = "U0ENP62e8oAnsVGmaco-h"
