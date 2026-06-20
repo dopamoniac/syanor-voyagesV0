@@ -11,6 +11,15 @@ import { departureCities } from "@/data/cities";
 
 const OMRA_CATEGORIES = ["Omra", "Hajj", "Omra Plus", "Ramadan", "Formation", "Ziyarat"];
 
+const OMRA_ONLY_IDS = [
+  "visa-assistance",
+  "hotel-transferts",
+  "assurance-voyage",
+  "accompagnement-admin",
+  "assistance-24h",
+  "formation-omra",
+];
+
 const ROOM_KEY_MAP: Record<string, keyof NonNullable<(typeof offers)[0]["roomPrices"]>> = {
   Quadruple: "quad",
   Triple: "triple",
@@ -53,7 +62,7 @@ export default function OffersExplorer() {
   );
 
   const travelOffers = useMemo(
-    () => offers.filter((o) => !OMRA_CATEGORIES.includes(o.category)),
+    () => offers.filter((o) => !OMRA_CATEGORIES.includes(o.category) && !OMRA_ONLY_IDS.includes(o.id)),
     [],
   );
 

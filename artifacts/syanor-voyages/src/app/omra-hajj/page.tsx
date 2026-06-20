@@ -99,6 +99,39 @@ const PROGRAMS = [
   },
 ];
 
+const OMRA_SERVICES = [
+  {
+    icon: "clipboard",
+    title: "Visa Assistance",
+    badge: "Omra & Hajj",
+    desc: "Constitution du dossier, démarches consulaires et suivi jusqu'à l'obtention de votre visa Omra ou Hajj.",
+  },
+  {
+    icon: "building",
+    title: "Hôtel + Transferts",
+    badge: "La Mecque & Médine",
+    desc: "Hôtel à Makkah ou Médine avec transferts aéroport inclus — pour les pèlerins qui préfèrent organiser leur vol eux-mêmes.",
+  },
+  {
+    icon: "shield",
+    title: "Assurance Voyage",
+    badge: "Pèlerinage",
+    desc: "Couverture annulation, frais médicaux, rapatriement et bagages — spécialement conçue pour les voyages religieux.",
+  },
+  {
+    icon: "book",
+    title: "Accompagnement Administratif",
+    badge: "Démarches",
+    desc: "Visa, vaccination, passeport, traductions — un interlocuteur unique pour toutes vos démarches administratives.",
+  },
+  {
+    icon: "phone",
+    title: "Assistance Voyage 24h/24",
+    badge: "Sur place",
+    desc: "Ligne directe disponible à toute heure : urgences, modifications de réservation et soutien sur place.",
+  },
+];
+
 const FORMATION_ITEMS = [
   { icon: "book-open",  title: "Formation avant départ",      desc: "Sessions de préparation pour comprendre les rites, les intentions et le déroulement du pèlerinage." },
   { icon: "book",       title: "Préparation des rites",       desc: "Ihram, Tawaf, Sa'i, Tahallul — chaque étape expliquée et pratiquée en amont du départ." },
@@ -775,6 +808,111 @@ export default function OmraHajjPage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          4b. NOS OFFRES — Packs + Services
+      ══════════════════════════════════════════ */}
+      <section id="offres" className="section-pad" style={{ background: "linear-gradient(160deg, #022B24 0%, #063F33 100%)" }}>
+        <div className="mx-auto max-w-7xl px-6 md:px-8">
+
+          {/* Header */}
+          <div className="mb-10 text-center">
+            <p className="mb-2 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-syanor-gold">
+              Omra Factory — Nos Offres
+            </p>
+            <h2 className="font-playfair text-3xl font-bold text-syanor-ivory">
+              Programmes & Services tout-en-un
+            </h2>
+            <div className="mx-auto mt-3 h-px w-12 bg-gradient-to-r from-transparent via-syanor-gold/40 to-transparent" aria-hidden="true" />
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-syanor-champagne/55">
+              Choisissez votre programme de pèlerinage et combinez-le avec nos services spécialisés — visa, hébergement, assurance et accompagnement administratif.
+            </p>
+          </div>
+
+          {/* ── Programmes ── */}
+          <p className="mb-4 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-syanor-gold/60">Programmes de pèlerinage</p>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {PROGRAMS.map((prog, i) => (
+              <Reveal key={`offres-${prog.title}`} delay={i * 50}>
+                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/15 bg-white/[0.05] transition-all duration-300 hover:border-syanor-gold/35 hover:bg-white/[0.08]">
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={prog.image}
+                      alt={prog.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(2,43,36,0.80) 0%, transparent 50%)" }} />
+                    <div className="absolute bottom-3 left-3">
+                      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[0.58rem] font-semibold ${prog.tagColor}`}>
+                        <span className="h-1 w-1 rounded-full bg-current opacity-70" aria-hidden="true" />
+                        {prog.status}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col gap-2 p-4">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-syanor-emerald/80 text-syanor-gold">
+                        <Icon name={prog.icon} className="h-3.5 w-3.5" aria-hidden="true" />
+                      </span>
+                      <h3 className="font-playfair text-base font-bold text-syanor-ivory">{prog.title}</h3>
+                    </div>
+                    <p className="flex-1 text-xs leading-relaxed text-syanor-champagne/50">{prog.desc}</p>
+                    <div className="mt-2 flex gap-2">
+                      <Link
+                        href={prog.ctaUrl}
+                        className="flex-1 rounded-full bg-syanor-gold py-2 text-center text-xs font-semibold text-syanor-royal transition-all hover:bg-syanor-gold/90 active:scale-[0.97]"
+                      >
+                        Demander un devis
+                      </Link>
+                      <Link
+                        href={prog.href}
+                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-syanor-gold/25 text-syanor-gold transition-all hover:bg-syanor-gold/10 active:scale-[0.97]"
+                        aria-label={`Découvrir ${prog.title}`}
+                      >
+                        <Icon name="arrow-right" className="h-3.5 w-3.5" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* ── Services ── */}
+          <p className="mb-4 mt-10 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-syanor-gold/60">Services & Assistance</p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {OMRA_SERVICES.map((svc, i) => (
+              <Reveal key={svc.title} delay={i * 40}>
+                <div className="group flex flex-col gap-3 rounded-2xl border border-syanor-gold/12 bg-white/[0.04] p-5 transition-all duration-300 hover:border-syanor-gold/30 hover:bg-white/[0.07]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl text-syanor-gold" style={{ background: "rgba(201,162,74,0.12)", border: "1px solid rgba(201,162,74,0.20)" }}>
+                    <Icon name={svc.icon} className="h-4.5 w-4.5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="inline-block rounded-full border border-syanor-gold/20 bg-syanor-gold/10 px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-widest text-syanor-gold">
+                      {svc.badge}
+                    </span>
+                    <h3 className="mt-1.5 text-sm font-semibold text-syanor-ivory">{svc.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-syanor-champagne/45">{svc.desc}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-10 text-center">
+            <a
+              href={omraQuoteUrl({ service: "Omra" })}
+              className="inline-flex items-center gap-2.5 rounded-full bg-syanor-gold px-8 py-3.5 text-sm font-semibold text-syanor-royal shadow-lg transition-all hover:bg-syanor-champagne-dark hover:shadow-xl active:scale-[0.97]"
+            >
+              Demander un devis complet
+              <Icon name="arrow-right" className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+
         </div>
       </section>
 
