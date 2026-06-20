@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { CATEGORY_IMAGE, FLOATING_CATEGORIES, DEFAULT_CATEGORY_IMAGE } from "@/data/categoryImages";
+import { CATEGORY_IMAGE, CATEGORY_SRCSET, CATEGORY_SIZES, FLOATING_CATEGORIES, DEFAULT_CATEGORY_IMAGE } from "@/data/categoryImages";
 
 export interface TouchHeroImageProps {
   category: string;
@@ -10,6 +10,8 @@ export interface TouchHeroImageProps {
   entranceTranslate?: string;
   entranceDuration?: string;
   overlayGradient?: string;
+  srcSet?: string;
+  sizes?: string;
 }
 
 export default function TouchHeroImage({
@@ -21,9 +23,14 @@ export default function TouchHeroImage({
   entranceTranslate = "10px",
   entranceDuration = "0.45s",
   overlayGradient = "linear-gradient(180deg, rgba(2,8,6,0) 0%, rgba(2,8,6,0.08) 32%, rgba(2,8,6,0.55) 65%, rgba(2,8,6,0.88) 88%, rgba(2,8,6,0.94) 100%)",
+  srcSet: srcSetProp,
+  sizes: sizesProp,
 }: TouchHeroImageProps) {
   const img = CATEGORY_IMAGE[category] ?? DEFAULT_CATEGORY_IMAGE;
   const isFloating = FLOATING_CATEGORIES.has(category);
+
+  const resolvedSrcSet = srcSetProp ?? CATEGORY_SRCSET[category];
+  const resolvedSizes = sizesProp ?? CATEGORY_SIZES[category] ?? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px";
 
   /* ── Reduced-motion preference ── */
   const reducedMotion =
@@ -95,6 +102,8 @@ export default function TouchHeroImage({
     >
       <img
         src={img}
+        srcSet={resolvedSrcSet}
+        sizes={resolvedSrcSet ? resolvedSizes : undefined}
         alt={category}
         className={`h-full w-full ${isFloating ? "object-contain object-center" : "object-cover"} ${imgClassName}`}
         style={{
