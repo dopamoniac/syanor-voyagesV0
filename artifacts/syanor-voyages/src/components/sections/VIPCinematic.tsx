@@ -133,7 +133,7 @@ export default function VIPCinematic() {
               }}
             >
               <img
-                src="/img/hotel-view.jpg"
+                src="/img/vip-cinematic-hero.png"
                 alt="Expérience VIP — hôtel de luxe"
                 className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
                 loading="lazy"
