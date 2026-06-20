@@ -1,5 +1,5 @@
 import Link from "@/components/Link";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Breadcrumb, { type Crumb } from "@/components/ui/Breadcrumb";
 
 export type PageHeroVisual = "services" | "editorial" | "routes" | "identity" | "spiritual" | "default";
@@ -215,17 +215,58 @@ function DefaultOrnament() {
 ───────────────────────────────────────────────────────────── */
 
 function MobileImageStrip({ image, floating = false }: { image: string; floating?: boolean }) {
+  /* Entrance: fade + slide-up on mount */
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const raf1 = requestAnimationFrame(() => {
+      const raf2 = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(raf2);
+    });
+    return () => cancelAnimationFrame(raf1);
+  }, []);
+
+  /* Tap-to-zoom on mobile */
+  const [tapped, setTapped] = useState(false);
+  const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function handleTouchStart() {
+    if (tapTimer.current) clearTimeout(tapTimer.current);
+    setTapped(true);
+    tapTimer.current = setTimeout(() => setTapped(false), 420);
+  }
+
+  useEffect(() => {
+    return () => {
+      if (tapTimer.current) clearTimeout(tapTimer.current);
+    };
+  }, []);
+
   return (
     <div
       className="relative w-full overflow-hidden rounded-2xl"
-      style={{ height: "200px", border: "1px solid rgba(201,162,74,0.30)", boxShadow: "0 8px 32px rgba(6,63,51,0.12)", ...(floating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : {}) }}
+      style={{
+        height: "200px",
+        border: "1px solid rgba(201,162,74,0.30)",
+        boxShadow: "0 8px 32px rgba(6,63,51,0.12)",
+        ...(floating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : {}),
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(18px)",
+        transition: "opacity 0.55s ease, transform 0.55s ease",
+      }}
+      onTouchStart={handleTouchStart}
       aria-hidden="true"
     >
       <img
         src={image}
         alt=""
         className={`h-full w-full ${floating ? "object-contain object-center" : "object-cover"}`}
-        style={floating ? { filter: "drop-shadow(0 12px 24px rgba(6,63,51,0.35)) drop-shadow(0 4px 8px rgba(0,0,0,0.20))" } : undefined}
+        style={{
+          ...(floating ? { filter: "drop-shadow(0 12px 24px rgba(6,63,51,0.35)) drop-shadow(0 4px 8px rgba(0,0,0,0.20))" } : {}),
+          transform: tapped ? "scale(1.07)" : "scale(1)",
+          transition: tapped
+            ? "transform 0.22s cubic-bezier(0.34,1.56,0.64,1)"
+            : "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)",
+        }}
         loading="eager"
       />
       {!floating && <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 50%, rgba(6,63,51,0.30) 100%)" }} />}
