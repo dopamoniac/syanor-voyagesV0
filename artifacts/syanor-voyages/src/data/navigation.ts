@@ -11,56 +11,54 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: "Accueil", href: "/" },
+  { label: "Accueil", href: "/agence" },
   {
     label: "Billets",
-    href: "/services",
+    href: "/agence/services",
     children: [
-      { label: "Billets Avion",            href: "/services/billets-avion",       desc: "Vols internationaux & itinéraires" },
-      { label: "Billets Bateau",           href: "/services/billets-bateau",      desc: "Ferry & traversées" },
-      { label: "Billets Groupe",           href: "/services/billets-avion#groupe",desc: "Groupes & délégations" },
-      { label: "Vols Internationaux",      href: "/services/billets-avion#intl",  desc: "Destinations mondiales" },
-      { label: "Traversées avec véhicule", href: "/services/billets-bateau#vehicule", desc: "Ferry voiture incluse" },
+      { label: "Billets Avion",            href: "/agence/services/billets-avion",           desc: "Vols internationaux & itinéraires" },
+      { label: "Billets Bateau",           href: "/agence/services/billets-bateau",          desc: "Ferry & traversées" },
+      { label: "Billets Groupe",           href: "/agence/services/billets-avion#groupe",    desc: "Groupes & délégations" },
+      { label: "Vols Internationaux",      href: "/agence/services/billets-avion#intl",      desc: "Destinations mondiales" },
+      { label: "Traversées avec véhicule", href: "/agence/services/billets-bateau#vehicule", desc: "Ferry voiture incluse" },
     ],
   },
   {
     label: "Séjours & Voyages",
-    href: "/voyages-organises",
+    href: "/agence/voyages-organises",
     children: [
-      { label: "Voyages Organisés",    href: "/voyages-organises",         desc: "Séjours en groupe encadrés" },
-      { label: "Séjours Sur Mesure",   href: "/sejours-sur-mesure",        desc: "Voyages composés pour vous" },
-      { label: "Packs Premium / VIP",  href: "/services#packs",            desc: "Expérience d'exception" },
-      { label: "Voyages de Noces",     href: "/sejours-sur-mesure#noces",  desc: "Lune de miel sur mesure" },
-      { label: "Hôtels & Transferts",  href: "/sejours-sur-mesure#hotels", desc: "Hébergement & transport" },
-      { label: "Assistance Voyage",    href: "/visas#assistance",          desc: "Support & démarches" },
-      { label: "Visas",                href: "/visas",                     desc: "Visa & formalités" },
+      { label: "Voyages Organisés",    href: "/agence/voyages-organises",            desc: "Séjours en groupe encadrés" },
+      { label: "Séjours Sur Mesure",   href: "/agence/sejours-sur-mesure",           desc: "Voyages composés pour vous" },
+      { label: "Packs Premium / VIP",  href: "/agence/services#packs",               desc: "Expérience d'exception" },
+      { label: "Voyages de Noces",     href: "/agence/sejours-sur-mesure#noces",     desc: "Lune de miel sur mesure" },
+      { label: "Hôtels & Transferts",  href: "/agence/sejours-sur-mesure#hotels",    desc: "Hébergement & transport" },
+      { label: "Assistance Voyage",    href: "/agence/visas#assistance",             desc: "Support & démarches" },
+      { label: "Visas",                href: "/agence/visas",                        desc: "Visa & formalités" },
     ],
   },
-  { label: "Offres", href: "/offres" },
-  { label: "Blog",    href: "/blog" },
-  { label: "Contact", href: "/contact" },
-  { label: "Omra Factory", href: "/omra-hajj" },
+  { label: "Offres",  href: "/agence/offres"  },
+  { label: "Blog",    href: "/agence/blog"    },
+  { label: "Contact", href: "/agence/contact" },
 ];
 
 export const footerServices: NavChild[] = [
-  { label: "Billets Avion",      href: "/services/billets-avion" },
-  { label: "Billets Bateau",     href: "/services/billets-bateau" },
-  { label: "Voyages Organisés",  href: "/voyages-organises" },
-  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure" },
-  { label: "Packs Premium / VIP",href: "/services#packs" },
-  { label: "Visas & Assistance", href: "/visas" },
-  { label: "FAQ",                href: "/faq" },
-  { label: "Blog",               href: "/blog" },
+  { label: "Billets Avion",       href: "/agence/services/billets-avion"  },
+  { label: "Billets Bateau",      href: "/agence/services/billets-bateau" },
+  { label: "Voyages Organisés",   href: "/agence/voyages-organises"       },
+  { label: "Séjours Sur Mesure",  href: "/agence/sejours-sur-mesure"      },
+  { label: "Packs Premium / VIP", href: "/agence/services#packs"          },
+  { label: "Visas & Assistance",  href: "/agence/visas"                   },
+  { label: "FAQ",                 href: "/agence/faq"                     },
+  { label: "Blog",                href: "/agence/blog"                    },
 ];
 
 export const footerLinks: NavChild[] = [
-  { label: "Nos offres",         href: "/offres" },
-  { label: "Départ Nice",        href: "/depart/nice" },
-  { label: "Départ Marseille",   href: "/depart/marseille" },
-  { label: "Omra Factory",       href: "/omra-hajj" },
-  { label: "FAQ",                href: "/faq" },
-  { label: "Blog",               href: "/blog" },
-  { label: "Visas",              href: "/visas" },
+  { label: "Nos offres",  href: "/agence/offres"   },
+  { label: "FAQ",         href: "/agence/faq"      },
+  { label: "Blog",        href: "/agence/blog"     },
+  { label: "Visas",       href: "/agence/visas"    },
+  { label: "Contact",     href: "/agence/contact"  },
+  { label: "À propos",    href: "/agence/a-propos" },
 ];
 
 export const CONTACT = {

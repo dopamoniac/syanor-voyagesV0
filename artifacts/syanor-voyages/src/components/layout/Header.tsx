@@ -8,12 +8,8 @@ import MobileMenu from "@/components/layout/MobileMenu";
 import { mainNav, type NavItem, CONTACT } from "@/data/navigation";
 import { cn } from "@/lib/utils";
 
-/* ── Active-state helpers ─────────────────────────────────────────────────
-   isNavActive : exact for "/", prefix match otherwise (strips hash/query)
-   isMegaActive: true if parent href or any child href is active
-──────────────────────────────────────────────────────────────────────── */
 function isNavActive(href: string, loc: string): boolean {
-  if (href === "/") return loc === "/";
+  if (href === "/agence") return loc === "/agence" || loc === "/agence/";
   const base = href.split("?")[0].split("#")[0];
   return loc === base || loc.startsWith(base + "/");
 }
@@ -23,18 +19,18 @@ function isMegaActive(item: NavItem, loc: string): boolean {
 }
 
 const SERVICE_ICON: Record<string, string> = {
-  "/services/billets-avion":           "airplane",
-  "/services/billets-bateau":          "anchor",
-  "/services/billets-avion#groupe":    "users",
-  "/services/billets-avion#intl":      "globe",
-  "/services/billets-bateau#vehicule": "route",
-  "/voyages-organises":                "route",
-  "/sejours-sur-mesure":               "compass",
-  "/services#packs":                   "diamond",
-  "/sejours-sur-mesure#noces":         "sparkle",
-  "/sejours-sur-mesure#hotels":        "building",
-  "/visas#assistance":                 "shield",
-  "/visas":                            "clipboard",
+  "/agence/services/billets-avion":           "airplane",
+  "/agence/services/billets-bateau":          "anchor",
+  "/agence/services/billets-avion#groupe":    "users",
+  "/agence/services/billets-avion#intl":      "globe",
+  "/agence/services/billets-bateau#vehicule": "route",
+  "/agence/voyages-organises":                "route",
+  "/agence/sejours-sur-mesure":               "compass",
+  "/agence/services#packs":                   "diamond",
+  "/agence/sejours-sur-mesure#noces":         "sparkle",
+  "/agence/sejours-sur-mesure#hotels":        "building",
+  "/agence/visas#assistance":                 "shield",
+  "/agence/visas":                            "clipboard",
 };
 
 function BilletsMegaPanel({ item, onClose }: { item: NavItem; onClose: () => void }) {
@@ -66,7 +62,7 @@ function BilletsMegaPanel({ item, onClose }: { item: NavItem; onClose: () => voi
         ))}
       </div>
       <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
-        <Link href="/contact?universe=syanor&service=billet-avion#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+        <Link href="/agence/contact?universe=syanor&service=billet-avion#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
           Demander un devis billets →
         </Link>
       </div>
@@ -103,7 +99,7 @@ function SejoursMegaPanel({ item, onClose }: { item: NavItem; onClose: () => voi
         ))}
       </div>
       <div className="mt-3 border-t border-syanor-gold/15 pt-3 text-center">
-        <Link href="/contact?universe=syanor#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
+        <Link href="/agence/contact?universe=syanor#quote" onClick={onClose} className="text-xs font-semibold text-syanor-emerald hover:underline">
           Demander un devis séjour →
         </Link>
       </div>
@@ -184,7 +180,6 @@ function MegaMenuWrapper({ item, isOpen, onOpen, onClose, transparent, isActive 
         >
           <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        {/* Active underline indicator */}
         {(isActive && !isOpen) && (
           <span
             aria-hidden="true"
@@ -223,7 +218,7 @@ export default function Header() {
   const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
-  const forceBg = location !== "/";
+  const forceBg = location !== "/agence" && location !== "/agence/";
   const showBg = scrolled || forceBg;
   const transparent = !showBg;
 
@@ -276,8 +271,8 @@ export default function Header() {
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-3 px-5 md:px-8">
 
-          {/* Logo */}
-          <Link href="/" aria-label="SYANOR VOYAGES — Accueil" className="shrink-0">
+          {/* Logo → agency */}
+          <Link href="/agence" aria-label="SYANOR VOYAGES — Agence" className="shrink-0">
             <Logo />
           </Link>
 
@@ -294,33 +289,6 @@ export default function Header() {
                   transparent={transparent}
                   isActive={isMegaActive(item, location)}
                 />
-              ) : item.label === "Omra Factory" ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="ml-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[0.78rem] font-semibold transition-all duration-200"
-                  style={
-                    transparent
-                      ? {
-                          background: "rgba(255,255,255,0.10)",
-                          border: "1px solid rgba(212,175,55,0.55)",
-                          color: "rgba(255,249,237,0.88)",
-                          backdropFilter: "blur(8px)",
-                          WebkitBackdropFilter: "blur(8px)",
-                        }
-                      : {
-                          background: "rgba(216,181,106,0.08)",
-                          border: "1px solid rgba(216,181,106,0.35)",
-                          color: "#063F33",
-                        }
-                  }
-                >
-                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
-                    style={{ color: transparent ? "rgba(212,175,55,0.90)" : "rgba(201,162,74,0.85)" }}>
-                    <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                  {item.label}
-                </Link>
               ) : (
                 (() => {
                   const active = isNavActive(item.href, location);
@@ -353,7 +321,20 @@ export default function Header() {
           </nav>
 
           {/* Desktop actions */}
-          <div className="hidden shrink-0 items-center gap-2.5 lg:flex">
+          <div className="hidden shrink-0 items-center gap-2 lg:flex">
+            {/* Retour au portail */}
+            <Link
+              href="/"
+              className="whitespace-nowrap rounded-full px-3 py-1.5 text-[0.72rem] font-medium transition-all duration-200"
+              style={
+                transparent
+                  ? { color: "rgba(248,244,238,0.50)", border: "1px solid rgba(248,244,238,0.14)" }
+                  : { color: "rgba(6,63,51,0.45)", border: "1px solid rgba(6,63,51,0.14)" }
+              }
+            >
+              ← Portail
+            </Link>
+
             <a
               href={CONTACT.whatsappHref}
               target="_blank"
@@ -362,14 +343,8 @@ export default function Header() {
               className="flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
               style={
                 transparent
-                  ? {
-                      border: "1px solid rgba(255,249,237,0.30)",
-                      color: "rgba(255,249,237,0.80)",
-                    }
-                  : {
-                      border: "1px solid rgba(216,181,106,0.30)",
-                      color: "#063F33",
-                    }
+                  ? { border: "1px solid rgba(255,249,237,0.30)", color: "rgba(255,249,237,0.80)" }
+                  : { border: "1px solid rgba(216,181,106,0.30)", color: "#063F33" }
               }
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -377,23 +352,14 @@ export default function Header() {
               </svg>
             </a>
             <Link
-              href="/contact#quote"
+              href="/agence/contact#quote"
               className="whitespace-nowrap rounded-full px-5 py-2 text-[0.8rem] font-semibold leading-none transition-all duration-200 hover:shadow-lg active:scale-[0.97]"
-              style={
-                transparent
-                  ? {
-                      background: "#063F33",
-                      border: "1px solid #D8B56A",
-                      color: "#FFFFFF",
-                      boxShadow: "0 4px 16px rgba(6,63,51,0.30)",
-                    }
-                  : {
-                      background: "#063F33",
-                      border: "1px solid #D8B56A",
-                      color: "#FFFFFF",
-                      boxShadow: "0 2px 8px rgba(6,63,51,0.18)",
-                    }
-              }
+              style={{
+                background: "#063F33",
+                border: "1px solid #D8B56A",
+                color: "#FFFFFF",
+                boxShadow: transparent ? "0 4px 16px rgba(6,63,51,0.30)" : "0 2px 8px rgba(6,63,51,0.18)",
+              }}
             >
               Demander un devis
             </Link>

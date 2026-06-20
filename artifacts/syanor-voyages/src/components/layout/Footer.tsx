@@ -3,9 +3,9 @@ import Logo from "@/components/ui/Logo";
 import { CONTACT, footerServices } from "@/data/navigation";
 
 const legalLinks = [
-  { label: "Mentions légales", href: "/mentions-legales" },
-  { label: "Politique de confidentialité", href: "/politique-confidentialite" },
-  { label: "Conditions générales", href: "/conditions-generales" },
+  { label: "Mentions légales",             href: "/agence/mentions-legales"             },
+  { label: "Politique de confidentialité", href: "/agence/politique-confidentialite"    },
+  { label: "Conditions générales",         href: "/agence/conditions-generales"         },
 ];
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -37,17 +37,16 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" aria-label="SYANOR VOYAGES — Accueil">
+            <Link href="/agence" aria-label="SYANOR VOYAGES — Agence">
               <Logo variant="light" className="max-w-[155px]" />
             </Link>
             <p className="mt-2 font-playfair text-sm italic text-syanor-gold-soft">
               La Renaissance du Voyage
             </p>
             <p className="mt-4 text-sm leading-relaxed text-syanor-pearl/65">
-              Agence de voyages premium dédiée aux billets, séjours, voyages
-              spirituels et accompagnements sur mesure — depuis Nice.
+              Agence de voyages premium dédiée aux billets, séjours sur mesure
+              et accompagnements d'exception — depuis Nice.
             </p>
-            {/* WhatsApp CTA */}
             <a
               href={CONTACT.whatsappHref}
               target="_blank"
@@ -111,11 +110,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            {/* Quick links */}
             <div className="mt-6 space-y-2 border-t border-syanor-gold/15 pt-5 text-sm">
-              <Link href="/faq" className="block text-syanor-pearl/60 transition hover:text-syanor-gold">FAQ</Link>
-              <Link href="/blog" className="block text-syanor-pearl/60 transition hover:text-syanor-gold">Blog</Link>
-              <Link href="/contact" className="block text-syanor-pearl/60 transition hover:text-syanor-gold">Contact</Link>
+              <Link href="/agence/faq"     className="block text-syanor-pearl/60 transition hover:text-syanor-gold">FAQ</Link>
+              <Link href="/agence/blog"    className="block text-syanor-pearl/60 transition hover:text-syanor-gold">Blog</Link>
+              <Link href="/agence/contact" className="block text-syanor-pearl/60 transition hover:text-syanor-gold">Contact</Link>
             </div>
           </div>
         </div>
@@ -125,7 +123,7 @@ export default function Footer() {
           <p className="text-xs text-syanor-pearl/45">
             © 2025–2026 SYANOR VOYAGES · Tous droits réservés
           </p>
-          <p className="text-xs text-syanor-pearl/35">Agence de voyages  · Nice, France</p>
+          <p className="text-xs text-syanor-pearl/35">Agence de voyages · Nice, France</p>
         </div>
       </div>
     </footer>

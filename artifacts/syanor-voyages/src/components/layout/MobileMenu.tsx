@@ -7,7 +7,7 @@ import Icon from "@/components/ui/Icon";
 import { CONTACT } from "@/data/navigation";
 
 function isNavActive(href: string, loc: string): boolean {
-  if (href === "/") return loc === "/";
+  if (href === "/agence") return loc === "/agence" || loc === "/agence/";
   const base = href.split("?")[0].split("#")[0];
   return loc === base || loc.startsWith(base + "/");
 }
@@ -18,21 +18,20 @@ interface MobileMenuProps {
 }
 
 const SYANOR_SERVICES = [
-  { label: "Billets Avion",      href: "/services/billets-avion",  icon: "airplane"  },
-  { label: "Billets Bateau",     href: "/services/billets-bateau", icon: "anchor"    },
-  { label: "Voyages Organisés",  href: "/voyages-organises",        icon: "route"     },
-  { label: "Séjours Sur Mesure", href: "/sejours-sur-mesure",       icon: "compass"   },
-  { label: "Packs Premium / VIP",href: "/services#packs",           icon: "diamond"   },
-  { label: "Visas & Assistance", href: "/visas",                    icon: "clipboard" },
+  { label: "Billets Avion",       href: "/agence/services/billets-avion",  icon: "airplane"  },
+  { label: "Billets Bateau",      href: "/agence/services/billets-bateau", icon: "anchor"    },
+  { label: "Voyages Organisés",   href: "/agence/voyages-organises",       icon: "route"     },
+  { label: "Séjours Sur Mesure",  href: "/agence/sejours-sur-mesure",      icon: "compass"   },
+  { label: "Packs Premium / VIP", href: "/agence/services#packs",          icon: "diamond"   },
+  { label: "Visas & Assistance",  href: "/agence/visas",                   icon: "clipboard" },
 ];
 
-
 const QUICK_NAV = [
-  { label: "Accueil",  href: "/",        icon: "compass" },
-  { label: "Offres",   href: "/offres",  icon: "star"    },
-  { label: "Blog",     href: "/blog",    icon: "book"    },
-  { label: "FAQ",      href: "/faq",     icon: "shield"  },
-  { label: "Contact",  href: "/contact", icon: "phone"   },
+  { label: "Accueil",  href: "/agence",         icon: "compass" },
+  { label: "Offres",   href: "/agence/offres",  icon: "star"    },
+  { label: "Blog",     href: "/agence/blog",    icon: "book"    },
+  { label: "FAQ",      href: "/agence/faq",     icon: "shield"  },
+  { label: "Contact",  href: "/agence/contact", icon: "phone"   },
 ];
 
 const WA_PATH = "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z";
@@ -99,13 +98,11 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
         }`}
         style={{ background: "linear-gradient(168deg,#063F33 0%,#022B24 55%,#011a15 100%)" }}
       >
-        {/* Ambient gold glow — top-right */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{ background: "radial-gradient(ellipse 55% 32% at 100% 0%,rgba(201,162,74,0.13),transparent)" }}
         />
-        {/* Ambient depth — bottom-left */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
@@ -114,7 +111,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
 
         {/* ── HEADER ─────────────────────────────────────────── */}
         <div className="relative z-10 flex shrink-0 items-center justify-between border-b border-white/[0.06] px-5 py-4">
-          <Link href="/" onClick={onClose} aria-label="SYANOR VOYAGES — Accueil">
+          <Link href="/agence" onClick={onClose} aria-label="SYANOR VOYAGES — Agence">
             <Logo className="max-w-[118px]" />
           </Link>
 
@@ -191,7 +188,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </div>
           </div>
 
-          {/* ── SYANOR VOYAGES: general travel ── */}
+          {/* SYANOR VOYAGES services */}
           <div className="mb-7">
             <SectionLabel>SYANOR VOYAGES</SectionLabel>
             <div className="space-y-0.5">
@@ -228,7 +225,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               })}
             </div>
             <Link
-              href="/contact?universe=syanor#quote"
+              href="/agence/contact?universe=syanor#quote"
               onClick={onClose}
               className="mt-3 inline-flex items-center gap-1.5 text-[0.68rem] font-medium text-syanor-gold/55 transition-colors hover:text-syanor-gold"
             >
@@ -236,28 +233,17 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             </Link>
           </div>
 
-          {/* ── Omra Factory gateway ── */}
-          <div className="mb-7">
-            <SectionLabel>Omra Factory</SectionLabel>
+          {/* Retour au portail */}
+          <div className="mb-4 border-t border-white/[0.06] pt-5">
             <Link
-              href="/omra-hajj"
+              href="/"
               onClick={onClose}
-              className="group flex items-center gap-4 rounded-2xl border border-syanor-gold/25 bg-gradient-to-br from-syanor-gold/8 to-transparent px-4 py-4 transition-all duration-200 hover:border-syanor-gold/50 hover:bg-syanor-gold/10 active:scale-[0.98]"
+              className="flex items-center gap-2.5 rounded-xl border border-syanor-gold/20 px-4 py-3 text-sm font-medium text-syanor-gold/60 transition-all hover:border-syanor-gold/40 hover:text-syanor-gold/80"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-syanor-gold/30 bg-syanor-gold/12 text-syanor-gold" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                  <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              </span>
-              <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-syanor-ivory">Entrer dans Omra Factory</p>
-                <p className="mt-0.5 text-[0.65rem] leading-snug text-white/42">
-                  Département Omra &amp; Hajj — séjours, départs &amp; formation
-                </p>
-              </div>
-              <svg className="h-4 w-4 shrink-0 text-syanor-gold/50 transition-colors group-hover:text-syanor-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <path d="M19 12H5M5 12l7-7M5 12l7 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
+              Retour au portail
             </Link>
           </div>
 
@@ -292,7 +278,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           </div>
 
           <Link
-            href="/contact#quote"
+            href="/agence/contact#quote"
             onClick={onClose}
             className="btn-gold flex w-full items-center justify-center gap-2 py-3.5 text-base"
           >

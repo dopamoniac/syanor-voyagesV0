@@ -14,11 +14,11 @@ function isGroupActive(hrefs: string[], loc: string): boolean {
 }
 
 const PROGRAMMES = [
-  { label: "Omra 2026",       href: "/omra-hajj/omra",      desc: "Saisons 2026 & 2027",     badge: null           },
-  { label: "Omra Plus",       href: "/omra-hajj/omra-plus", desc: "Confort premium 5★",       badge: "Premium"      },
-  { label: "Hajj 2027",       href: "/omra-hajj/hajj",      desc: "Inscriptions ouvertes",    badge: "2027"         },
-  { label: "Ramadan",         href: "/omra-hajj/ramadan",   desc: "Séjours dédiés",           badge: null           },
-  { label: "Omra 2027",       href: "/omra-2027",           desc: "Préréservation en cours",  badge: "Nouveau"      },
+  { label: "Omra",        href: "/omra-factory/omra",       desc: "Saisons 2026 & 2027",     badge: null       },
+  { label: "Omra Plus",   href: "/omra-factory/omra-plus",  desc: "Confort premium 5★",       badge: "Premium"  },
+  { label: "Hajj 2027",   href: "/omra-factory/hajj",       desc: "Inscriptions ouvertes",    badge: "2027"     },
+  { label: "Ramadan",     href: "/omra-factory/ramadan",    desc: "Séjours dédiés",           badge: null       },
+  { label: "Omra 2027",   href: "/omra-factory/omra-2027",  desc: "Préréservation en cours",  badge: "Nouveau"  },
 ];
 
 const DEPARTURES = [
@@ -30,7 +30,6 @@ const DEPARTURES = [
   { label: "Bruxelles", href: "/depart/bruxelles", desc: "Départs internationaux",    confirmed: false },
 ];
 
-/* ── Arrow-left SVG ── */
 function ArrowLeft({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -39,7 +38,6 @@ function ArrowLeft({ className }: { className?: string }) {
   );
 }
 
-/* ── Chevron ── */
 function Chevron({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -49,13 +47,13 @@ function Chevron({ className }: { className?: string }) {
 }
 
 function OmraHeader() {
-  const [location]                    = useLocation();
-  const [scrolled, setScrolled]       = useState(false);
-  const [menuOpen, setMenuOpen]       = useState(false);
-  const [dropOpen, setDropOpen]       = useState(false);
-  const [deptOpen, setDeptOpen]       = useState(false);
-  const dropRef                        = useRef<HTMLDivElement>(null);
-  const deptRef                        = useRef<HTMLDivElement>(null);
+  const [location]              = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [dropOpen, setDropOpen] = useState(false);
+  const [deptOpen, setDeptOpen] = useState(false);
+  const dropRef                  = useRef<HTMLDivElement>(null);
+  const deptRef                  = useRef<HTMLDivElement>(null);
 
   const programmesActive = isGroupActive(PROGRAMMES.map((p) => p.href), location);
   const departuresActive = isGroupActive(DEPARTURES.map((d) => d.href), location);
@@ -66,15 +64,10 @@ function OmraHeader() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  /* close dropdowns on outside click */
   useEffect(() => {
     const fn = (e: MouseEvent) => {
-      if (dropRef.current && !dropRef.current.contains(e.target as Node)) {
-        setDropOpen(false);
-      }
-      if (deptRef.current && !deptRef.current.contains(e.target as Node)) {
-        setDeptOpen(false);
-      }
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) setDropOpen(false);
+      if (deptRef.current && !deptRef.current.contains(e.target as Node)) setDeptOpen(false);
     };
     document.addEventListener("mousedown", fn);
     return () => document.removeEventListener("mousedown", fn);
@@ -93,29 +86,25 @@ function OmraHeader() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-6 md:px-8">
 
-        {/* ── Return to SYANOR ── */}
+        {/* ── Retour au portail ── */}
         <Link
           href="/"
           className="hidden shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] transition-all duration-200 hover:bg-white/5 sm:flex"
           style={{ border: "1px solid rgba(201,162,74,0.28)", color: "rgba(201,162,74,0.70)" }}
         >
           <ArrowLeft className="h-2.5 w-2.5" />
-          SYANOR VOYAGES
+          Portail
         </Link>
 
         <div className="hidden h-5 w-px shrink-0 sm:block" style={{ background: "rgba(201,162,74,0.16)" }} aria-hidden="true" />
 
-        {/* ── Logo — ivory bubble so Kaaba colors show ── */}
-        <Link href="/omra-hajj" className="flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-85">
+        {/* ── Logo ── */}
+        <Link href="/omra-factory" className="flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-85">
           <div
             className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl"
             style={{ background: "#F5EFE0", padding: "3px" }}
           >
-            <img
-              src="/omra-factory-logo.png"
-              alt="Omra Factory"
-              className="h-full w-full object-contain"
-            />
+            <img src="/omra-factory-logo.png" alt="Omra Factory" className="h-full w-full object-contain" />
           </div>
           <div className="hidden leading-none sm:block">
             <p className="font-playfair text-sm font-bold tracking-tight" style={{ color: scrolled ? "#FFF9ED" : "#022B24" }}>
@@ -153,13 +142,11 @@ function OmraHeader() {
                 className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-2xl shadow-xl"
                 style={{ background: "#011A15", border: "1px solid rgba(201,162,74,0.22)" }}
               >
-                {/* Header */}
                 <div className="border-b px-5 py-3" style={{ borderColor: "rgba(201,162,74,0.12)" }}>
                   <p className="text-[0.58rem] font-bold uppercase tracking-[0.20em]" style={{ color: "rgba(201,162,74,0.60)" }}>
                     Omra Factory — Nos programmes
                   </p>
                 </div>
-
                 <div className="py-2">
                   {PROGRAMMES.map((p) => (
                     <Link
@@ -185,11 +172,9 @@ function OmraHeader() {
                     </Link>
                   ))}
                 </div>
-
-                {/* Footer CTA */}
                 <div className="border-t px-5 py-3" style={{ borderColor: "rgba(201,162,74,0.12)" }}>
                   <Link
-                    href="/omra-hajj"
+                    href="/omra-factory"
                     onClick={() => setDropOpen(false)}
                     className="flex items-center gap-1.5 text-xs font-medium transition-colors hover:text-syanor-gold"
                     style={{ color: "rgba(201,162,74,0.55)" }}
@@ -253,8 +238,8 @@ function OmraHeader() {
 
           {/* Standalone links */}
           {[
-            { label: "Blog",    href: "/omra-hajj/blog"    },
-            { label: "Contact", href: "/omra-hajj/contact" },
+            { label: "Blog",    href: "/omra-factory/blog"    },
+            { label: "Contact", href: "/omra-factory/contact" },
           ].map((l) => {
             const active = isNavActive(l.href, location);
             return (
@@ -272,13 +257,13 @@ function OmraHeader() {
             );
           })}
 
-          {/* Devis CTA */}
+          {/* Pré-inscription CTA */}
           <Link
-            href="/omra-hajj/contact?service=Omra"
+            href="/omra-factory/contact?service=Omra"
             className="ml-2 rounded-full px-4 py-1.5 text-[0.78rem] font-semibold transition-all hover:opacity-90 active:scale-[0.97]"
             style={{ background: "linear-gradient(135deg, #C9A24A, #e8c87a, #C9A24A)", color: "#022B24" }}
           >
-            Devis gratuit
+            Pré-inscription
           </Link>
         </nav>
 
@@ -307,7 +292,7 @@ function OmraHeader() {
       {menuOpen && (
         <div className="border-t lg:hidden" style={{ background: "#011A15", borderColor: "rgba(201,162,74,0.14)" }}>
 
-          {/* Return */}
+          {/* Retour au portail */}
           <div className="border-b px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
             <Link
               href="/"
@@ -316,11 +301,11 @@ function OmraHeader() {
               style={{ border: "1px solid rgba(201,162,74,0.25)", color: "rgba(201,162,74,0.80)" }}
             >
               <ArrowLeft className="h-3.5 w-3.5" />
-              Retour à SYANOR VOYAGES
+              Retour au portail
             </Link>
           </div>
 
-          {/* Programmes section */}
+          {/* Programmes */}
           <div className="border-b px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
             <p className="mb-3 text-[0.60rem] font-bold uppercase tracking-[0.18em]" style={{ color: "rgba(201,162,74,0.55)" }}>
               Nos programmes
@@ -350,7 +335,7 @@ function OmraHeader() {
             </div>
           </div>
 
-          {/* Départs section */}
+          {/* Départs */}
           <div className="border-b px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
             <p className="mb-3 text-[0.60rem] font-bold uppercase tracking-[0.18em]" style={{ color: "rgba(201,162,74,0.55)" }}>
               Villes de départ
@@ -381,8 +366,8 @@ function OmraHeader() {
           {/* Other links */}
           <nav className="space-y-0.5 px-4 py-4">
             {[
-              { label: "Blog Omra", href: "/omra-hajj/blog"    },
-              { label: "Contact",   href: "/omra-hajj/contact" },
+              { label: "Blog Omra", href: "/omra-factory/blog"    },
+              { label: "Contact",   href: "/omra-factory/contact" },
             ].map((l) => {
               const active = isNavActive(l.href, location);
               return (
@@ -406,12 +391,12 @@ function OmraHeader() {
           {/* Mobile CTA */}
           <div className="border-t px-6 py-4" style={{ borderColor: "rgba(201,162,74,0.10)" }}>
             <Link
-              href="/omra-hajj/contact?service=Omra"
+              href="/omra-factory/contact?service=Omra"
               onClick={() => setMenuOpen(false)}
               className="block w-full rounded-full py-3 text-center text-sm font-semibold transition-all hover:opacity-90"
               style={{ background: "linear-gradient(135deg, #C9A24A, #e8c87a, #C9A24A)", color: "#022B24" }}
             >
-              Demander un devis gratuit
+              Pré-inscription / Devis gratuit
             </Link>
           </div>
         </div>
@@ -440,12 +425,12 @@ function OmraFooter() {
           {/* Links */}
           <nav className="flex flex-wrap gap-x-5 gap-y-2">
             {[
-              { label: "Programmes",    href: "/omra-hajj" },
-              { label: "Départs 2026",  href: "/omra-2026" },
-              { label: "Départs 2027",  href: "/omra-2027" },
-              { label: "Hajj 2027",     href: "/omra-hajj/hajj" },
-              { label: "Blog Omra",     href: "/omra-hajj/blog" },
-              { label: "Contact",       href: "/omra-hajj/contact" },
+              { label: "Programmes",    href: "/omra-factory"              },
+              { label: "Départs 2026",  href: "/omra-factory/omra-2026"   },
+              { label: "Départs 2027",  href: "/omra-factory/omra-2027"   },
+              { label: "Hajj 2027",     href: "/omra-factory/hajj"        },
+              { label: "Blog Omra",     href: "/omra-factory/blog"        },
+              { label: "Contact",       href: "/omra-factory/contact"     },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="text-xs transition-colors hover:text-syanor-gold" style={{ color: "rgba(255,249,237,0.45)" }}>
                 {l.label}
@@ -453,14 +438,16 @@ function OmraFooter() {
             ))}
           </nav>
 
-          {/* Back to SYANOR */}
+          {/* Retour au portail */}
           <Link
             href="/"
             className="inline-flex items-center gap-2 self-start rounded-full px-4 py-2 text-xs font-semibold transition-all hover:bg-white/5 md:self-auto"
             style={{ border: "1px solid rgba(201,162,74,0.22)", color: "rgba(201,162,74,0.60)" }}
           >
-            <ArrowLeft className="h-2.5 w-2.5" />
-            SYANOR VOYAGES
+            <svg className="h-2.5 w-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M5 12l7-7M5 12l7 7" />
+            </svg>
+            Retour au portail
           </Link>
         </div>
 
