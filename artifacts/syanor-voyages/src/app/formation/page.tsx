@@ -141,7 +141,7 @@ export default function FormationPage() {
         body="Bénéficiez d'une formation et d'un accompagnement complets, du premier échange jusqu'au retour."
         ctaLabel="Être accompagné"
         ctaHref={quoteHref}
-        secondary={{ label: "Découvrir Omra & Hajj", href: "/omra-hajj" }}
+        secondary={{ label: "Découvrir Omra & Hajj", href: "/omra-factory" }}
       />
 
       <StickyMobileCTA label="Être accompagné" href={quoteHref} />

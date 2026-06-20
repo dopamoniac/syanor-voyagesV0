@@ -25,7 +25,7 @@ export function ServicesPreview() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/services" className="btn-secondary">
+          <Link href="/agence/services" className="btn-secondary">
             Voir tous nos services
           </Link>
         </div>
@@ -53,7 +53,7 @@ export function OffersPreview() {
           <OffersGrid offers={list} />
         </div>
         <div className="mt-12 text-center">
-          <Link href="/offres" className="btn-primary">
+          <Link href="/agence/offres" className="btn-primary">
             Voir toutes les offres & départs
           </Link>
         </div>
@@ -66,13 +66,13 @@ export function OffersPreview() {
 const ticketCards = [
   {
     title: "Billets Avion",
-    href: "/services/billets-avion",
+    href: "/agence/services/billets-avion",
     icon: "airplane",
     features: ["Vols internationaux", "Aller simple ou retour", "Itinéraires optimisés", "Suivi avant départ"],
   },
   {
     title: "Billets Bateau",
-    href: "/services/billets-bateau",
+    href: "/agence/services/billets-bateau",
     icon: "anchor",
     features: ["Traversées ferry", "Conseils ports & horaires", "Option véhicule", "Assistance client"],
   },
@@ -156,10 +156,10 @@ export function SpiritualPreview() {
               ))}
             </ul>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/omra-hajj" className="btn-primary">
+              <Link href="/omra-factory" className="btn-primary">
                 Découvrir Omra &amp; Hajj
               </Link>
-              <Link href="/formation" className="btn-secondary">
+              <Link href="/omra-factory/formations" className="btn-secondary">
                 La formation spirituelle
               </Link>
             </div>
@@ -216,7 +216,7 @@ export function FormationPreview() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/formation" className="btn-primary">
+          <Link href="/omra-factory/formations" className="btn-primary">
             Découvrir la formation
           </Link>
         </div>
@@ -263,10 +263,10 @@ export function CustomStaysPreview() {
               et vos envies. Un configurateur complet vous attend.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/sejours-sur-mesure" className="btn-primary">
+              <Link href="/agence/sejours-sur-mesure" className="btn-primary">
                 Créer mon séjour sur mesure
               </Link>
-              <Link href="/voyages-organises" className="btn-secondary">
+              <Link href="/agence/voyages-organises" className="btn-secondary">
                 Voir les voyages organisés
               </Link>
             </div>

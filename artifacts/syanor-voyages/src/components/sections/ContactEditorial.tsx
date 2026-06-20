@@ -111,7 +111,7 @@ export default function ContactEditorial() {
 
             {/* Primary CTA */}
             <Link
-              href="/contact#quote"
+              href="/agence/contact#quote"
               className="block w-full rounded-full py-4 text-center font-semibold transition-all duration-200 hover:shadow-[0_8px_28px_rgba(216,181,106,0.30)] hover:-translate-y-px mb-3"
               style={{
                 background: "linear-gradient(135deg, #D8B56A 0%, #c9a55e 100%)",

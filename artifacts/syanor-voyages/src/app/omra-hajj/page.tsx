@@ -54,7 +54,7 @@ const PROGRAMS = [
     tag:      "Départs toute l'année",
     tagColor: "text-syanor-gold bg-syanor-gold/10 border-syanor-gold/20",
     desc:     "Omra classique de 10 à 14 jours. Vols depuis Nice, Marseille, Lyon et Paris. Hôtels sélectionnés, accompagnement complet et assistance visa.",
-    href:     "/omra-2026",
+    href:     "/omra-factory/omra-2026",
     image:    "/omra-factory/omra.png",
     cta:      "Voir les départs",
     ctaUrl:   omraQuoteUrl({ service: "Omra" }),
@@ -66,7 +66,7 @@ const PROGRAMS = [
     tag:      "Expérience premium",
     tagColor: "text-syanor-gold bg-syanor-gold/10 border-syanor-gold/20",
     desc:     "Séjour prolongé de 21 à 34 jours avec hôtels premium, accompagnement renforcé, Ziyarat étendue et programme sur mesure.",
-    href:     "/omra-hajj/omra-plus",
+    href:     "/omra-factory/omra-plus",
     image:    "/omra-factory/omra-plus.png",
     cta:      "Découvrir Omra Plus",
     ctaUrl:   omraQuoteUrl({ service: "Omra Plus" }),
@@ -78,7 +78,7 @@ const PROGRAMS = [
     tag:      "Mois sacré",
     tagColor: "text-syanor-emerald bg-syanor-emerald/10 border-syanor-emerald/20",
     desc:     "Vivre le Ramadan aux Lieux Saints. Prières de Tarawih au Haram, ambiance spirituelle unique, programme adapté à la période sacrée.",
-    href:     "/omra-hajj/ramadan",
+    href:     "/omra-factory/ramadan",
     image:    "/omra-factory/ramadan.png",
     cta:      "Voir Ramadan",
     ctaUrl:   omraQuoteUrl({ service: "Ramadan" }),
@@ -90,7 +90,7 @@ const PROGRAMS = [
     tag:      "Préinscription ouverte",
     tagColor: "text-amber-700 bg-amber-50 border-amber-200",
     desc:     "Le grand pèlerinage annuel. Places limitées, quotas officiels. Organisation complète, assistance administrative et accompagnement spirituel.",
-    href:     "/omra-hajj/hajj",
+    href:     "/omra-factory/hajj",
     image:    "/omra-factory/hajj.png",
     cta:      "Préinscription Hajj",
     ctaUrl:   omraQuoteUrl({ service: "Hajj" }),
@@ -270,7 +270,7 @@ export default function OmraHajjPage() {
               {/* CTAs */}
               <div className="mt-9 flex flex-wrap gap-3 sm:gap-4">
                 <Link
-                  href="/omra-2026"
+                  href="/omra-factory/omra-2026"
                   className="inline-flex items-center gap-2.5 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(6,59,50,0.30)] active:scale-[0.97]"
                   style={{ background: "#063B32", color: "#FFFDF8", padding: "14px clamp(24px,2.8vw,36px)", fontSize: "clamp(0.84rem,1.05vw,0.95rem)", letterSpacing: "-0.01em" }}
                 >
@@ -552,7 +552,7 @@ export default function OmraHajjPage() {
               {/* CTAs */}
               <div className="relative z-10 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/omra-2026"
+                  href="/omra-factory/omra-2026"
                   className="inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 hover:shadow-[0_6px_20px_rgba(201,162,74,0.40)] active:scale-[0.97]"
                   style={{ background: "linear-gradient(135deg, #C9A24A, #e0c070, #C9A24A)", color: "#011A15", padding: "12px 24px", fontSize: "0.85rem" }}
                 >
@@ -658,7 +658,7 @@ export default function OmraHajjPage() {
               {/* CTAs */}
               <div className="relative z-10 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/omra-2027"
+                  href="/omra-factory/omra-2027"
                   className="inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 hover:shadow-[0_6px_20px_rgba(2,43,36,0.20)] active:scale-[0.97]"
                   style={{ background: "#063F33", color: "#FFF9ED", padding: "12px 24px", fontSize: "0.85rem" }}
                 >
@@ -694,7 +694,7 @@ export default function OmraHajjPage() {
                 <p className="eyebrow mb-2">Prochains départs</p>
                 <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Départs disponibles</h2>
               </div>
-              <Link href="/offres?category=Omra" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
+              <Link href="/agence/offres?category=Omra" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
                 Voir toutes les offres →
               </Link>
             </div>
@@ -811,7 +811,7 @@ export default function OmraHajjPage() {
 
           <div className="mt-8 text-center">
             <Link
-              href="/formation"
+              href="/omra-factory/formations"
               className="inline-flex items-center gap-2 rounded-full border border-syanor-gold/30 px-6 py-3 text-sm font-medium text-syanor-gold transition-all hover:border-syanor-gold hover:bg-syanor-gold/10 active:scale-[0.97]"
             >
               Découvrir le programme de formation
@@ -928,14 +928,14 @@ export default function OmraHajjPage() {
               <p className="eyebrow mb-2">Blog Omra Factory</p>
               <h2 className="font-playfair text-3xl font-bold text-syanor-ink">Guides & conseils pèlerinage</h2>
             </div>
-            <Link href="/omra-hajj/blog" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
+            <Link href="/omra-factory/blog" className="shrink-0 text-sm font-medium text-syanor-emerald hover:underline">
               Voir tous les articles →
             </Link>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {omraBlogArticles.slice(0, 3).map((article) => (
-              <Link key={article.slug} href={`/omra-hajj/blog/${article.slug}`} className="group">
+              <Link key={article.slug} href={`/omra-factory/blog/${article.slug}`} className="group">
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover">
                   <div
                     className="flex h-2 w-full"
@@ -979,7 +979,7 @@ export default function OmraHajjPage() {
         title="Préparons votre voyage spirituel ensemble."
         body="Indiquez-nous votre programme souhaité, votre ville de départ, vos dates et votre niveau de confort — nous construisons une proposition adaptée."
         ctaLabel="Voir les départs Omra"
-        ctaHref="/omra-2026"
+        ctaHref="/omra-factory/omra-2026"
         secondary={{ label: "Demander un devis", href: omraQuoteHref }}
       />
 

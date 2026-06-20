@@ -298,11 +298,11 @@ export default function ServicesPage() {
         title="Un projet de voyage en tête ?"
         body="Décrivez-nous votre besoin et recevez une proposition claire et personnalisée."
         ctaLabel="Demander un devis"
-        ctaHref="/contact#quote"
-        secondary={{ label: "Parcourir les offres", href: "/offres" }}
+        ctaHref="/agence/contact#quote"
+        secondary={{ label: "Parcourir les offres", href: "/agence/offres" }}
       />
 
-      <StickyMobileCTA label="Demander un devis" href="/contact#quote" />
+      <StickyMobileCTA label="Demander un devis" href="/agence/contact#quote" />
     </SiteLayout>
   );
 }

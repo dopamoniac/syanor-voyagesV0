@@ -42,7 +42,7 @@ export default function SejoursSurMesurePage() {
         subtitle="Destination, dates, transport, confort, budget et options VIP : composez un séjour qui vous ressemble, avec une assistance dédiée."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Séjours Sur Mesure" }]}
         primaryCta={{ label: "Composer mon séjour", href: "#configurateur" }}
-        secondaryCta={{ label: "Voyages organisés", href: "/voyages-organises" }}
+        secondaryCta={{ label: "Voyages organisés", href: "/agence/voyages-organises" }}
       />
 
       <Section
@@ -110,7 +110,7 @@ export default function SejoursSurMesurePage() {
         body="Composez votre séjour idéal et recevez une proposition personnalisée et sans engagement."
         ctaLabel="Demander un devis sur mesure"
         ctaHref={quoteHref}
-        secondary={{ label: "Packs premium / VIP", href: "/services#packs" }}
+        secondary={{ label: "Packs premium / VIP", href: "/agence/services#packs" }}
       />
 
       <StickyMobileCTA label="Composer mon séjour" href="#configurateur" />

@@ -52,7 +52,7 @@ export default function NextDepartures() {
               Nos prochains départs Omra
             </h2>
           </div>
-          <Link href="/omra-hajj" className="btn-secondary shrink-0">
+          <Link href="/omra-factory" className="btn-secondary shrink-0">
             Voir tous les départs
           </Link>
         </div>
@@ -98,10 +98,10 @@ export default function NextDepartures() {
             Retrouvez l'ensemble des départs Omra 2026–2027, billets, séjours et offres sur mesure dans notre catalogue complet.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link href="/offres" className="btn-primary text-sm">
+            <Link href="/agence/offres" className="btn-primary text-sm">
               Explorer toutes nos offres
             </Link>
-            <Link href="/contact#quote" className="btn-secondary text-sm">
+            <Link href="/agence/contact#quote" className="btn-secondary text-sm">
               Demander une offre sur mesure
             </Link>
           </div>

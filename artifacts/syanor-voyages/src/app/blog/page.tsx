@@ -108,7 +108,7 @@ export default function BlogPage() {
         body="Nos articles vous ont donné envie de voyager ? Faites le premier pas : demandez votre devis personnalisé ou consultez nos offres disponibles."
         ctaLabel="Demander un devis"
         ctaHref={quoteUrl({})}
-        secondary={{ label: "Voir toutes nos offres", href: "/offres" }}
+        secondary={{ label: "Voir toutes nos offres", href: "/agence/offres" }}
       />
 
       <StickyMobileCTA label="Demander un devis" href={quoteUrl({})} />

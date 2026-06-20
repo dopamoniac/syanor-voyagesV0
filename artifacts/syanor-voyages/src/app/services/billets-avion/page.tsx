@@ -22,7 +22,7 @@ const config: DeepServiceConfig = {
     "Vols internationaux, aller simple, aller-retour ou multi-destinations : nous recherchons les meilleures options et vous accompagnons jusqu'au départ.",
   crumbs: [
     { label: "Accueil", href: "/" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/agence/services" },
     { label: "Billets Avion" },
   ],
   quoteHref,
@@ -108,7 +108,7 @@ const config: DeepServiceConfig = {
     body: "Indiquez-nous votre trajet et vos dates : nous revenons vers vous avec les meilleures options.",
     ctaLabel: "Demander mon billet",
     ctaHref: quoteHref,
-    secondary: { label: "Billets bateau", href: "/services/billets-bateau" },
+    secondary: { label: "Billets bateau", href: "/agence/services/billets-bateau" },
   },
   stickyLabel: "Demander un billet avion",
 };

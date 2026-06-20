@@ -84,7 +84,7 @@ export default function OmraBlogArticlePage({ slug }: Props) {
       <OmraFactoryLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 pt-20 text-center" style={{ background: "#FFF9ED" }}>
           <h1 className="font-playfair text-3xl text-syanor-ink">Article introuvable</h1>
-          <Link href="/omra-hajj/blog" className="btn-primary">Retour au blog Omra</Link>
+          <Link href="/omra-factory/blog" className="btn-primary">Retour au blog Omra</Link>
         </div>
       </OmraFactoryLayout>
     );
@@ -104,9 +104,9 @@ export default function OmraBlogArticlePage({ slug }: Props) {
           <nav className="mb-8 flex flex-wrap items-center gap-2 text-xs" style={{ color: "rgba(255,249,237,0.45)" }}>
             <Link href="/" style={{ color: "rgba(255,249,237,0.45)" }} className="hover:text-syanor-gold transition-colors">Accueil</Link>
             <span>/</span>
-            <Link href="/omra-hajj" style={{ color: "rgba(255,249,237,0.45)" }} className="hover:text-syanor-gold transition-colors">Omra Factory</Link>
+            <Link href="/omra-factory" style={{ color: "rgba(255,249,237,0.45)" }} className="hover:text-syanor-gold transition-colors">Omra Factory</Link>
             <span>/</span>
-            <Link href="/omra-hajj/blog" style={{ color: "rgba(255,249,237,0.45)" }} className="hover:text-syanor-gold transition-colors">Blog</Link>
+            <Link href="/omra-factory/blog" style={{ color: "rgba(255,249,237,0.45)" }} className="hover:text-syanor-gold transition-colors">Blog</Link>
             <span>/</span>
             <span style={{ color: "rgba(255,249,237,0.75)" }}>{article.category}</span>
           </nav>
@@ -164,7 +164,7 @@ export default function OmraBlogArticlePage({ slug }: Props) {
                   Demander un devis
                 </Link>
                 <Link
-                  href="/omra-hajj"
+                  href="/omra-factory"
                   className="mt-2 block rounded-full py-2.5 text-center text-sm font-medium transition-all hover:bg-white/8"
                   style={{ border: "1px solid rgba(255,249,237,0.18)", color: "rgba(255,249,237,0.65)" }}
                 >
@@ -179,7 +179,7 @@ export default function OmraBlogArticlePage({ slug }: Props) {
                   {related.map((a) => (
                     <Link
                       key={a.slug}
-                      href={`/omra-hajj/blog/${a.slug}`}
+                      href={`/omra-factory/blog/${a.slug}`}
                       className="group block"
                     >
                       <span className="text-[0.6rem] font-bold uppercase tracking-wider text-syanor-gold/70">{a.category}</span>
@@ -201,7 +201,7 @@ export default function OmraBlogArticlePage({ slug }: Props) {
           <p className="eyebrow mb-8">D'autres articles qui pourraient vous aider</p>
           <div className="grid gap-6 md:grid-cols-3">
             {related.map((a) => (
-              <Link key={a.slug} href={`/omra-hajj/blog/${a.slug}`} className="group">
+              <Link key={a.slug} href={`/omra-factory/blog/${a.slug}`} className="group">
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/18 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover">
                   <div
                     className="h-2 w-full"

@@ -73,7 +73,7 @@ export default function OmraBlogPage() {
       <section className="section-pad bg-syanor-champagne/30">
         <div className="mx-auto max-w-7xl px-6 md:px-8">
           <p className="eyebrow mb-6">Article à la une</p>
-          <Link href={`/omra-hajj/blog/${featured.slug}`} className="group block">
+          <Link href={`/omra-factory/blog/${featured.slug}`} className="group block">
             <article className="overflow-hidden rounded-3xl border border-syanor-gold/20 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover md:flex">
               {/* Color band */}
               <div
@@ -114,7 +114,7 @@ export default function OmraBlogPage() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((article) => (
-              <Link key={article.slug} href={`/omra-hajj/blog/${article.slug}`} className="group">
+              <Link key={article.slug} href={`/omra-factory/blog/${article.slug}`} className="group">
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-syanor-gold/20 bg-syanor-pearl shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover">
                   <div
                     className="relative flex h-14 items-center justify-between overflow-hidden px-5"
@@ -171,7 +171,7 @@ export default function OmraBlogPage() {
               Demander un devis Omra
             </Link>
             <Link
-              href="/omra-hajj"
+              href="/omra-factory"
               className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.97]"
               style={{ border: "1.5px solid rgba(255,249,237,0.20)", color: "rgba(255,249,237,0.75)" }}
             >

@@ -41,7 +41,7 @@ export default function ContactCards({
 
         {withCta && (
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/contact#quote" className="btn-primary">
+            <Link href="/agence/contact#quote" className="btn-primary">
               Demander un devis
             </Link>
             <a

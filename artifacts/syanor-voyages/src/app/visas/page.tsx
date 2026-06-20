@@ -187,7 +187,7 @@ export default function VisasPage() {
         body="Dès la réservation, nous prenons en charge toutes les démarches visa. Vous n'avez qu'à vous préparer spirituellement."
         ctaLabel="Demander mon Omra avec assistance visa"
         ctaHref={quoteUrl({ service: "Omra" })}
-        secondary={{ label: "En savoir plus sur l'Omra", href: "/omra-hajj/omra" }}
+        secondary={{ label: "En savoir plus sur l'Omra", href: "/omra-factory/omra" }}
       />
 
       <StickyMobileCTA label="Demander l'assistance visa" href={quoteUrl({ service: "Omra" })} />

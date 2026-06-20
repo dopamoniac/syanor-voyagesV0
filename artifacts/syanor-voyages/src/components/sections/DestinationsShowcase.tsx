@@ -147,7 +147,7 @@ export default function DestinationsShowcase() {
             </h2>
           </div>
           <Link
-            href="/contact#quote"
+            href="/agence/contact#quote"
             className="shrink-0 rounded-full px-6 py-2.5 text-[0.75rem] font-semibold transition-all duration-200 hover:shadow-md"
             style={{ border: "1px solid #D8B56A", color: "#1A1712" }}
           >

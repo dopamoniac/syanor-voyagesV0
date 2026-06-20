@@ -191,7 +191,7 @@ export default function FaqPage() {
         title="FAQ — Toutes vos questions"
         subtitle="Retrouvez les réponses aux questions les plus fréquentes sur la Omra, le Hajj, les billets, les visas et la réservation."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "FAQ" }]}
-        primaryCta={{ label: "Poser une autre question", href: "/contact" }}
+        primaryCta={{ label: "Poser une autre question", href: "/agence/contact" }}
       />
 
       {/* Tab navigation */}
@@ -251,7 +251,7 @@ export default function FaqPage() {
             Notre équipe répond à toutes vos questions par téléphone, WhatsApp ou e-mail du lundi au vendredi.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="btn-primary">Nous contacter</Link>
+            <Link href="/agence/contact" className="btn-primary">Nous contacter</Link>
             <Link href={quoteUrl({ service: "Omra" })} className="btn-secondary">Demander un devis</Link>
           </div>
         </div>
@@ -262,10 +262,10 @@ export default function FaqPage() {
         body="Remplissez notre formulaire de devis en 2 minutes. Nous revenons vers vous avec une proposition personnalisée."
         ctaLabel="Demander un devis"
         ctaHref={quoteUrl({ service: "Omra" })}
-        secondary={{ label: "Voir les offres Omra", href: "/omra-2026" }}
+        secondary={{ label: "Voir les offres Omra", href: "/omra-factory/omra-2026" }}
       />
 
-      <StickyMobileCTA label="Poser ma question" href="/contact" />
+      <StickyMobileCTA label="Poser ma question" href="/agence/contact" />
     </SiteLayout>
   );
 }

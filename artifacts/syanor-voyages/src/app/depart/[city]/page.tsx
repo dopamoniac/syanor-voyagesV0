@@ -44,7 +44,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
       <OmraFactoryLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-syanor-ivory px-6 text-center">
           <h1 className="font-playfair text-3xl text-syanor-ink">Ville introuvable</h1>
-          <Link href="/offres" className="btn-primary">Voir les offres</Link>
+          <Link href="/agence/offres" className="btn-primary">Voir les offres</Link>
         </div>
       </OmraFactoryLayout>
     );
@@ -299,7 +299,7 @@ export default function DepartCityPage({ city: cityParam }: Props) {
         body={`Indiquez vos dates souhaitées et votre confort. Nous construisons votre programme depuis ${city.name}.`}
         ctaLabel={`Demander depuis ${city.name}`}
         ctaHref={omraQuoteUrl({ service: "Omra", city: city.name })}
-        secondary={{ label: "Voir tous les départs", href: "/offres" }}
+        secondary={{ label: "Voir tous les départs", href: "/agence/offres" }}
       />
 
       <StickyMobileCTA label={`Omra depuis ${city.name}`} href={omraQuoteUrl({ service: "Omra", city: city.name })} />

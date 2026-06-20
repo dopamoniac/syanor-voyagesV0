@@ -119,7 +119,7 @@ export default function OmraStepTimeline() {
 
         {/* Bottom CTA */}
         <div className="mt-14 text-center">
-          <Link href="/contact#quote" className="btn-primary">
+          <Link href="/omra-factory/contact#quote" className="btn-primary">
             Commencer mon Omra
           </Link>
           <p className="mt-4 text-sm text-syanor-champagne/55">

@@ -34,11 +34,11 @@ export default function OffresPage() {
         title="Vous ne trouvez pas le départ idéal ?"
         body="Indiquez-nous vos dates, votre ville de départ et votre confort : nous construisons une proposition sur mesure."
         ctaLabel="Demander une proposition"
-        ctaHref="/contact#quote"
-        secondary={{ label: "Séjours sur mesure", href: "/sejours-sur-mesure" }}
+        ctaHref="/agence/contact#quote"
+        secondary={{ label: "Séjours sur mesure", href: "/agence/sejours-sur-mesure" }}
       />
 
-      <StickyMobileCTA label="Demander un devis" href="/contact#quote" />
+      <StickyMobileCTA label="Demander un devis" href="/agence/contact#quote" />
     </SiteLayout>
   );
 }

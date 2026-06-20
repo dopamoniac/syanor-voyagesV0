@@ -124,7 +124,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {/* Primary — general travel */}
               <Link
-                href="/services"
+                href="/agence/services"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-syanor-emerald px-6 py-3.5 text-sm font-semibold text-syanor-ivory shadow-[0_4px_20px_rgba(6,63,51,0.25)] transition-all duration-200 hover:bg-syanor-royal hover:shadow-[0_8px_32px_rgba(6,63,51,0.35)] active:scale-[0.97]"
               >
                 <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">

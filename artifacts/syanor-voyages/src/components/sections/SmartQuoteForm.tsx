@@ -611,7 +611,7 @@ function SmartQuoteFormInner() {
               Continuer sur WhatsApp
             </a>
             <Link
-              href="/offres"
+              href="/agence/offres"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-syanor-gold/25 px-7 py-3.5 text-sm font-semibold text-syanor-champagne/80 transition hover:border-syanor-gold hover:text-syanor-gold"
             >
               Voir nos départs

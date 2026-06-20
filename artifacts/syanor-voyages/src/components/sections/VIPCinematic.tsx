@@ -89,7 +89,7 @@ export default function VIPCinematic() {
             {/* CTA */}
             <div className="mt-10">
               <Link
-                href="/contact?service=Pack+personnalis%C3%A9#quote"
+                href="/agence/contact?service=Pack+personnalis%C3%A9#quote"
                 className="inline-flex items-center gap-3 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(184,138,68,0.32)] active:scale-[0.97]"
                 style={{
                   background: "linear-gradient(135deg, #C9A24A 0%, #e0c070 50%, #C9A24A 100%)",

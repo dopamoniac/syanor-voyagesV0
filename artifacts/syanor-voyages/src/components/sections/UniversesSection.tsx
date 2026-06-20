@@ -84,7 +84,7 @@ export default function UniversesSection() {
             </div>
 
             <Link
-              href="/services"
+              href="/agence/services"
               className="inline-flex items-center gap-2.5 rounded-full bg-syanor-emerald px-6 py-3 text-sm font-semibold text-syanor-ivory transition-all duration-200 hover:bg-syanor-royal hover:shadow-card"
             >
               Découvrir les services SYANOR
@@ -169,7 +169,7 @@ export default function UniversesSection() {
             </div>
 
             <Link
-              href="/omra-hajj"
+              href="/omra-factory"
               className="inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold text-syanor-royal transition-all duration-200 hover:opacity-90 hover:shadow-[0_8px_24px_rgba(201,162,74,0.35)]"
               style={{ background: "linear-gradient(135deg, #C9A24A 0%, #e8c87a 50%, #C9A24A 100%)" }}
             >

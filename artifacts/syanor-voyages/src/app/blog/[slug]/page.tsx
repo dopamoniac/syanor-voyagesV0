@@ -37,7 +37,7 @@ export default function BlogArticlePage({ slug }: Props) {
       <SiteLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-syanor-ivory px-6 text-center">
           <h1 className="font-playfair text-3xl text-syanor-ink">Article introuvable</h1>
-          <Link href="/blog" className="btn-primary">Retour au blog</Link>
+          <Link href="/agence/blog" className="btn-primary">Retour au blog</Link>
         </div>
       </SiteLayout>
     );
@@ -54,7 +54,7 @@ export default function BlogArticlePage({ slug }: Props) {
           <nav className="mb-8 flex items-center gap-2 text-xs text-syanor-champagne/60">
             <Link href="/" className="hover:text-syanor-gold">Accueil</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-syanor-gold">Blog</Link>
+            <Link href="/agence/blog" className="hover:text-syanor-gold">Blog</Link>
             <span>/</span>
             <span className="text-syanor-champagne/90">{article.category}</span>
           </nav>
@@ -212,7 +212,7 @@ export default function BlogArticlePage({ slug }: Props) {
         body="Passez à l'action. Demandez votre devis Omra personnalisé — nous revenons vers vous rapidement."
         ctaLabel="Demander mon devis Omra"
         ctaHref={quoteUrl({ service: "Omra" })}
-        secondary={{ label: "Voir tous les articles", href: "/blog" }}
+        secondary={{ label: "Voir tous les articles", href: "/agence/blog" }}
       />
 
       <StickyMobileCTA label="Demander un devis" href={quoteUrl({ service: "Omra" })} />

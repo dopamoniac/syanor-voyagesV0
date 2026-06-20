@@ -44,7 +44,7 @@ export default function OmraMonthPage2026({ month: monthParam }: Props) {
       <OmraFactoryLayout>
         <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-syanor-ivory px-6 text-center">
           <h1 className="font-playfair text-3xl text-syanor-ink">Mois introuvable</h1>
-          <Link href="/omra-2026" className="btn-primary">Retour Omra 2026</Link>
+          <Link href="/omra-factory/omra-2026" className="btn-primary">Retour Omra 2026</Link>
         </div>
       </OmraFactoryLayout>
     );

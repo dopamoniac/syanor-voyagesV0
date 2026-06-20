@@ -193,11 +193,11 @@ export default function ServicesEditorial() {
               chaque réservation pour que vous partiez dans les meilleures conditions.
             </p>
             <div className="grid grid-cols-2 gap-3 mb-10">
-              <SubCard label="Billets Avion"  desc="Vols internationaux, aller-retour, multi-escales" href="/services/billets-avion" />
-              <SubCard label="Billets Bateau" desc="Ferry & traversées, tous ports, option véhicule"  href="/services/billets-bateau" />
+              <SubCard label="Billets Avion"  desc="Vols internationaux, aller-retour, multi-escales" href="/agence/services/billets-avion" />
+              <SubCard label="Billets Bateau" desc="Ferry & traversées, tous ports, option véhicule"  href="/agence/services/billets-bateau" />
             </div>
             <Link
-              href="/contact?service=Billet+avion#quote"
+              href="/agence/contact?service=Billet+avion#quote"
               className="group inline-flex items-center gap-2.5 font-semibold transition-all duration-200"
               style={{ color: GOLD, fontSize: "clamp(1.0rem, 1.2vw, 1.15rem)" }}
             >
@@ -230,12 +230,12 @@ export default function ServicesEditorial() {
               chaque voyage autour de vos envies, votre budget et vos dates.
             </p>
             <div className="space-y-3 mb-10">
-              <RowLink label="Voyages Organisés" desc="Circuit guidé, programme complet, hébergements inclus"  href="/voyages-organises" />
-              <RowLink label="Séjour Sur Mesure" desc="Vos dates, votre confort, votre budget — un voyage unique" href="/sejours-sur-mesure" />
-              <RowLink label="Voyage de Noces"   desc="Lune de miel pensée dans les moindres détails"          href="/contact?service=Voyage+de+noces#quote" />
+              <RowLink label="Voyages Organisés" desc="Circuit guidé, programme complet, hébergements inclus"  href="/agence/voyages-organises" />
+              <RowLink label="Séjour Sur Mesure" desc="Vos dates, votre confort, votre budget — un voyage unique" href="/agence/sejours-sur-mesure" />
+              <RowLink label="Voyage de Noces"   desc="Lune de miel pensée dans les moindres détails"          href="/agence/contact?service=Voyage+de+noces#quote" />
             </div>
             <Link
-              href="/sejours-sur-mesure"
+              href="/agence/sejours-sur-mesure"
               className="group inline-flex items-center gap-2.5 font-semibold transition-all duration-200"
               style={{ color: GOLD, fontSize: "clamp(1.0rem, 1.2vw, 1.15rem)" }}
             >
@@ -269,7 +269,7 @@ export default function ServicesEditorial() {
               <FeatureRow num="03" label="Hôtels &amp; Transferts" desc="Sélection 4–5★, transferts privés aéroport" />
             </div>
             <Link
-              href="/contact?service=Visa#quote"
+              href="/agence/contact?service=Visa#quote"
               className="group inline-flex items-center gap-2.5 font-semibold transition-all duration-200"
               style={{ color: GOLD, fontSize: "clamp(1.0rem, 1.2vw, 1.15rem)" }}
             >

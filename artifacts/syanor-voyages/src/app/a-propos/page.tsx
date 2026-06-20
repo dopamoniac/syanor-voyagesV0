@@ -44,8 +44,8 @@ export default function AProposPage() {
         title="SYANOR VOYAGES — La Renaissance du Voyage."
         subtitle="Une agence de voyages premium dédiée à transformer chaque projet en une expérience claire, sereine et soignée."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "À propos" }]}
-        primaryCta={{ label: "Nous contacter", href: "/contact" }}
-        secondaryCta={{ label: "Nos services", href: "/services" }}
+        primaryCta={{ label: "Nous contacter", href: "/agence/contact" }}
+        secondaryCta={{ label: "Nos services", href: "/agence/services" }}
       />
 
       <Section variant="ivory">
@@ -108,11 +108,11 @@ export default function AProposPage() {
         title="Construisons votre prochain voyage ensemble."
         body="Une équipe attentive et un service premium, à votre écoute."
         ctaLabel="Demander un devis"
-        ctaHref="/contact#quote"
-        secondary={{ label: "Découvrir nos services", href: "/services" }}
+        ctaHref="/agence/contact#quote"
+        secondary={{ label: "Découvrir nos services", href: "/agence/services" }}
       />
 
-      <StickyMobileCTA label="Nous contacter" href="/contact" />
+      <StickyMobileCTA label="Nous contacter" href="/agence/contact" />
     </SiteLayout>
   );
 }

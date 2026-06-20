@@ -47,7 +47,7 @@ export default function VoyagesOrganisesPage() {
         subtitle="Famille, groupe, culture ou premium : un programme structuré, un transport coordonné et un accompagnement dédié, pour voyager l'esprit léger."
         crumbs={[{ label: "Accueil", href: "/" }, { label: "Voyages Organisés" }]}
         primaryCta={{ label: "Demander un devis", href: quoteHref }}
-        secondaryCta={{ label: "Séjours sur mesure", href: "/sejours-sur-mesure" }}
+        secondaryCta={{ label: "Séjours sur mesure", href: "/agence/sejours-sur-mesure" }}
       />
 
       <Section
@@ -110,7 +110,7 @@ export default function VoyagesOrganisesPage() {
         body="Confiez-nous l'organisation de votre prochain voyage en groupe ou en famille."
         ctaLabel="Demander un devis"
         ctaHref={quoteHref}
-        secondary={{ label: "Voir les offres", href: "/offres" }}
+        secondary={{ label: "Voir les offres", href: "/agence/offres" }}
       />
 
       <StickyMobileCTA label="Demander un devis" href={quoteHref} />

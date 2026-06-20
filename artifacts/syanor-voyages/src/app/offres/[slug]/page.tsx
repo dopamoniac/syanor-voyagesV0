@@ -120,7 +120,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
           <p className="mt-4 text-syanor-ink/70">
             L&apos;offre que vous recherchez n&apos;existe pas ou n&apos;est plus disponible.
           </p>
-          <Link href="/offres" className="btn-primary mt-8">
+          <Link href="/agence/offres" className="btn-primary mt-8">
             Voir toutes les offres
           </Link>
         </section>
@@ -155,7 +155,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
             <Breadcrumb
               items={[
                 { label: "Accueil", href: "/" },
-                { label: "Offres & Départs", href: "/offres" },
+                { label: "Offres & Départs", href: "/agence/offres" },
                 { label: offer.title },
               ]}
             />
@@ -203,7 +203,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
           )}
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Link
-              href={isComplete ? "/offres" : ctaHref}
+              href={isComplete ? "/agence/offres" : ctaHref}
               className={cn("btn-primary", isComplete && "pointer-events-none opacity-60")}
             >
               {isComplete
@@ -212,7 +212,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
                   ? "Faire une préinscription"
                   : "Demander cette offre"}
             </Link>
-            <Link href="/offres" className="btn-secondary">
+            <Link href="/agence/offres" className="btn-secondary">
               Toutes les offres
             </Link>
             {offer.priceFrom && (

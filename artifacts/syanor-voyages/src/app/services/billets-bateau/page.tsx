@@ -21,7 +21,7 @@ const config: DeepServiceConfig = {
     "Aller simple ou aller-retour, conseils sur les ports et horaires, option véhicule lorsque cela s'applique : nous facilitons vos traversées maritimes.",
   crumbs: [
     { label: "Accueil", href: "/" },
-    { label: "Services", href: "/services" },
+    { label: "Services", href: "/agence/services" },
     { label: "Billets Bateau" },
   ],
   quoteHref,
@@ -107,7 +107,7 @@ const config: DeepServiceConfig = {
     body: "Précisez vos ports, vos dates et l'option véhicule : nous vous proposons la meilleure solution.",
     ctaLabel: "Demander une traversée",
     ctaHref: quoteHref,
-    secondary: { label: "Billets avion", href: "/services/billets-avion" },
+    secondary: { label: "Billets avion", href: "/agence/services/billets-avion" },
   },
   stickyLabel: "Demander une traversée",
 };
