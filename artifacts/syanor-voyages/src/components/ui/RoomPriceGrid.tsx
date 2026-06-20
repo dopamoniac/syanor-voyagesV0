@@ -55,7 +55,7 @@ export default function RoomPriceGrid({ prices, ctaBaseHref, offerTitle }: RoomP
   return (
     <div>
       <p className="eyebrow mb-4">Tarifs par chambre</p>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
         {ROOMS.map((room) => {
           const price = prices?.[room.key];
           // Strip any existing fragment from the base URL before appending roomType,
@@ -66,7 +66,7 @@ export default function RoomPriceGrid({ prices, ctaBaseHref, offerTitle }: RoomP
           return (
             <div
               key={room.key}
-              className="group flex flex-col items-center rounded-2xl border border-syanor-gold/20 bg-syanor-pearl p-5 text-center shadow-card transition-all duration-300 hover:border-syanor-gold hover:shadow-gold"
+              className="group flex flex-col items-center rounded-2xl border border-syanor-gold/20 bg-syanor-pearl p-4 sm:p-5 text-center shadow-card transition-all duration-300 hover:border-syanor-gold hover:shadow-gold"
             >
               <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-syanor-emerald/10 text-syanor-emerald group-hover:bg-syanor-gold/15 group-hover:text-syanor-gold">
                 {room.icon}
@@ -86,7 +86,7 @@ export default function RoomPriceGrid({ prices, ctaBaseHref, offerTitle }: RoomP
               </p>
               <Link
                 href={ctaHref}
-                className="mt-4 w-full rounded-full border border-syanor-gold/30 px-3 py-1.5 text-xs font-medium text-syanor-emerald transition hover:border-syanor-gold hover:text-syanor-gold"
+                className="mt-4 flex min-h-[44px] w-full items-center justify-center rounded-full border border-syanor-gold/30 px-3 text-xs font-medium text-syanor-emerald transition hover:border-syanor-gold hover:text-syanor-gold"
               >
                 Choisir
               </Link>

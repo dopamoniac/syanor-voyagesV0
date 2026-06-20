@@ -180,7 +180,7 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
               </span>
             )}
           </div>
-          <h1 className="mt-5 max-w-3xl font-playfair text-4xl font-bold leading-[1.1] text-syanor-ink md:text-5xl">
+          <h1 className="mt-5 max-w-3xl font-playfair text-3xl font-bold leading-[1.1] text-syanor-ink sm:text-4xl lg:text-5xl">
             {offer.title}
           </h1>
           {offer.summary && (
@@ -190,18 +190,18 @@ export default function OfferDetailPage({ slug }: { slug: string }) {
           )}
           {/* Route display */}
           {offer.outboundRoute && (
-            <div className="mt-4 flex items-center gap-2 text-sm text-syanor-ink/60">
-              <Icon name="airplane" className="h-3.5 w-3.5 text-syanor-gold" aria-hidden="true" />
+            <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-syanor-ink/60">
+              <Icon name="airplane" className="h-3.5 w-3.5 shrink-0 text-syanor-gold" aria-hidden="true" />
               <span>{offer.outboundRoute}</span>
               {offer.inboundRoute && (
                 <>
-                  <span className="text-syanor-gold/40 mx-1" aria-hidden="true">·</span>
+                  <span className="text-syanor-gold/40" aria-hidden="true">·</span>
                   <span>{offer.inboundRoute}</span>
                 </>
               )}
             </div>
           )}
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
               href={isComplete ? "/agence/offres" : ctaHref}
               className={cn("btn-primary", isComplete && "pointer-events-none opacity-60")}

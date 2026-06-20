@@ -316,9 +316,9 @@ function PhotoCard({ svc, theme, delay, imgHeight = "h-[190px] sm:h-[240px]", fe
         </div>
 
         {/* ── Content panel ── */}
-        <div className="flex flex-1 flex-col justify-between px-5 py-[18px]">
+        <div className="flex flex-1 flex-col justify-between px-3 py-4 sm:px-5 sm:py-[18px]">
           <div>
-            <p className={`font-playfair text-[1.05rem] font-semibold leading-snug ${t.title}`}>
+            <p className={`font-playfair text-[0.95rem] font-semibold leading-snug sm:text-[1.05rem] ${t.title}`}>
               {svc.title}
             </p>
             <p className={`mt-1.5 text-[0.75rem] leading-relaxed ${t.desc}`}>
@@ -350,7 +350,7 @@ function VIPCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
       >
         {/* Top icon band */}
         <div
-          className="flex items-center justify-between px-5 py-5"
+          className="flex items-center justify-between px-3 py-4 sm:px-5 sm:py-5"
           style={{ background: "linear-gradient(135deg, rgba(201,162,74,0.10) 0%, rgba(201,162,74,0.02) 100%)" }}
         >
           <span
@@ -375,9 +375,9 @@ function VIPCard({ svc, delay }: { svc: ServiceItem; delay: number }) {
         <div className="mx-5 h-px" style={{ background: "rgba(201,162,74,0.14)" }} aria-hidden />
 
         {/* Content */}
-        <div className="flex flex-1 flex-col justify-between px-5 py-5">
+        <div className="flex flex-1 flex-col justify-between px-3 py-4 sm:px-5 sm:py-5">
           <div>
-            <p className="font-playfair text-[1.05rem] font-semibold leading-snug text-syanor-ivory">
+            <p className="font-playfair text-[0.95rem] font-semibold leading-snug text-syanor-ivory sm:text-[1.05rem]">
               {svc.title}
             </p>
             <p className="mt-1.5 text-[0.74rem] leading-relaxed text-white/45">

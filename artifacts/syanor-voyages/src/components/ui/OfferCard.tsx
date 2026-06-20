@@ -328,7 +328,7 @@ export default function OfferCard({ offer }: { offer: TravelOffer }) {
           <div className="flex gap-2">
             <Link
               href={`/offres/${offer.slug}`}
-              className="flex-1 rounded-full border border-syanor-gold/22 px-3 py-2.5 text-center text-[0.72rem] font-medium text-syanor-ink/60 transition-all duration-200 hover:border-syanor-gold/50 hover:text-syanor-gold"
+              className="flex flex-1 min-h-[44px] items-center justify-center rounded-full border border-syanor-gold/22 px-3 text-center text-[0.72rem] font-medium text-syanor-ink/60 transition-all duration-200 hover:border-syanor-gold/50 hover:text-syanor-gold"
             >
               Détails
             </Link>
@@ -349,7 +349,7 @@ export default function OfferCard({ offer }: { offer: TravelOffer }) {
                     })
               }
               className={cn(
-                "flex-[2] rounded-full px-3 py-2.5 text-center text-[0.72rem] font-semibold transition-all duration-200",
+                "flex flex-[2] min-h-[44px] items-center justify-center rounded-full px-3 text-center text-[0.72rem] font-semibold transition-all duration-200",
                 isComplete
                   ? "cursor-not-allowed bg-syanor-ink/8 text-syanor-ink/28"
                   : "bg-syanor-emerald text-syanor-champagne hover:bg-syanor-gold hover:text-syanor-royal hover:shadow-[0_4px_16px_rgba(201,162,74,0.28)]"
