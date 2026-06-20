@@ -11,19 +11,19 @@ import AgenceHome            from "@/app/agence/page";
 import AProposPage           from "@/app/a-propos/page";
 import ConditionsGeneralesPage from "@/app/conditions-generales/page";
 import ContactPage           from "@/app/contact/page";
-import FormationPage         from "@/app/formation/page";
+import AgenceFormationPage   from "@/app/agence/formation/page";
 import OmraFormationsPage    from "@/app/omra-factory/formations/page";
 import MentionsLegalesPage   from "@/app/mentions-legales/page";
 import OffresPage            from "@/app/offres/page";
 import OfferDetailPage       from "@/app/offres/[slug]/page";
 import PolitiqueConfidentialitePage from "@/app/politique-confidentialite/page";
 import SejoursSurMesurePage  from "@/app/sejours-sur-mesure/page";
-import ServicesPage          from "@/app/services/page";
+import AgenceServicesPage    from "@/app/agence/services/page";
 import BilletsAvionPage      from "@/app/services/billets-avion/page";
 import BilletsBateauPage     from "@/app/services/billets-bateau/page";
 import VoyagesOrganisesPage  from "@/app/voyages-organises/page";
-import VisasPage             from "@/app/visas/page";
-import FaqPage               from "@/app/faq/page";
+import AgenceVisasPage       from "@/app/agence/visas/page";
+import AgenceFaqPage         from "@/app/agence/faq/page";
 import BlogPage              from "@/app/blog/page";
 import BlogArticlePage       from "@/app/blog/[slug]/page";
 
@@ -77,16 +77,16 @@ function Router() {
       <Route path="/agence/a-propos"                component={AProposPage} />
       <Route path="/agence/conditions-generales"    component={ConditionsGeneralesPage} />
       <Route path="/agence/contact"                 component={ContactPage} />
-      <Route path="/agence/formation"               component={FormationPage} />
+      <Route path="/agence/formation"               component={AgenceFormationPage} />
       <Route path="/agence/mentions-legales"        component={MentionsLegalesPage} />
       <Route path="/agence/politique-confidentialite" component={PolitiqueConfidentialitePage} />
       <Route path="/agence/sejours-sur-mesure"      component={SejoursSurMesurePage} />
       <Route path="/agence/voyages-organises"       component={VoyagesOrganisesPage} />
-      <Route path="/agence/services"                component={ServicesPage} />
+      <Route path="/agence/services"                component={AgenceServicesPage} />
       <Route path="/agence/services/billets-avion"  component={BilletsAvionPage} />
       <Route path="/agence/services/billets-bateau" component={BilletsBateauPage} />
-      <Route path="/agence/visas"                   component={VisasPage} />
-      <Route path="/agence/faq"                     component={FaqPage} />
+      <Route path="/agence/visas"                   component={AgenceVisasPage} />
+      <Route path="/agence/faq"                     component={AgenceFaqPage} />
       <Route path="/agence/offres"                  component={OffresPage} />
       <Route path="/agence/offres/:slug">
         {(params) => <OfferDetailPage slug={params.slug ?? ""} />}

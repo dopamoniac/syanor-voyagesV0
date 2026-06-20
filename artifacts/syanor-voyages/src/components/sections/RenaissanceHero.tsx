@@ -155,7 +155,7 @@ export default function RenaissanceHero() {
         >
           {/* Button 1 — Univers Voyages */}
           <Link
-            href="/services"
+            href="/agence"
             className="rh-btn inline-flex items-center justify-center gap-2.5 rounded-full font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97]"
             style={{
               background: "#0B1E3D",
@@ -173,7 +173,7 @@ export default function RenaissanceHero() {
 
           {/* Button 2 — Omra Factory */}
           <Link
-            href="/omra-hajj"
+            href="/omra-factory"
             className="rh-btn inline-flex items-center justify-center gap-2.5 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97]"
             style={{
               background: "rgba(255,255,255,.92)",
