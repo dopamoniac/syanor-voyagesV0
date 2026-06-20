@@ -133,16 +133,15 @@ export default function Hero() {
                 Nos voyages & services
               </Link>
 
-              {/* Secondary — Omra & Hajj universe */}
+              {/* Secondary — devis */}
               <Link
-                href="/omra-hajj"
+                href="/agence/contact#quote"
                 className="group inline-flex items-center gap-2.5 rounded-full border border-syanor-gold/40 bg-syanor-gold/8 px-6 py-3.5 text-sm font-semibold text-syanor-ink/80 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/15 hover:text-syanor-ink active:scale-[0.97]"
               >
-                {/* Crescent icon */}
-                <svg className="h-4 w-4 shrink-0 text-syanor-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <svg className="h-4 w-4 shrink-0 text-syanor-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M9 12h6M9 16h6M17 2H7a2 2 0 00-2 2v16a2 2 0 002 2h10a2 2 0 002-2V4a2 2 0 00-2-2z" />
                 </svg>
-                Univers Omra &amp; Hajj
+                Demander un devis
               </Link>
             </div>
 

@@ -163,11 +163,11 @@ export default function BlogArticlePage({ slug }: Props) {
                 <p className="eyebrow mb-4">Pages utiles</p>
                 <ul className="space-y-2">
                   {[
-                    { label: "Départs Omra 2026", href: "/omra-2026" },
-                    { label: "Départs Omra 2027", href: "/omra-2027" },
-                    { label: "Assistance visa", href: "/visas" },
-                    { label: "FAQ", href: "/faq" },
-                    { label: "Hajj 2027", href: "/hajj-2027" },
+                    { label: "Nos services", href: "/agence/services" },
+                    { label: "Nos offres", href: "/agence/offres" },
+                    { label: "Assistance visa", href: "/agence/visas" },
+                    { label: "FAQ", href: "/agence/faq" },
+                    { label: "Voyages organisés", href: "/agence/voyages-organises" },
                   ].map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className="text-sm text-syanor-emerald hover:underline">
