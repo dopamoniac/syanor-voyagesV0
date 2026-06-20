@@ -217,7 +217,7 @@ export default function OmraHajjPage() {
               src="/omra/hero-mecca.png"
               alt=""
               className="h-full w-full object-cover"
-              style={{ objectPosition: "right 62%" }}
+              style={{ objectPosition: "right 72%" }}
               loading="eager"
             />
           </picture>
@@ -234,11 +234,11 @@ export default function OmraHajjPage() {
         </div>
 
         {/* ── CONTENT ── */}
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-center px-6 pb-20 pt-[88px] md:px-10 lg:px-16 xl:px-20 2xl:px-24">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1440px] flex-col justify-start lg:justify-center px-6 pb-20 pt-[88px] md:px-10 lg:px-16 xl:px-20 2xl:px-24">
 
           {/* Left text block */}
-          <div className="flex flex-1 items-center">
-            <div className="w-full max-w-[620px] xl:max-w-[680px] 2xl:max-w-[740px] py-10 lg:py-16">
+          <div className="flex flex-1 items-start lg:items-center">
+            <div className="w-full max-w-[620px] xl:max-w-[680px] 2xl:max-w-[740px] pt-2 pb-10 lg:py-16">
 
               {/* Eyebrow */}
               <div className="mb-6 flex items-center gap-3">
@@ -272,7 +272,7 @@ export default function OmraHajjPage() {
               </p>
 
               {/* CTAs */}
-              <div className="mt-9 flex flex-wrap gap-3 sm:gap-4">
+              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link
                   href="/omra-factory/omra-2026"
                   className="inline-flex items-center gap-2.5 rounded-full font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(6,59,50,0.30)] active:scale-[0.97]"
