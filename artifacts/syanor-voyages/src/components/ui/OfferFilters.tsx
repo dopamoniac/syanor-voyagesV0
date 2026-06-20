@@ -135,10 +135,7 @@ function FilterDropdown({
           "bg-white transition-all duration-200",
           open
             ? "border-syanor-emerald shadow-[0_0_0_3px_rgba(6,63,51,0.09)]"
-            : [
-                "border-syanor-gold/30 shadow-[0_2px_8px_rgba(6,63,51,0.05)]",
-                "hover:border-syanor-emerald/50 hover:shadow-[0_4px_16px_rgba(6,63,51,0.08)]",
-              ]
+            : "border-syanor-gold/30 shadow-[0_2px_8px_rgba(6,63,51,0.05)] hover:border-syanor-emerald/50 hover:shadow-[0_4px_16px_rgba(6,63,51,0.08)]"
         )}
       >
         <div className="min-w-0 flex-1">

@@ -267,7 +267,7 @@ export default function ActivityConfigurator({
   }
 
   function handleActivityChange(id: string) {
-    setActiveId(id);
+    setActiveId(id as "omra" | "avion" | "bateau" | "sejour");
     setStepIndex(0);
     setValues({});
     setCounters({ travelers: 2 });

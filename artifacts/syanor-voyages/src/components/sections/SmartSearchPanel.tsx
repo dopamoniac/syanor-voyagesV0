@@ -183,12 +183,12 @@ function PillTab({
         !active && "hover:border-[rgba(201,162,74,0.55)] hover:bg-white hover:text-[#063F33] hover:shadow-[0_2px_8px_rgba(201,162,74,0.15)]"
       )}
     >
-      <Icon
-        name={iconName}
-        className="h-3.5 w-3.5 shrink-0"
-        style={active ? { color: "rgba(201,162,74,0.90)" } : { color: "currentColor", opacity: 0.65 }}
+      <span
         aria-hidden="true"
-      />
+        style={active ? { color: "rgba(201,162,74,0.90)" } : { color: "currentColor", opacity: 0.65 }}
+      >
+        <Icon name={iconName} className="h-3.5 w-3.5 shrink-0" />
+      </span>
       <span className="whitespace-nowrap">{label}</span>
     </button>
   );
@@ -558,13 +558,13 @@ export default function SmartSearchPanel() {
                 {/* Comfort */}
                 <div className="flex flex-col gap-1.5">
                   <FieldLabel>Niveau de confort</FieldLabel>
-                  <PillGroup options={COMFORT_OPTIONS} value={comfort} onChange={setComfort} />
+                  <PillGroup options={COMFORT_OPTIONS} value={comfort} onChange={(v) => setComfort(v)} />
                 </div>
 
                 {/* Budget */}
                 <div className="flex flex-col gap-1.5">
                   <FieldLabel>Budget / personne</FieldLabel>
-                  <PillGroup options={BUDGET_OPTIONS} value={budget} onChange={setBudget} gold />
+                  <PillGroup options={BUDGET_OPTIONS} value={budget} onChange={(v) => setBudget(v)} gold />
                 </div>
               </div>
             </div>

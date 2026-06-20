@@ -120,10 +120,10 @@ export default function ConfiguratorSection({
               />
             </Row>
             <Row label="Transport">
-              <ChipRow options={transports} value={transport} onSelect={setTransport} />
+              <ChipRow options={transports} value={transport} onSelect={(v) => setTransport(v)} />
             </Row>
             <Row label="Confort">
-              <ChipRow options={comforts} value={comfort} onSelect={setComfort} />
+              <ChipRow options={comforts} value={comfort} onSelect={(v) => setComfort(v)} />
             </Row>
             <Row label="Voyageurs">
               <div className="flex items-center gap-3">
