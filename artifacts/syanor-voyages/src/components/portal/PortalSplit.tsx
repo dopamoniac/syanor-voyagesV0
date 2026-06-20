@@ -13,6 +13,7 @@ const PANELS = [
     cta: "Découvrir l'Agence",
     accent: "#D8B56A",
     tint: "rgba(11,30,61,0.48)",
+    side: "left",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -40,6 +41,7 @@ const PANELS = [
     cta: "Découvrir Omra Factory",
     accent: "#D8B56A",
     tint: "rgba(2,43,36,0.50)",
+    side: "right",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -94,6 +96,7 @@ export default function PortalSplit() {
       {PANELS.map((panel) => {
         const isHovered = hovered === panel.id;
         const otherHovered = hovered !== null && !isHovered;
+        const isLeft = panel.side === "left";
 
         return (
           <div
@@ -107,6 +110,9 @@ export default function PortalSplit() {
               transition: "flex 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
               overflow: "hidden",
               cursor: "pointer",
+              animation: isLeft
+                ? "ps-slide-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) both"
+                : "ps-slide-right 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
             }}
           >
             {/* Color tint overlay */}
@@ -175,6 +181,7 @@ export default function PortalSplit() {
                   opacity: isHovered ? 1 : 0.80,
                   transform: isHovered ? "translateY(0)" : "translateY(4px)",
                   transition: "opacity 0.4s ease, transform 0.4s ease",
+                  animation: "ps-up 0.7s 0.75s both",
                 }}
               >
                 {panel.eyebrow}
@@ -189,6 +196,7 @@ export default function PortalSplit() {
                   background: `linear-gradient(to right, ${panel.accent}, transparent)`,
                   marginBottom: 14,
                   transition: "width 0.4s ease",
+                  animation: "ps-fadein 0.7s 0.85s both",
                 }}
               />
 
@@ -204,6 +212,7 @@ export default function PortalSplit() {
                   textShadow: "0 2px 20px rgba(0,0,0,0.45)",
                   marginBottom: 14,
                   letterSpacing: "-0.01em",
+                  animation: "ps-up 0.8s 0.90s both",
                 }}
               >
                 {panel.title}
@@ -220,6 +229,7 @@ export default function PortalSplit() {
                   marginBottom: 28,
                   opacity: isHovered ? 1 : 0.7,
                   transition: "opacity 0.4s ease",
+                  animation: "ps-up 0.8s 1.05s both",
                 }}
               >
                 {panel.description}
@@ -254,6 +264,7 @@ export default function PortalSplit() {
                   alignSelf: "flex-start",
                   whiteSpace: "nowrap",
                   pointerEvents: "none",
+                  animation: "ps-up 0.9s 1.20s both",
                 }}
               >
                 <span style={{ color: isHovered ? "#0B1E3D" : panel.accent }}>
@@ -274,6 +285,7 @@ export default function PortalSplit() {
                 opacity: isHovered ? 1 : 0.45,
                 transition: "opacity 0.35s ease",
                 pointerEvents: "none",
+                animation: "ps-fadein 0.8s 1.0s both",
               }}
             >
               <p
@@ -313,6 +325,7 @@ export default function PortalSplit() {
           justifyContent: "center",
           boxShadow: "0 4px 24px rgba(0,0,0,0.25)",
           pointerEvents: "none",
+          animation: "ps-badge 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s both",
         }}
       >
         <div
@@ -325,8 +338,36 @@ export default function PortalSplit() {
       </div>
 
       <style>{`
+        @keyframes ps-slide-left {
+          from { transform: translateX(-100%); opacity: 0; }
+          to   { transform: translateX(0);     opacity: 1; }
+        }
+        @keyframes ps-slide-right {
+          from { transform: translateX(100%); opacity: 0; }
+          to   { transform: translateX(0);    opacity: 1; }
+        }
+        @keyframes ps-up {
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0);    }
+        }
+        @keyframes ps-fadein {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes ps-badge {
+          from { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+          to   { opacity: 1; transform: translate(-50%, -50%) scale(1);   }
+        }
         @media (max-width: 639px) {
           #portal-split-root { flex-direction: column !important; }
+          @keyframes ps-slide-left {
+            from { transform: translateY(-60%); opacity: 0; }
+            to   { transform: translateY(0);    opacity: 1; }
+          }
+          @keyframes ps-slide-right {
+            from { transform: translateY(60%); opacity: 0; }
+            to   { transform: translateY(0);   opacity: 1; }
+          }
         }
       `}</style>
     </div>
