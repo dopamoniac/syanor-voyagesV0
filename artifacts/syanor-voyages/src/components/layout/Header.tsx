@@ -218,9 +218,8 @@ export default function Header() {
   const [openMegaMenu, setOpenMegaMenu] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
-  const forceBg = location !== "/agence" && location !== "/agence/";
-  const showBg = scrolled || forceBg;
-  const transparent = !showBg;
+  const showBg = true;
+  const transparent = false;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
