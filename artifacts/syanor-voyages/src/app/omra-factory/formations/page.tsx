@@ -8,9 +8,9 @@ import ProcessSteps from "@/components/ui/ProcessSteps";
 import FaqSection from "@/components/sections/FaqSection";
 import CTASection from "@/components/ui/CTASection";
 import StickyMobileCTA from "@/components/ui/StickyMobileCTA";
-import { quoteUrl } from "@/lib/utils";
+import { omraQuoteUrl } from "@/lib/utils";
 
-const quoteHref = quoteUrl({ service: "Omra" });
+const quoteHref = omraQuoteUrl({ service: "Omra" });
 
 const pillars = [
   { title: "Formation avant départ",   desc: "Comprendre le sens et le déroulement de votre voyage spirituel.", icon: "book"     },

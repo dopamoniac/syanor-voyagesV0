@@ -75,5 +75,5 @@ export function quoteUrl(params: {
 }
 
 export function omraQuoteUrl(params: Parameters<typeof quoteUrl>[0]): string {
-  return quoteUrl(params).replace(/^\/contact/, "/omra-hajj/contact");
+  return quoteUrl(params).replace(/^\/contact/, "/omra-factory/contact");
 }
