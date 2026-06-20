@@ -2,6 +2,7 @@ import Link from "@/components/Link";
 import { cn, quoteUrl } from "@/lib/utils";
 import type { AvailabilityStatus, TravelOffer } from "@/types";
 import { useEffect, useRef, useState } from "react";
+import { useCompare } from "@/context/CompareContext";
 
 /* ── Category → photo mapping ───────────────────────────────────── */
 const CATEGORY_IMAGE: Record<string, string> = {
@@ -185,6 +186,47 @@ function PhotoHeader({
         </div>
       )}
     </div>
+  );
+}
+
+/* ── Compare toggle button ──────────────────────────────────────── */
+function CompareToggle({ offer }: { offer: TravelOffer }) {
+  const compare = useCompare();
+  if (!compare) return null;
+
+  const { isSelected, canAdd, toggle } = compare;
+  const selected = isSelected(offer.id);
+  const disabled = !selected && !canAdd;
+
+  return (
+    <button
+      type="button"
+      onClick={(e) => { e.preventDefault(); if (!disabled) toggle(offer); }}
+      disabled={disabled}
+      aria-pressed={selected}
+      aria-label={selected ? "Retirer de la comparaison" : "Comparer cette offre"}
+      className={cn(
+        "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold transition-all duration-200",
+        selected
+          ? "border-syanor-emerald/60 bg-syanor-emerald text-syanor-champagne"
+          : disabled
+          ? "cursor-not-allowed border-syanor-ink/10 text-syanor-ink/20"
+          : "border-syanor-gold/25 text-syanor-ink/45 hover:border-syanor-emerald/50 hover:text-syanor-emerald"
+      )}
+    >
+      <span
+        className={cn(
+          "flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-sm border text-[0.5rem] font-bold",
+          selected
+            ? "border-syanor-champagne/60 bg-syanor-champagne/20"
+            : "border-current"
+        )}
+        aria-hidden="true"
+      >
+        {selected ? "✓" : "+"}
+      </span>
+      {selected ? "Sélectionné" : "Comparer"}
+    </button>
   );
 }
 
@@ -374,6 +416,11 @@ export default function OfferCard({ offer }: { offer: TravelOffer }) {
             >
               Voir détails →
             </Link>
+          </div>
+
+          {/* Compare toggle */}
+          <div className="mb-2.5 flex justify-start">
+            <CompareToggle offer={offer} />
           </div>
 
           {/* CTA buttons */}

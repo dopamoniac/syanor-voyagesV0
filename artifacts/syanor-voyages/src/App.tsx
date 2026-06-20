@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QuoteProvider } from "@/components/providers/QuoteContext";
 import ScrollToTop from "@/components/ScrollToTop";
+import { CompareProvider } from "@/context/CompareContext";
+import CompareDrawer from "@/components/ui/CompareDrawer";
 
 /* ── Portal ── */
 import Home from "@/app/page";
@@ -176,12 +178,15 @@ function Router() {
 
 function App() {
   return (
-    <QuoteProvider>
-      <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-        <ScrollToTop />
-        <Router />
-      </WouterRouter>
-    </QuoteProvider>
+    <CompareProvider>
+      <QuoteProvider>
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+          <ScrollToTop />
+          <Router />
+          <CompareDrawer />
+        </WouterRouter>
+      </QuoteProvider>
+    </CompareProvider>
   );
 }
 

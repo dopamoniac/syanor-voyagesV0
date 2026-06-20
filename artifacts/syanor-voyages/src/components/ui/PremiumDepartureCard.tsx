@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import { quoteUrl } from "@/lib/utils";
 import type { TravelOffer } from "@/types";
 import { useEffect, useRef } from "react";
+import { useCompare } from "@/context/CompareContext";
 
 const CATEGORY_IMAGES: Record<string, string[]> = {
   "Hajj":     ["/services/religieux/hajj.png"],
@@ -68,6 +69,45 @@ function useParallax(strength = 18) {
   }, [strength]);
 
   return { wrapRef, imgRef };
+}
+
+/* ── Compare toggle button ──────────────────────────────────────── */
+function CompareToggle({ offer }: { offer: TravelOffer }) {
+  const compare = useCompare();
+  if (!compare) return null;
+
+  const { isSelected, canAdd, toggle } = compare;
+  const selected = isSelected(offer.id);
+  const disabled = !selected && !canAdd;
+
+  return (
+    <button
+      type="button"
+      onClick={(e) => { e.preventDefault(); if (!disabled) toggle(offer); }}
+      disabled={disabled}
+      aria-pressed={selected}
+      aria-label={selected ? "Retirer de la comparaison" : "Comparer cette offre"}
+      className={[
+        "flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold transition-all duration-200",
+        selected
+          ? "border-syanor-emerald/60 bg-syanor-emerald text-syanor-champagne"
+          : disabled
+          ? "cursor-not-allowed border-syanor-ink/10 text-syanor-ink/20"
+          : "border-syanor-gold/25 text-syanor-ink/45 hover:border-syanor-emerald/50 hover:text-syanor-emerald",
+      ].filter(Boolean).join(" ")}
+    >
+      <span
+        className={[
+          "flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-sm border text-[0.5rem] font-bold",
+          selected ? "border-syanor-champagne/60 bg-syanor-champagne/20" : "border-current",
+        ].filter(Boolean).join(" ")}
+        aria-hidden="true"
+      >
+        {selected ? "✓" : "+"}
+      </span>
+      {selected ? "Sélectionné" : "Comparer"}
+    </button>
+  );
 }
 
 export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Props) {
@@ -226,6 +266,9 @@ export default function PremiumDepartureCard({ offer, index = 0, delay = 0 }: Pr
                   Voir détails →
                 </Link>
               )}
+            </div>
+            <div className="mb-2 flex justify-start">
+              <CompareToggle offer={offer} />
             </div>
             <Link
               href={offer.slug ? `/offres/${offer.slug}` : cta}
