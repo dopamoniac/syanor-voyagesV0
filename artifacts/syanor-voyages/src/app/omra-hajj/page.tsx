@@ -211,12 +211,15 @@ export default function OmraHajjPage() {
           className="absolute inset-y-0 right-0 w-full lg:w-[58%]"
           aria-hidden="true"
         >
-          <img
-            src="/omra/hero-mecca.png"
-            alt=""
-            className="h-full w-full object-cover object-right"
-            loading="eager"
-          />
+          <picture>
+            <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
+            <img
+              src="/omra/hero-mecca.png"
+              alt=""
+              className="h-full w-full object-cover object-right"
+              loading="eager"
+            />
+          </picture>
           {/* Left bleed gradient — fades image into ivory background */}
           <div
             className="absolute inset-y-0 left-0 w-[70%] lg:w-[55%]"
