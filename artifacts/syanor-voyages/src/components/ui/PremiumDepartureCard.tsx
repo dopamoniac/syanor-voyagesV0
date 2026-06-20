@@ -49,6 +49,8 @@ function useParallax(strength = 18) {
   useEffect(() => {
     /* Only activate on touch-capable (mobile) viewports */
     if (typeof window === "undefined" || !window.matchMedia("(hover: none)").matches) return;
+    /* Respect reduced-motion preference */
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const wrap = wrapRef.current;
     const img  = imgRef.current;

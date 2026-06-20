@@ -380,4 +380,14 @@
   .mega-panel {
     animation: none;
   }
+
+  /* OfferCard & PremiumDepartureCard — suppress all transitions/transforms */
+  article img,
+  article .group-hover\:scale-\[1\.06\] {
+    transition: none !important;
+    transform: none !important;
+  }
+  article {
+    transition: none !important;
+  }
 }

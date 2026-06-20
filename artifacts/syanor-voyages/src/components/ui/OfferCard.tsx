@@ -60,11 +60,17 @@ function PhotoHeader({
   const statusConf = status ? STATUS_CONFIG[status] : undefined;
   const isFloating = category === "Billet avion" || category === "Billet bateau" || category === "Voyage organisé" || category === "Séjour sur mesure";
 
+  /* ── Detect reduced-motion preference ── */
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   /* ── Entrance animation on scroll-into-view ── */
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(reducedMotion);
 
   useEffect(() => {
+    if (reducedMotion) return;
     const node = wrapRef.current;
     if (!node) return;
     const observer = new IntersectionObserver(
@@ -80,13 +86,14 @@ function PhotoHeader({
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [reducedMotion]);
 
   /* ── Tap-to-zoom on mobile ── */
   const [tapped, setTapped] = useState(false);
   const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   function handleTouchStart() {
+    if (reducedMotion) return;
     if (tapTimer.current) clearTimeout(tapTimer.current);
     setTapped(true);
     tapTimer.current = setTimeout(() => setTapped(false), 420);
@@ -106,20 +113,22 @@ function PhotoHeader({
         ...(isFloating ? { background: "linear-gradient(145deg, #F5EFE0 0%, #EDE3CC 60%, #E3D5B5 100%)" } : {}),
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(10px)",
-        transition: "opacity 0.45s ease, transform 0.45s ease",
+        transition: reducedMotion ? undefined : "opacity 0.45s ease, transform 0.45s ease",
       }}
       onTouchStart={handleTouchStart}
     >
       <img
         src={img}
         alt={category}
-        className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06] ${isFloating ? "object-contain object-center" : "object-cover"}`}
+        className={`absolute inset-0 h-full w-full group-hover:scale-[1.06] ${reducedMotion ? "" : "transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"} ${isFloating ? "object-contain object-center" : "object-cover"}`}
         style={{
           ...(isFloating ? { filter: "drop-shadow(0 16px 32px rgba(6,63,51,0.38)) drop-shadow(0 5px 10px rgba(0,0,0,0.22))" } : {}),
-          transform: tapped ? "scale(1.07)" : undefined,
-          transition: tapped
-            ? "transform 0.22s cubic-bezier(0.34,1.56,0.64,1)"
-            : "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)",
+          ...(reducedMotion ? {} : {
+            transform: tapped ? "scale(1.07)" : undefined,
+            transition: tapped
+              ? "transform 0.22s cubic-bezier(0.34,1.56,0.64,1)"
+              : "transform 0.42s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }),
         }}
         loading="lazy"
       />
