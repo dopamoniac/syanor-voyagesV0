@@ -1,10 +1,10 @@
-import RenaissanceHero from "@/components/sections/RenaissanceHero";
+import PortalSplit from "@/components/portal/PortalSplit";
 import PortalFooter from "@/components/portal/PortalFooter";
 
 export default function PortalHome() {
   return (
     <>
-      <RenaissanceHero />
+      <PortalSplit />
       <PortalFooter />
     </>
   );
