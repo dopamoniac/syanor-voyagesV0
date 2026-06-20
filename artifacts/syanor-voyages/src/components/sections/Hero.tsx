@@ -22,12 +22,64 @@ export default function Hero() {
         <img
           src="/hero-bg.jpg"
           alt=""
-          className="h-full w-full object-contain lg:object-contain"
-          style={{ objectPosition: "right center" }}
+          className="h-full w-full object-cover"
+          style={{ objectPosition: "65% center" }}
           loading="eager"
           decoding="async"
         />
       </picture>
+      {/* ── SMOKE A (mobile only) ── */}
+      <div
+        className="pointer-events-none absolute z-10 lg:hidden"
+        aria-hidden="true"
+        style={{
+          top: "-10%", left: "-15%", width: "75%", height: "65%",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse at center, rgba(255,249,237,0.09) 0%, transparent 70%)",
+          filter: "blur(28px)",
+          animation: "smoke-drift-a 26s ease-in-out infinite",
+          willChange: "transform",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute z-10 lg:hidden"
+        aria-hidden="true"
+        style={{
+          top: "30%", left: "-20%", width: "65%", height: "55%",
+          borderRadius: "50%",
+          background: "radial-gradient(ellipse at center, rgba(255,246,225,0.07) 0%, transparent 70%)",
+          filter: "blur(36px)",
+          animation: "smoke-drift-b 32s ease-in-out infinite",
+          willChange: "transform",
+        }}
+      />
+      {/* ── OVERLAYS ── */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full"
+        style={{
+          background: "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 26%, rgba(255,249,237,0.94) 40%, rgba(255,249,237,0.72) 54%, rgba(255,249,237,0.28) 68%, transparent 82%)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
+        style={{ background: "linear-gradient(to bottom, rgba(255,249,237,0.62) 0%, rgba(255,249,237,0.22) 55%, transparent 100%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28"
+        style={{ background: "linear-gradient(to top, #FFF9ED 0%, rgba(255,249,237,0.55) 55%, transparent 100%)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute z-10 hidden lg:block"
+        style={{
+          right: "8%", top: "50%", transform: "translateY(-50%)",
+          width: "560px", height: "560px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(201,162,74,0.06) 0%, transparent 68%)",
+        }}
+        aria-hidden="true"
+      />
       {/* ── CONTENT LAYER ── */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-6 pt-[82px] md:px-10 lg:pt-[96px]">
         <div className="grid items-center gap-0 lg:grid-cols-[52%_48%]" style={{ minHeight: "calc(92vh - 5rem)" }}>
