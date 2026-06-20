@@ -9,7 +9,7 @@ const trustPills = [
   "Assistance visa",
 ];
 
-export default function Hero() {
+export default function AgencyHero() {
   return (
     <section
       id="accueil"
@@ -120,11 +120,10 @@ export default function Hero() {
               vos démarches visa &amp; assistance.
             </p>
 
-            {/* ── SPLIT CTAs ── */}
+            {/* ── CTA — agency only, no cross-space link ── */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {/* Primary — general travel */}
               <Link
-                href="/services"
+                href="/agence/services"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-syanor-emerald px-6 py-3.5 text-sm font-semibold text-syanor-ivory shadow-[0_4px_20px_rgba(6,63,51,0.25)] transition-all duration-200 hover:bg-syanor-royal hover:shadow-[0_8px_32px_rgba(6,63,51,0.35)] active:scale-[0.97]"
               >
                 <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -133,16 +132,14 @@ export default function Hero() {
                 Nos voyages & services
               </Link>
 
-              {/* Secondary — Omra & Hajj universe */}
               <Link
-                href="/omra-hajj"
+                href="/agence/contact#quote"
                 className="group inline-flex items-center gap-2.5 rounded-full border border-syanor-gold/40 bg-syanor-gold/8 px-6 py-3.5 text-sm font-semibold text-syanor-ink/80 transition-all duration-200 hover:border-syanor-gold hover:bg-syanor-gold/15 hover:text-syanor-ink active:scale-[0.97]"
               >
-                {/* Crescent icon */}
-                <svg className="h-4 w-4 shrink-0 text-syanor-gold" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <svg className="h-4 w-4 shrink-0 text-syanor-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Univers Omra &amp; Hajj
+                Demander un devis
               </Link>
             </div>
 

@@ -12,7 +12,7 @@ import AProposPage           from "@/app/a-propos/page";
 import ConditionsGeneralesPage from "@/app/conditions-generales/page";
 import ContactPage           from "@/app/contact/page";
 import FormationPage         from "@/app/formation/page";
-import OmraFormationPage     from "@/app/omra-factory/formation/page";
+import OmraFormationsPage    from "@/app/omra-factory/formations/page";
 import MentionsLegalesPage   from "@/app/mentions-legales/page";
 import OffresPage            from "@/app/offres/page";
 import OfferDetailPage       from "@/app/offres/[slug]/page";
@@ -117,7 +117,7 @@ function Router() {
       </Route>
       <Route path="/omra-factory/hajj-2027"         component={Hajj2027Page} />
       <Route path="/omra-factory/ziyarat"             component={ZiyaratPage} />
-      <Route path="/omra-factory/formation"          component={OmraFormationPage} />
+      <Route path="/omra-factory/formations"          component={OmraFormationsPage} />
 
       {/* ══ SHARED ══ */}
       <Route path="/depart/:city">
