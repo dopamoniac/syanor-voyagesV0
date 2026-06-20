@@ -17,15 +17,17 @@ export default function Hero() {
       style={{ minHeight: "max(92vh, 780px)" }}
     >
       {/* ── HERO BACKGROUND — static image ── */}
-      <img
-        src="/hero-bg.jpg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: "65% center" }}
-        loading="eager"
-        decoding="async"
-      />
+      <picture className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true">
+        <source media="(min-width: 1024px)" srcSet="/hero-bg-desktop.png" />
+        <img
+          src="/hero-bg.jpg"
+          alt=""
+          className="h-full w-full object-cover"
+          style={{ objectPosition: "65% center" }}
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       {/* ── SMOKE A (mobile only) ── */}
       <div
         className="pointer-events-none absolute z-10 lg:hidden"
