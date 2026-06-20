@@ -1,0 +1,427 @@
+You are working on the existing SYANOR Voyages React/Vite project.
+
+Important clarification:
+Do NOT rebuild everything from scratch.
+This is mainly a reclassification and restructuring of the existing project.
+
+Current existing homepage has:
+1. Hero 1 / Renaissance gateway hero
+2. Hero 2 / SYANOR Voyages agency hero
+3. All following agency sections until the end of the page
+4. Existing navbar pages related to SYANOR Voyages
+5. Existing Omra / Hajj / spiritual pages
+
+New goal:
+Transform the current project into 3 isolated spaces:
+
+1. `/` = Main portal only
+2. `/agence` = SYANOR Voyages agency website
+3. `/omra-factory` = Omra Factory website
+
+==================================================
+MAIN RULE
+==================================================
+
+There must be NO direct link between the SYANOR agency website and the Omra Factory website.
+
+Allowed links:
+- `/` can link to `/agence`
+- `/` can link to `/omra-factory`
+- `/agence` can link back to `/` only
+- `/omra-factory` can link back to `/` only
+
+Forbidden:
+- No link from `/agence` to `/omra-factory`
+- No link from `/omra-factory` to `/agence`
+- No shared navbar between them
+- No shared footer between them
+- No mixed offers
+- No mixed services
+- No mixed blog content
+- No mixed forms
+- No mixed data imports
+
+The only bridge between both websites is the main portal `/`.
+
+==================================================
+WHAT TO DO WITH THE CURRENT HOMEPAGE
+==================================================
+
+Currently the home page contains Hero 1, then Hero 2, then all other sections.
+
+Reclassify it like this:
+
+1. Keep Hero 1 only on `/`
+- This becomes the main portal.
+- It must contain two buttons:
+  - “Agence de Voyages” -> `/agence`
+  - “Omra Factory” -> `/omra-factory`
+- Add a compact premium footer with company coordinates and short presentation.
+- Remove Hero 2 and all other long homepage sections from `/`.
+
+2. Move Hero 2 and everything after Hero 2 into `/agence`
+- The current Hero 2 becomes the SYANOR agency homepage hero.
+- The current sections after Hero 2 become the SYANOR agency homepage sections.
+- The existing SYANOR navbar and pages should now belong to `/agence`.
+- All existing agency-related pages must be namespaced under `/agence`.
+
+3. Move all Omra/Hajj/Ramadan/Ziyarat content into `/omra-factory`
+- Omra Factory must have its own pages, navbar, footer, data, offers, and pre-inscription funnel.
+- It must not reuse the agency navbar or agency data.
+
+==================================================
+ROUTES FINAL STRUCTURE
+==================================================
+
+Portal:
+`/`
+
+Agency website:
+`/agence`
+`/agence/services`
+`/agence/services/billets-avion`
+`/agence/services/billets-bateau`
+`/agence/voyages-organises`
+`/agence/sejours-sur-mesure`
+`/agence/offres`
+`/agence/offres/:slug`
+`/agence/visas`
+`/agence/blog`
+`/agence/blog/:slug`
+`/agence/contact`
+`/agence/faq`
+`/agence/a-propos`
+`/agence/conditions-generales`
+`/agence/mentions-legales`
+`/agence/politique-confidentialite`
+
+Omra Factory website:
+`/omra-factory`
+`/omra-factory/omra`
+`/omra-factory/omra-plus`
+`/omra-factory/omra-2026`
+`/omra-factory/omra-2026/:month`
+`/omra-factory/omra-2027`
+`/omra-factory/omra-2027/:month`
+`/omra-factory/hajj`
+`/omra-factory/hajj-2027`
+`/omra-factory/ramadan`
+`/omra-factory/ziyarat`
+`/omra-factory/formations`
+`/omra-factory/offres`
+`/omra-factory/offres/:slug`
+`/omra-factory/blog`
+`/omra-factory/blog/:slug`
+`/omra-factory/pre-inscription`
+`/omra-factory/contact`
+`/omra-factory/faq`
+
+Legacy route redirects:
+`/services` -> `/agence/services`
+`/services/billets-avion` -> `/agence/services/billets-avion`
+`/services/billets-bateau` -> `/agence/services/billets-bateau`
+`/voyages-organises` -> `/agence/voyages-organises`
+`/sejours-sur-mesure` -> `/agence/sejours-sur-mesure`
+`/offres` -> `/agence/offres`
+`/contact` -> `/agence/contact`
+`/visas` -> `/agence/visas`
+`/blog` -> `/agence/blog`
+`/faq` -> `/agence/faq`
+`/a-propos` -> `/agence/a-propos`
+
+`/omra-hajj` -> `/omra-factory`
+`/omra-hajj/omra` -> `/omra-factory/omra`
+`/omra-hajj/hajj` -> `/omra-factory/hajj`
+`/omra-hajj/ramadan` -> `/omra-factory/ramadan`
+`/omra-hajj/omra-plus` -> `/omra-factory/omra-plus`
+`/omra-2026` -> `/omra-factory/omra-2026`
+`/omra-2027` -> `/omra-factory/omra-2027`
+`/hajj-2027` -> `/omra-factory/hajj-2027`
+`/ziyarat` -> `/omra-factory/ziyarat`
+
+==================================================
+PORTAL `/`
+==================================================
+
+The portal must be simple and luxury.
+
+It contains only:
+- Existing Hero 1 / Renaissance gateway hero
+- Two buttons:
+  - “Agence de Voyages” linking to `/agence`
+  - “Omra Factory” linking to `/omra-factory`
+- Compact footer with:
+  - SYANOR Voyages
+  - short presentation
+  - phone
+  - email
+  - address placeholder if missing
+  - legal/company coordinates placeholder if missing
+  - copyright
+
+Do not show:
+- Hero 2
+- agency sections
+- offers
+- FAQ
+- blog
+- forms
+- long homepage content
+
+Portal footer text example:
+“SYANOR Voyages réunit deux univers premium : une agence de voyages complète et Omra Factory, un espace dédié aux voyages spirituels.”
+
+==================================================
+AGENCY WEBSITE `/agence`
+==================================================
+
+Move the current Hero 2 and all following general SYANOR homepage sections into `/agence`.
+
+The SYANOR agency website includes only:
+- billets avion
+- billets bateau / ferry
+- voyages organisés
+- séjours sur mesure
+- packs premium / VIP
+- hôtels
+- transferts
+- visas généralistes
+- assistance voyage
+- general travel blog
+- agency contact/devis
+
+The agency website must NOT include:
+- Omra
+- Hajj
+- Ramadan
+- Ziyarat
+- spiritual accompaniment
+- Omra Factory offers
+- Omra Factory blog
+- Omra Factory CTA
+
+Agency navbar:
+- Accueil
+- Billets
+- Séjours & Voyages
+- Offres
+- Visas
+- Blog
+- Contact
+- CTA: “Demander un devis”
+- Small utility link only: “Retour au portail” -> `/`
+
+Remove any “Omra Factory” button from agency navbar.
+Remove any “Univers Omra & Hajj” button from agency hero.
+Remove any direct link to Omra Factory.
+
+Agency CTA wording:
+- “Demander un devis”
+- “Être rappelé”
+- “Créer mon voyage”
+- “Demander une proposition”
+
+==================================================
+OMRA FACTORY WEBSITE `/omra-factory`
+==================================================
+
+Move all existing Omra/Hajj/Ramadan/Ziyarat pages and offers into `/omra-factory`.
+
+Omra Factory includes only:
+- Omra
+- Hajj
+- Ramadan
+- Ziyarat
+- Formations
+- Accompagnement spirituel
+- Préparation avant départ
+- Omra 2026 / 2027 departures
+- religious travel offers
+- pre-inscription funnel
+
+Omra Factory must NOT include:
+- general agency services
+- billets avion as standalone service
+- billets bateau / ferry
+- general tourism
+- leisure stays
+- generic SYANOR travel offers
+- agency navbar links
+
+Omra Factory navbar:
+- Accueil
+- Omra
+- Hajj
+- Ramadan
+- Ziyarat
+- Formations
+- Offres
+- Contact
+- CTA: “Pré-inscription”
+- Small utility link only: “Retour au portail” -> `/`
+
+Do not add any link to `/agence`.
+Do not add “Agence de Voyages” button anywhere inside Omra Factory.
+The only allowed external navigation is “Retour au portail” -> `/`.
+
+Omra Factory CTA wording:
+- “Pré-inscription”
+- “Demander l’accompagnement”
+- “Être rappelé”
+- “Voir les départs”
+- “Recevoir le programme”
+
+Avoid:
+- Do not use direct “Réserver” as the main CTA.
+
+==================================================
+CODE AND DATA ISOLATION
+==================================================
+
+Every site must be independent in code organization.
+
+Create separate folders:
+
+`src/data/portal/`
+`src/data/syanor/`
+`src/data/omraFactory/`
+
+`src/components/portal/`
+`src/components/syanor/`
+`src/components/omraFactory/`
+`src/components/shared/`
+
+`src/layouts/PortalLayout.tsx`
+`src/layouts/SyanorLayout.tsx`
+`src/layouts/OmraFactoryLayout.tsx`
+
+Do not keep a single global offers file mixing agency offers and Omra offers.
+
+Split existing data:
+- General travel offers -> `src/data/syanor/offers.ts`
+- Omra/Hajj/Ramadan/Ziyarat offers -> `src/data/omraFactory/offers.ts`
+- Portal company/footer data -> `src/data/portal/company.ts`
+
+Split navigation:
+- Agency navigation -> `src/data/syanor/navigation.ts`
+- Omra Factory navigation -> `src/data/omraFactory/navigation.ts`
+- Portal has no full navbar, only buttons.
+
+Split types:
+`src/types/common.ts`
+`src/types/syanor.ts`
+`src/types/omraFactory.ts`
+
+Do not use one mixed ServiceCategory that contains both “Billet avion” and “Omra/Hajj”.
+Create separate category types.
+
+Agency categories:
+- Billet avion
+- Billet bateau
+- Voyage organisé
+- Séjour sur mesure
+- Pack personnalisé
+- Visa
+- Assurance
+- Hôtel & Transferts
+
+Omra Factory categories:
+- Omra
+- Hajj
+- Omra Plus
+- Ramadan
+- Ziyarat
+- Formation
+- Accompagnement spirituel
+
+==================================================
+LAYOUT RULES
+==================================================
+
+PortalLayout:
+- no full navbar
+- no agency navbar
+- no Omra navbar
+- only portal hero + compact footer
+
+SyanorLayout:
+- only agency header
+- only agency footer
+- agency WhatsApp/devis CTA
+- no Omra Factory links
+- only “Retour au portail” -> `/`
+
+OmraFactoryLayout:
+- only Omra Factory header
+- only Omra Factory footer
+- pre-inscription CTA
+- no agency links
+- only “Retour au portail” -> `/`
+
+==================================================
+VISUAL DIRECTION
+==================================================
+
+Do not ruin the existing design.
+Reuse the best existing visual components, but put them in the correct place.
+
+Portal:
+- keep/refine existing RenaissanceHero
+- cinematic
+- premium
+- minimal
+- two clear buttons
+- compact footer
+
+Agency:
+- use existing Hero 2 and sections
+- light luxury travel agency
+- ivory, pearl, champagne, emerald, gold
+- no blue
+- modern and premium
+- strong mobile design
+
+Omra Factory:
+- dedicated spiritual luxury style
+- ivory, pearl, sand, champagne, emerald, gold
+- no blue
+- respectful imagery
+- no fake Arabic text
+- no distorted sacred imagery
+- no random icons over religious visuals
+- calm, premium, polished
+
+==================================================
+FINAL QUALITY CHECK
+==================================================
+
+Before finishing, verify:
+
+1. `/` shows only Hero 1 portal + compact footer.
+2. `/agence` starts with the old Hero 2 and contains all SYANOR agency sections.
+3. `/agence` navbar contains only SYANOR agency links.
+4. `/agence` has no Omra/Hajj/Ramadan/Ziyarat/Omra Factory content.
+5. `/omra-factory` contains only Omra Factory content.
+6. `/omra-factory` has no general agency services.
+7. No direct link exists from `/agence` to `/omra-factory`.
+8. No direct link exists from `/omra-factory` to `/agence`.
+9. Both sites only link back to `/`.
+10. Data is split by site.
+11. Types are split by site.
+12. Forms/funnels are split by site.
+13. Old routes redirect correctly.
+14. Build passes.
+15. Typecheck passes.
+16. Mobile experience is clean and premium.
+
+The final result should feel like:
+- `/` = luxury portal with two doors
+- `/agence` = complete independent SYANOR Voyages agency website
+- `/omra-factory` = complete independent Omra Factory website
+
+Again:
+This is not a full rebuild.
+Reclassify the existing Hero 2 and existing SYANOR pages under `/agence`.
+Reclassify all Omra Factory content under `/omra-factory`.
+Keep the two websites independent with no direct link between them.
+Only the main portal connects them.
