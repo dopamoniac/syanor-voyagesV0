@@ -18,9 +18,9 @@ export default function AgencyHero() {
     >
       {/* ── HERO BACKGROUND — static image ── */}
       <picture className="absolute inset-0 h-full w-full" aria-hidden="true">
-        <source media="(max-width: 1023px)" srcSet="/hero/mobile-hero.png" />
+        <source media="(min-width: 1024px)" srcSet="/hero-bg-new.png" />
         <img
-          src="/hero-bg.jpg"
+          src="/hero-bg-new.png"
           alt=""
           className="h-full w-full object-cover"
           style={{ objectPosition: "65% center" }}
@@ -28,39 +28,7 @@ export default function AgencyHero() {
           decoding="async"
         />
       </picture>
-      {/* ── SMOKE A (mobile only) ── */}
-      <div
-        className="pointer-events-none absolute z-10 lg:hidden"
-        aria-hidden="true"
-        style={{
-          top: "-10%", left: "-15%", width: "75%", height: "65%",
-          borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(255,249,237,0.09) 0%, transparent 70%)",
-          filter: "blur(28px)",
-          animation: "smoke-drift-a 26s ease-in-out infinite",
-          willChange: "transform",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute z-10 lg:hidden"
-        aria-hidden="true"
-        style={{
-          top: "30%", left: "-20%", width: "65%", height: "55%",
-          borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(255,246,225,0.07) 0%, transparent 70%)",
-          filter: "blur(36px)",
-          animation: "smoke-drift-b 32s ease-in-out infinite",
-          willChange: "transform",
-        }}
-      />
       {/* ── OVERLAYS ── */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-full"
-        style={{
-          background: "linear-gradient(to right, #FFF9ED 0%, #FFF9ED 26%, rgba(255,249,237,0.94) 40%, rgba(255,249,237,0.72) 54%, rgba(255,249,237,0.28) 68%, transparent 82%)",
-        }}
-        aria-hidden="true"
-      />
       <div
         className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40"
         style={{ background: "linear-gradient(to bottom, rgba(255,249,237,0.62) 0%, rgba(255,249,237,0.22) 55%, transparent 100%)" }}
