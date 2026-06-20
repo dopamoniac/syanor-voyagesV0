@@ -125,49 +125,49 @@ function Router() {
       </Route>
 
       {/* ══ LEGACY REDIRECTS — agency ══ */}
-      <Route path="/a-propos">            {() => <Redirect to="/agence/a-propos" />}            </Route>
-      <Route path="/conditions-generales">{() => <Redirect to="/agence/conditions-generales" />}</Route>
-      <Route path="/contact">             {() => <Redirect to="/agence/contact" />}             </Route>
-      <Route path="/formation">           {() => <Redirect to="/agence/formation" />}           </Route>
-      <Route path="/mentions-legales">    {() => <Redirect to="/agence/mentions-legales" />}    </Route>
-      <Route path="/politique-confidentialite">{() => <Redirect to="/agence/politique-confidentialite" />}</Route>
-      <Route path="/sejours-sur-mesure">  {() => <Redirect to="/agence/sejours-sur-mesure" />}  </Route>
-      <Route path="/voyages-organises">   {() => <Redirect to="/agence/voyages-organises" />}   </Route>
-      <Route path="/services">            {() => <Redirect to="/agence/services" />}            </Route>
-      <Route path="/services/billets-avion">{() => <Redirect to="/agence/services/billets-avion" />}</Route>
-      <Route path="/services/billets-bateau">{() => <Redirect to="/agence/services/billets-bateau" />}</Route>
-      <Route path="/visas">               {() => <Redirect to="/agence/visas" />}               </Route>
-      <Route path="/faq">                 {() => <Redirect to="/agence/faq" />}                 </Route>
-      <Route path="/offres">              {() => <Redirect to="/agence/offres" />}              </Route>
+      <Route path="/a-propos"             component={() => <Redirect to="/agence/a-propos" />} />
+      <Route path="/conditions-generales" component={() => <Redirect to="/agence/conditions-generales" />} />
+      <Route path="/contact"              component={() => <Redirect to="/agence/contact" />} />
+      <Route path="/formation"            component={() => <Redirect to="/agence/formation" />} />
+      <Route path="/mentions-legales"     component={() => <Redirect to="/agence/mentions-legales" />} />
+      <Route path="/politique-confidentialite" component={() => <Redirect to="/agence/politique-confidentialite" />} />
+      <Route path="/sejours-sur-mesure"   component={() => <Redirect to="/agence/sejours-sur-mesure" />} />
+      <Route path="/voyages-organises"    component={() => <Redirect to="/agence/voyages-organises" />} />
+      <Route path="/services"             component={() => <Redirect to="/agence/services" />} />
+      <Route path="/services/billets-avion" component={() => <Redirect to="/agence/services/billets-avion" />} />
+      <Route path="/services/billets-bateau" component={() => <Redirect to="/agence/services/billets-bateau" />} />
+      <Route path="/visas"                component={() => <Redirect to="/agence/visas" />} />
+      <Route path="/faq"                  component={() => <Redirect to="/agence/faq" />} />
+      <Route path="/offres"               component={() => <Redirect to="/agence/offres" />} />
       <Route path="/offres/:slug">
         {(params) => <Redirect to={`/agence/offres/${params.slug ?? ""}`} />}
       </Route>
-      <Route path="/blog">                {() => <Redirect to="/agence/blog" />}                </Route>
+      <Route path="/blog"                 component={() => <Redirect to="/agence/blog" />} />
       <Route path="/blog/:slug">
         {(params) => <Redirect to={`/agence/blog/${params.slug ?? ""}`} />}
       </Route>
 
       {/* ══ LEGACY REDIRECTS — Omra Factory ══ */}
-      <Route path="/omra-hajj">           {() => <Redirect to="/omra-factory" />}              </Route>
-      <Route path="/omra-hajj/hajj">      {() => <Redirect to="/omra-factory/hajj" />}         </Route>
-      <Route path="/omra-hajj/omra">      {() => <Redirect to="/omra-factory/omra" />}         </Route>
-      <Route path="/omra-hajj/omra-plus"> {() => <Redirect to="/omra-factory/omra-plus" />}    </Route>
-      <Route path="/omra-hajj/ramadan">   {() => <Redirect to="/omra-factory/ramadan" />}      </Route>
-      <Route path="/omra-hajj/contact">   {() => <Redirect to="/omra-factory/contact" />}      </Route>
-      <Route path="/omra-hajj/blog">      {() => <Redirect to="/omra-factory/blog" />}         </Route>
+      <Route path="/omra-hajj"            component={() => <Redirect to="/omra-factory" />} />
+      <Route path="/omra-hajj/hajj"       component={() => <Redirect to="/omra-factory/hajj" />} />
+      <Route path="/omra-hajj/omra"       component={() => <Redirect to="/omra-factory/omra" />} />
+      <Route path="/omra-hajj/omra-plus"  component={() => <Redirect to="/omra-factory/omra-plus" />} />
+      <Route path="/omra-hajj/ramadan"    component={() => <Redirect to="/omra-factory/ramadan" />} />
+      <Route path="/omra-hajj/contact"    component={() => <Redirect to="/omra-factory/contact" />} />
+      <Route path="/omra-hajj/blog"       component={() => <Redirect to="/omra-factory/blog" />} />
       <Route path="/omra-hajj/blog/:slug">
         {(params) => <Redirect to={`/omra-factory/blog/${params.slug ?? ""}`} />}
       </Route>
-      <Route path="/omra-2026">           {() => <Redirect to="/omra-factory/omra-2026" />}    </Route>
+      <Route path="/omra-2026"            component={() => <Redirect to="/omra-factory/omra-2026" />} />
       <Route path="/omra-2026/:month">
         {(params) => <Redirect to={`/omra-factory/omra-2026/${params.month ?? ""}`} />}
       </Route>
-      <Route path="/omra-2027">           {() => <Redirect to="/omra-factory/omra-2027" />}    </Route>
+      <Route path="/omra-2027"            component={() => <Redirect to="/omra-factory/omra-2027" />} />
       <Route path="/omra-2027/:month">
         {(params) => <Redirect to={`/omra-factory/omra-2027/${params.month ?? ""}`} />}
       </Route>
-      <Route path="/hajj-2027">           {() => <Redirect to="/omra-factory/hajj-2027" />}    </Route>
-      <Route path="/ziyarat">             {() => <Redirect to="/omra-factory/ziyarat" />}      </Route>
+      <Route path="/hajj-2027"            component={() => <Redirect to="/omra-factory/hajj-2027" />} />
+      <Route path="/ziyarat"              component={() => <Redirect to="/omra-factory/ziyarat" />} />
 
       <Route component={NotFound} />
     </Switch>

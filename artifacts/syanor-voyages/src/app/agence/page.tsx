@@ -1,5 +1,5 @@
 import SiteLayout from "@/components/layout/SiteLayout";
-import AgencyHero from "@/components/sections/AgencyHero";
+import Hero from "@/components/sections/Hero";
 import SmartSearchPanel from "@/components/sections/SmartSearchPanel";
 import DestinationsShowcase from "@/components/sections/DestinationsShowcase";
 import ServicesEditorial from "@/components/sections/ServicesEditorial";
@@ -36,7 +36,7 @@ const agenceFaq: FaqItem[] = [
 export default function AgenceHome() {
   return (
     <SiteLayout>
-      <AgencyHero />
+      <Hero />
       <SmartSearchPanel />
       <DestinationsShowcase />
       <ServicesEditorial />
